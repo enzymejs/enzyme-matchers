@@ -6,6 +6,7 @@
  */
 
 import toBeChecked from './assertions/toBeChecked';
+import toBeDisabled from './assertions/toBeDisabled';
 import toBeEmpty from './assertions/toBeEmpty';
 import toBePresent from './assertions/toBePresent';
 import toContain from './assertions/toContain';
@@ -14,6 +15,7 @@ import toHaveValue from './assertions/toHaveValue';
 
 export default function jasmineEnzyme() : void {
   jasmine.addMatchers(toBeChecked);
+  jasmine.addMatchers(toBeDisabled);
   jasmine.addMatchers(toBeEmpty);
   jasmine.addMatchers(toBePresent);
   jasmine.addMatchers(toContain);

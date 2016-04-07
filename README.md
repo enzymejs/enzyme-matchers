@@ -14,6 +14,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [Jasmine](#vanilla-jasmine)
   1. [Assertions](#assertions)
     1. [toBeChecked()](#tobechecked)
+    1. [toBeDisabled()](#tobedisabled)
     1. [toBeEmpty()](#tobeempty)
     1. [toBePresent()](#tobepresent)
     1. [toContain()](#tocontain)
@@ -86,22 +87,47 @@ Assert that the given wrapper is checked:
 import React from 'react'
 import {mount, shallow} from 'enzyme'
 
-class Fixture extends React.Component {
-  render () {
-    return (
-      <div>
-        <input id="checked" defaultChecked />
-        <input id="not" defaultChecked={false} />
-        <input id="tertiary" defaultChecked checked={false} />
-      </div>
-    );
-  }
+function Fixture() {
+  return (
+    <div>
+      <input id="checked" defaultChecked />
+      <input id="not" defaultChecked={false} />
+      <input id="tertiary" defaultChecked checked={false} />
+    </div>
+  );
 }
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
 expect(wrapper.find('#checked')).toBeChecked();
 expect(wrapper.find('#not')).not.toBeChecked();
+```
+
+#### `toBeDisabled()`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the given wrapper is disabled:
+
+```js
+import React from 'react'
+import {mount, shallow} from 'enzyme'
+
+function Fixture() {
+  return (
+    <div>
+      <input id="disabled" disabled />
+      <input id="not"/>
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper.find('#disabled')).toBeDisabled();
+expect(wrapper.find('#not')).not.toBeDisabled();
 ```
 
 #### `toBeEmpty()`
