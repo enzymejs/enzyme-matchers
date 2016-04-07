@@ -7,11 +7,28 @@
  */
 
 export default {
-  toBeChecked(util:Object, customEqualityTesters:Object) : Object {
+  toBeChecked() : Object {
     return {
-      compare(actual:Object, expected:Object) {
-        console.log(actual, expected);
-      }
-    }
-  }
-}
+      compare(enzymeWrapper:Object) : Object {
+        let pass = false;
+
+        const props = enzymeWrapper.props();
+
+        // set to the default checked
+        if (props.hasOwnProperty('defaultChecked')) {
+          pass = props.defaultChecked;
+        }
+
+        // if it has the checked property, CHECK that.
+        if (props.hasOwnProperty('checked')) {
+          pass = props.checked;
+        }
+
+        return {
+          pass,
+          message: `Expected "${enzymeWrapper.html()}" to be checked`,
+        };
+      },
+    };
+  },
+};

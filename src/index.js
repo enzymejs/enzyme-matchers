@@ -6,7 +6,15 @@
  */
 
 import toBeChecked from './assertions/toBeChecked';
+import toBeEmpty from './assertions/toBeEmpty';
+import toBePresent from './assertions/toBePresent';
+import toContain from './assertions/toContain';
+import toHaveClassName from './assertions/toHaveClassName';
 
-export default function jasmineEnzyme() {
-  jasmine.addMatchers(checked);
+export default function jasmineEnzyme() : void {
+  jasmine.addMatchers(toBeChecked);
+  jasmine.addMatchers(toBeEmpty);
+  jasmine.addMatchers(toBePresent);
+  jasmine.addMatchers(toContain);
+  jasmine.addMatchers(toHaveClassName);
 }

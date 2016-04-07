@@ -4,7 +4,8 @@
   "description": "Jasmine assertions for enzyme",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "lint": "eslint ./src"
   },
   "keywords": [
     "javascript",
@@ -36,10 +37,21 @@
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "babel-register": "^6.5.2",
+    "enzyme": "^2.2.0",
+    "eslint": "^2.7.0",
+    "eslint-config-airbnb": "^6.2.0",
+    "eslint-plugin-react": "^4.3.0",
     "jest-cli": "^0.9.0",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
     "rimraf": "^2.5.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./src/jest.js",
+    "unmockedModulePathPatterns": [
+      "enzyme",
+      "react"
+    ]
   }
 }
