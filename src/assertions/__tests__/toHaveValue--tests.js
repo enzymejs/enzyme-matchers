@@ -10,7 +10,7 @@ function Fixture() {
   );
 }
 
-describe('toBeChecked', () => {
+describe('toHaveValue', () => {
   it('works with `shallow` renders', () => {
     const wrapper = shallow(<Fixture />);
     expect(wrapper.find('input').first()).toHaveValue('test');

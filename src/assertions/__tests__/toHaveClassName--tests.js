@@ -10,7 +10,7 @@ function Fixture() {
   );
 }
 
-describe('toBeChecked', () => {
+describe('toHaveClassName', () => {
   it('works with `shallow` renders', () => {
     const wrapper = shallow(<Fixture />);
     expect(wrapper.find('.foo')).toHaveClassName('foo');
