@@ -41,7 +41,7 @@ $ npm install jasmine-enzyme --save-dev
 ## Setup
 
 ###### Jest
-If you are using [jest](https://facebook.github.io/jest/), the simplest setup is to use jests `setupTestFrameworkScriptFile` command. Add this to your `package.json`
+If you are using [jest](https://facebook.github.io/jest/), the simplest setup is to use jests `setupTestFrameworkScriptFile` config. Add this to your `package.json`
 
 ```js
 "jest": {
