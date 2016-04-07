@@ -1,11 +1,13 @@
 {
   "name": "jasmine-enzyme",
-  "version": "0.1.0",
+  "version": "0.1.0-rc2",
   "description": "Jasmine assertions for enzyme",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "build": "rimraf lib && babel src --out-dir lib --ignore tests",
+    "release": "node ./scripts/release.js"
   },
   "keywords": [
     "javascript",
@@ -45,6 +47,7 @@
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
+    "readline-sync": "^1.4.1",
     "rimraf": "^2.5.0"
   },
   "jest": {
