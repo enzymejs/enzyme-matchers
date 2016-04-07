@@ -12,7 +12,7 @@ export default {
       compare(enzymeWrapper:Object) : Object {
         return {
           pass: enzymeWrapper.length !== 0,
-          message: `Expected contents to not be empty, but it is`,
+          message: 'Expected contents to not be empty, but it is',
         };
       },
     };

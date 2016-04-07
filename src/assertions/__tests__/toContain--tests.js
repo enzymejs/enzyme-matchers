@@ -1,32 +1,28 @@
 const { shallow, mount } = require('enzyme');
 const React = require('react');
 
-class User extends React.Component {
-  render () {
-    return (
-      <span>User {this.props.index}</span>
-    )
-  }
+function User(props) {
+  return (
+    <span>User {props.index}</span>
+  );
 }
 
 User.propTypes = {
-  index: React.PropTypes.number.isRequired
+  index: React.PropTypes.number.isRequired,
+};
+
+function Fixture() {
+  return (
+    <div>
+      <ul>
+        <li><User index={1}/></li>
+        <li><User index={2}/></li>
+      </ul>
+    </div>
+  );
 }
 
-class Fixture extends React.Component {
-  render () {
-    return (
-      <div>
-        <ul>
-          <li><User index={1} /></li>
-          <li><User index={2} /></li>
-        </ul>
-      </div>
-    )
-  }
-}
-
-describe('toBeChecked', () => {
+describe('toContain', () => {
   it('works with `shallow` renders', () => {
     const wrapper = shallow(<Fixture />);
     expect(wrapper).toContain(<User index={1} />);

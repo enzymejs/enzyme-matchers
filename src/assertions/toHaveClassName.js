@@ -18,7 +18,7 @@ export default {
 
         return {
           pass: enzymeWrapper.is(normalizedClassName),
-          message: `Expected "${enzymeWrapper.html()}" to have className of ${className} but instead found ${enzymeWrapper.props('className')}`,
+          message: `Expected "${enzymeWrapper.html()}" to have className of ${className} but instead found ${enzymeWrapper.props('className')}`, // eslint-disable-line max-len
         };
       },
     };
