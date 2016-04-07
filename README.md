@@ -298,6 +298,29 @@ expect(wrapper).toHaveRef('child');
 expect(wrapper).not.toHaveRef('foo');
 ```
 
+#### `toHaveTagName(tagName:string)`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the wrapper is of a certain tag type:
+
+```js
+function Fixture() {
+  return (
+    <div>
+      <span id="span" />
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />);
+
+expect(wrapper.find('#span')).toHaveTagName('span');
+expect(wrapper.find('#span')).not.toHaveTagName('div');
+```
+
 #### `toHaveValue(value:any)`
 
 | render | mount | shallow |
