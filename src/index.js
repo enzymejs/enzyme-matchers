@@ -29,7 +29,7 @@ export default function jasmineEnzyme() : void {
   jasmine.addMatchers(toHaveHTML);
   jasmine.addMatchers(toHaveProp);
   jasmine.addMatchers(toHaveRef);
-  jasmine.addMatchers(toHaveState);
+  jasmine.addMatchers(toHaveState)
   jasmine.addMatchers(toHaveTagName);
   jasmine.addMatchers(toHaveValue);
   jasmine.addMatchers(toMatch);
