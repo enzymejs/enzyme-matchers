@@ -2,17 +2,17 @@
  * This source code is licensed under the MIT-style license found in the
  * LICENSE file in the root directory of this source tree. *
  *
- * @providesModule toBeDisabled
+ * @providesModule toMatch
  * @flow
  */
 
 export default {
-  toBeDisabled() : Object {
+  toMatch() : Object {
     return {
-      compare(enzymeWrapper:Object) : Object {
+      compare(enzymeWrapper:Object, selector:string) : Object {
         return {
-          pass: !!enzymeWrapper.prop('disabled'),
-          message: 'Expected node to be "disabled"',
+          pass: enzymeWrapper.is(selector),
+          message: `Expected to match "${selector}".`,
         };
       },
     };

@@ -296,6 +296,29 @@ expect(wrapper.find('input').at(0)).toHaveValue('test');
 expect(wrapper.find('input').at(1)).toHaveValue('bar');
 ```
 
+#### `toMatch(selector:string)`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the wrapper matches the provided `selector`:
+
+```js
+function Fixture() {
+  return (
+    <div>
+      <span id="foo" className="bar" />
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper.find('span')).toMatch('span');
+expect(wrapper.find('span')).toMatch('#foo');
+expect(wrapper.find('span')).toMatch('.bar');
+```
 
 ## Development
 
