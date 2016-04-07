@@ -273,7 +273,7 @@ expect(wrapper.find('#child')).toHaveHTML(
 );
 ```
 
-#### `toHaveHTML(html:string)`
+#### `toHaveRef(refName:string)`
 
 | render | mount | shallow |
 | -------|-------|-------- |
