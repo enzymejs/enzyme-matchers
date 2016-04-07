@@ -15,6 +15,9 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toBePresent()](#tobepresent)
     1. [toContain()](#tocontain)
     1. [toHaveClassName()](#tohaveclassname)
+  1. [Development](#development)
+  1. [Contributing](#contributing)
+  1. [License](#license)
 
 ## Installation
 
