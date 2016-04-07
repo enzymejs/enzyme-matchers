@@ -1,6 +1,7 @@
 # jasmine-enzyme
 
-[![License](https://img.shields.io/npm/l/chai-enzyme.svg)]
+![License](https://img.shields.io/npm/l/chai-enzyme.svg)
+
 Jasmine assertions for enzyme.
 
 Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We have  taken several thoughts from that library and ultimately hope to maintain feature parity. 
@@ -9,13 +10,18 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
 
   1. [Installation](#installation)
   1. [Setup](#setup)
+    1. [Jest](#jest)
+    1. [Jasmine](#vanilla-jasmine)
   1. [Assertions](#assertions)
-    1. [toBeChecked()](#toBeChecked)
-    1. [toBeEmpty()](#toBeEmpty)
-    1. [toBePresent()](#toBePresent)
-    1. [toContain()](#toContain)
-    1. [toHaveClassName()](#toHaveClassName)
+    1. [toBeChecked()](#tobechecked)
+    1. [toBeEmpty()](#tobeempty)
+    1. [toBePresent()](#tobepresent)
+    1. [toContain()](#tocontain)
+    1. [toHaveClassName()](#tohaveclassname)
     1. [toHaveValue()](#tohavevalue)
+  1. [Development](#development)
+  1. [Contributing](#contributing)
+  1. [License](#license)
 
 ## Installation
 
@@ -36,7 +42,7 @@ $ npm install jasmine-enzyme --save-dev
 ## Setup
 
 ###### Jest
-If you are using [jest](https://facebook.github.io/jest/), the simplest setup is to use jests `setupTestFrameworkScriptFile` command. Add this to your `package.json`
+If you are using [jest](https://facebook.github.io/jest/), the simplest setup is to use jests `setupTestFrameworkScriptFile` config. Add this to your `package.json`
 
 ```js
 "jest": {
@@ -59,6 +65,7 @@ describe('test', () => {
 
   // tests
 });
+```
 
 ## Assertions
 
