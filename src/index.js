@@ -11,6 +11,7 @@ import toBeEmpty from './assertions/toBeEmpty';
 import toBePresent from './assertions/toBePresent';
 import toContain from './assertions/toContain';
 import toHaveClassName from './assertions/toHaveClassName';
+import toHaveHTML from './assertions/toHaveHTML';
 import toHaveValue from './assertions/toHaveValue';
 
 export default function jasmineEnzyme() : void {
@@ -20,5 +21,6 @@ export default function jasmineEnzyme() : void {
   jasmine.addMatchers(toBePresent);
   jasmine.addMatchers(toContain);
   jasmine.addMatchers(toHaveClassName);
+  jasmine.addMatchers(toHaveHTML);
   jasmine.addMatchers(toHaveValue);
 }

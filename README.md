@@ -19,6 +19,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toBePresent()](#tobepresent)
     1. [toContain()](#tocontain)
     1. [toHaveClassName()](#tohaveclassname)
+    1. [toHaveHTML()](#tohavehtml)
     1. [toHaveValue()](#tohavevalue)
   1. [Development](#development)
   1. [Contributing](#contributing)
@@ -243,6 +244,32 @@ expect(wrapper.find('.foo')).not.toHaveClassName('baz');
 
 expect(wrapper.find('.bar')).toHaveClassName('bar baz');
 expect(wrapper.find('.bar')).toHaveClassName('baz');
+```
+
+#### `toHaveHTML(html:string)`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the given wrapper has the provided html:
+
+> **Note** Quotations are normalized.
+
+```js
+function Fixture() {
+  return (
+    <div id="root">
+      <span id="child">Test</span>
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper.find('#child')).toHaveHTML(
+  '<span id="child">Test</span>'
+);
 ```
 
 #### `toHaveValue(value:any)`
