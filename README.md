@@ -10,11 +10,11 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
   1. [Installation](#installation)
   1. [Setup](#setup)
   1. [Assertions](#assertions)
-    1. [toBeChecked()](#toBeChecked)
-    1. [toBeEmpty()](#toBeEmpty)
-    1. [toBePresent()](#toBePresent)
-    1. [toContain()](#toContain)
-    1. [toHaveClassName()](#toHaveClassName)
+    1. [toBeChecked()](#tobechecked)
+    1. [toBeEmpty()](#tobeempty)
+    1. [toBePresent()](#tobepresent)
+    1. [toContain()](#tocontain)
+    1. [toHaveClassName()](#tohaveclassname)
 
 ## Installation
 
