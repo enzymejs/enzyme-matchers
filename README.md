@@ -10,6 +10,8 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
 
   1. [Installation](#installation)
   1. [Setup](#setup)
+    1. [Jest](#jest)
+    1. [Jasmine](#vanilla-jasmine)
   1. [Assertions](#assertions)
     1. [toBeChecked()](#tobechecked)
     1. [toBeEmpty()](#tobeempty)
