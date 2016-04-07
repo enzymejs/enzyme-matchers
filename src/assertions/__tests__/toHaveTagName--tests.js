@@ -36,7 +36,7 @@ describe('toHaveTagName', () => {
 
     expect(result.pass).toBeFalsy();
     expect(result.message).toBe(
-      `Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.`
+      'Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.'
     );
   });
 });
