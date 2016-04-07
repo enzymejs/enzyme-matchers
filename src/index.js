@@ -13,6 +13,7 @@ import toContain from './assertions/toContain';
 import toHaveClassName from './assertions/toHaveClassName';
 import toHaveHTML from './assertions/toHaveHTML';
 import toHaveValue from './assertions/toHaveValue';
+import toMatch from './assertions/toMatch';
 
 export default function jasmineEnzyme() : void {
   jasmine.addMatchers(toBeChecked);
@@ -23,4 +24,5 @@ export default function jasmineEnzyme() : void {
   jasmine.addMatchers(toHaveClassName);
   jasmine.addMatchers(toHaveHTML);
   jasmine.addMatchers(toHaveValue);
+  jasmine.addMatchers(toMatch);
 }

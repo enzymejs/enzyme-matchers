@@ -1,23 +1,10 @@
 const { shallow, mount } = require('enzyme');
 const React = require('react');
 
-function User(props) {
-  return (
-    <span>User {props.index}</span>
-  );
-}
-
-User.propTypes = {
-  index: React.PropTypes.number.isRequired,
-};
-
 function Fixture() {
   return (
     <div>
-      <ul>
-        <li><User index={1} /></li>
-        <li><User index={2} /></li>
-      </ul>
+      <span id="child" className="foo" />
     </div>
   );
 }
@@ -25,16 +12,22 @@ function Fixture() {
 describe('toContain', () => {
   it('works with `shallow` renders', () => {
     const wrapper = shallow(<Fixture />);
-    expect(wrapper).toContain(<User index={1} />);
+
+    expect(wrapper.find('#child')).toMatch('span');
+    expect(wrapper.find('#child')).toMatch('#child');
+    expect(wrapper.find('#child')).toMatch('.foo');
   });
 
   it('works with `mount` renders', () => {
     const wrapper = mount(<Fixture />);
-    expect(wrapper).toContain(<User index={1} />);
+
+    expect(wrapper.find('#child')).toMatch('span');
+    expect(wrapper.find('#child')).toMatch('#child');
+    expect(wrapper.find('#child')).toMatch('.foo');
   });
 
   it('works with with jasmines negation', () => {
     const wrapper = shallow(<Fixture />);
-    expect(wrapper).not.toContain(<User index={3} />);
+    expect(wrapper.find('#child')).not.toMatch('ball');
   });
 });
