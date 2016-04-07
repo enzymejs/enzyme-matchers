@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
   "extends": "airbnb",
   "env": {
-    "jasmine": true
+    "jasmine": true,
+    "jest": true
   }
 }

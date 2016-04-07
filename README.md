@@ -15,6 +15,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toBePresent()](#toBePresent)
     1. [toContain()](#toContain)
     1. [toHaveClassName()](#toHaveClassName)
+    1. [toHaveValue()](#tohavevalue)
 
 ## Installation
 
@@ -210,6 +211,32 @@ expect(wrapper.find('.foo')).not.toHaveClassName('baz');
 expect(wrapper.find('.bar')).toHaveClassName('bar baz');
 expect(wrapper.find('.bar')).toHaveClassName('baz');
 ```
+
+#### `toHaveValue(value:any)`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the given wrapper has the provided `value`:
+
+```js
+function Fixture() {
+  return (
+    <div>
+      <input defaultValue="test" />
+      <input defaultValue="foo" value="bar" onChange={jest.genMockFunction()} />
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper.find('input').at(0)).toHaveValue('test');
+expect(wrapper.find('input').at(1)).toHaveValue('bar');
+```
+
+
 ## Development
 
 #### Setup

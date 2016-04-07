@@ -16,9 +16,9 @@ export default {
 
         return {
           pass: enzymeWrapper.contains(reactInstance),
-          message: `Expected "${enzymeWrapper.html()}" to contain ${wrappedInstance.html()} but it did not.`,
+          message: `Expected wrapper to contain ${wrappedInstance.html()}.`,
         };
       },
     };
   },
-}
+};
