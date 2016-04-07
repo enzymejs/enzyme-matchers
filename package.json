@@ -52,6 +52,7 @@
     "unmockedModulePathPatterns": [
       "enzyme",
       "react"
-    ]
+    ],
+    "verbose": true
   }
 }
