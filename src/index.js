@@ -14,6 +14,7 @@ import toHaveClassName from './assertions/toHaveClassName';
 import toHaveHTML from './assertions/toHaveHTML';
 import toHaveProp from './assertions/toHaveProp';
 import toHaveRef from './assertions/toHaveRef';
+import toHaveState from './assertions/toHaveState';
 import toHaveTagName from './assertions/toHaveTagName';
 import toHaveValue from './assertions/toHaveValue';
 import toMatch from './assertions/toMatch';
@@ -28,6 +29,7 @@ export default function jasmineEnzyme() : void {
   jasmine.addMatchers(toHaveHTML);
   jasmine.addMatchers(toHaveProp);
   jasmine.addMatchers(toHaveRef);
+  jasmine.addMatchers(toHaveState);
   jasmine.addMatchers(toHaveTagName);
   jasmine.addMatchers(toHaveValue);
   jasmine.addMatchers(toMatch);

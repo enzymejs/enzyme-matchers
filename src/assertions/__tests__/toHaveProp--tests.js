@@ -17,6 +17,7 @@ User.propTypes = {
   email: React.PropTypes.string,
   arrayProp: React.PropTypes.array,
   objectProp: React.PropTypes.object,
+  falsy: React.PropTypes.bool,
 };
 
 function Fixture() {
@@ -27,6 +28,7 @@ function Fixture() {
         email="blainekasten@gmail.com"
         arrayProp={[1, 2, 3]}
         objectProp={{ foo: 'bar' }}
+        falsy={false}
       />
     </div>
   );
@@ -66,5 +68,11 @@ describe('toHaveProp', () => {
 
     expect(wrapper.find(User)).toHaveProp('objectProp', { foo: 'bar' });
     expect(wrapper.find(User)).not.toHaveProp('objectProp', { foo: 'baz' });
+  });
+
+  it('works with falsy props', () => {
+    const wrapper = shallow(<Fixture />);
+
+    expect(wrapper.find(User)).toHaveProp('falsy', false);
   });
 });

@@ -23,6 +23,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toHaveHTML()](#tohavehtmlhtmlstring)
     1. [toHaveProp()](#tohaveproppropkeystring-propvalueany)
     1. [toHaveRef()](#tohaverefrefnamestring)
+    1. [toHaveState()](#tohavestatestatekeystring-statevalueany)
     1. [toHaveTagName()](#tohavetagnametagnamestring)
     1. [toHaveValue()](#tohavevaluevalueany)
     1. [toMatch()](#tomatchselectorstring)
@@ -332,6 +333,36 @@ const wrapper = mount(<Fixture />);
 
 expect(wrapper).toHaveRef('child');
 expect(wrapper).not.toHaveRef('foo');
+```
+
+#### `toHaveState(stateKey:string[, stateValue:?any])`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the component has the provided stateKey and optional value if specified:
+
+```js
+class Fixture extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      foo: false,
+    };
+  }
+
+  render() {
+    return (
+      <div />
+    );
+  }
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper).toHaveState('foo');
+expect(wrapper).toHaveState('foo', false);
 ```
 
 #### `toHaveTagName(tagName:string)`

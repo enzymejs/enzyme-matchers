@@ -10,22 +10,29 @@ export default {
   toHaveProp(util, customEqualityTesters) : Object {
     return {
       compare(enzymeWrapper:Object, propKey:string, propValue:any) : Object {
-        const prop = enzymeWrapper.prop(propKey);
+        const props = enzymeWrapper.props();
 
         // error if the prop doesnt exist
-        // if propValue isn't supplied just validate prop exists
-        if (!prop || propValue === undefined) {
+        if (!props.hasOwnProperty(propKey)) {
           return {
-            pass: !!prop,
+            pass: false,
             message: `Expected wrapper to have prop "${propKey}"`,
           };
         }
 
+        // key exists given above check, and we're not validating over values,
+        // so its always true
+        if (propValue === undefined) {
+          return {
+            pass: true,
+          };
+        }
+
         return {
-          pass: util.equals(prop, propValue, customEqualityTesters),
+          pass: util.equals(props[propKey], propValue, customEqualityTesters),
           message: `
             Expected wrappers prop values to match for key "${propKey}":
-            Actual: ${JSON.stringify(prop)}
+            Actual: ${JSON.stringify(props[propKey])}
             Expected: ${JSON.stringify(propValue)}
           `,
         };
