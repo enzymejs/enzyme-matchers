@@ -1,5 +1,6 @@
 # jasmine-enzyme
 
+[![npm version](https://img.shields.io/npm/v/jasmine-enzyme.svg)](https://www.npmjs.com/package/jasmine-enzyme)
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
 
 Jasmine assertions for enzyme.
