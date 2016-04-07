@@ -1,6 +1,7 @@
 # jasmine-enzyme
 
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
+
 Jasmine assertions for enzyme.
 
 Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We have  taken several thoughts from that library and ultimately hope to maintain feature parity. 
