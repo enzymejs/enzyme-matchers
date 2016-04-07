@@ -24,7 +24,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toHaveRef()](#tohaveref)
     1. [toHaveTagName()](#tohavetagname)
     1. [toHaveValue()](#tohavevalue)
-    1. [toMatch()](#tomatch)
+    1. [toMatch()](#tomatchselectorstring)
   1. [Development](#development)
   1. [Contributing](#contributing)
   1. [License](#license)
