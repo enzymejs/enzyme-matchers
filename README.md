@@ -20,6 +20,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toContain()](#tocontain)
     1. [toHaveClassName()](#tohaveclassname)
     1. [toHaveHTML()](#tohavehtml)
+    1. [toHaveRef()](#tohaveref)
     1. [toHaveValue()](#tohavevalue)
   1. [Development](#development)
   1. [Contributing](#contributing)
@@ -270,6 +271,31 @@ const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 expect(wrapper.find('#child')).toHaveHTML(
   '<span id="child">Test</span>'
 );
+```
+
+#### `toHaveRef(refName:string)`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | no      |
+
+Assert that the mounted wrapper has the provided ref:
+
+```js
+class Fixture extends React.Component {
+  render() {
+    return (
+      <div>
+        <span ref="child" />
+      </div>
+    );
+  }
+}
+
+const wrapper = mount(<Fixture />);
+
+expect(wrapper).toHaveRef('child');
+expect(wrapper).not.toHaveRef('foo');
 ```
 
 #### `toHaveValue(value:any)`
