@@ -9,6 +9,10 @@
     "build": "rimraf lib && babel src --out-dir lib --ignore tests",
     "release": "node ./scripts/release.js"
   },
+  "files": [
+    "src",
+    "lib"
+  ],
   "keywords": [
     "javascript",
     "shallow rendering",
