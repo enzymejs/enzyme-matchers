@@ -2,9 +2,9 @@
 
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
 
-Jasmine assertions for enzyme.
+[Jasmine](http://jasmine.github.io/) assertions for [enzyme](https://github.com/airbnb/enzyme/).
 
-Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We have  taken several thoughts from that library and ultimately hope to maintain feature parity. 
+Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We have  taken several thoughts from that library and ultimately hope to maintain feature parity.
 
 ## Table of Contents
 
