@@ -17,7 +17,7 @@ if (process.cwd() !== resolvePath(__dirname, '..')) {
 // is a "pre-release" if nextVersion is premajor, preminor,
 // prepatch, or prerelease
 const nextVersion = prompt(`Next version (current version is ${getPackageVersion()})? `);
-const isPrerelease = nextVersion.search('rc') !== -1 || nextVersion.search('beta') !== -1;
+const isPrerelease = nextVersion.search('rc') !== -1;
 
 // 1) Increment the package version in package.json
 // 2) Create a new commit
