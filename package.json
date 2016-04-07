@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "lint": "eslint ./src"
+    "lint": "eslint ./src",
+    "build": "rimraf lib && babel src --out-dir lib --ignore tests",
+    "release": "node ./scripts/release.js"
   },
   "keywords": [
     "javascript",
