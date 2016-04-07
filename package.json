@@ -51,6 +51,9 @@
     "rimraf": "^2.5.0"
   },
   "jest": {
+    "testPathDirs": [
+      "<rootDir>/src"
+    ],
     "setupTestFrameworkScriptFile": "./src/jest.js",
     "unmockedModulePathPatterns": [
       "enzyme",

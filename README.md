@@ -21,6 +21,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toContain()](#tocontainreactinstanceobject)
     1. [toHaveClassName()](#tohaveclassnameclassnamestring)
     1. [toHaveHTML()](#tohavehtmlhtmlstring)
+    1. [toHaveProp()](#tohaveprop)
     1. [toHaveRef()](#tohaverefrefnamestring)
     1. [toHaveTagName()](#tohavetagnametagnamestring)
     1. [toHaveValue()](#tohavevaluevalueany)
@@ -274,6 +275,38 @@ const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 expect(wrapper.find('#child')).toHaveHTML(
   '<span id="child">Test</span>'
 );
+```
+
+#### `toHaveProp(propKey:string[, propValue:?any])`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the given wrapper has the provided propKey and associated value if specified:
+
+```js
+function User() { ... }
+User.propTypes = {
+  foo: PropTypes.string,
+  bar: PropTypes.array,
+};
+
+function Fixture() {
+  return (
+    <div id="root">
+      <User foo={'baz'} bar={[1,2,3]} />
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper.find(User)).toHaveProp('foo');
+expect(wrapper.find(User)).toHaveProp('foo', 'baz');
+
+expect(wrapper.find(User)).toHaveProp('bar');
+expect(wrapper.find(User)).toHaveProp('bar', [1,2,3]);
 ```
 
 #### `toHaveRef(refName:string)`
