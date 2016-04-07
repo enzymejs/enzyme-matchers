@@ -21,7 +21,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toContain()](#tocontainreactinstanceobject)
     1. [toHaveClassName()](#tohaveclassnameclassnamestring)
     1. [toHaveHTML()](#tohavehtmlhtmlstring)
-    1. [toHaveProp()](#tohaveprop)
+    1. [toHaveProp()](#tohaveproppropkeystring-propvalueany)
     1. [toHaveRef()](#tohaverefrefnamestring)
     1. [toHaveTagName()](#tohavetagnametagnamestring)
     1. [toHaveValue()](#tohavevaluevalueany)
