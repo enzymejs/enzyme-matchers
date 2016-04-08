@@ -25,6 +25,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toHaveProp()](#tohaveproppropkeystring-propvalueany)
     1. [toHaveRef()](#tohaverefrefnamestring)
     1. [toHaveState()](#tohavestatestatekeystring-statevalueany)
+    1. [toHaveStyle()](#tohavestylestylekeystring-stylevalueany)
     1. [toHaveTagName()](#tohavetagnametagnamestring)
     1. [toHaveValue()](#tohavevaluevalueany)
     1. [toMatch()](#tomatchselectorstring)
@@ -364,6 +365,33 @@ const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
 expect(wrapper).toHaveState('foo');
 expect(wrapper).toHaveState('foo', false);
+```
+
+#### `toHaveStyle(styleKey:string[, styleValue:?any])`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the component has style of the provided key and value:
+
+```js
+function Fixture() {
+  const style1 = { height: '100%' };
+  const style2 = { flex: 8 };
+
+  return (
+    <div>
+      <span id="style1" style={style1} />
+      <span id="style2" style={style2} />
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper.find('#style1')).toHaveStyle('height', '100%');
+expect(wrapper.find('#style2')).toHaveStyle('flex', 8);
 ```
 
 #### `toHaveTagName(tagName:string)`
