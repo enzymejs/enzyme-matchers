@@ -55,7 +55,7 @@ If you are using [jest](https://facebook.github.io/jest/), the simplest setup is
 
 ```js
 "jest": {
-  "setupTestFrameworkScriptFile": "node_modules/jasmine-enzyme/jest",
+  "setupTestFrameworkScriptFile": "node_modules/jasmine-enzyme/lib/jest",
 }
 ```
 
