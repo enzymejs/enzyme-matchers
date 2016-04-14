@@ -1,6 +1,6 @@
 {
   "name": "jasmine-enzyme",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Jasmine assertions for enzyme",
   "main": "lib/index.js",
   "scripts": {
