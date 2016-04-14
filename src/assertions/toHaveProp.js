@@ -7,7 +7,7 @@
  */
 
 export default {
-  toHaveProp(util, customEqualityTesters) : Object {
+  toHaveProp(util:Object, customEqualityTesters:Object) : Object {
     return {
       compare(enzymeWrapper:Object, propKey:string, propValue:any) : Object {
         const props = enzymeWrapper.props();
