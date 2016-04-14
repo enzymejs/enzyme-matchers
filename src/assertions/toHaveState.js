@@ -7,7 +7,7 @@
  */
 
 export default {
-  toHaveState(util, customEqualityTesters) : Object {
+  toHaveState(util:Object, customEqualityTesters:Object) : Object {
     return {
       compare(enzymeWrapper:Object, stateKey:string, stateValue:any) : Object {
         const state = enzymeWrapper.state();

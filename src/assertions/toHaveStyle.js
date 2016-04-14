@@ -7,7 +7,7 @@
  */
 
 export default {
-  toHaveStyle(util, customEqualityTesters) : Object {
+  toHaveStyle(util:Object, customEqualityTesters:Object) : Object {
     return {
       compare(enzymeWrapper:Object, styleKey:string, styleValue:any) : Object {
         const style = enzymeWrapper.prop('style');
