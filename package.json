@@ -32,7 +32,6 @@
   "author": "Blaine Kasten<blainekasten@gmail.com>",
   "license": "MIT",
   "peerDependencies": {
-    "jasmine": "1.x || 2.x",
     "enzyme": "1.x || 2.x"
   },
   "devDependencies": {
