@@ -1,3 +1,7 @@
+1.0.0
+=====
+  * Rename `toContain` to `toContainReact` to prevent core matcher overwrite
+  * Rename `toMatch` to `toMatchSelector` to prevent core matcher overwrite
 
 0.2.3
 =====

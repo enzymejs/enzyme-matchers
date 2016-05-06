@@ -19,7 +19,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toBeDisabled()](#tobedisabled)
     1. [toBeEmpty()](#tobeempty)
     1. [toBePresent()](#tobepresent)
-    1. [toContain()](#tocontainreactinstanceobject)
+    1. [toContainReact()](#tocontainreactreactinstanceobject)
     1. [toHaveClassName()](#tohaveclassnameclassnamestring)
     1. [toHaveHTML()](#tohavehtmlhtmlstring)
     1. [toHaveProp()](#tohaveproppropkeystring-propvalueany)
@@ -28,7 +28,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toHaveStyle()](#tohavestylestylekeystring-stylevalueany)
     1. [toHaveTagName()](#tohavetagnametagnamestring)
     1. [toHaveValue()](#tohavevaluevalueany)
-    1. [toMatch()](#tomatchselectorstring)
+    1. [toMatchSelector()](#tomatchselectorselectorstring)
   1. [Development](#development)
   1. [Contributing](#contributing)
   1. [License](#license)
@@ -187,7 +187,7 @@ expect(wrapper.find('span')).toBePresent();
 expect(wrapper.find('ul')).not.toBePresent();
 ```
 
-#### `toContain(ReactInstance:Object)`
+#### `toContainReact(ReactInstance:Object)`
 
 | render | mount | shallow |
 | -------|-------|-------- |
@@ -223,8 +223,8 @@ class Fixture extends React.Component {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper).toContain(<User index={1} />);
-expect(wrapper).not.toContain(<User index={9000} />);
+expect(wrapper).toContainReact(<User index={1} />);
+expect(wrapper).not.toContainReact(<User index={9000} />);
 ```
 
 #### `toHaveClassName(className:string)`
@@ -441,7 +441,7 @@ expect(wrapper.find('input').at(0)).toHaveValue('test');
 expect(wrapper.find('input').at(1)).toHaveValue('bar');
 ```
 
-#### `toMatch(selector:string)`
+#### `toMatchSelector(selector:string)`
 
 | render | mount | shallow |
 | -------|-------|-------- |
@@ -460,9 +460,9 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('span')).toMatch('span');
-expect(wrapper.find('span')).toMatch('#foo');
-expect(wrapper.find('span')).toMatch('.bar');
+expect(wrapper.find('span')).toMatchSelector('span');
+expect(wrapper.find('span')).toMatchSelector('#foo');
+expect(wrapper.find('span')).toMatchSelector('.bar');
 ```
 
 ## Development
