@@ -5,11 +5,13 @@
  * @providesModule JasmineEnzyme
  */
 
+import addMatcher from './addMatcher';
+
 import toBeChecked from './assertions/toBeChecked';
 import toBeDisabled from './assertions/toBeDisabled';
 import toBeEmpty from './assertions/toBeEmpty';
 import toBePresent from './assertions/toBePresent';
-import toContain from './assertions/toContain';
+import toContainReact from './assertions/toContainReact';
 import toHaveClassName from './assertions/toHaveClassName';
 import toHaveHTML from './assertions/toHaveHTML';
 import toHaveProp from './assertions/toHaveProp';
@@ -18,21 +20,21 @@ import toHaveState from './assertions/toHaveState';
 import toHaveStyle from './assertions/toHaveStyle';
 import toHaveTagName from './assertions/toHaveTagName';
 import toHaveValue from './assertions/toHaveValue';
-import toMatch from './assertions/toMatch';
+import toMatchSelector from './assertions/toMatchSelector';
 
 export default function jasmineEnzyme() : void {
-  jasmine.addMatchers(toBeChecked);
-  jasmine.addMatchers(toBeDisabled);
-  jasmine.addMatchers(toBeEmpty);
-  jasmine.addMatchers(toBePresent);
-  jasmine.addMatchers(toContain);
-  jasmine.addMatchers(toHaveClassName);
-  jasmine.addMatchers(toHaveHTML);
-  jasmine.addMatchers(toHaveProp);
-  jasmine.addMatchers(toHaveRef);
-  jasmine.addMatchers(toHaveState);
-  jasmine.addMatchers(toHaveStyle);
-  jasmine.addMatchers(toHaveTagName);
-  jasmine.addMatchers(toHaveValue);
-  jasmine.addMatchers(toMatch);
+  addMatcher(toBeChecked);
+  addMatcher(toBeDisabled);
+  addMatcher(toBeEmpty);
+  addMatcher(toBePresent);
+  addMatcher(toContainReact);
+  addMatcher(toHaveClassName);
+  addMatcher(toHaveHTML);
+  addMatcher(toHaveProp);
+  addMatcher(toHaveRef);
+  addMatcher(toHaveState);
+  addMatcher(toHaveStyle);
+  addMatcher(toHaveTagName);
+  addMatcher(toHaveValue);
+  addMatcher(toMatchSelector);
 }
