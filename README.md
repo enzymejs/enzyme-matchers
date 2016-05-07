@@ -471,7 +471,7 @@ expect(wrapper.find('span')).toMatchSelector('.bar');
 
 ```shell
 $ git clone <this repo>
-$ cd jasmein-enzyme
+$ cd jasmine-enzyme
 $ npm install
 ```
 
