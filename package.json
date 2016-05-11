@@ -13,6 +13,10 @@
     "src",
     "lib"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blainekasten/jasmine-enzyme.git"
+  },
   "keywords": [
     "javascript",
     "shallow rendering",
