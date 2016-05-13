@@ -1,3 +1,7 @@
+1.0.1
+=====
+  * Include `repository` in package.json
+
 1.0.0
 =====
   * Rename `toContain` to `toContainReact` to prevent core matcher overwrite
