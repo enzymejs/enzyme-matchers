@@ -27,6 +27,7 @@ Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We 
     1. [toHaveState()](#tohavestatestatekeystring-statevalueany)
     1. [toHaveStyle()](#tohavestylestylekeystring-stylevalueany)
     1. [toHaveTagName()](#tohavetagnametagnamestring)
+    1. [toHaveText()](#tohavetexttextstring)
     1. [toHaveValue()](#tohavevaluevalueany)
     1. [toMatchSelector()](#tomatchselectorselectorstring)
   1. [Development](#development)
@@ -415,6 +416,29 @@ const wrapper = mount(<Fixture />);
 
 expect(wrapper.find('#span')).toHaveTagName('span');
 expect(wrapper.find('#span')).not.toHaveTagName('div');
+```
+
+#### `toHaveText(text:string)`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the wrapper has the provided text:
+
+```js
+function Fixture() {
+  return (
+    <div>
+      <p>Text</p>
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />);
+
+expect(wrapper.find('p')).toHaveText('Text');
+expect(wrapper.find('p')).not.toHaveText('Wrong');
 ```
 
 #### `toHaveValue(value:any)`
