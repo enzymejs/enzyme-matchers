@@ -21,7 +21,7 @@ export default {
 
         return {
           pass: actualText === text,
-          message: `Expected "${actualText}" to equal ${text}`,
+          message: `Expected "${actualText}" to equal "${text}"`,
         };
       },
     };
