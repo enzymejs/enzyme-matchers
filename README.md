@@ -430,15 +430,19 @@ Assert that the wrapper has the provided text:
 function Fixture() {
   return (
     <div>
-      <p>Text</p>
+      <p id="full">Text</p>
+      <p id="empty"></p>
     </div>
   );
 }
 
-const wrapper = mount(<Fixture />);
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('p')).toHaveText('Text');
-expect(wrapper.find('p')).not.toHaveText('Wrong');
+expect(wrapper.find('#full')).toHaveText('Text');
+expect(wrapper.find('#full')).not.toHaveText('Wrong');
+
+expect(wrapper.find('#full')).toHaveText();
+expect(wrapper.find('#empty')).not.toHaveText()
 ```
 
 #### `toHaveValue(value:any)`

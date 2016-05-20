@@ -12,6 +12,13 @@ export default {
       compare(enzymeWrapper:Object, text:string) : Object {
         const actualText = enzymeWrapper.text();
 
+        if (text === undefined) {
+          return {
+            pass: actualText.length > 0,
+            message: 'Expected node to have text',
+          };
+        }
+
         return {
           pass: actualText === text,
           message: `Expected "${actualText}" to equal ${text}`,
