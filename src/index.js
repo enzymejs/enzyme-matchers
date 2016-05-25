@@ -19,6 +19,7 @@ import toHaveRef from './assertions/toHaveRef';
 import toHaveState from './assertions/toHaveState';
 import toHaveStyle from './assertions/toHaveStyle';
 import toHaveTagName from './assertions/toHaveTagName';
+import toHaveText from './assertions/toHaveText';
 import toHaveValue from './assertions/toHaveValue';
 import toMatchSelector from './assertions/toMatchSelector';
 
@@ -35,6 +36,7 @@ export default function jasmineEnzyme() : void {
   addMatcher(toHaveState);
   addMatcher(toHaveStyle);
   addMatcher(toHaveTagName);
+  addMatcher(toHaveText);
   addMatcher(toHaveValue);
   addMatcher(toMatchSelector);
 }
