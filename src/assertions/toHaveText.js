@@ -9,7 +9,7 @@
 export default {
   toHaveText() : Object {
     return {
-      compare(enzymeWrapper:Object, text:string) : Object {
+      compare(enzymeWrapper:Object, text:?string) : Object {
         const actualText = enzymeWrapper.text();
 
         if (text === undefined) {
