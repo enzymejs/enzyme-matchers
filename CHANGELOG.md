@@ -1,5 +1,9 @@
 1.0.1
 =====
+  * Add `toHaveText` matcher
+
+1.0.1
+=====
   * Include `repository` in package.json
 
 1.0.0
