@@ -1,11 +1,11 @@
 {
   "validations": {
     "vulnerableDependencies": true,
-    "uncommittedChanges": true,
+    "uncommittedChanges": false,
     "untrackedFiles": false,
     "sensitiveData": true,
     "branch": "master",
-    "gitTag": true
+    "gitTag": false
   },
   "confirm": true,
   "publishTag": "latest",
