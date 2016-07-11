@@ -52,16 +52,25 @@ $ npm install jasmine-enzyme --save-dev
 
 ## Setup
 
-###### Jest
-If you are using [jest](https://facebook.github.io/jest/), the simplest setup is to use jests `setupTestFrameworkScriptFile` config. Add this to your `package.json`
+### Jest
+If you are using [jest](https://facebook.github.io/jest/), the simplest setup
+is to use jest's `setupTestFrameworkScriptFile` config. You'll also need to
+tell jest to unmock `react`, `enzyme`, and `jasmine-enzyme`.
+
+Make sure your `package.json` includes the following:
 
 ```js
 "jest": {
   "setupTestFrameworkScriptFile": "node_modules/jasmine-enzyme/lib/jest.js",
-}
+  "unmockedModulePathPatterns": [
+    "react",
+    "enzyme",
+    "jasmine-enzyme"
+  ]
+},
 ```
 
-###### Vanilla Jasmine
+### Vanilla Jasmine
 If you are just using vanilla jasmine, you'll need to call
 `jasmineEnzyme()` in any `before` method due to the way jasmine's plugin
 system works.
