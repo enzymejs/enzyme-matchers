@@ -6,15 +6,31 @@
  * @flow
  */
 
+import negateMessage from '../negateMessage';
+
 export default {
   toBeDisabled() : Object {
+    function toBeDisabled(enzymeWrapper:Object) : Object {
+      return {
+        pass: !!enzymeWrapper.prop('disabled'),
+        message: 'Expected node to be "disabled"',
+      };
+    }
+
+
     return {
       compare(enzymeWrapper:Object) : Object {
-        return {
-          pass: !!enzymeWrapper.prop('disabled'),
-          message: 'Expected node to be "disabled"',
-        };
+        return toBeDisabled(enzymeWrapper);
       },
+
+      negativeCompare(enzymeWrapper:Object) : Object {
+        const result = toBeDisabled(enzymeWrapper);
+
+        result.message = negateMessage(result.message);
+        result.pass = !result.pass;
+
+        return result;
+      }
     };
   },
 };
