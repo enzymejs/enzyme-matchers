@@ -6,36 +6,55 @@
  * @flow
  */
 
+import negateMessage from '../negateMessage';
+import type { Matcher } from '../types/Matcher';
+import type { MatcherMethods } from '../types/MatcherMethods';
+import type { EnzymeObject } from '../types/EnzymeObject';
+
 export default {
-  toHaveProp(util:Object, customEqualityTesters:Object) : Object {
-    return {
-      compare(enzymeWrapper:Object, propKey:string, propValue:any) : Object {
-        const props = enzymeWrapper.props();
+  toHaveProp(util:Object, customEqualityTesters:Object) : MatcherMethods {
+    function toHaveProp(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
+      const props = enzymeWrapper.props();
 
-        // error if the prop doesnt exist
-        if (!props.hasOwnProperty(propKey)) {
-          return {
-            pass: false,
-            message: `Expected wrapper to have prop "${propKey}"`,
-          };
-        }
-
-        // key exists given above check, and we're not validating over values,
-        // so its always true
-        if (propValue === undefined) {
-          return {
-            pass: true,
-          };
-        }
-
+      // error if the prop doesnt exist
+      if (!props.hasOwnProperty(propKey)) {
         return {
-          pass: util.equals(props[propKey], propValue, customEqualityTesters),
-          message: `
-            Expected wrappers prop values to match for key "${propKey}":
-            Actual: ${JSON.stringify(props[propKey])}
-            Expected: ${JSON.stringify(propValue)}
-          `,
+          pass: false,
+          message: `Expected wrapper to have prop "${propKey}"`,
         };
+      }
+
+      // key exists given above check, and we're not validating over values,
+      // so its always true
+      if (propValue === undefined) {
+        return {
+          pass: true,
+          message: '',
+        };
+      }
+
+      return {
+        pass: util.equals(props[propKey], propValue, customEqualityTesters),
+        message: `
+          Expected wrappers prop values to match for key "${propKey}":
+          Actual: ${JSON.stringify(props[propKey])}
+          Expected: ${JSON.stringify(propValue)}
+        `,
+      };
+    }
+
+    return {
+      compare(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
+        return toHaveProp(enzymeWrapper, propKey, propValue);
+      },
+
+      negateCompare(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
+        const result:Matcher = toHaveProp(enzymeWrapper, propKey, propValue);
+
+        result.message = negateMessage(result.message);
+        result.pass = !result.pass;
+
+        return result;
       },
     };
   },

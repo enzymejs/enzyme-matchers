@@ -6,15 +6,33 @@
  * @flow
  */
 
+import negateMessage from '../negateMessage';
+import type { Matcher } from '../types/Matcher';
+import type { MatcherMethods } from '../types/MatcherMethods';
+import type { EnzymeObject } from '../types/EnzymeObject';
+
+
 export default {
-  toBePresent() : Object {
+  toBePresent() : MatcherMethods {
+    function toBePresent(enzymeWrapper:EnzymeObject) : Matcher {
+      return {
+        pass: enzymeWrapper.length !== 0,
+        message: 'Expected contents to not be empty, but it is',
+      };
+    }
     return {
-      compare(enzymeWrapper:Object) : Object {
-        return {
-          pass: enzymeWrapper.length !== 0,
-          message: 'Expected contents to not be empty, but it is',
-        };
+      compare(enzymeWrapper:EnzymeObject) : Matcher {
+        return toBePresent(enzymeWrapper);
       },
+
+      negateCompare(enzymeWrapper:EnzymeObject) : Matcher {
+        const result:Matcher = toBePresent(enzymeWrapper);
+
+        result.message = negateMessage(result.message);
+        result.pass = !result.pass;
+        
+        return result;
+      }
     };
   },
 };

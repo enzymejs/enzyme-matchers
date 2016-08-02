@@ -1,8 +1,10 @@
 const { shallow, mount } = require('enzyme');
 const React = require('react');
-const { toBeChecked } = require('../toBeChecked');
 
-const { compare, negativeCompare }= toBeChecked();
+const {
+  compare: toBeChecked,
+  negativeCompare: notToBeChecked
+} = require('../toBeChecked').toBeChecked();
 
 
 function Fixture() {
@@ -39,10 +41,10 @@ describe('toBeChecked', () => {
   });
 
   describe('unit-tests', () => {
-    describe('compare', () => {
+    describe('toBeChecked', () => {
       const wrapper = shallow(<Fixture />);
-      const truthyResults = compare(wrapper.find('#checked'));
-      const falsyResults = compare(wrapper.find('#not'));
+      const truthyResults = toBeChecked(wrapper.find('#checked'));
+      const falsyResults = toBeChecked(wrapper.find('#not'));
 
       it('passes when true', () => {
         expect(truthyResults.pass).toBeTruthy();
@@ -54,10 +56,10 @@ describe('toBeChecked', () => {
       });
     });
 
-    describe('negativeCompare', () => {
+    describe('notToBeChecked', () => {
       const wrapper = shallow(<Fixture />);
-      const falsyResults = negativeCompare(wrapper.find('#checked'));
-      const truthyResults = negativeCompare(wrapper.find('#not'));
+      const falsyResults = notToBeChecked(wrapper.find('#checked'));
+      const truthyResults = notToBeChecked(wrapper.find('#not'));
 
       it('passes when false', () => {
         expect(falsyResults.pass).toBeFalsy();

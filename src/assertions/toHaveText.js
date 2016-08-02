@@ -6,23 +6,41 @@
  * @flow
  */
 
+import negateMessage from '../negateMessage';
+import type { Matcher } from '../types/Matcher';
+import type { MatcherMethods } from '../types/MatcherMethods';
+import type { EnzymeObject } from '../types/EnzymeObject';
+
 export default {
-  toHaveText() : Object {
-    return {
-      compare(enzymeWrapper:Object, text:?string) : Object {
-        const actualText = enzymeWrapper.text();
+  toHaveText() : MatcherMethods {
+    function toHaveText(enzymeWrapper:EnzymeObject, text:?string) : Matcher {
+      const actualText = enzymeWrapper.text();
 
-        if (text === undefined) {
-          return {
-            pass: actualText.length > 0,
-            message: 'Expected node to have text',
-          };
-        }
-
+      if (text === undefined) {
         return {
-          pass: actualText === text,
-          message: `Expected "${actualText}" to equal "${text}"`,
+          pass: actualText.length > 0,
+          message: 'Expected node to have text',
         };
+      }
+
+      return {
+        pass: actualText === text,
+        message: `Expected "${actualText}" to equal "${text}"`,
+      };
+    }
+
+    return {
+      compare(enzymeWrapper:EnzymeObject, text:?string) : Matcher {
+        return toHaveText(enzymeWrapper, text);
+      },
+
+      negateCompare(enzymeWrapper:EnzymeObject, text:?string) : Matcher {
+        const result:Matcher = toHaveText(enzymeWrapper, text);
+
+        result.message = negateMessage(result.message);
+        result.pass = !result.pass;
+
+        return result;
       },
     };
   },

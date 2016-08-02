@@ -5,10 +5,13 @@
  * @providesModule addMatcher
  */
 
+import type { MatcherObject } from './types/MatcherObject';
+
+
 const coreMatchers = jasmine.matchers;
 let errorThrown = false;
 
-export default function addMatcher(matcher: Object) : void {
+export default function addMatcher(matcher: MatcherObject) : void {
   const matcherName = Object.keys(matcher)[0];
 
   /*

@@ -1,8 +1,10 @@
 const { shallow, mount } = require('enzyme');
 const React = require('react');
-const { toBeDisabled } = require('../toBeDisabled');
 
-const { compare, negativeCompare } = toBeDisabled();
+const {
+  compare: toBeDisabled,
+  negativeCompare: notToBeDisabled
+} = require('../toBeDisabled').toBeDisabled();
 
 function Fixture() {
   return (
@@ -32,10 +34,10 @@ describe('toBeDisabled', () => {
   });
 
   describe('unit-tests', () => {
-    describe('compare', () => {
+    describe('toBeDisabled', () => {
       const wrapper = shallow(<Fixture />);
-      const truthyResults = compare(wrapper.find('#disabled'));
-      const falsyResults = compare(wrapper.find('#not'));
+      const truthyResults = toBeDisabled(wrapper.find('#disabled'));
+      const falsyResults = toBeDisabled(wrapper.find('#not'));
 
       it('passes when true', () => {
         expect(truthyResults.pass).toBeTruthy();
@@ -47,10 +49,10 @@ describe('toBeDisabled', () => {
       });
     });
 
-    describe('negativeCompare', () => {
+    describe('notToBeDisabled', () => {
       const wrapper = shallow(<Fixture />);
-      const falsyResults = negativeCompare(wrapper.find('#disabled'));
-      const truthyResults = negativeCompare(wrapper.find('#not'));
+      const falsyResults = notToBeDisabled(wrapper.find('#disabled'));
+      const truthyResults = notToBeDisabled(wrapper.find('#not'));
 
       it('passes when false', () => {
         expect(falsyResults.pass).toBeFalsy();
