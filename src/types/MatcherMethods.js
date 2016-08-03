@@ -8,5 +8,5 @@
 
 export type MatcherMethods = {
   compare: Function,
-  negateCompare: Function,
+  negativeCompare: Function,
 };

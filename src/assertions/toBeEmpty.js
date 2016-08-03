@@ -25,7 +25,7 @@ export default {
         return toBeEmpty(enzymeWrapper);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject) : Matcher {
         const result:Matcher = toBeEmpty(enzymeWrapper);
 
         result.message = negateMessage(result.message);

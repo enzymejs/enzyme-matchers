@@ -16,7 +16,7 @@ export default {
     function toBeDisabled(enzymeWrapper:EnzymeObject) : Matcher {
       return {
         pass: !!enzymeWrapper.prop('disabled'),
-        message: 'Expected node to be "disabled"',
+        message: 'Expected node to be "disabled."',
       };
     }
 
@@ -26,7 +26,7 @@ export default {
         return toBeDisabled(enzymeWrapper);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject) : Matcher {
         const result:Matcher = toBeDisabled(enzymeWrapper);
 
         result.message = negateMessage(result.message);

@@ -25,7 +25,7 @@ export default {
         return toMatchSelector(enzymeWrapper, selector);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, selector: string) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, selector: string) : Matcher {
         const result:Matcher = toMatchSelector(enzymeWrapper, selector);
 
         result.message = negateMessage(result.message);

@@ -31,7 +31,7 @@ export default {
 
       return {
         pass,
-        message: `Expected "${enzymeWrapper.html()}" to be checked`,
+        message: `Expected "${enzymeWrapper.html()}" to be checked.`,
       };
     }
 
@@ -41,7 +41,7 @@ export default {
         return toBeChecked(enzymeWrapper);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject) : Matcher {
         const result:Matcher = toBeChecked(enzymeWrapper);
 
         result.message = negateMessage(result.message);

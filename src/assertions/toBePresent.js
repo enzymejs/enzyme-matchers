@@ -17,7 +17,7 @@ export default {
     function toBePresent(enzymeWrapper:EnzymeObject) : Matcher {
       return {
         pass: enzymeWrapper.length !== 0,
-        message: 'Expected contents to not be empty, but it is',
+        message: 'Expected selector results to contain at least one node.',
       };
     }
     return {
@@ -25,7 +25,7 @@ export default {
         return toBePresent(enzymeWrapper);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject) : Matcher {
         const result:Matcher = toBePresent(enzymeWrapper);
 
         result.message = negateMessage(result.message);

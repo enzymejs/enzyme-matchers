@@ -34,7 +34,7 @@ export default {
         return toHaveText(enzymeWrapper, text);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, text:?string) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, text:?string) : Matcher {
         const result:Matcher = toHaveText(enzymeWrapper, text);
 
         result.message = negateMessage(result.message);

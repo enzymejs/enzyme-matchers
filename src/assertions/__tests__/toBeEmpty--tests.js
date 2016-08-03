@@ -3,16 +3,13 @@ const React = require('react');
 
 const {
   compare: toBeEmpty,
-  negateCompare: notToBeEmpty
+  negativeCompare: notToBeEmpty
 } = require('../toBeEmpty').toBeEmpty();
 
 function Fixture() {
   return (
     <div>
-      <span className="isEmpty" />
-      <span className="hasChildren">
-        <a/>
-      </span>
+      <span className="matches" />
     </div>
   );
 }
@@ -21,25 +18,25 @@ describe('toBeEmpty', () => {
   describe('integration', () => {
     it('works with `shallow` renders', () => {
       const wrapper = shallow(<Fixture />);
-      expect(wrapper.find('.isEmpty')).toBeEmpty();
+      expect(wrapper.find('.doesnt-match')).toBeEmpty();
     });
 
     it('works with `mount` renders', () => {
       const wrapper = mount(<Fixture />);
-      expect(wrapper.find('.isEmpty')).toBeEmpty();
+      expect(wrapper.find('.doesnt-match')).toBeEmpty();
     });
 
     it('works with with jasmines negation', () => {
       const wrapper = shallow(<Fixture />);
-      expect(wrapper.find('.hasChildren')).not.toBeEmpty();
+      expect(wrapper.find('.matches')).not.toBeEmpty();
     });
   });
 
   describe('unit-tests', () => {
     describe('toBeEmpty', () => {
       const wrapper = shallow(<Fixture />);
-      const truthyResults = toBeEmpty(wrapper.find('.isEmpty'));
-      const falsyResults = toBeEmpty(wrapper.find('.hasChildren'));
+      const truthyResults = toBeEmpty(wrapper.find('.doesnt-match'));
+      const falsyResults = toBeEmpty(wrapper.find('.matches'));
 
       it('passes when true', () => {
         expect(truthyResults.pass).toBeTruthy();
@@ -53,8 +50,8 @@ describe('toBeEmpty', () => {
 
     describe('notToBeEmpty', () => {
       const wrapper = shallow(<Fixture />);
-      const falsyResults = notToBeEmpty(wrapper.find('.isEmpty'));
-      const truthyResults = notToBeEmpty(wrapper.find('.hasChildren'));
+      const falsyResults = notToBeEmpty(wrapper.find('.doesnt-match'));
+      const truthyResults = notToBeEmpty(wrapper.find('.matches'));
 
       it('passes when false', () => {
         expect(falsyResults.pass).toBeFalsy();

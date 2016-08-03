@@ -33,7 +33,7 @@ export default {
         return toHaveHTML(enzymeWrapper, html);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, html:string) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, html:string) : Matcher {
         const result:Matcher = toHaveHTML(enzymeWrapper, html);
 
         result.message = negateMessage(result.message);

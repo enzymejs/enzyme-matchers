@@ -46,7 +46,7 @@ export default {
         return toHaveStyle(enzymeWrapper, styleKey, styleValue);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, styleKey:string, styleValue:?any) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, styleKey:string, styleValue:?any) : Matcher {
         const result:Matcher = toHaveStyle(enzymeWrapper, styleKey, styleValue);
 
         result.message = negateMessage(result.message);

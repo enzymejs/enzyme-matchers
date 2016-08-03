@@ -39,7 +39,7 @@ export default {
         return toHaveValue(enzymeWrapper, expectedValue);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, expectedValue:any) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, expectedValue:any) : Matcher {
         const result:Matcher = toHaveValue(enzymeWrapper, expectedValue);
 
         result.message = negateMessage(result.message);

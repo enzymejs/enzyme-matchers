@@ -48,7 +48,7 @@ export default {
         return toHaveState(enzymeWrapper, stateKey, stateValue);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, stateKey:string, stateValue:?any) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, stateKey:string, stateValue:?any) : Matcher {
         const result:Matcher = toHaveState(enzymeWrapper, stateKey, stateValue);
 
         result.message = negateMessage(result.message);

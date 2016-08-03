@@ -31,7 +31,7 @@ export default {
         return toHaveClassName(enzymeWrapper, className);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, className:string) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, className:string) : Matcher {
         const result:Matcher = toHaveClassName(enzymeWrapper, className);
 
         result.message = negateMessage(result.message);

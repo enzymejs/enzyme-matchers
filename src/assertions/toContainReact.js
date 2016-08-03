@@ -28,7 +28,7 @@ export default {
         return toContainReact(enzymeWrapper, reactInstance);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
         const result:Matcher = toContainReact(enzymeWrapper, reactInstance);
 
         result.message = negateMessage(result.message);

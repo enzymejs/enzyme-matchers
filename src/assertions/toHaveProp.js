@@ -12,7 +12,7 @@ import type { MatcherMethods } from '../types/MatcherMethods';
 import type { EnzymeObject } from '../types/EnzymeObject';
 
 export default {
-  toHaveProp(util:Object, customEqualityTesters:Object) : MatcherMethods {
+  toHaveProp(util:Object, customEqualityTesters:Array<Function>) : MatcherMethods {
     function toHaveProp(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
       const props = enzymeWrapper.props();
 
@@ -48,7 +48,7 @@ export default {
         return toHaveProp(enzymeWrapper, propKey, propValue);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
         const result:Matcher = toHaveProp(enzymeWrapper, propKey, propValue);
 
         result.message = negateMessage(result.message);

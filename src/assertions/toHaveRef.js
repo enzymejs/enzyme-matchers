@@ -35,7 +35,7 @@ export default {
         return toHaveRef(enzymeWrapper, refName);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, refName:string) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, refName:string) : Matcher {
         // can only be used with mount, so the `ref` API should be available.
         if (typeof enzymeWrapper.ref !== 'function') {
           return {

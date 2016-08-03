@@ -32,7 +32,7 @@ export default {
         return toHaveTagName(enzymeWrapper, tag);
       },
 
-      negateCompare(enzymeWrapper:EnzymeObject, tag:string) : Matcher {
+      negativeCompare(enzymeWrapper:EnzymeObject, tag:string) : Matcher {
         const result:Matcher = toHaveTagName(enzymeWrapper, tag);
 
         result.message = negateMessage(result.message);
