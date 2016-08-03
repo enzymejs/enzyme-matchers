@@ -3,7 +3,7 @@ const React = require('react');
 
 const {
   compare: toBeChecked,
-  negativeCompare: notToBeChecked
+  negativeCompare: notToBeChecked,
 } = require('../toBeChecked').toBeChecked();
 
 
@@ -52,7 +52,7 @@ describe('toBeChecked', () => {
       });
 
       it('\'s message is non-negative', () => {
-        expect(truthyResults.message).not.toContain('not')
+        expect(truthyResults.message).not.toContain('not');
       });
     });
 
@@ -67,7 +67,7 @@ describe('toBeChecked', () => {
       });
 
       it('\'s message is negative', () => {
-        expect(truthyResults.message).toContain('not')
+        expect(truthyResults.message).toContain('not');
       });
     });
   });

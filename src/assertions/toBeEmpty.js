@@ -16,7 +16,7 @@ export default {
     function toBeEmpty(enzymeWrapper:EnzymeObject) : Matcher {
       return {
         pass: enzymeWrapper.length === 0,
-        message: `Expected selector to return an empty set, but found ${enzymeWrapper.length} nodes.`,
+        message: `Expected selector to return an empty set, but found ${enzymeWrapper.length} nodes.`, // eslint-disable-line max-len
       };
     }
 

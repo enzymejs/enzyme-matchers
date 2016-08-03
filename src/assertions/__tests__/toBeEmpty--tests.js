@@ -3,7 +3,7 @@ const React = require('react');
 
 const {
   compare: toBeEmpty,
-  negativeCompare: notToBeEmpty
+  negativeCompare: notToBeEmpty,
 } = require('../toBeEmpty').toBeEmpty();
 
 function Fixture() {
@@ -44,7 +44,7 @@ describe('toBeEmpty', () => {
       });
 
       it('\'s message is non-negative', () => {
-        expect(truthyResults.message).not.toContain('not')
+        expect(truthyResults.message).not.toContain('not');
       });
     });
 
@@ -59,7 +59,7 @@ describe('toBeEmpty', () => {
       });
 
       it('\'s message is negative', () => {
-        expect(truthyResults.message).toContain('not')
+        expect(truthyResults.message).toContain('not');
       });
     });
   });

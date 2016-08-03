@@ -39,7 +39,7 @@ export default {
         result.pass = !result.pass;
 
         return result;
-      }
+      },
     };
   },
 };

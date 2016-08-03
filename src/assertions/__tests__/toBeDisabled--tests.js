@@ -3,7 +3,7 @@ const React = require('react');
 
 const {
   compare: toBeDisabled,
-  negativeCompare: notToBeDisabled
+  negativeCompare: notToBeDisabled,
 } = require('../toBeDisabled').toBeDisabled();
 
 function Fixture() {
@@ -45,7 +45,7 @@ describe('toBeDisabled', () => {
       });
 
       it('\'s message is non-negative', () => {
-        expect(truthyResults.message).not.toContain('not')
+        expect(truthyResults.message).not.toContain('not');
       });
     });
 
@@ -60,7 +60,7 @@ describe('toBeDisabled', () => {
       });
 
       it('\'s message is negative', () => {
-        expect(truthyResults.message).toContain('not')
+        expect(truthyResults.message).toContain('not');
       });
     });
   });

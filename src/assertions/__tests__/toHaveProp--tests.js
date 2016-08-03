@@ -95,7 +95,7 @@ describe('toHaveProp', () => {
       });
 
       it('\'s message is non-negative', () => {
-        expect(truthyResults.message).not.toContain('not')
+        expect(truthyResults.message).not.toContain('not');
       });
     });
 
@@ -110,7 +110,7 @@ describe('toHaveProp', () => {
       });
 
       it('\'s message is negative', () => {
-        expect(truthyResults.message).toContain('not')
+        expect(truthyResults.message).toContain('not');
       });
     });
   });

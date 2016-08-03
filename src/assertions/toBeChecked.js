@@ -13,7 +13,6 @@ import type { EnzymeObject } from '../types/EnzymeObject';
 
 export default {
   toBeChecked() : MatcherMethods {
-
     function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
       let pass:boolean = false;
 
@@ -35,7 +34,6 @@ export default {
       };
     }
 
-
     return {
       compare(enzymeWrapper:EnzymeObject) : Matcher {
         return toBeChecked(enzymeWrapper);
@@ -48,7 +46,7 @@ export default {
         result.pass = !result.pass;
 
         return result;
-      }
+      },
     };
   },
 };

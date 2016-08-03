@@ -30,9 +30,9 @@ export default {
 
         result.message = negateMessage(result.message);
         result.pass = !result.pass;
-        
+
         return result;
-      }
+      },
     };
   },
 };
