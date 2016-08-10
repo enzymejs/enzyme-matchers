@@ -6,14 +6,33 @@
  * @flow
  */
 
+import negateMessage from '../negateMessage';
+import type { Matcher } from '../types/Matcher';
+import type { MatcherMethods } from '../types/MatcherMethods';
+import type { EnzymeObject } from '../types/EnzymeObject';
+
 export default {
-  toBeDisabled() : Object {
+  toBeDisabled() : MatcherMethods {
+    function toBeDisabled(enzymeWrapper:EnzymeObject) : Matcher {
+      return {
+        pass: !!enzymeWrapper.prop('disabled'),
+        message: 'Expected node to be "disabled."',
+      };
+    }
+
+
     return {
-      compare(enzymeWrapper:Object) : Object {
-        return {
-          pass: !!enzymeWrapper.prop('disabled'),
-          message: 'Expected node to be "disabled"',
-        };
+      compare(enzymeWrapper:EnzymeObject) : Matcher {
+        return toBeDisabled(enzymeWrapper);
+      },
+
+      negativeCompare(enzymeWrapper:EnzymeObject) : Matcher {
+        const result:Matcher = toBeDisabled(enzymeWrapper);
+
+        result.message = negateMessage(result.message);
+        result.pass = !result.pass;
+
+        return result;
       },
     };
   },

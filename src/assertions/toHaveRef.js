@@ -6,10 +6,24 @@
  * @flow
  */
 
+import negateMessage from '../negateMessage';
+import type { Matcher } from '../types/Matcher';
+import type { MatcherMethods } from '../types/MatcherMethods';
+import type { EnzymeObject } from '../types/EnzymeObject';
+
 export default {
-  toHaveRef() : Object {
+  toHaveRef() : MatcherMethods {
+    function toHaveRef(enzymeWrapper:EnzymeObject, refName:string) : Matcher {
+      const { node } = enzymeWrapper.ref(refName);
+
+      return {
+        pass: !!node,
+        message: `Expected to find a ref "${refName}"`,
+      };
+    }
+
     return {
-      compare(enzymeWrapper:Object, refName:string) : Object {
+      compare(enzymeWrapper:EnzymeObject, refName:string) : Matcher {
         // can only be used with mount, so the `ref` API should be available.
         if (typeof enzymeWrapper.ref !== 'function') {
           return {
@@ -18,12 +32,24 @@ export default {
           };
         }
 
-        const { node } = enzymeWrapper.ref(refName);
+        return toHaveRef(enzymeWrapper, refName);
+      },
 
-        return {
-          pass: !!node,
-          message: `Expected to find a ref "${refName}"`,
-        };
+      negativeCompare(enzymeWrapper:EnzymeObject, refName:string) : Matcher {
+        // can only be used with mount, so the `ref` API should be available.
+        if (typeof enzymeWrapper.ref !== 'function') {
+          return {
+            pass: false,
+            message: '`toHaveRef` can only be used with enzymes `mount` method.',
+          };
+        }
+
+        const result:Matcher = toHaveRef(enzymeWrapper, refName);
+
+        result.message = negateMessage(result.message);
+        result.pass = !result.pass;
+
+        return result;
       },
     };
   },

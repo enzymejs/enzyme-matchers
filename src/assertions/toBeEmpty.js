@@ -6,14 +6,32 @@
  * @flow
  */
 
+import negateMessage from '../negateMessage';
+import type { Matcher } from '../types/Matcher';
+import type { MatcherMethods } from '../types/MatcherMethods';
+import type { EnzymeObject } from '../types/EnzymeObject';
+
 export default {
-  toBeEmpty() : Object {
+  toBeEmpty() : MatcherMethods {
+    function toBeEmpty(enzymeWrapper:EnzymeObject) : Matcher {
+      return {
+        pass: enzymeWrapper.length === 0,
+        message: `Expected selector to return an empty set, but found ${enzymeWrapper.length} nodes.`, // eslint-disable-line max-len
+      };
+    }
+
     return {
-      compare(enzymeWrapper:Object) : Object {
-        return {
-          pass: enzymeWrapper.length === 0,
-          message: `Expected contents to be empty, but it has ${enzymeWrapper.length} children`,
-        };
+      compare(enzymeWrapper:EnzymeObject) : Matcher {
+        return toBeEmpty(enzymeWrapper);
+      },
+
+      negativeCompare(enzymeWrapper:EnzymeObject) : Matcher {
+        const result:Matcher = toBeEmpty(enzymeWrapper);
+
+        result.message = negateMessage(result.message);
+        result.pass = !result.pass;
+
+        return result;
       },
     };
   },
