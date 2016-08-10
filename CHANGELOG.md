@@ -1,4 +1,8 @@
-1.0.1
+1.2.0
+=====
+  * Fixed negated matchers output message to sound negated.
+
+1.1.0
 =====
   * Add `toHaveText` matcher
 
