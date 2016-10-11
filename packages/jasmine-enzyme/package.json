@@ -6,10 +6,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint ./src",
-    "build": "rimraf lib && babel src --out-dir lib --ignore tests",
-    "prior-to-publish": "npm run lint && npm test && npm run build",
-    "publish-please": "publish-please",
-    "prepublish": "publish-please guard"
+    "build": "rimraf lib && babel src --out-dir lib --ignore tests"
   },
   "files": [
     "src",
@@ -39,27 +36,6 @@
   "license": "MIT",
   "peerDependencies": {
     "enzyme": "1.x || 2.x"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.5.1",
-    "babel-eslint": "^6.0.0",
-    "babel-jest": "^10.0.1",
-    "babel-plugin-add-module-exports": "^0.1.2",
-    "babel-preset-es2015": "^6.5.0",
-    "babel-preset-react": "^6.5.0",
-    "babel-register": "^6.5.2",
-    "enzyme": "^2.2.0",
-    "eslint": "^2.7.0",
-    "eslint-config-airbnb": "^6.2.0",
-    "eslint-plugin-react": "^4.3.0",
-    "jest-cli": "^12.0.0",
-    "publish-please": "^2.1.4",
-    "react": "^0.14.7",
-    "react-addons-test-utils": "^0.14.7",
-    "react-dom": "^0.14.7",
-    "readline-sync": "^1.4.1",
-    "rimraf": "^2.5.0",
-    "lerna": "2.0.0-beta.30"
   },
   "jest": {
     "testPathDirs": [
