@@ -1,0 +1,44 @@
+{
+  "name": "jest-enzyme",
+  "version": "1.2.0",
+  "description": "Testing Matchers for Enzyme",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./src",
+    "build": "rimraf lib && babel src --out-dir lib --ignore tests"
+  },
+  "files": [
+    "src",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blainekasten/jasmine-enzyme.git"
+  },
+  "keywords": [
+    "javascript",
+    "shallow rendering",
+    "shallowRender",
+    "test",
+    "reactjs",
+    "react",
+    "flux",
+    "testing",
+    "test utils",
+    "assertion helpers",
+    "tdd",
+    "jasmine",
+    "jest",
+    "enzyme"
+  ],
+  "author": "Blaine Kasten <blainekasten@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blainekasten/jasmine-enzyme/issues"
+  },
+  "homepage": "https://github.com/blainekasten/jasmine-enzyme#readme",
+  "peerDependencies": {
+    "enzyme": "1.x || 2.x"
+  }
+}

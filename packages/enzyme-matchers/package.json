@@ -1,0 +1,25 @@
+{
+  "name": "enzyme-matchers",
+  "version": "1.2.0",
+  "description": "Testing Matchers for Enzyme",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blainekasten/jasmine-enzyme.git"
+  },
+  "keywords": [
+    "enzyme",
+    "jest",
+    "jasmine",
+    "tdd"
+  ],
+  "author": "Blaine Kasten <blainekasten@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blainekasten/jasmine-enzyme/issues"
+  },
+  "homepage": "https://github.com/blainekasten/jasmine-enzyme#readme"
+}
