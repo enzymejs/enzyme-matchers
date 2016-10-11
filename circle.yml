@@ -4,4 +4,4 @@ machine:
 
 test:
   pre:
-    - npm run lint
+    - lerna run lint

@@ -2,11 +2,11 @@
   "name": "jest-enzyme",
   "version": "1.3.0-beta",
   "description": "Testing Matchers for Enzyme",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint ./src",
-    "build": "rimraf lib && babel src --out-dir lib --ignore tests"
+    "build": "babel src --out-dir lib --ignore tests"
   },
   "files": [
     "src",
@@ -40,5 +40,8 @@
   "homepage": "https://github.com/blainekasten/jasmine-enzyme#readme",
   "peerDependencies": {
     "enzyme": "1.x || 2.x"
+  },
+  "dependencies": {
+    "enzyme-matchers": "1.3.0-beta"
   }
 }

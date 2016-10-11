@@ -1,7 +1,10 @@
 {
-  "name": "enzyme-matchers",
+  "name": "enzyme-assertions",
   "version": "1.2.0",
   "description": "Testing Helpers for Enzyme",
+  "scripts": {
+    "test": "jest"
+  },
   "files": [
     "src",
     "lib"
@@ -54,7 +57,9 @@
       "<rootDir>/packages/jest-enzyme/src",
       "<rootDir>/packages/enzyme-matchers/src"
     ],
-    "setupTestFrameworkScriptFile": "./packages/jasmine-enzyme/src/jest.js",
+    "setupFiles": [
+      "<rootDir>/scripts/jest-setup.js"
+    ],
     "unmockedModulePathPatterns": [
       "enzyme",
       "react"

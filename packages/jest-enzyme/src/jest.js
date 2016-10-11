@@ -5,6 +5,6 @@
  * @providesModule setupTestFrameworkScriptFile
  */
 
-import jasmineEnzyme from './';
+import jasmineEnzyme from 'jasmine-enzyme';
 
 beforeEach(jasmineEnzyme);

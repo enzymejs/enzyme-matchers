@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint ./src",
-    "build": "rimraf lib && babel src --out-dir lib --ignore tests"
+    "build": "babel src --out-dir lib --ignore tests"
   },
   "files": [
     "src",
@@ -37,11 +37,19 @@
   "peerDependencies": {
     "enzyme": "1.x || 2.x"
   },
+  "dependencies": {
+    "enzyme-matchers": "1.3.0-beta"
+  },
   "jest": {
     "testPathDirs": [
       "<rootDir>/src"
     ],
-    "setupTestFrameworkScriptFile": "./src/jest.js",
+    "setupFiles": [
+      "../../scripts/jest-setup.js"
+    ],
+    "preprocessorIgnorePatterns": [
+      "node_modules/(?!enzyme-matchers)"
+    ],
     "unmockedModulePathPatterns": [
       "enzyme",
       "react"
