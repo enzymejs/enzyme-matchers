@@ -1,12 +1,11 @@
 {
   "name": "enzyme-assertions",
-  "version": "1.2.0",
   "description": "Testing Helpers for Enzyme",
   "scripts": {
     "pretest": "node ./scripts/jest.js",
     "test": "npm run test-matchers && npm run test-jasmine && npm run test-jest",
     "test-matchers": "cd ./packages/enzyme-matchers && npm run jest",
-    "test-jasmine": "cd ./packages/jasmine-enzyme && npm run jest",
+    "test-jasmine": "cd ./packages/jasmine-enzyme && npm run jest && npm run jasmine",
     "test-jest": "cd ./packages/jest-enzyme && npm run jest"
   },
   "files": [
@@ -47,7 +46,7 @@
     "eslint": "^2.7.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.3.0",
-    "jest-cli": "^12.0.0",
+    "jest-cli": "^16.0.1",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
@@ -62,10 +61,6 @@
       "<rootDir>/packages/enzyme-matchers/src"
     ],
     "testPathIgnorePatterns": ["fixture"],
-    "unmockedModulePathPatterns": [
-      "enzyme",
-      "react"
-    ],
     "verbose": true
   }
 }

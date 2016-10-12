@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "pretest": "node ../../scripts/jest.js",
-    "test": "jest",
+    "test": "jest && jasmine",
     "jest": "jest",
     "jasmine": "jasmine",
     "lint": "eslint ./src",
@@ -50,11 +50,9 @@
     "preprocessorIgnorePatterns": [
       "node_modules/(?!enzyme-matchers)"
     ],
-    "testPathIgnorePatterns": ["fixture"],
-    "unmockedModulePathPatterns": [
-      "enzyme",
-      "react"
-    ],
     "verbose": true
+  },
+  "devDependencies": {
+    "jsdom": "^9.6.0"
   }
 }

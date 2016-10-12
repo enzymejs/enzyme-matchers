@@ -31,10 +31,6 @@
     "testPathDirs": [
       "<rootDir>/src"
     ],
-    "unmockedModulePathPatterns": [
-      "enzyme",
-      "react"
-    ],
     "verbose": true
   },
   "dependencies": {

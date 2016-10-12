@@ -44,7 +44,7 @@
     "enzyme": "1.x || 2.x"
   },
   "dependencies": {
-    "jasmine-enzyme": "1.3.0-beta2"
+    "enzyme-matchers": "1.3.0-beta"
   },
   "jest": {
     "testPathDirs": [
@@ -53,10 +53,6 @@
     "setupTestFrameworkScriptFile": "<rootDir>/src/index.js",
     "preprocessorIgnorePatterns": [
       "node_modules/(?!enzyme-matchers)"
-    ],
-    "unmockedModulePathPatterns": [
-      "enzyme",
-      "react"
     ],
     "verbose": true
   }

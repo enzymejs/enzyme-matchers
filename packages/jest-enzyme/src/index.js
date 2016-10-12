@@ -6,8 +6,41 @@
  * @flow
  */
 
-import jasmineEnzyme from 'jasmine-enzyme';
+import enzymeMatchers from 'enzyme-matchers';
 
+import type { MatcherMethods } from '../../../types/MatcherMethods';
 declare var beforeEach:Function
 
-beforeEach(jasmineEnzyme);
+// add methods!
+beforeEach(function jasmineEnzyme() : void {
+  const matchers = Object.keys(enzymeMatchers);
+
+  matchers.forEach((matcher:string) => {
+    addMatcher({
+      [matcher]: () => {
+        return { compare: enzymeMatchers[matcher] };
+      },
+    });
+  });
+})
+
+
+function addMatcher(matcher: MatcherMethods) : void {
+  const matcherName = Object.keys(matcher)[0];
+
+  /*
+   * only throw one error so the console doesn't
+   * become redunant errors
+   */
+  if (jasmine.matchers[matcherName] && !errorThrown) {
+    errorThrown = true;
+    throw new Error(
+      `JestEnzyme: Added matcher "${matcherName}" is over-riding
+       core matcher. You must rename the function to not destroy core.`
+    );
+  }
+
+  // will transition to jest when https://github.com/facebook/jest/issues/1835
+  // is merged
+  jasmine.addMatchers(matcher);
+}

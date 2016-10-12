@@ -10,13 +10,18 @@ import addMatcher from './addMatcher';
 import enzymeMatchers from 'enzyme-matchers';
 
 export default function jasmineEnzyme() : void {
-  [
-    'toBeChecked', 'toBeDisabled', 'toBeEmpty',
-    'toBePresent', 'toContainReact', 'toHaveClassName',
-    'toHaveHTML', 'toHaveProp', 'toHaveRef',
-    'toHaveState', 'toHaveStyle', 'toHaveTagName',
-    'toHaveText', 'toHaveValue', 'toMatchSelector',
-  ].forEach((matcher:string) => {
+  // Migration step for moving people from jasmine-enzyme
+  // to jest-enzyme
+  if (typeof jest !== 'undefined') {
+    throw new Error(`
+      [jasmine-enzyme] The jest usage has been moved to a new package: "jest-enzyme".
+      Use that project instead of this. For more information, see: _______
+    `)
+  }
+
+  const matchers = Object.keys(enzymeMatchers);
+
+  matchers.forEach((matcher:string) => {
     addMatcher({
       [matcher]: () => {
         return { compare: enzymeMatchers[matcher] };
