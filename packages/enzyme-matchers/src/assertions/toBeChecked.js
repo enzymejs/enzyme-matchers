@@ -7,8 +7,8 @@
  */
 
 import negateMessage from '../negateMessage';
-import type { EnzymeObject } from 'jasmine-enzyme/types/EnzymeObject';
-import type { Matcher } from 'jasmine-enzyme/types/Matcher';
+import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import type { Matcher } from '../../../../types/Matcher';
 
 export default function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
   let pass:boolean = false;

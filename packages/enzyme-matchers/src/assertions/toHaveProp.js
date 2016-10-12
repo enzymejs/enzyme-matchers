@@ -7,55 +7,41 @@
  */
 
 import negateMessage from '../negateMessage';
-import type { Matcher } from '../types/Matcher';
-import type { MatcherMethods } from '../types/MatcherMethods';
-import type { EnzymeObject } from '../types/EnzymeObject';
+import deepEqualIdent from 'deep-equal-ident';
+import type { Matcher } from '../../../../types/Matcher';
+import type { MatcherMethods } from '../../../../types/MatcherMethods';
+import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
-export default {
-  toHaveProp(util:Object, customEqualityTesters:Array<Function>) : MatcherMethods {
-    function toHaveProp(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
-      const props = enzymeWrapper.props();
+export default function toHaveProp(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
+  const props = enzymeWrapper.props();
 
-      // error if the prop doesnt exist
-      if (!props.hasOwnProperty(propKey)) {
-        return {
-          pass: false,
-          message: `Expected wrapper to have prop "${propKey}"`,
-        };
-      }
-
-      // key exists given above check, and we're not validating over values,
-      // so its always true
-      if (propValue === undefined) {
-        return {
-          pass: true,
-          message: '',
-        };
-      }
-
-      return {
-        pass: util.equals(props[propKey], propValue, customEqualityTesters),
-        message: `
-          Expected wrappers prop values to match for key "${propKey}":
-          Actual: ${JSON.stringify(props[propKey])}
-          Expected: ${JSON.stringify(propValue)}
-        `,
-      };
-    }
-
+  // error if the prop doesnt exist
+  if (!props.hasOwnProperty(propKey)) {
     return {
-      compare(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
-        return toHaveProp(enzymeWrapper, propKey, propValue);
-      },
-
-      negativeCompare(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
-        const result:Matcher = toHaveProp(enzymeWrapper, propKey, propValue);
-
-        result.message = negateMessage(result.message);
-        result.pass = !result.pass;
-
-        return result;
-      },
+      pass: false,
+      message: `Expected wrapper to have prop "${propKey}"`,
     };
-  },
-};
+  }
+
+  // key exists given above check, and we're not validating over values,
+  // so its always true
+  if (propValue === undefined) {
+    return {
+      pass: true,
+      message: '',
+    };
+  }
+
+  const pass = deepEqualIdent(props[propKey], propValue);
+
+  return {
+    pass,
+    message: negateMessage(
+      pass,
+      `Expected wrappers prop values to match for key "${propKey}":
+        Actual: ${JSON.stringify(props[propKey])}
+        Expected: ${JSON.stringify(propValue)}
+      `
+    ),
+  };
+}

@@ -3,7 +3,11 @@
   "version": "1.2.0",
   "description": "Testing Helpers for Enzyme",
   "scripts": {
-    "test": "jest"
+    "pretest": "node ./scripts/jest.js",
+    "test": "npm run test-matchers && npm run test-jasmine && npm run test-jest",
+    "test-matchers": "cd ./packages/enzyme-matchers && npm run jest",
+    "test-jasmine": "cd ./packages/jasmine-enzyme && npm run jest",
+    "test-jest": "cd ./packages/jest-enzyme && npm run jest"
   },
   "files": [
     "src",
@@ -57,9 +61,7 @@
       "<rootDir>/packages/jest-enzyme/src",
       "<rootDir>/packages/enzyme-matchers/src"
     ],
-    "setupFiles": [
-      "<rootDir>/scripts/jest-setup.js"
-    ],
+    "testPathIgnorePatterns": ["fixture"],
     "unmockedModulePathPatterns": [
       "enzyme",
       "react"

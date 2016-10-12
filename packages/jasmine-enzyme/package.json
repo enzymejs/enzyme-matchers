@@ -4,7 +4,10 @@
   "description": "Jasmine assertions for enzyme",
   "main": "lib/index.js",
   "scripts": {
+    "pretest": "node ../../scripts/jest.js",
     "test": "jest",
+    "jest": "jest",
+    "jasmine": "jasmine",
     "lint": "eslint ./src",
     "build": "babel src --out-dir lib --ignore tests"
   },
@@ -44,12 +47,10 @@
     "testPathDirs": [
       "<rootDir>/src"
     ],
-    "setupFiles": [
-      "../../scripts/jest-setup.js"
-    ],
     "preprocessorIgnorePatterns": [
       "node_modules/(?!enzyme-matchers)"
     ],
+    "testPathIgnorePatterns": ["fixture"],
     "unmockedModulePathPatterns": [
       "enzyme",
       "react"

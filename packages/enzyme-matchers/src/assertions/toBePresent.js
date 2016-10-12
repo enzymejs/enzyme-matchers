@@ -7,32 +7,19 @@
  */
 
 import negateMessage from '../negateMessage';
-import type { Matcher } from '../types/Matcher';
-import type { MatcherMethods } from '../types/MatcherMethods';
-import type { EnzymeObject } from '../types/EnzymeObject';
+import type { Matcher } from '../../../../types/Matcher';
+import type { MatcherMethods } from '../../../../types/MatcherMethods';
+import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
 
-export default {
-  toBePresent() : MatcherMethods {
-    function toBePresent(enzymeWrapper:EnzymeObject) : Matcher {
-      return {
-        pass: enzymeWrapper.length !== 0,
-        message: 'Expected selector results to contain at least one node.',
-      };
-    }
-    return {
-      compare(enzymeWrapper:EnzymeObject) : Matcher {
-        return toBePresent(enzymeWrapper);
-      },
+export default function toBePresent(enzymeWrapper:EnzymeObject) : Matcher {
+  const pass = enzymeWrapper.length !== 0;
 
-      negativeCompare(enzymeWrapper:EnzymeObject) : Matcher {
-        const result:Matcher = toBePresent(enzymeWrapper);
-
-        result.message = negateMessage(result.message);
-        result.pass = !result.pass;
-
-        return result;
-      },
-    };
-  },
-};
+  return {
+    pass,
+    message: negateMessage(
+      pass,
+      'Expected selector results to contain at least one node.'
+    ),
+  };
+}

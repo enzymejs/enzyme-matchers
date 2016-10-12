@@ -1,10 +1,7 @@
 const { shallow, mount } = require('enzyme');
 const React = require('react');
 
-const {
-  compare: toHaveProp,
-  negativeCompare: notToHaveProp,
-} = require('../toHaveProp').toHaveProp(jasmine.matchersUtil, []);
+const toHaveProp = require('../toHaveProp');
 
 function User(props) {
   return (
@@ -25,6 +22,8 @@ User.propTypes = {
   falsy: React.PropTypes.bool,
 };
 
+const fn = () => {};
+
 function Fixture() {
   return (
     <div>
@@ -33,6 +32,7 @@ function Fixture() {
         email="blainekasten@gmail.com"
         arrayProp={[1, 2, 3]}
         objectProp={{ foo: 'bar' }}
+        fn={fn}
         falsy={false}
       />
     </div>
@@ -40,78 +40,57 @@ function Fixture() {
 }
 
 describe('toHaveProp', () => {
-  describe('integration', () => {
-    it('works with `shallow` renders', () => {
-      const wrapper = shallow(<Fixture />);
-      expect(wrapper.find(User)).toHaveProp('name');
-    });
+  it('can validate arrays', () => {
+    const wrapper = shallow(<Fixture />);
+    const user = wrapper.find(User);
+    const truthy = toHaveProp(user, 'arrayProp', [1, 2, 3]);
+    const falsy = toHaveProp(user, 'arrayProp', [4, 5, 6]);
 
-    it('works with `mount` renders', () => {
-      const wrapper = mount(<Fixture />);
-      expect(wrapper.find(User)).toHaveProp('name');
-    });
-
-    it('can validate the value also', () => {
-      const wrapper = shallow(<Fixture />);
-      expect(wrapper.find(User)).toHaveProp('name', 'blaine');
-    });
-
-    it('works with with jasmines negation', () => {
-      const wrapper = shallow(<Fixture />);
-      expect(wrapper.find(User)).not.toHaveProp('name', 'blaine kasten');
-      expect(wrapper.find(User)).not.toHaveProp('foo');
-    });
-
-    it('can validate arrays', () => {
-      const wrapper = shallow(<Fixture />);
-
-      expect(wrapper.find(User)).toHaveProp('arrayProp', [1, 2, 3]);
-      expect(wrapper.find(User)).not.toHaveProp('arrayProp', [4, 5, 6]);
-    });
-
-    it('can validate objects', () => {
-      const wrapper = shallow(<Fixture />);
-
-      expect(wrapper.find(User)).toHaveProp('objectProp', { foo: 'bar' });
-      expect(wrapper.find(User)).not.toHaveProp('objectProp', { foo: 'baz' });
-    });
-
-    it('works with falsy props', () => {
-      const wrapper = shallow(<Fixture />);
-
-      expect(wrapper.find(User)).toHaveProp('falsy', false);
-    });
+    expect(truthy.pass).toBeTruthy();
+    expect(falsy.pass).toBeFalsy();
   });
 
-  describe('unit-tests', () => {
-    describe('toHaveProp', () => {
-      const wrapper = shallow(<Fixture />);
-      const truthyResults = toHaveProp(wrapper.find(User), 'name', 'blaine');
-      const falsyResults = toHaveProp(wrapper.find(User), 'name', 'jon');
+  it('can validate objects', () => {
+    const wrapper = shallow(<Fixture />);
+    const user = wrapper.find(User);
+    const truthy = toHaveProp(user, 'objectProp', { foo: 'bar' });
+    const falsy  = toHaveProp(user, 'objectProp', { foo: 'BOO' });
 
-      it('passes when true', () => {
-        expect(truthyResults.pass).toBeTruthy();
-        expect(falsyResults.pass).toBeFalsy();
-      });
+    expect(truthy.pass).toBeTruthy();
+    expect(falsy.pass).toBeFalsy();
+  });
 
-      it('\'s message is non-negative', () => {
-        expect(truthyResults.message).not.toContain('not');
-      });
-    });
+  it('works with falsy props', () => {
+    const wrapper = shallow(<Fixture />);
+    const { pass } = toHaveProp(wrapper.find(User), 'falsy', false);
 
-    describe('notToHaveProp', () => {
-      const wrapper = shallow(<Fixture />);
-      const falsyResults = notToHaveProp(wrapper.find(User), 'name', 'blaine');
-      const truthyResults = notToHaveProp(wrapper.find(User), 'name', 'jon');
+    expect(pass).toBeTruthy();
+  });
 
-      it('passes when false', () => {
-        expect(falsyResults.pass).toBeFalsy();
-        expect(truthyResults.pass).toBeTruthy();
-      });
+  it('works with functions', () => {
+    const wrapper = shallow(<Fixture />);
+    const { pass } = toHaveProp(wrapper.find(User), 'fn', fn);
+    const { pass: fail } = toHaveProp(wrapper.find(User), 'fn', () => {});
 
-      it('\'s message is negative', () => {
-        expect(truthyResults.message).toContain('not');
-      });
-    });
+    expect(pass).toBeTruthy();
+    expect(fail).toBeFalsy();
+  });
+
+  it('returns the pass flag properly', () => {
+    const wrapper = shallow(<Fixture />);
+    const truthyResults = toHaveProp(wrapper.find(User), 'name', 'blaine');
+    const falsyResults = toHaveProp(wrapper.find(User), 'name', 'jon');
+
+    expect(truthyResults.pass).toBeTruthy();
+    expect(falsyResults.pass).toBeFalsy();
+  });
+
+  it('returns the message with the proper pass/fail verbage', () => {
+    const wrapper = shallow(<Fixture />);
+    const truthyResults = toHaveProp(wrapper.find(User), 'name', 'blaine');
+    const falsyResults = toHaveProp(wrapper.find(User), 'name', 'jon');
+
+    expect(truthyResults.message).not.toContain('not');
+    expect(falsyResults.message).toContain('not');
   });
 });

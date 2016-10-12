@@ -4,7 +4,9 @@
   "description": "Testing Matchers for Enzyme",
   "main": "lib/index.js",
   "scripts": {
+    "pretest": "node ../../scripts/jest.js",
     "test": "jest",
+    "jest": "jest",
     "lint": "eslint ./src",
     "build": "babel src --out-dir lib --ignore tests"
   },
@@ -42,6 +44,20 @@
     "enzyme": "1.x || 2.x"
   },
   "dependencies": {
-    "enzyme-matchers": "1.3.0-beta"
+    "jasmine-enzyme": "1.3.0-beta2"
+  },
+  "jest": {
+    "testPathDirs": [
+      "<rootDir>/src"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/index.js",
+    "preprocessorIgnorePatterns": [
+      "node_modules/(?!enzyme-matchers)"
+    ],
+    "unmockedModulePathPatterns": [
+      "enzyme",
+      "react"
+    ],
+    "verbose": true
   }
 }

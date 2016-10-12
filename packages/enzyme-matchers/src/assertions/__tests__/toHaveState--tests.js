@@ -1,10 +1,7 @@
 const { shallow, mount } = require('enzyme');
 const React = require('react');
 
-const {
-  compare: toHaveState,
-  negativeCompare: notToHaveState,
-} = require('../toHaveState').toHaveState(jasmine.matchersUtil, []);
+const toHaveState = require('../toHaveState');
 
 class Fixture extends React.Component {
   constructor() {
@@ -24,70 +21,48 @@ class Fixture extends React.Component {
 }
 
 describe('toHaveState', () => {
-  describe('integration', () => {
-    it('works with `shallow` renders', () => {
-      const wrapper = shallow(<Fixture />);
-      expect(wrapper).toHaveState('foo');
-    });
+  it('can validate falsy values', () => {
+    const wrapper = shallow(<Fixture />);
+    const { pass } = toHaveState(wrapper, 'foo', false);
+    const { pass: fail } = toHaveState(wrapper, 'foo', true);
 
-    it('works with `mount` renders', () => {
-      const wrapper = mount(<Fixture />);
-      expect(wrapper).toHaveState('foo');
-    });
-
-    it('can validate the value also', () => {
-      const wrapper = shallow(<Fixture />);
-      expect(wrapper).toHaveState('foo', false);
-    });
-
-    it('works with with jasmines negation', () => {
-      const wrapper = shallow(<Fixture />);
-
-      expect(wrapper).not.toHaveState('foo', true);
-    });
-
-    it('can validate arrays', () => {
-      const wrapper = shallow(<Fixture />);
-
-      expect(wrapper).toHaveState('array', [1, 2, 3]);
-    });
-
-    it('can validate objects', () => {
-      const wrapper = shallow(<Fixture />);
-
-      expect(wrapper).toHaveState('object', { foo: 'bar' });
-    });
+    expect(pass).toBeTruthy();
+    expect(fail).toBeFalsy();
   });
 
-  describe('unit-tests', () => {
-    describe('toHaveState', () => {
-      const wrapper = mount(<Fixture />);
-      const truthyResults = toHaveState(wrapper, 'foo', false);
-      const falsyResults = toHaveState(wrapper, 'foo', true);
+  it('can validate arrays', () => {
+    const wrapper = shallow(<Fixture />);
+    const { pass } = toHaveState(wrapper, 'array', [1, 2, 3]);
+    const { pass: fail } = toHaveState(wrapper, 'array', [4, 5, 6]);
 
-      it('passes when true', () => {
-        expect(truthyResults.pass).toBeTruthy();
-        expect(falsyResults.pass).toBeFalsy();
-      });
+    expect(pass).toBeTruthy();
+    expect(fail).toBeFalsy();
+  });
 
-      it('\'s message is non-negative', () => {
-        expect(truthyResults.message).not.toContain('not');
-      });
-    });
+  it('can validate objects', () => {
+    const wrapper = shallow(<Fixture />);
+    const { pass } = toHaveState(wrapper, 'object', { foo: 'bar' });
+    const { pass: fail } = toHaveState(wrapper, 'object', { foo: 'NOPE' });
 
-    describe('notToHaveState', () => {
-      const wrapper = mount(<Fixture />);
-      const falsyResults = notToHaveState(wrapper, 'foo', false);
-      const truthyResults = notToHaveState(wrapper, 'foo', true);
+    expect(pass).toBeTruthy();
+    expect(fail).toBeFalsy();
+  });
 
-      it('passes when false', () => {
-        expect(falsyResults.pass).toBeFalsy();
-        expect(truthyResults.pass).toBeTruthy();
-      });
+  it('returns the pass flag properly', () => {
+    const wrapper = mount(<Fixture />);
+    const truthyResults = toHaveState(wrapper, 'foo', false);
+    const falsyResults = toHaveState(wrapper, 'foo', true);
 
-      it('\'s message is negative', () => {
-        expect(truthyResults.message).toContain('not');
-      });
-    });
+    expect(truthyResults.pass).toBeTruthy();
+    expect(falsyResults.pass).toBeFalsy();
+  });
+
+  it('returns the message with the proper pass/fail verbage', () => {
+    const wrapper = mount(<Fixture />);
+    const truthyResults = toHaveState(wrapper, 'foo', false);
+    const falsyResults = toHaveState(wrapper, 'foo', true);
+
+    expect(truthyResults.message).not.toContain('not');
+    expect(falsyResults.message).toContain('not');
   });
 });

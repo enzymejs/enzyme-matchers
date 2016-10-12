@@ -8,34 +8,19 @@
 
 import { shallow } from 'enzyme';
 import negateMessage from '../negateMessage';
-import type { Matcher } from '../types/Matcher';
-import type { MatcherMethods } from '../types/MatcherMethods';
-import type { EnzymeObject } from '../types/EnzymeObject';
+import type { Matcher } from '../../../../types/Matcher';
+import type { MatcherMethods } from '../../../../types/MatcherMethods';
+import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
-export default {
-  toContainReact() : MatcherMethods {
-    function toContainReact(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
-      const wrappedInstance:EnzymeObject = shallow(reactInstance);
+export default function toContainReact(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
+  const wrappedInstance:EnzymeObject = shallow(reactInstance);
+  const pass = enzymeWrapper.contains(reactInstance);
 
-      return {
-        pass: enzymeWrapper.contains(reactInstance),
-        message: `Expected wrapper to contain ${wrappedInstance.html()}.`,
-      };
-    }
-
-    return {
-      compare(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
-        return toContainReact(enzymeWrapper, reactInstance);
-      },
-
-      negativeCompare(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
-        const result:Matcher = toContainReact(enzymeWrapper, reactInstance);
-
-        result.message = negateMessage(result.message);
-        result.pass = !result.pass;
-
-        return result;
-      },
-    };
-  },
-};
+  return {
+    pass,
+    message: negateMessage(
+      pass,
+      `Expected wrapper to contain ${wrappedInstance.html()}.`
+    ),
+  };
+}

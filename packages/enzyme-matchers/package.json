@@ -5,7 +5,9 @@
   "main": "lib/index.js",
   "jsnext:main": "src/index.js",
   "scripts": {
+    "pretest": "node ../../scripts/jest.js",
     "test": "jest",
+    "jest": "jest",
     "lint": "eslint ./src",
     "build": "babel src --out-dir lib --ignore tests"
   },
@@ -34,5 +36,8 @@
       "react"
     ],
     "verbose": true
+  },
+  "dependencies": {
+    "deep-equal-ident": "^1.1.1"
   }
 }

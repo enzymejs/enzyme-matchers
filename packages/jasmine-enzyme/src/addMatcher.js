@@ -3,15 +3,16 @@
  * LICENSE file in the root directory of this source tree. *
  *
  * @providesModule addMatcher
+ * @flow
  */
 
-import type { MatcherObject } from './types/MatcherObject';
-
+import type { MatcherMethods } from '../../../types/MatcherMethods';
+declare var jasmine:Object;
 
 const coreMatchers = jasmine.matchers;
 let errorThrown = false;
 
-export default function addMatcher(matcher: MatcherObject) : void {
+export default function addMatcher(matcher: MatcherMethods) : void {
   const matcherName = Object.keys(matcher)[0];
 
   /*

@@ -3,40 +3,24 @@
  * LICENSE file in the root directory of this source tree. *
  *
  * @providesModule JasmineEnzyme
+ * @flow
  */
 
 import addMatcher from './addMatcher';
-
-import toBeChecked from './assertions/toBeChecked';
-import toBeDisabled from './assertions/toBeDisabled';
-import toBeEmpty from './assertions/toBeEmpty';
-import toBePresent from './assertions/toBePresent';
-import toContainReact from './assertions/toContainReact';
-import toHaveClassName from './assertions/toHaveClassName';
-import toHaveHTML from './assertions/toHaveHTML';
-import toHaveProp from './assertions/toHaveProp';
-import toHaveRef from './assertions/toHaveRef';
-import toHaveState from './assertions/toHaveState';
-import toHaveStyle from './assertions/toHaveStyle';
-import toHaveTagName from './assertions/toHaveTagName';
-import toHaveText from './assertions/toHaveText';
-import toHaveValue from './assertions/toHaveValue';
-import toMatchSelector from './assertions/toMatchSelector';
+import enzymeMatchers from 'enzyme-matchers';
 
 export default function jasmineEnzyme() : void {
-  addMatcher(toBeChecked);
-  addMatcher(toBeDisabled);
-  addMatcher(toBeEmpty);
-  addMatcher(toBePresent);
-  addMatcher(toContainReact);
-  addMatcher(toHaveClassName);
-  addMatcher(toHaveHTML);
-  addMatcher(toHaveProp);
-  addMatcher(toHaveRef);
-  addMatcher(toHaveState);
-  addMatcher(toHaveStyle);
-  addMatcher(toHaveTagName);
-  addMatcher(toHaveText);
-  addMatcher(toHaveValue);
-  addMatcher(toMatchSelector);
+  [
+    'toBeChecked', 'toBeDisabled', 'toBeEmpty',
+    'toBePresent', 'toContainReact', 'toHaveClassName',
+    'toHaveHTML', 'toHaveProp', 'toHaveRef',
+    'toHaveState', 'toHaveStyle', 'toHaveTagName',
+    'toHaveText', 'toHaveValue', 'toMatchSelector',
+  ].forEach((matcher:string) => {
+    addMatcher({
+      [matcher]: () => {
+        return { compare: enzymeMatchers[matcher] };
+      },
+    });
+  });
 }

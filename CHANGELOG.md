@@ -1,3 +1,15 @@
+2.0.0
+=====
+  * **Changed project structure!**
+  * We are now using lerna to maintain 3 npm packages:
+    * `enzyme-matchers` (_simple functions to handle assertions_)
+    * `jasmine-enzyme` (_implementation of enzyme-matchers in jasmine_)
+    * `jest-enzyme` (_implementation of enzyme-matchers in jest)
+
+  * This is only breaking if you use Jest.
+    * If you do, simply change to use the `jest-enzyme` package and everything should work.
+
+
 1.2.0
 =====
   * Fixed negated matchers output message to sound negated.
