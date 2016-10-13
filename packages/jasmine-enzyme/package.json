@@ -12,6 +12,7 @@
     "jest": "jest",
     "jasmine": "jasmine",
     "lint": "eslint ./src",
+    "prepublish": "npm run build",
     "build": "babel src --out-dir lib --ignore tests"
   },
   "files": [
