@@ -6,6 +6,6 @@ test:
   pre:
     - lerna run lint
 
-checkout:
+dependencies:
   post: 
     - lerna bootstrap
