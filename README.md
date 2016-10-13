@@ -1,98 +1,53 @@
-# jasmine-enzyme
+# enzyme-matchers
+
+An assertion library for [enzyme](https://github.com/airbnb/enzyme/).
+
+This library supports several testing frameworks including [Jest]() and [Jasmine](http://jasmine.github.io/).
+
+_Want to add support for another testing framework? Check out our [contributing]() doc!_
+
+### Readme's for each package:
+
+* [enzyme-matchers]()
+* [jasmine-enzyme]()
+* [jest-enzyme]()
 
 [![npm version](https://img.shields.io/npm/v/jasmine-enzyme.svg)](https://www.npmjs.com/package/jasmine-enzyme)
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
 [![Circle CI](https://circleci.com/gh/blainekasten/jasmine-enzyme/tree/master.svg?style=svg)](https://circleci.com/gh/blainekasten/jasmine-enzyme/tree/master)
 
-[Jasmine](http://jasmine.github.io/) assertions for [enzyme](https://github.com/airbnb/enzyme/).
-
-Large thanks to [`chai-enzyme`](https://github.com/producthunt/chai-enzyme). We have  taken several thoughts from that library and ultimately hope to maintain feature parity.
-
-## Table of Contents
-
-  1. [Installation](#installation)
-  1. [Setup](#setup)
-    1. [Jest](#jest)
-    1. [Jasmine](#vanilla-jasmine)
-  1. [Assertions](#assertions)
-    1. [toBeChecked()](#tobechecked)
-    1. [toBeDisabled()](#tobedisabled)
-    1. [toBeEmpty()](#tobeempty)
-    1. [toBePresent()](#tobepresent)
-    1. [toContainReact()](#tocontainreactreactinstanceobject)
-    1. [toHaveClassName()](#tohaveclassnameclassnamestring)
-    1. [toHaveHTML()](#tohavehtmlhtmlstring)
-    1. [toHaveProp()](#tohaveproppropkeystring-propvalueany)
-    1. [toHaveRef()](#tohaverefrefnamestring)
-    1. [toHaveState()](#tohavestatestatekeystring-statevalueany)
-    1. [toHaveStyle()](#tohavestylestylekeystring-stylevalueany)
-    1. [toHaveTagName()](#tohavetagnametagnamestring)
-    1. [toHaveText()](#tohavetexttextstring)
-    1. [toHaveValue()](#tohavevaluevalueany)
-    1. [toMatchSelector()](#tomatchselectorselectorstring)
-  1. [Development](#development)
-  1. [Contributing](#contributing)
-  1. [License](#license)
-
-## Installation
-
-`jasmine-enzyme` depends on:
-
-
-```js
-"peerDependencies": {
-  "jasmine": "1.x || 2.x",
-  "enzyme": "1.x || 2.x"
-}
-```
-
-```
-$ npm install jasmine-enzyme --save-dev
-```
-
-## Setup
-
-### Jest
-If you are using [jest](https://facebook.github.io/jest/), the simplest setup
-is to use jest's `setupTestFrameworkScriptFile` config. You'll also need to
-tell jest to unmock `react`, `enzyme`, and `jasmine-enzyme`.
-
-Make sure your `package.json` includes the following:
-
-```js
-"jest": {
-  "setupTestFrameworkScriptFile": "node_modules/jasmine-enzyme/lib/jest.js",
-  "unmockedModulePathPatterns": [
-    "react",
-    "enzyme",
-    "jasmine-enzyme"
-  ]
-},
-```
-
-### Vanilla Jasmine
-If you are just using vanilla jasmine, you'll need to call
-`jasmineEnzyme()` in any `before` method due to the way jasmine's plugin
-system works.
-
-```js
-import jasmineEnzyme from 'jasmine-enzyme';
-
-describe('test', () => {
-  beforeEach(() => {
-    jasmineEnzyme();
-  });
-
-  // tests
-});
-```
-
 ## Assertions
 
-> Note that not all assertions work with every rendering strategy.
+> Notes
+> * Note, the syntax for using these assertions may be different depending on your testing framework. For more information, visit the frameworks package README in `packages/`
 
-> If you are wondering what rendering mechanism to use when, refer to
-> [enzyme's documentation](https://github.com/airbnb/enzyme).
+
+> * Not all assertions work with every rendering strategy.
+
+>   If you are wondering what rendering mechanism to use when, refer to
+>   [enzyme's documentation](https://github.com/airbnb/enzyme).
+
+* [toBeChecked()](#tobechecked)
+* [toBeDisabled()](#tobedisabled)
+* [toBeEmpty()](#tobeempty)
+* [toBePresent()](#tobepresent)
+* [toContainReact()](#tocontainreactreactinstanceobject)
+* [toHaveClassName()](#tohaveclassnameclassnamestring)
+* [toHaveHTML()](#tohavehtmlhtmlstring)
+* [toHaveProp()](#tohaveproppropkeystring-propvalueany)
+* [toHaveRef()](#tohaverefrefnamestring)
+* [toHaveState()](#tohavestatestatekeystring-statevalueany)
+* [toHaveStyle()](#tohavestylestylekeystring-stylevalueany)
+* [toHaveTagName()](#tohavetagnametagnamestring)
+* [toHaveText()](#tohavetexttextstring)
+* [toHaveValue()](#tohavevaluevalueany)
+* [toMatchSelector()](#tomatchselectorselectorstring)
+
+_Other_
+
+1. [Development](#development)
+1. [Contributing](#contributing)
+1. [License](#license)
 
 #### `toBeChecked()`
 
@@ -508,8 +463,8 @@ expect(wrapper.find('span')).toMatchSelector('.bar');
 
 ```shell
 $ git clone <this repo>
-$ cd jasmine-enzyme
-$ npm install
+$ cd enzyme-matchers
+$ lerna bootstrap
 ```
 
 #### Tests
@@ -529,6 +484,8 @@ $ npm test
 ## Contributing
 
 We want to make this assertion library as robust and complete as possible. If you think that there are missing features/assertions, please open a GitHub issue or even better - a PR.
+
+This project uses [lerna](https://github.com/lerna/lerna)
 
 Bug reports and pull requests are welcome on GitHub. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org/) code of conduct.
 
