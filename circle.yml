@@ -7,4 +7,5 @@ test:
     - lerna run lint
 
 checkout:
-  post: lerna bootstrap
+  post: 
+    - lerna bootstrap
