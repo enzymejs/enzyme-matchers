@@ -8,6 +8,14 @@ This package is primarily meant to be consumed by framework integrations within 
 
 ### Installation
 
+We suggest using [yarn](https://github.com/yarnpkg/yarn) for installations.
+
+```
+yarn add enzyme-matchers --dev
+```
+
+But npm works too!
+
 ```
 $ npm install enzyme-matchers --save-dev
 ```
