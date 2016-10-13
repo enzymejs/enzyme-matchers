@@ -6,6 +6,14 @@
 
 ### Installation
 
+We suggest using [yarn](https://github.com/yarnpkg/yarn) for installations.
+
+```
+yarn add jest-enzyme --dev
+```
+
+But npm works too!
+
 ```
 $ npm install jest-enzyme --save-dev
 ```
