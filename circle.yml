@@ -5,3 +5,5 @@ machine:
 test:
   pre:
     - lerna run lint
+
+install: lerna bootstrap
