@@ -1,6 +1,6 @@
 {
   "name": "jest-enzyme",
-  "version": "2.0.0-rc2",
+  "version": "2.0.0-rc3",
   "description": "Testing Matchers for Enzyme",
   "main": "lib/index.js",
   "author": "Blaine Kasten <blainekasten@gmail.com>",
