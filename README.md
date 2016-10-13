@@ -1,20 +1,20 @@
 # enzyme-matchers
 
+![License](https://img.shields.io/npm/l/chai-enzyme.svg)
+[![Circle CI](https://circleci.com/gh/blainekasten/enzyme-matchers/tree/master.svg?style=svg)](https://circleci.com/gh/blainekasten/enzyme-matchers/tree/master)
+
+
 An assertion library for [enzyme](https://github.com/airbnb/enzyme/).
 
 This library supports several testing frameworks including [Jest](https://github.com/facebook/jest) and [Jasmine](http://jasmine.github.io/).
 
-_Want to add support for another testing framework? Check out our [contributing](#contributing) doc!_
+> _Want to add support for another testing framework? Check out our [contributing](#contributing) doc!_
 
 ### Readme's for each package:
 
 * [enzyme-matchers](/packages/enzyme-matchers/README.md)
 * [jasmine-enzyme](/packages/jasmine-enzyme/README.md)
 * [jest-enzyme](/packages/jest-enzyme/README.md)
-
-[![npm version](https://img.shields.io/npm/v/jasmine-enzyme.svg)](https://www.npmjs.com/package/jasmine-enzyme)
-![License](https://img.shields.io/npm/l/chai-enzyme.svg)
-[![Circle CI](https://circleci.com/gh/blainekasten/jasmine-enzyme/tree/master.svg?style=svg)](https://circleci.com/gh/blainekasten/jasmine-enzyme/tree/master)
 
 ## Assertions
 
