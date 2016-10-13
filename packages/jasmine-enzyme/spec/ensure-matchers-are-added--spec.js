@@ -1,23 +1,19 @@
-"use strict";
+'use strict'; // eslint-disable-line
 
-var jsdom = require('jsdom').jsdom;
+const jsdom = require('jsdom').jsdom;
+const shallow = require('enzyme').shallow;
+const mount = require('enzyme').mount;
+const React = require('react');
+const jasmineEnzyme = require('../lib/index.js');
 
 global.document = jsdom('');
 global.window = document.defaultView;
+global.navigator = { userAgent: 'node.js' };
 Object.keys(document.defaultView).forEach((property) => {
   if (typeof global[property] === 'undefined') {
     global[property] = document.defaultView[property];
   }
 });
-
-global.navigator = {
-  userAgent: 'node.js'
-};
-
-const shallow = require('enzyme').shallow;
-const mount = require('enzyme').mount;
-const React = require('react');
-const jasmineEnzyme = require('../lib/index.js');
 
 describe('addMatchers', () => {
   beforeEach(jasmineEnzyme);
@@ -55,7 +51,7 @@ describe('addMatchers', () => {
     const User = require('./fixtures/toContainReact.fixture').User;
     const wrapper = shallow(React.createElement(Fixture));
 
-    expect(wrapper).toContainReact(React.createElement(User, {index:1}));
+    expect(wrapper).toContainReact(React.createElement(User, { index: 1 }));
   });
 
   it('adds toHaveClassName', () => {
@@ -83,9 +79,10 @@ describe('addMatchers', () => {
 
   it('adds toHaveRef', () => {
     class Fixture extends React.Component {
+      componentDidMount() {} // needed for lint
       render() {
         return React.createElement(
-          'div', {ref: 'ref'}
+          'div', { ref: 'ref' }
         );
       }
     }

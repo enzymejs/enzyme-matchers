@@ -9,21 +9,10 @@
 import enzymeMatchers from 'enzyme-matchers';
 
 import type { MatcherMethods } from '../../../types/MatcherMethods';
-declare var beforeEach:Function
+declare var beforeEach:Function;
+declare var jasmine:Object;
 
-// add methods!
-beforeEach(function jasmineEnzyme() : void {
-  const matchers = Object.keys(enzymeMatchers);
-
-  matchers.forEach((matcher:string) => {
-    addMatcher({
-      [matcher]: () => {
-        return { compare: enzymeMatchers[matcher] };
-      },
-    });
-  });
-})
-
+let errorThrown:boolean = false;
 
 function addMatcher(matcher: MatcherMethods) : void {
   const matcherName = Object.keys(matcher)[0];
@@ -44,3 +33,14 @@ function addMatcher(matcher: MatcherMethods) : void {
   // is merged
   jasmine.addMatchers(matcher);
 }
+
+// add methods!
+beforeEach(() => {
+  const matchers = Object.keys(enzymeMatchers);
+
+  matchers.forEach((matcher:string) => {
+    addMatcher({
+      [matcher]: () => ({ compare: enzymeMatchers[matcher] }),
+    });
+  });
+});

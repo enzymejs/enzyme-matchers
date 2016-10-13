@@ -9,6 +9,8 @@
 import addMatcher from './addMatcher';
 import enzymeMatchers from 'enzyme-matchers';
 
+declare var jest:Object;
+
 export default function jasmineEnzyme() : void {
   // Migration step for moving people from jasmine-enzyme
   // to jest-enzyme
@@ -16,16 +18,14 @@ export default function jasmineEnzyme() : void {
     throw new Error(`
       [jasmine-enzyme] The jest usage has been moved to a new package: "jest-enzyme".
       Use that project instead of this. For more information, see: _______
-    `)
+    `);
   }
 
   const matchers = Object.keys(enzymeMatchers);
 
   matchers.forEach((matcher:string) => {
     addMatcher({
-      [matcher]: () => {
-        return { compare: enzymeMatchers[matcher] };
-      },
+      [matcher]: () => ({ compare: enzymeMatchers[matcher] }),
     });
   });
 }

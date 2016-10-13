@@ -9,10 +9,13 @@
 import negateMessage from '../negateMessage';
 import deepEqualIdent from 'deep-equal-ident';
 import type { Matcher } from '../../../../types/Matcher';
-import type { MatcherMethods } from '../../../../types/MatcherMethods';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
-export default function toHaveState(enzymeWrapper:EnzymeObject, stateKey:string, stateValue:?any) : Matcher {
+export default function toHaveState(
+  enzymeWrapper:EnzymeObject,
+  stateKey:string,
+  stateValue:?any
+) : Matcher {
   const state = enzymeWrapper.state();
 
   // error if the state key doesnt exist

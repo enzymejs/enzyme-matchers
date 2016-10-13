@@ -8,7 +8,6 @@
 
 import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
-import type { MatcherMethods } from '../../../../types/MatcherMethods';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
 export default function toHaveClassName(enzymeWrapper:EnzymeObject, className:string) : Matcher {

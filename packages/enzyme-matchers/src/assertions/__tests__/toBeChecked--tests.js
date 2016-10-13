@@ -1,8 +1,6 @@
-const { shallow, mount } = require('enzyme');
+const { shallow } = require('enzyme');
 const React = require('react');
-
-const toBeChecked = require('../toBeChecked')
-
+const toBeChecked = require('../toBeChecked');
 
 function Fixture() {
   return (

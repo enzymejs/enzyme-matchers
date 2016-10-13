@@ -9,10 +9,13 @@
 import negateMessage from '../negateMessage';
 import deepEqualIdent from 'deep-equal-ident';
 import type { Matcher } from '../../../../types/Matcher';
-import type { MatcherMethods } from '../../../../types/MatcherMethods';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
-export default function toHaveStyle(enzymeWrapper:EnzymeObject, styleKey:string, styleValue:?any) : Matcher {
+export default function toHaveStyle(
+  enzymeWrapper:EnzymeObject,
+  styleKey:string,
+  styleValue:?any
+) : Matcher {
   const style = enzymeWrapper.prop('style');
 
   // error if component doesnt have style

@@ -8,11 +8,11 @@
 
 import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
-import type { MatcherMethods } from '../../../../types/MatcherMethods';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
 export default function toMatchSelector(enzymeWrapper:EnzymeObject, selector:string) : Matcher {
-  const pass = enzymeWrapper.is(selector)
+  const pass = enzymeWrapper.is(selector);
+
   return {
     pass,
     message: negateMessage(

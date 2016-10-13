@@ -1,4 +1,4 @@
-const { shallow, mount } = require('enzyme');
+const { mount } = require('enzyme');
 const React = require('react');
 
 const toHaveText = require('../toHaveText');

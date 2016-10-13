@@ -2,6 +2,7 @@
 .*/node_modules/fbjs.*
 
 [include]
+./packages/enzyme-matchers/src/index.js
 
 [libs]
 

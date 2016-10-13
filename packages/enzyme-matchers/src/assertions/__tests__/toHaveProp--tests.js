@@ -1,4 +1,4 @@
-const { shallow, mount } = require('enzyme');
+const { shallow } = require('enzyme');
 const React = require('react');
 
 const toHaveProp = require('../toHaveProp');
@@ -54,7 +54,7 @@ describe('toHaveProp', () => {
     const wrapper = shallow(<Fixture />);
     const user = wrapper.find(User);
     const truthy = toHaveProp(user, 'objectProp', { foo: 'bar' });
-    const falsy  = toHaveProp(user, 'objectProp', { foo: 'BOO' });
+    const falsy = toHaveProp(user, 'objectProp', { foo: 'BOO' });
 
     expect(truthy.pass).toBeTruthy();
     expect(falsy.pass).toBeFalsy();

@@ -6,4 +6,4 @@ describe('jest', () => {
 
     expect(jasmineEnzyme).toThrow();
   });
-})
+});

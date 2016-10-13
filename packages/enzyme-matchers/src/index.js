@@ -10,7 +10,7 @@ import toBeDisabled from './assertions/toBeDisabled';
 import toBeEmpty from './assertions/toBeEmpty';
 import toBePresent from './assertions/toBePresent';
 import toContainReact from './assertions/toContainReact';
-import toHaveClassName  from './assertions/toHaveClassName';
+import toHaveClassName from './assertions/toHaveClassName';
 import toHaveHTML from './assertions/toHaveHTML';
 import toHaveProp from './assertions/toHaveProp';
 import toHaveRef from './assertions/toHaveRef';
@@ -27,7 +27,7 @@ export default {
   toBeEmpty,
   toBePresent,
   toContainReact,
-  toHaveClassName ,
+  toHaveClassName,
   toHaveHTML,
   toHaveProp,
   toHaveRef,

@@ -8,7 +8,8 @@
     "test": "npm run test-matchers && npm run test-jasmine && npm run test-jest",
     "test-matchers": "cd ./packages/enzyme-matchers && npm run jest",
     "test-jasmine": "cd ./packages/jasmine-enzyme && npm run jest && npm run jasmine",
-    "test-jest": "cd ./packages/jest-enzyme && npm run jest"
+    "test-jest": "cd ./packages/jest-enzyme && npm run jest",
+    "lint": "eslint ./packages"
   },
   "files": [
     "src",

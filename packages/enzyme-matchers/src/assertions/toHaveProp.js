@@ -9,10 +9,13 @@
 import negateMessage from '../negateMessage';
 import deepEqualIdent from 'deep-equal-ident';
 import type { Matcher } from '../../../../types/Matcher';
-import type { MatcherMethods } from '../../../../types/MatcherMethods';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
-export default function toHaveProp(enzymeWrapper:EnzymeObject, propKey:string, propValue:?any) : Matcher {
+export default function toHaveProp(
+  enzymeWrapper:EnzymeObject,
+  propKey:string,
+  propValue:?any
+) : Matcher {
   const props = enzymeWrapper.props();
 
   // error if the prop doesnt exist

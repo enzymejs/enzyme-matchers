@@ -9,7 +9,6 @@
 import { shallow } from 'enzyme';
 import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
-import type { MatcherMethods } from '../../../../types/MatcherMethods';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
 export default function toContainReact(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
