@@ -10,7 +10,7 @@
     "pretest": "node ../../scripts/jest.js",
     "test": "jest && jasmine",
     "jest": "jest",
-    "jasmine": "node_modules/jasmine/bin/jasmine.js",
+    "jasmine": "./node_modules/jasmine/bin/jasmine.js",
     "lint": "eslint ./src",
     "prepublish": "npm run build",
     "build": "babel src --out-dir lib --ignore tests"
