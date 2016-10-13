@@ -3,6 +3,9 @@
   "version": "2.0.0-rc1",
   "description": "Testing Matchers for Enzyme",
   "main": "lib/index.js",
+  "author": "Blaine Kasten <blainekasten@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/jest-enzyme#readme",
   "scripts": {
     "pretest": "node ../../scripts/jest.js",
     "test": "jest",
@@ -16,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blainekasten/jasmine-enzyme.git"
+    "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
   },
   "keywords": [
     "javascript",
@@ -30,16 +33,12 @@
     "test utils",
     "assertion helpers",
     "tdd",
-    "jasmine",
     "jest",
     "enzyme"
   ],
-  "author": "Blaine Kasten <blainekasten@gmail.com>",
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/blainekasten/jasmine-enzyme/issues"
+    "url": "https://github.com/blainekasten/enzyme-matchers/issues"
   },
-  "homepage": "https://github.com/blainekasten/jasmine-enzyme#readme",
   "peerDependencies": {
     "enzyme": "1.x || 2.x"
   },

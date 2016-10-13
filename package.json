@@ -1,6 +1,8 @@
 {
   "name": "enzyme-assertions",
   "description": "Testing Helpers for Enzyme",
+  "author": "Blaine Kasten<blainekasten@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "pretest": "node ./scripts/jest.js",
     "test": "npm run test-matchers && npm run test-jasmine && npm run test-jest",
@@ -14,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/blainekasten/jasmine-enzyme.git"
+    "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
   },
   "keywords": [
     "javascript",
@@ -32,8 +34,6 @@
     "jest",
     "enzyme"
   ],
-  "author": "Blaine Kasten<blainekasten@gmail.com>",
-  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.5.1",
     "babel-eslint": "^6.0.0",
@@ -60,7 +60,6 @@
       "<rootDir>/packages/jest-enzyme/src",
       "<rootDir>/packages/enzyme-matchers/src"
     ],
-    "testPathIgnorePatterns": ["fixture"],
     "verbose": true
   }
 }
