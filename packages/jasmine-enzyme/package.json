@@ -54,6 +54,7 @@
     "verbose": true
   },
   "devDependencies": {
-    "jsdom": "^9.6.0"
+    "jsdom": "^9.6.0",
+    "jasmine": "^2.5.2"
   }
 }
