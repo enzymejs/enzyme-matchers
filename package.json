@@ -1,15 +1,15 @@
 {
-  "name": "jasmine-enzyme",
-  "version": "1.2.0",
-  "description": "Jasmine assertions for enzyme",
-  "main": "lib/index.js",
+  "name": "enzyme-assertions",
+  "description": "Testing Helpers for Enzyme",
+  "author": "Blaine Kasten<blainekasten@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "lint": "eslint ./src",
-    "build": "rimraf lib && babel src --out-dir lib --ignore tests",
-    "prior-to-publish": "npm run lint && npm test && npm run build",
-    "publish-please": "publish-please",
-    "prepublish": "publish-please guard"
+    "pretest": "node ./scripts/jest.js",
+    "test": "npm run test-matchers && npm run test-jasmine && npm run test-jest",
+    "test-matchers": "cd ./packages/enzyme-matchers && npm run jest",
+    "test-jasmine": "cd ./packages/jasmine-enzyme && npm run jest && npm run jasmine",
+    "test-jest": "cd ./packages/jest-enzyme && npm run jest",
+    "lint": "eslint ./packages"
   },
   "files": [
     "src",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/blainekasten/jasmine-enzyme.git"
+    "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
   },
   "keywords": [
     "javascript",
@@ -35,11 +35,6 @@
     "jest",
     "enzyme"
   ],
-  "author": "Blaine Kasten<blainekasten@gmail.com>",
-  "license": "MIT",
-  "peerDependencies": {
-    "enzyme": "1.x || 2.x"
-  },
   "devDependencies": {
     "babel-cli": "^6.5.1",
     "babel-eslint": "^6.0.0",
@@ -52,22 +47,19 @@
     "eslint": "^2.7.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.3.0",
-    "jest-cli": "^12.0.0",
-    "publish-please": "^2.1.4",
+    "jest-cli": "^16.0.1",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
     "readline-sync": "^1.4.1",
-    "rimraf": "^2.5.0"
+    "rimraf": "^2.5.0",
+    "lerna": "2.0.0-beta.30"
   },
   "jest": {
     "testPathDirs": [
-      "<rootDir>/src"
-    ],
-    "setupTestFrameworkScriptFile": "./src/jest.js",
-    "unmockedModulePathPatterns": [
-      "enzyme",
-      "react"
+      "<rootDir>/packages/jasmine-enzyme/src",
+      "<rootDir>/packages/jest-enzyme/src",
+      "<rootDir>/packages/enzyme-matchers/src"
     ],
     "verbose": true
   }

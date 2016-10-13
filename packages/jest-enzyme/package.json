@@ -1,0 +1,59 @@
+{
+  "name": "jest-enzyme",
+  "version": "2.0.0-rc4",
+  "description": "Testing Matchers for Enzyme",
+  "main": "lib/index.js",
+  "author": "Blaine Kasten <blainekasten@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/jest-enzyme#readme",
+  "scripts": {
+    "pretest": "node ../../scripts/jest.js",
+    "test": "jest",
+    "jest": "jest",
+    "lint": "eslint ./src",
+    "prepublish": "npm run build",
+    "build": "babel src --out-dir lib --ignore tests"
+  },
+  "files": [
+    "src",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
+  },
+  "keywords": [
+    "javascript",
+    "shallow rendering",
+    "shallowRender",
+    "test",
+    "reactjs",
+    "react",
+    "flux",
+    "testing",
+    "test utils",
+    "assertion helpers",
+    "tdd",
+    "jest",
+    "enzyme"
+  ],
+  "bugs": {
+    "url": "https://github.com/blainekasten/enzyme-matchers/issues"
+  },
+  "peerDependencies": {
+    "enzyme": "1.x || 2.x"
+  },
+  "dependencies": {
+    "enzyme-matchers": "^2.0.0-rc4"
+  },
+  "jest": {
+    "testPathDirs": [
+      "<rootDir>/src"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/index.js",
+    "preprocessorIgnorePatterns": [
+      "node_modules/(?!enzyme-matchers)"
+    ],
+    "verbose": true
+  }
+}

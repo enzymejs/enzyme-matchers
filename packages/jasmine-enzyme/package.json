@@ -1,0 +1,60 @@
+{
+  "name": "jasmine-enzyme",
+  "version": "2.0.0-rc4",
+  "description": "Jasmine assertions for enzyme",
+  "main": "lib/index.js",
+  "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/jasmine-enzyme#readme",
+  "author": "Blaine Kasten<blainekasten@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "pretest": "node ../../scripts/jest.js",
+    "test": "jest && jasmine",
+    "jest": "jest",
+    "jasmine": "./node_modules/jasmine/bin/jasmine.js",
+    "lint": "eslint ./src",
+    "prepublish": "npm run build",
+    "build": "babel src --out-dir lib --ignore tests"
+  },
+  "files": [
+    "src",
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blainekasten/enzyme-matchers.git"
+  },
+  "keywords": [
+    "javascript",
+    "shallow rendering",
+    "shallowRender",
+    "test",
+    "reactjs",
+    "react",
+    "flux",
+    "testing",
+    "test utils",
+    "assertion helpers",
+    "tdd",
+    "jasmine",
+    "enzyme"
+  ],
+  "peerDependencies": {
+    "enzyme": "1.x || 2.x"
+  },
+  "dependencies": {
+    "enzyme-matchers": "^2.0.0-rc4"
+  },
+  "jest": {
+    "testPathDirs": [
+      "<rootDir>/src"
+    ],
+    "preprocessorIgnorePatterns": [
+      "node_modules/(?!enzyme-matchers)"
+    ],
+    "verbose": true
+  },
+  "devDependencies": {
+    "jsdom": "^9.6.0",
+    "jasmine": "^2.5.2"
+  }
+}

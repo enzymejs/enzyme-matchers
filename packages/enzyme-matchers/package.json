@@ -1,0 +1,36 @@
+{
+  "name": "enzyme-matchers",
+  "version": "2.0.0-rc4",
+  "description": "Testing Matchers for Enzyme",
+  "main": "lib/index.js",
+  "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/enzyme-matchers#readme",
+  "author": "Blaine Kasten <blainekasten@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "pretest": "node ../../scripts/jest.js",
+    "test": "jest",
+    "jest": "jest",
+    "lint": "eslint ./src",
+    "prepublish": "npm run build",
+    "build": "babel src --out-dir lib --ignore tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blainekasten/enzyme-matchers/issues"
+  },
+  "peerDependencies": {
+    "enzyme": "1.x || 2.x"
+  },
+  "dependencies": {
+    "deep-equal-ident": "^1.1.1"
+  },
+  "jest": {
+    "testPathDirs": [
+      "<rootDir>/src"
+    ],
+    "verbose": true
+  }
+}
