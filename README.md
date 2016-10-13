@@ -3,7 +3,6 @@
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
 [![Circle CI](https://circleci.com/gh/blainekasten/enzyme-matchers/tree/master.svg?style=svg)](https://circleci.com/gh/blainekasten/enzyme-matchers/tree/master)
 
-
 An assertion library for [enzyme](https://github.com/airbnb/enzyme/).
 
 This library supports several testing frameworks including [Jest](https://github.com/facebook/jest) and [Jasmine](http://jasmine.github.io/).
