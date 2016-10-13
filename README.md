@@ -2,15 +2,15 @@
 
 An assertion library for [enzyme](https://github.com/airbnb/enzyme/).
 
-This library supports several testing frameworks including [Jest]() and [Jasmine](http://jasmine.github.io/).
+This library supports several testing frameworks including [Jest](https://github.com/facebook/jest) and [Jasmine](http://jasmine.github.io/).
 
-_Want to add support for another testing framework? Check out our [contributing]() doc!_
+_Want to add support for another testing framework? Check out our [contributing](#contributing) doc!_
 
 ### Readme's for each package:
 
-* [enzyme-matchers]()
-* [jasmine-enzyme]()
-* [jest-enzyme]()
+* [enzyme-matchers](/packages/enzyme-matchers/README.md)
+* [jasmine-enzyme](/packages/jasmine-enzyme/README.md)
+* [jest-enzyme](/packages/jest-enzyme/README.md)
 
 [![npm version](https://img.shields.io/npm/v/jasmine-enzyme.svg)](https://www.npmjs.com/package/jasmine-enzyme)
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
@@ -19,11 +19,9 @@ _Want to add support for another testing framework? Check out our [contributing]
 ## Assertions
 
 > Notes
-> * Note, the syntax for using these assertions may be different depending on your testing framework. For more information, visit the frameworks package README in `packages/`
-
+> * The syntax for using these assertions may be different depending on your testing framework. For more information, visit the framework you are using's package README in `packages/`
 
 > * Not all assertions work with every rendering strategy.
-
 >   If you are wondering what rendering mechanism to use when, refer to
 >   [enzyme's documentation](https://github.com/airbnb/enzyme).
 
