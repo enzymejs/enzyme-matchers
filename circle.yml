@@ -6,4 +6,5 @@ test:
   pre:
     - lerna run lint
 
-install: lerna bootstrap
+checkout:
+  post: lerna bootstrap
