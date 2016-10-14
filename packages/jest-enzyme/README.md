@@ -29,8 +29,8 @@ Make sure your `package.json` includes the following:
 
 ```js
 "jest": {
-  "setupTestFrameworkScriptFile": "node_modules/jasmine-enzyme/lib/jest.js",
-  
+  "setupTestFrameworkScriptFile": "node_modules/jest-enzyme/lib/index.js",
+
   // old versions of jest set the unmocks
   "unmockedModulePathPatterns": [
     "react",
