@@ -10,6 +10,8 @@ import { shallow } from 'enzyme';
 import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import html from '../utils/html';
+import getNodeName from '../utils/name';
 
 export default function toContainReact(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
   const wrappedInstance:EnzymeObject = shallow(reactInstance);
@@ -17,9 +19,10 @@ export default function toContainReact(enzymeWrapper:EnzymeObject, reactInstance
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected wrapper to contain ${wrappedInstance.html()}.`
-    ),
+    message: `Expected <${getNodeName(enzymeWrapper)}> to contain ${html(wrappedInstance)} but it was not found.`,
+    negatedMessage: `Expected <${getNodeName(enzymeWrapper)}> not to contain ${html(wrappedInstance)} but it does.`,
+    contextualInformation: {
+      actual: `HTML Output of <${getNodeName(enzymeWrapper)}>:\n ${html(enzymeWrapper)}`,
+    },
   };
 }

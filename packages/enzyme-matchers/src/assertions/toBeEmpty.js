@@ -9,15 +9,17 @@
 import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import html from '../utils/html';
 
 export default function toBeEmpty(enzymeWrapper:EnzymeObject) : Matcher {
   const pass = enzymeWrapper.length === 0;
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected selector to return an empty set, but found ${enzymeWrapper.length} nodes.`
-    ), // eslint-disable-line max-len
+    message: `Expected to receive an empty set, but found ${enzymeWrapper.length} nodes.`,
+    negatedMessage: `Expected to receive an non-empty set, but found 0 nodes.`,
+    contextualInformation: {
+      actual: `Found Nodes HTML output: ${html(enzymeWrapper)}`,
+    },
   };
 }

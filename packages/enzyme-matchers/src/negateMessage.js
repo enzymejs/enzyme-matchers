@@ -10,10 +10,6 @@
  * "not" before it when it's negated.
  */
 
-export default function negateMessage(skipReplace:boolean, message:string) : string {
-  if (skipReplace) {
-    return message;
-  }
-
+export default function negateMessage(message:string) : string {
   return message.replace(' to ', ' not to ');
 }

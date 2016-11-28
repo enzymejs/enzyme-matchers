@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "pretest": "node ../../scripts/jest.js",
-    "test": "jest",
-    "jest": "jest",
+    "test": "node ../../node_modules/jest-cli/bin/jest.js",
+    "jest": "node ../../node_modules/jest-cli/bin/jest.js",
     "lint": "eslint ./src",
     "prepublish": "npm run build",
     "build": "babel src --out-dir lib --ignore tests"

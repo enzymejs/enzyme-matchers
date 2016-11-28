@@ -1,0 +1,19 @@
+exports[`toHaveClassName mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "Found node output: <span class=\"bar baz\"></span>",
+}
+`;
+
+exports[`toHaveClassName mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <span> to have className of \".bar\" but instead found \".bar baz\""`;
+
+exports[`toHaveClassName mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <span> to have className of \".bar\" but instead found \".bar baz\""`;
+
+exports[`toHaveClassName shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "Found node output: <span class=\"bar baz\"></span>",
+}
+`;
+
+exports[`toHaveClassName shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <span> to have className of \".bar\" but instead found \".bar baz\""`;
+
+exports[`toHaveClassName shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <span> to have className of \".bar\" but instead found \".bar baz\""`;

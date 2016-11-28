@@ -1,0 +1,21 @@
+exports[`toHaveHTML mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "Actual HTML: <span id=\"child\">Test</span>",
+  "expected": "Expected HTML: <span id=\"child\">Test</span>",
+}
+`;
+
+exports[`toHaveHTML mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <span> html not to match the expected, but it did."`;
+
+exports[`toHaveHTML mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <span> html to match the expected, but it didn\'t."`;
+
+exports[`toHaveHTML shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "Actual HTML: <span id=\"child\">Test</span>",
+  "expected": "Expected HTML: <span id=\"child\">Test</span>",
+}
+`;
+
+exports[`toHaveHTML shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <span> html not to match the expected, but it did."`;
+
+exports[`toHaveHTML shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <span> html to match the expected, but it didn\'t."`;

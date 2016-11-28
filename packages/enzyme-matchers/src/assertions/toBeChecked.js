@@ -9,6 +9,8 @@
 import negateMessage from '../negateMessage';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import type { Matcher } from '../../../../types/Matcher';
+import getNodeName from '../utils/name';
+import html from '../utils/html';
 
 export default function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
   let pass:boolean = false;
@@ -17,7 +19,7 @@ export default function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
 
   // set to the default checked
   if (props.hasOwnProperty('defaultChecked')) {
-    pass = props.defaultChecked;
+    pass = props.defaultChecked || false;
   }
 
   // if it has the checked property, CHECK that.
@@ -27,6 +29,10 @@ export default function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
 
   return {
     pass,
-    message: negateMessage(pass, `Expected "${enzymeWrapper.html()}" to be checked.`),
+    message: `Expected "${getNodeName(enzymeWrapper)}" to be checked but it wasn't.`,
+    negatedMessage: `Expected "${getNodeName(enzymeWrapper)}" not to be checked but it was.`,
+    contextualInformation: {
+      actual: `Node HTML output: ${html(enzymeWrapper)}`
+    }
   };
 }
