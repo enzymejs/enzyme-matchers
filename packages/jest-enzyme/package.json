@@ -8,8 +8,8 @@
   "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/jest-enzyme#readme",
   "scripts": {
     "pretest": "node ../../scripts/jest.js",
-    "test": "jest",
-    "jest": "jest",
+    "test": "node ../../node_modules/jest-cli/bin/jest.js",
+    "jest": "node ../../node_modules/jest-cli/bin/jest.js",
     "lint": "eslint ./src",
     "prepublish": "npm run build",
     "build": "babel src --out-dir lib --ignore tests"
@@ -51,8 +51,8 @@
       "<rootDir>/src"
     ],
     "setupTestFrameworkScriptFile": "<rootDir>/src/index.js",
-    "preprocessorIgnorePatterns": [
-      "node_modules/(?!enzyme-matchers)"
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!enzyme-matchers)"
     ],
     "verbose": true
   }

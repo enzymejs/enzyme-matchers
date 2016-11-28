@@ -1,0 +1,9 @@
+exports[`toBeDisabled provides contextual information for the message 1`] = `
+Object {
+  "expected": "Node HTML output: <input id=\"disabled\" disabled=\"\"/>",
+}
+`;
+
+exports[`toBeDisabled returns the message with the proper pass verbage 1`] = `"Expected node (input) to be \"disabled\" but it wasn\'t."`;
+
+exports[`toBeDisabled returns the message with the proper pass verbage 2`] = `"Expected node (input) not to be \"disabled\" but it was"`;

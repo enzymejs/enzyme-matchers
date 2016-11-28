@@ -9,38 +9,38 @@
 import enzymeMatchers from 'enzyme-matchers';
 
 import type { MatcherMethods } from '../../../types/MatcherMethods';
-declare var beforeEach:Function;
-declare var jasmine:Object;
-
-let errorThrown:boolean = false;
-
-function addMatcher(matcher: MatcherMethods) : void {
-  const matcherName = Object.keys(matcher)[0];
-
-  /*
-   * only throw one error so the console doesn't
-   * become redunant errors
-   */
-  if (jasmine.matchers[matcherName] && !errorThrown) {
-    errorThrown = true;
-    throw new Error(
-      `JestEnzyme: Added matcher "${matcherName}" is over-riding
-       core matcher. You must rename the function to not destroy core.`
-    );
-  }
-
-  // will transition to jest when https://github.com/facebook/jest/issues/1835
-  // is merged
-  jasmine.addMatchers(matcher);
-}
+declare var expect:Function;
 
 // add methods!
 beforeEach(() => {
-  const matchers = Object.keys(enzymeMatchers);
+  const matchers = {};
 
-  matchers.forEach((matcher:string) => {
-    addMatcher({
-      [matcher]: () => ({ compare: enzymeMatchers[matcher] }),
-    });
+  Object.keys(enzymeMatchers).forEach(matcherKey => {
+    const matcher = {
+      [matcherKey](actual, expected) {
+        const result = enzymeMatchers[matcherKey](actual, expected);
+
+        if (this.isNot) {
+          result.message = result.negatedMessage;
+        }
+
+        // TODO: Remove when fully implemented in enzyme-matchers
+        result.contextualInformation = result.contextualInformation || {};
+
+        if (result.contextualInformation.expected) {
+          result.message += '\n' + this.utils.RECEIVED_COLOR(result.contextualInformation.expected);
+        }
+
+        if (result.contextualInformation.actual) {
+          result.message += '\n' + this.utils.EXPECTED_COLOR(result.contextualInformation.actual);
+        }
+
+        return result;
+      },
+    }[matcherKey];
+
+    matchers[matcherKey] = matcher;
   });
+
+  expect.extend(matchers);
 });

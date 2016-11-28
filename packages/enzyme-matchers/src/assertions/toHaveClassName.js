@@ -6,9 +6,10 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import name from '../utils/name';
+import html from '../utils/html';
 
 export default function toHaveClassName(enzymeWrapper:EnzymeObject, className:string) : Matcher {
   let normalizedClassName = className.split(' ').join('.');
@@ -19,11 +20,14 @@ export default function toHaveClassName(enzymeWrapper:EnzymeObject, className:st
 
   const pass = enzymeWrapper.is(normalizedClassName);
 
+  const actualClassName = enzymeWrapper.prop('className');
+
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected "${enzymeWrapper.html()}" to have className of ${className} but instead found ${enzymeWrapper.props('className')}` // eslint-disable-line max-len
-    ),
+    message: `Expected <${name(enzymeWrapper)}> to have className of "${normalizedClassName}" but instead found ".${actualClassName}"`, // eslint-disable-line max-len
+    negatedMessage: `Expected <${name(enzymeWrapper)}> to have className of "${normalizedClassName}" but instead found ".${actualClassName}"`, // eslint-disable-line max-len
+    contextualInformation: {
+      actual: `Found node output: ${html(enzymeWrapper)}`,
+    },
   };
 }

@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "pretest": "node ../../scripts/jest.js",
-    "test": "jest && jasmine",
-    "jest": "jest",
+    "test": "npm run jest && npm run jasmine",
+    "jest": "node ../../node_modules/jest-cli/bin/jest.js",
     "jasmine": "./node_modules/jasmine/bin/jasmine.js",
     "lint": "eslint ./src",
     "prepublish": "npm run build",
@@ -48,7 +48,7 @@
     "testPathDirs": [
       "<rootDir>/src"
     ],
-    "preprocessorIgnorePatterns": [
+    "transformIgnorePatterns": [
       "node_modules/(?!enzyme-matchers)"
     ],
     "verbose": true
