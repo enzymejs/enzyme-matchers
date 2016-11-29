@@ -38,7 +38,7 @@ function Fixture() {
 }
 
 describe('toHaveHTML', () => {
-  [mount].forEach(builder => {
+  [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
       function build() {
         const wrapper = builder(<Fixture />);

@@ -6,9 +6,9 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import name from '../utils/name';
 
 export default function toHaveRef(enzymeWrapper:EnzymeObject, refName:string) : Matcher {
   const { node } = enzymeWrapper.ref(refName);
@@ -16,9 +16,8 @@ export default function toHaveRef(enzymeWrapper:EnzymeObject, refName:string) : 
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected to find a ref "${refName}"`
-    ),
+    message: `Expected to find a ref named "${refName}" on <${name(enzymeWrapper)}>, but didn't.`,
+    negatedMessage: `Expected not to find a ref named "${refName}" on <${name(enzymeWrapper)}>, but did.`,
+    contextualInformation: {}
   };
 }
