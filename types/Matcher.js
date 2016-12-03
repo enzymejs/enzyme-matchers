@@ -7,6 +7,11 @@
  */
 
 export type Matcher = {
-  message: string,
   pass: boolean,
+  message: string,
+  negatedMessage: string,
+  contextualInformation: {
+    actual: ?string,
+    expected: ?string,
+  },
 };

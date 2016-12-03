@@ -5,7 +5,7 @@ import { findDOMNode } from 'enzyme/build/react-compat';
 const noop = () => {};
 const error = console.error;
 
-function mapWrappersHTML(wrapper) {
+function mapWrappersHTML(wrapper) : string {
   return wrapper.nodes.map(node => {
     const type = node.type || node._reactInternalComponent._tag;
 
