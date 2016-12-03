@@ -6,14 +6,17 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import name from '../utils/name';
+import html from '../utils/html';
 
 export default function toHaveValue(enzymeWrapper:EnzymeObject, expectedValue:any) : Matcher {
   let pass = false;
 
   const props = enzymeWrapper.props();
+  const wrapperName = `<${name(enzymeWrapper)}>`;
+  const wrapperHtml = html(enzymeWrapper);
 
   // set to the default checked
   if (props.hasOwnProperty('defaultValue')) {
@@ -27,9 +30,10 @@ export default function toHaveValue(enzymeWrapper:EnzymeObject, expectedValue:an
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected "${enzymeWrapper.html()}" to have value of "${expectedValue}"`
-    ),
+    message: `Expected ${wrapperName} component to have the value of "${expectedValue}" (using ===), but it didn't.`,
+    negatedMessage: `Expected ${wrapperName} component not to have the value of "${expectedValue}" (using ===), but it did.`,
+    contextualInformation: {
+      actual: wrapperHtml,
+    },
   };
 }
