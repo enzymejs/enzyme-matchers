@@ -1,0 +1,49 @@
+exports[`toHaveTagName mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "<a id=\"a\"></a>",
+}
+`;
+
+exports[`toHaveTagName mount provides the right info for when this method is called with multiple nodes 1`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "Multiple nodes found:
+0: <span/>
+1: <span/>
+",
+    "blah": true,
+  },
+  "message": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
+  "negateMessage": "",
+  "pass": false,
+}
+`;
+
+exports[`toHaveTagName mount returns the message with the proper fail verbage (mount) 1`] = `undefined`;
+
+exports[`toHaveTagName mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <a> node to equal (using ===) type \"a\" but it is a \"a\"."`;
+
+exports[`toHaveTagName shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "<a id=\"a\"></a>",
+}
+`;
+
+exports[`toHaveTagName shallow provides the right info for when this method is called with multiple nodes 1`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "Multiple nodes found:
+0: <span/>
+1: <span/>
+",
+    "blah": true,
+  },
+  "message": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
+  "negateMessage": "",
+  "pass": false,
+}
+`;
+
+exports[`toHaveTagName shallow returns the message with the proper fail verbage (shallow) 1`] = `undefined`;
+
+exports[`toHaveTagName shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <a> node to equal (using ===) type \"a\" but it is a \"a\"."`;
