@@ -6,18 +6,22 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import name from '../utils/name';
+import html from '../utils/html';
 
 export default function toMatchSelector(enzymeWrapper:EnzymeObject, selector:string) : Matcher {
   const pass = enzymeWrapper.is(selector);
+  const wrapperName = `<${name(enzymeWrapper)}>`;
+  const wrapperHtml = html(enzymeWrapper);
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected to match "${selector}".`
-    ),
+    message: `Expected ${wrapperName} component to match the selector "${selector}", but it didn't.`,
+    negatedMessage: `Expected ${wrapperName} component not to match the selector "${selector}", but it did.`,
+    contextualInformation: {
+      actual: wrapperHtml,
+    },
   };
 }

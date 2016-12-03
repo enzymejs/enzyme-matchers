@@ -15,7 +15,7 @@ function Fixture() {
 describe('toHaveValue', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
-      const wrapper = mount(<Fixture />).find('input').first();
+      const wrapper = builder(<Fixture />).find('input').first();
       const truthyResults = toHaveValue(wrapper, 'test');
       const falsyResults = toHaveValue(wrapper, 'Turdz');
 

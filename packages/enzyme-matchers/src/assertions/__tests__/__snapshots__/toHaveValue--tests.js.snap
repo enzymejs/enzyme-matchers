@@ -10,7 +10,7 @@ exports[`toHaveValue mount returns the message with the proper pass verbage (mou
 
 exports[`toHaveValue shallow provides contextual information for the message (shallow) 1`] = `
 Object {
-  "actual": "<input value=\"test\">",
+  "actual": "<input value=\"test\"/>",
 }
 `;
 
