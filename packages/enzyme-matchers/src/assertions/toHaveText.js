@@ -6,22 +6,28 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
+import negatedMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
+import name from '../utils/name';
+import html from '../utils/html';
+
 export default function toHaveText(enzymeWrapper:EnzymeObject, text:?string) : Matcher {
   const actualText = enzymeWrapper.text();
+  const wrapperName = `<${name(enzymeWrapper)}>`;
+  const wrapperHtml = html(enzymeWrapper);
   let pass;
 
   if (text === undefined) {
     pass = actualText.length > 0;
     return {
       pass,
-      message: negateMessage(
-        pass,
-        'Expected node to have text'
-      ),
+      message: `Expected ${wrapperName} node to have text, but it did not.`,
+      negatedMessage: `Expected ${wrapperName} node not to have text, but it did`,
+      contextualInformation: {
+        actual: wrapperHtml,
+      },
     };
   }
 
@@ -29,9 +35,11 @@ export default function toHaveText(enzymeWrapper:EnzymeObject, text:?string) : M
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected "${actualText}" to equal "${text}"`
-    ),
+    message: `Expected ${wrapperName} components text to match (using ===), but it did not.`,
+    negatedMessage: `Expected ${wrapperName} components text not to match (using ===), but it did.`,
+    contextualInformation: {
+      actual: actualText,
+      expected: text,
+    },
   };
 }

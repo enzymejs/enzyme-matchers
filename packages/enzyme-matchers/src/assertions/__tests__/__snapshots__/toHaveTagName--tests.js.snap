@@ -14,12 +14,12 @@ Object {
     "blah": true,
   },
   "message": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
-  "negateMessage": "",
+  "negatedMessage": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
   "pass": false,
 }
 `;
 
-exports[`toHaveTagName mount returns the message with the proper fail verbage (mount) 1`] = `undefined`;
+exports[`toHaveTagName mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <a> node not to equal (using ===) type \"a\" but it is that type."`;
 
 exports[`toHaveTagName mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <a> node to equal (using ===) type \"a\" but it is a \"a\"."`;
 
@@ -39,11 +39,11 @@ Object {
     "blah": true,
   },
   "message": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
-  "negateMessage": "",
+  "negatedMessage": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
   "pass": false,
 }
 `;
 
-exports[`toHaveTagName shallow returns the message with the proper fail verbage (shallow) 1`] = `undefined`;
+exports[`toHaveTagName shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <a> node not to equal (using ===) type \"a\" but it is that type."`;
 
 exports[`toHaveTagName shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <a> node to equal (using ===) type \"a\" but it is a \"a\"."`;
