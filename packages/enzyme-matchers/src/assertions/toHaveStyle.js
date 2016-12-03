@@ -11,6 +11,7 @@ import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import name from '../utils/name';
 import stringify from '../utils/stringify';
+import html from '../utils/html';
 
 export default function toHaveStyle(
   enzymeWrapper:EnzymeObject,
@@ -23,7 +24,11 @@ export default function toHaveStyle(
   if (!style) {
     return {
       pass: false,
-      message: 'Expected component to have a style prop',
+      message: `Expected <${name(enzymeWrapper)}> component to have a style prop but it did not.`,
+      negatedMessage: `Expected <${name(enzymeWrapper)}> component not to have a style prop but it did.`,
+      contextualInformation: {
+        actual: html(enzymeWrapper),
+      },
     };
   }
 
@@ -31,7 +36,11 @@ export default function toHaveStyle(
   if (!style.hasOwnProperty(styleKey)) {
     return {
       pass: false,
-      message: `Expected component to have style key of "${styleKey}"`,
+      message: `Expected <${name(enzymeWrapper)}> component to have a style key of "${styleKey}" but it did not.`,
+      negatedMessage: `Expected <${name(enzymeWrapper)}> component not to have a style key of "${styleKey}" but it did.`,
+      contextualInformation: {
+        actual: html(enzymeWrapper),
+      },
     };
   }
 
