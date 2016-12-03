@@ -1,6 +1,6 @@
 import colors from 'colors/safe';
 
-function stringifySingle(key, value) : Array<string> {
+function stringifySingle(key:string, value:any) : Array<string> {
   let stringifyingValue = value;
   if (Array.isArray(value)) {
     const values = value.map(v => stringifySingle('', v)[1]);
@@ -46,7 +46,7 @@ function color([key, value]) : string {
   return `${colors.yellow(key)}${colors.gray(':')} ${colors.yellow(value)}`;
 }
 
-export default function stringify(object) : string {
+export default function stringify(object:Object) : string {
   const keys = Object.keys(object);
 
   return keys.map(key => color(stringifySingle(key, object[key]))).join('\n');
