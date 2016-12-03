@@ -1,0 +1,37 @@
+exports[`toHaveState mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "Actual [33marray[39m[90m:[39m [33m[90m[90m[[90m
+  [34m1[90m
+  [34m2[90m
+  [34m3[90m
+[90m][90m[33m[39m",
+  "expected": "Expected state: [33marray[39m[90m:[39m [33m[90m[90m[[90m
+  [34m1[90m
+  [34m2[90m
+  [34m3[90m
+[90m][90m[33m[39m",
+}
+`;
+
+exports[`toHaveState mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <Fixture> component state values to be different for key \"array\" but they didn\'t."`;
+
+exports[`toHaveState mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <Fixture> component state values to match for key \"array\" but they didn\'t."`;
+
+exports[`toHaveState shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "Actual [33marray[39m[90m:[39m [33m[90m[90m[[90m
+  [34m1[90m
+  [34m2[90m
+  [34m3[90m
+[90m][90m[33m[39m",
+  "expected": "Expected state: [33marray[39m[90m:[39m [33m[90m[90m[[90m
+  [34m1[90m
+  [34m2[90m
+  [34m3[90m
+[90m][90m[33m[39m",
+}
+`;
+
+exports[`toHaveState shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <Fixture> component state values to be different for key \"array\" but they didn\'t."`;
+
+exports[`toHaveState shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <Fixture> component state values to match for key \"array\" but they didn\'t."`;
