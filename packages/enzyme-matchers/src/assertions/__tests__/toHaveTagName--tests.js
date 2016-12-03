@@ -14,32 +14,35 @@ function Fixture() {
 }
 
 describe('toHaveTagName', () => {
-  it('gives a specific error when trying to find for multiple nodes', () => {
-    const wrapper = shallow(<Fixture />);
+  [shallow, mount].forEach(builder => {
+    describe(builder.name, () => {
+      const wrapper = builder(<Fixture />).find('a');
+      const truthyResults = toHaveTagName(wrapper, 'a');
+      const falsyResults = toHaveTagName(wrapper, 'span');
 
-    const result = toHaveTagName(wrapper.find('span'), 'span');
+      it('returns the pass flag properly', () => {
+        expect(truthyResults.pass).toBeTruthy();
+        expect(falsyResults.pass).toBeFalsy();
+      });
 
-    expect(result.pass).toBeFalsy();
-    expect(result.message).toBe(
-      'Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.'
-    );
-  });
+      it(`returns the message with the proper pass verbage (${builder.name})`, () => {
+        expect(truthyResults.message).toMatchSnapshot();
+      });
 
-  it('returns the pass flag properly', () => {
-    const wrapper = mount(<Fixture />).find('a');
-    const truthyResults = toHaveTagName(wrapper, 'a');
-    const falsyResults = toHaveTagName(wrapper, 'span');
+      it(`returns the message with the proper fail verbage (${builder.name})`, () => {
+        expect(truthyResults.negatedMessage).toMatchSnapshot();
+      });
 
-    expect(truthyResults.pass).toBeTruthy();
-    expect(falsyResults.pass).toBeFalsy();
-  });
+      it(`provides contextual information for the message (${builder.name})`, () => {
+        expect(truthyResults.contextualInformation).toMatchSnapshot();
+      });
 
-  it('returns the message with the proper pass/fail verbage', () => {
-    const wrapper = mount(<Fixture />).find('a');
-    const truthyResults = toHaveTagName(wrapper, 'a');
-    const falsyResults = toHaveTagName(wrapper, 'span');
+      it('provides the right info for when this method is called with multiple nodes', () => {
+        const wrapper = builder(<div><span /><span /></div>).find('span');
+        const falsyResults = toHaveTagName(wrapper, 'span');
 
-    expect(truthyResults.message).not.toContain('not');
-    expect(falsyResults.message).toContain('not');
+        expect(falsyResults).toMatchSnapshot();
+      });
+    });
   });
 });
