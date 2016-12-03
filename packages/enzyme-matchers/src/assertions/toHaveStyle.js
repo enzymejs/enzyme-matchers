@@ -49,7 +49,7 @@ export default function toHaveStyle(
   return {
     pass,
     message: `Expected <${name(enzymeWrapper)}> component style values to match for key "${styleKey}", but they didn't`,
-    negateMessage: `Expected <${name(enzymeWrapper)}> component style values to be different for key "${styleKey}", but they weren't`,
+    negatedMessage: `Expected <${name(enzymeWrapper)}> component style values to be different for key "${styleKey}", but they weren't`,
     contextualInformation: {
       actual: `Actual: ${stringify({[styleKey]: style[styleKey]})}`,
       expected: `Expected: ${stringify({[styleKey]: styleValue})}`,

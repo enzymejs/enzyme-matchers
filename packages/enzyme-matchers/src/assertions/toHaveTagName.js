@@ -6,7 +6,6 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
@@ -16,10 +15,12 @@ import html from '../utils/html';
 export default function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : Matcher {
   const wrapperHtml = html(enzymeWrapper);
   if (enzymeWrapper.nodes.length > 1) {
+    const message = `Cannot verify tag name on a wrapper of multiple nodes. Found ${enzymeWrapper.length} nodes.`; // eslint-disable-line max-len
+
     return {
       pass: false,
-      message: `Cannot verify tag name on a wrapper of multiple nodes. Found ${enzymeWrapper.length} nodes.`, // eslint-disable-line max-len
-      negateMessage: ``,
+      message,
+      negatedMessage: message,
       contextualInformation: {
         actual: wrapperHtml,
         blah: true
@@ -35,7 +36,7 @@ export default function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : 
   return {
     pass,
     message: `Expected ${wrapperName} node to equal (using ===) type "${tag}" but it is a "${actualTag}".`,
-    negateMessage: `Expected ${wrapperName} node not to equal (using ===) type "${tag}" but it is that type.`,
+    negatedMessage: `Expected ${wrapperName} node not to equal (using ===) type "${tag}" but it is that type.`,
     contextualInformation: {
       actual: wrapperHtml,
     },
