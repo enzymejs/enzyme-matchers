@@ -1,0 +1,19 @@
+exports[`toMatchSelector mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "<span id=\"child\" class=\"foo\"></span>",
+}
+`;
+
+exports[`toMatchSelector mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <span> component not to match the selector \"#child\", but it did."`;
+
+exports[`toMatchSelector mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <span> component to match the selector \"#child\", but it didn\'t."`;
+
+exports[`toMatchSelector shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "<span id=\"child\" class=\"foo\"></span>",
+}
+`;
+
+exports[`toMatchSelector shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <span> component not to match the selector \"#child\", but it did."`;
+
+exports[`toMatchSelector shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <span> component to match the selector \"#child\", but it didn\'t."`;
