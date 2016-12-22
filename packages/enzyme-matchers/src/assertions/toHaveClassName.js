@@ -13,14 +13,34 @@ import html from '../utils/html';
 
 export default function toHaveClassName(enzymeWrapper:EnzymeObject, className:string) : Matcher {
   let normalizedClassName = className.split(' ').join('.');
+  let actualClassName = '(none)';
+  let pass = false;
 
   if (normalizedClassName[0] !== '.') {
     normalizedClassName = `.${normalizedClassName}`;
   }
 
-  const pass = enzymeWrapper.is(normalizedClassName);
+  // handle different lengths of enzymeWrappers
+  switch (enzymeWrapper.nodes.length) {
+  case 0:
+    break; // this will and should fail the test
+  case 1:
+    pass = enzymeWrapper.is(normalizedClassName);
+    actualClassName = enzymeWrapper.prop('className');
+    break;
+  default:
+    let allMatch = true;
 
-  const actualClassName = enzymeWrapper.prop('className');
+    enzymeWrapper.forEach(node => {
+      if (!node.is(normalizedClassName)) {
+        allMatch = false;
+      }
+      actualClassName = node.prop('className');
+    });
+
+    pass = allMatch;
+  }
+
 
   return {
     pass,

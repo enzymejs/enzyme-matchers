@@ -6,7 +6,6 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import type { Matcher } from '../../../../types/Matcher';
 import getNodeName from '../utils/name';

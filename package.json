@@ -9,6 +9,7 @@
     "test-matchers": "cd ./packages/enzyme-matchers && npm run jest",
     "test-jasmine": "cd ./packages/jasmine-enzyme && npm run jest && npm run jasmine",
     "test-jest": "cd ./packages/jest-enzyme && npm run jest",
+    "test-jestw": "cd ./packages/jest-enzyme && npm run jest --watch",
     "lint": "eslint ./packages"
   },
   "files": [
