@@ -38,6 +38,21 @@ describe('getNodeName', () => {
           name(builder(<Fixture />).find('.foo'))
         ).toBe('Fixture, 2 mixed nodes found')
       });
+
+      it('gives a useful string for arrays', () => {
+        const wrapper = builder(
+          <div>
+            <i/>
+            <i/>
+          </div>
+        );
+
+        const arrayOf2 = wrapper.find('i');
+        const arrayOfNone = wrapper.find('b');
+
+        expect(name(arrayOfNone)).toBe('[empty set]')
+        expect(name(arrayOf2)).toBe('div, 2 i nodes found')
+      });
     });
   });
 
@@ -47,4 +62,5 @@ describe('getNodeName', () => {
       name(fakeWrapper)
     ).toBe('(anonymous)');
   });
+
 });

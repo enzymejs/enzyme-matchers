@@ -44,7 +44,13 @@ function getNameFromRoot(root:Object) : string {
  */
 export default function getNameFromArbitraryWrapper(wrapper:Object) : string {
   const nodeCount:number = wrapper.nodes.length;
-  if (nodeCount > 1) {
+
+  switch (nodeCount) {
+  case 0:
+    return '[empty set]';
+  case 1:
+    return getNameFromRoot(wrapper);
+  default:
     const nodeTypeMap:Object = {};
 
     // determine if we have a mixed list of nodes or not
@@ -62,7 +68,5 @@ export default function getNameFromArbitraryWrapper(wrapper:Object) : string {
     const root:string = getNameFromRoot(wrapper.root);
 
     return `${root}, ${nodeCount} ${nodeTypes} nodes found`
-  }
-
-  return getNameFromRoot(wrapper);
+  } 
 }

@@ -24,9 +24,6 @@ beforeEach(() => {
           result.message = result.negatedMessage;
         }
 
-        // TODO: Remove when fully implemented in enzyme-matchers
-        result.contextualInformation = result.contextualInformation || {};
-
         if (result.contextualInformation.expected) {
           result.message += '\n' + this.utils.RECEIVED_COLOR(result.contextualInformation.expected);
         }

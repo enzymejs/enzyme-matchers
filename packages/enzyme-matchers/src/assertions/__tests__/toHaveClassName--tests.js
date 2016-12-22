@@ -8,6 +8,8 @@ function Fixture() {
     <div>
       <span className="foo" />
       <span className="bar baz" />
+      <span className="baux" />
+      <span className="baux" />
     </div>
   );
 }
@@ -34,6 +36,14 @@ describe('toHaveClassName', () => {
 
       it(`provides contextual information for the message (${builder.name})`, () => {
         expect(truthyResults.contextualInformation).toMatchSnapshot();
+      });
+
+      it(`works for multiple nodes (${builder.name})`, () => {
+        const multipleNodes = wrapper.find('.baux');
+
+        const results = toHaveClassName(multipleNodes, 'baux');
+
+        expect(results).toMatchSnapshot();
       });
     });
   });
