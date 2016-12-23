@@ -23,7 +23,7 @@ export default function toBePresent(enzymeWrapper:EnzymeObject) : Matcher {
   return {
     pass,
     message: `Expected "${getNodeName(enzymeWrapper)}.toBePresent()" results to contain at least one node, instead found none.`,
-    negatedMessage: `Expected "${getNodeName(enzymeWrapper)}.toBePresent()" selector results to contain 0 nodes, instead found ${enzymeWrapper.nodes.length}.`,
+    negatedMessage: `Expected "${getNodeName(enzymeWrapper)}.not.toBePresent()" selector results to contain 0 nodes, instead found ${enzymeWrapper.nodes.length}.`,
     contextualInformation,
   };
 }

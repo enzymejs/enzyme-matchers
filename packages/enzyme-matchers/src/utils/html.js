@@ -10,12 +10,13 @@ function mapWrappersHTML(wrapper) : string {
     const type = node.type || node._reactInternalComponent._tag;
 
     console.error = noop;
-    const children = node.props
-      ? node.props.children
-      : node._reactInternalComponent._currentElement.props.children;
+    const { children, ...props } = node.props
+      ? node.props
+      : node._reactInternalComponent._currentElement.props;
     console.error = error;
 
-    let stringifiedNode = `<${type}`;
+    const transformedProps = Object.keys(props).map(key => `${key}="${props[key]}"`);
+    let stringifiedNode = `<${type} ${transformedProps.join(' ')}`;
 
     if (children) {
       stringifiedNode += `>[..children..]</${node.type}`;
@@ -28,11 +29,14 @@ function mapWrappersHTML(wrapper) : string {
 }
 
 export default function printHTMLForWrapper(wrapper) : string {
-  if (wrapper.nodes.length === 1) {
+  switch (wrapper.nodes.length) {
+  case 0:
+    return '[empty set]';
+  case 1:
     return wrapper.html();
+  default:
+    return 'Multiple nodes found:\n' + mapWrappersHTML(wrapper).reduce((acc, curr, index) => {
+      return acc + `${index}: ${curr}\n`
+    }, '');
   }
-
-  return 'Multiple nodes found:\n' + mapWrappersHTML(wrapper).reduce((acc, curr, index) => {
-    return acc + `${index}: ${curr}\n`
-  }, '')
 }

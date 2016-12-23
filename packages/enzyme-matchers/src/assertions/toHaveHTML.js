@@ -11,6 +11,15 @@ import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import name from '../utils/name';
 
 export default function toHaveHTML(enzymeWrapper:EnzymeObject, html:string) : Matcher {
+  switch (enzymeWrapper.nodes.length) {
+  case 0:
+    throw new Error('EnzymeMatchers::toHaveHTML must be called on a single node, not an empty node.');
+  case 1:
+    break;
+  default:
+    throw new Error('EnzymeMatchers::toHaveHTML must be called on a single node, not multiple nodes.');
+  }
+
   const wrapperHTML = enzymeWrapper.html();
 
   // normalize quotes

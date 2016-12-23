@@ -13,8 +13,17 @@ describe('html', () => {
         const Fixture = () => <div><i /><i /></div>;
 
         expect(html(builder(<Fixture />).find('i'))).toBe(`Multiple nodes found:
-0: <i/>
-1: <i/>
+0: <i />
+1: <i />
+`);
+      });
+
+      it('prints props with nodes', () => {
+        const Fixture = () => <div><i className="foo"/><i disabled/></div>;
+
+        expect(html(builder(<Fixture />).find('i'))).toBe(`Multiple nodes found:
+0: <i className="foo"/>
+1: <i disabled="true"/>
 `);
       });
     });

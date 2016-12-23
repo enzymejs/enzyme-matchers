@@ -49,12 +49,12 @@
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.3.0",
     "jest-cli": "^17.0.0",
+    "lerna": "2.0.0-beta.30",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
     "readline-sync": "^1.4.1",
-    "rimraf": "^2.5.0",
-    "lerna": "2.0.0-beta.30"
+    "rimraf": "^2.5.0"
   },
   "jest": {
     "testPathDirs": [
@@ -63,5 +63,8 @@
       "<rootDir>/packages/enzyme-matchers/src"
     ],
     "verbose": true
+  },
+  "dependencies": {
+    "babel-preset-stage-2": "^6.18.0"
   }
 }
