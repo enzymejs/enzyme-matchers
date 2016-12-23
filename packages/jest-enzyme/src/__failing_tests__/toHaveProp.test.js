@@ -16,7 +16,7 @@ describe('failing test', () => {
 
   it('fails NOT toHaveProp', () => {
     expect(
-      shallow(<Fixture disabled/>)
+      shallow(<Fixture disabled />)
     ).not.toHaveProp('disabled', true);
   });
 });

@@ -22,23 +22,23 @@ export default function toHaveClassName(enzymeWrapper:EnzymeObject, className:st
 
   // handle different lengths of enzymeWrappers
   switch (enzymeWrapper.nodes.length) {
-  case 0:
-    break; // this will and should fail the test
-  case 1:
-    pass = enzymeWrapper.is(normalizedClassName);
-    actualClassName = enzymeWrapper.prop('className');
-    break;
-  default:
-    let allMatch = true;
+    case 0:
+      break; // this will and should fail the test
+    case 1:
+      pass = enzymeWrapper.is(normalizedClassName);
+      actualClassName = enzymeWrapper.prop('className');
+      break;
+    default:
+      let allMatch = true;
 
-    enzymeWrapper.forEach(node => {
-      if (!node.is(normalizedClassName)) {
-        allMatch = false;
-      }
-      actualClassName = node.prop('className');
-    });
+      enzymeWrapper.forEach(node => {
+        if (!node.is(normalizedClassName)) {
+          allMatch = false;
+        }
+        actualClassName = node.prop('className');
+      });
 
-    pass = allMatch;
+      pass = allMatch;
   }
 
 

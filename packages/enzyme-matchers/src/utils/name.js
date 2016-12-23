@@ -4,15 +4,13 @@
  * @returns string
  */
 
-
-
 /*
  * Gets the name of the node or component for the SINGLE item
  */
 function getNameFromRoot(root:Object) : string {
   // shallow
   if (root.unrendered) {
-    const { type }  = root.unrendered;
+    const { type } = root.unrendered;
     return type.name || type;
   }
 
@@ -46,27 +44,30 @@ export default function getNameFromArbitraryWrapper(wrapper:Object) : string {
   const nodeCount:number = wrapper.nodes.length;
 
   switch (nodeCount) {
-  case 0:
-    return '[empty set]';
-  case 1:
-    return getNameFromRoot(wrapper);
-  default:
-    const nodeTypeMap:Object = {};
+    case 0: {
+      return '[empty set]';
+    }
+    case 1: {
+      return getNameFromRoot(wrapper);
+    }
+    default: {
+      const nodeTypeMap:Object = {};
 
-    // determine if we have a mixed list of nodes or not
-    wrapper.nodes.forEach(node => {
-      const name:string = getNameFromRoot(node);
-      nodeTypeMap[name] = (nodeTypeMap[name] || 0) + 1;
-    });
+      // determine if we have a mixed list of nodes or not
+      wrapper.nodes.forEach(node => {
+        const name:string = getNameFromRoot(node);
+        nodeTypeMap[name] = (nodeTypeMap[name] || 0) + 1;
+      });
 
-    const nodeTypeList:Array<string> = Object.keys(nodeTypeMap);
+      const nodeTypeList:Array<string> = Object.keys(nodeTypeMap);
 
-    const nodeTypes:string = nodeTypeList.length === 1
-      ? nodeTypeList[0]
-      : 'mixed';
+      const nodeTypes:string = nodeTypeList.length === 1
+        ? nodeTypeList[0]
+        : 'mixed';
 
-    const root:string = getNameFromRoot(wrapper.root);
+      const root:string = getNameFromRoot(wrapper.root);
 
-    return `${root}, ${nodeCount} ${nodeTypes} nodes found`
-  } 
+      return `${root}, ${nodeCount} ${nodeTypes} nodes found`;
+    }
+  }
 }

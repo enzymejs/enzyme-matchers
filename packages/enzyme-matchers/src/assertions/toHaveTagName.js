@@ -23,7 +23,7 @@ export default function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : 
       negatedMessage: message,
       contextualInformation: {
         actual: wrapperHtml,
-        blah: true
+        blah: true,
       },
     };
   }
@@ -34,7 +34,7 @@ export default function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : 
 
   const pass = actualTag === tag;
 
-  const wrapperName = `<${name(enzymeWrapper)}>`
+  const wrapperName = `<${name(enzymeWrapper)}>`;
 
   return {
     pass,

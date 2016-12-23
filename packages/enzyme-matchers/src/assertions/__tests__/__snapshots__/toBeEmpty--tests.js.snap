@@ -1,7 +1,6 @@
 exports[`toBeEmpty provides contextual information for the message 1`] = `
 Object {
-  "actual": "Found Nodes HTML output: Multiple nodes found:
-",
+  "actual": "Found Nodes HTML output: [empty set]",
 }
 `;
 

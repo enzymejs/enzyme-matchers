@@ -35,24 +35,24 @@ describe('toHaveState', () => {
       }
 
       it('returns the pass flag properly', () => {
-        const {truthyResults, falsyResults} = build();
+        const { truthyResults, falsyResults } = build();
 
         expect(truthyResults.pass).toBeTruthy();
         expect(falsyResults.pass).toBeFalsy();
       });
 
       it(`returns the message with the proper pass verbage (${builder.name})`, () => {
-        const {truthyResults} = build();
+        const { truthyResults } = build();
         expect(truthyResults.message).toMatchSnapshot();
       });
 
       it(`returns the message with the proper fail verbage (${builder.name})`, () => {
-        const {truthyResults} = build();
+        const { truthyResults } = build();
         expect(truthyResults.negatedMessage).toMatchSnapshot();
       });
 
       it(`provides contextual information for the message (${builder.name})`, () => {
-        const {truthyResults} = build();
+        const { truthyResults } = build();
         expect(truthyResults.contextualInformation).toMatchSnapshot();
       });
 

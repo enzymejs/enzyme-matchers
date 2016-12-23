@@ -40,18 +40,18 @@ describe('toHaveStyle', () => {
       });
 
       it('provides the right info for if there is no style prop', () => {
-        const wrapper = builder(<div />);
-        const falsyResults = toHaveStyle(wrapper, 'height', '0');
+        const nwrapper = builder(<div />);
+        const nfalsyResults = toHaveStyle(nwrapper, 'height', '0');
 
-        expect(falsyResults).toMatchSnapshot();
+        expect(nfalsyResults).toMatchSnapshot();
       });
 
       it('provides the right info when a specific key doesn\'t exist', () => {
         const style = { width: '0' };
-        const wrapper = builder(<div style={style}/>);
-        const falsyResults = toHaveStyle(wrapper, 'height', '0');
+        const nwrapper = builder(<div style={style} />);
+        const nfalsyResults = toHaveStyle(nwrapper, 'height', '0');
 
-        expect(falsyResults).toMatchSnapshot();
+        expect(nfalsyResults).toMatchSnapshot();
       });
     });
   });

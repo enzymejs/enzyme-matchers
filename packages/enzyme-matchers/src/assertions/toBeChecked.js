@@ -31,7 +31,7 @@ export default function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
     message: `Expected "${getNodeName(enzymeWrapper)}" to be checked but it wasn't.`,
     negatedMessage: `Expected "${getNodeName(enzymeWrapper)}" not to be checked but it was.`,
     contextualInformation: {
-      actual: `Node HTML output: ${html(enzymeWrapper)}`
-    }
+      actual: `Node HTML output: ${html(enzymeWrapper)}`,
+    },
   };
 }

@@ -20,9 +20,9 @@ export default function toHaveProp(
   const props = enzymeWrapper.props();
 
   const contextualInformation = {
-    actual: `Actual: ${stringify({[propKey]: props[propKey]})}`,
-    expected: `Expected: ${stringify({[propKey]: propValue})}`,
-  }
+    actual: `Actual: ${stringify({ [propKey]: props[propKey] })}`,
+    expected: `Expected: ${stringify({ [propKey]: propValue })}`,
+  };
 
   // error if the prop doesnt exist
   if (!props.hasOwnProperty(propKey)) {

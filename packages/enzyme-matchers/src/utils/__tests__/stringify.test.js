@@ -7,7 +7,7 @@ describe('stringify', () => {
     proof.truthy = true;
     proof.string = 'string';
     proof.circular = proof;
-    proof.instance = new Promise(resolve => {});
+    proof.instance = new Promise(() => {});
     proof.class = Promise;
     proof.arry = Object.keys(proof).map(k => proof[k]); // includes all other proofs
 

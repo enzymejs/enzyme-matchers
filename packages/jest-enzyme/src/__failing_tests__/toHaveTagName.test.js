@@ -12,7 +12,7 @@ describe('failing test', () => {
 
   it('fails NOT toHaveTagName', () => {
     expect(
-      shallow(<Fixture/>)
+      shallow(<Fixture />)
     ).not.toHaveTagName('div');
   });
 });

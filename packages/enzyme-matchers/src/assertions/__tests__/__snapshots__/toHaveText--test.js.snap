@@ -1,7 +1,7 @@
 exports[`toHaveText mount provides contextual information for the message (mount) 1`] = `
 Object {
-  "actual": "Test",
-  "expected": "Test",
+  "actual": "Actual HTML: \"Test\"",
+  "expected": "Expected HTML: \"Test\"",
 }
 `;
 
@@ -11,8 +11,8 @@ exports[`toHaveText mount returns the message with the proper pass verbage (moun
 
 exports[`toHaveText shallow provides contextual information for the message (shallow) 1`] = `
 Object {
-  "actual": "Test",
-  "expected": "Test",
+  "actual": "Actual HTML: \"Test\"",
+  "expected": "Expected HTML: \"Test\"",
 }
 `;
 

@@ -27,11 +27,11 @@ describe('failing test', () => {
 
   it('fails NOT toHaveState', () => {
     expect(
-      shallow(<Fixture disabled/>)
+      shallow(<Fixture disabled />)
     ).not.toHaveState('foo');
 
     expect(
-      shallow(<Fixture disabled/>)
+      shallow(<Fixture disabled />)
     ).not.toHaveState('foo', true);
   });
 });
