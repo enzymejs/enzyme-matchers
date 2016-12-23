@@ -42,7 +42,8 @@
     "url": "https://github.com/blainekasten/enzyme-matchers/issues"
   },
   "peerDependencies": {
-    "enzyme": "1.x || 2.x"
+    "enzyme": "1.x || 2.x",
+    "jest": ">17.0.0"
   },
   "dependencies": {
     "enzyme-matchers": "^2.1.0-rc1"
