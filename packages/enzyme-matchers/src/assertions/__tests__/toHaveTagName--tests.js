@@ -38,19 +38,19 @@ describe('toHaveTagName', () => {
       });
 
       it('provides the right info for when this method is called with multiple nodes', () => {
-        const wrapper = builder(<div><span /><span /></div>).find('span');
-        const falsyResults = toHaveTagName(wrapper, 'span');
+        const nwrapper = builder(<div><span /><span /></div>).find('span');
+        const nfalsyResults = toHaveTagName(nwrapper, 'span');
 
-        expect(falsyResults).toMatchSnapshot();
+        expect(nfalsyResults).toMatchSnapshot();
       });
 
       it('works on composite functions', () => {
-        const wrapper = builder(<Fixture />);
-        const truthyResults = toHaveTagName(wrapper, 'Fixture');
-        const falsyResults = toHaveTagName(wrapper, 'a');
+        const nwrapper = builder(<Fixture />);
+        const ntruthyResults = toHaveTagName(nwrapper, 'Fixture');
+        const nfalsyResults = toHaveTagName(nwrapper, 'a');
 
-        expect(truthyResults).toMatchSnapshot();
-        expect(falsyResults).toMatchSnapshot();
+        expect(ntruthyResults).toMatchSnapshot();
+        expect(nfalsyResults).toMatchSnapshot();
       });
     });
   });

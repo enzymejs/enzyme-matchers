@@ -26,9 +26,9 @@ export default function toHaveState(
       message: `Expected <${name(enzymeWrapper)}> component state to have key of "${stateKey}"`,
       negatedMessage: `Expected <${name(enzymeWrapper)}> component state to not contain a key of "${stateKey}".`,
       contextualInformation: {
-        actual: `Actual ${stringify({[stateKey]: state[stateKey]})}`,
-        expected: `Expected state: ${stringify({[stateKey]: stateValue})}`,
-      }
+        actual: `Actual ${stringify({ [stateKey]: state[stateKey] })}`,
+        expected: `Expected state: ${stringify({ [stateKey]: stateValue })}`,
+      },
     };
   }
 
@@ -40,9 +40,9 @@ export default function toHaveState(
       message: `Expected <${name(enzymeWrapper)}> component state to have key of "${stateKey}"`,
       negatedMessage: `Expected <${name(enzymeWrapper)}> component state to not contain a key of "${stateKey}".`,
       contextualInformation: {
-        actual: `Actual ${stringify({[stateKey]: state[stateKey]})}`,
-        expected: `Expected state: ${stringify({[stateKey]: stateValue})}`,
-      }
+        actual: `Actual ${stringify({ [stateKey]: state[stateKey] })}`,
+        expected: `Expected state: ${stringify({ [stateKey]: stateValue })}`,
+      },
     };
   }
 
@@ -53,8 +53,8 @@ export default function toHaveState(
     message: `Expected <${name(enzymeWrapper)}> component state values to match for key "${stateKey}" but they didn't.`,
     negatedMessage: `Expected <${name(enzymeWrapper)}> component state values to be different for key "${stateKey}" but they didn't.`,
     contextualInformation: {
-      actual: `Actual ${stringify({[stateKey]: state[stateKey]})}`,
-      expected: `Expected state: ${stringify({[stateKey]: stateValue})}`,
-    }
+      actual: `Actual ${stringify({ [stateKey]: state[stateKey] })}`,
+      expected: `Expected state: ${stringify({ [stateKey]: stateValue })}`,
+    },
   };
 }

@@ -1,3 +1,4 @@
+/* eslint-disable new-cap */
 /**
  * This source code is licensed under the MIT-style license found in the
  * LICENSE file in the root directory of this source tree. *
@@ -8,7 +9,6 @@
 
 import enzymeMatchers from 'enzyme-matchers';
 
-import type { MatcherMethods } from '../../../types/MatcherMethods';
 declare var expect:Function;
 
 // add methods!
@@ -25,11 +25,11 @@ beforeEach(() => {
         }
 
         if (result.contextualInformation.expected) {
-          result.message += '\n' + this.utils.RECEIVED_COLOR(result.contextualInformation.expected);
+          result.message += `\n${this.utils.RECEIVED_COLOR(result.contextualInformation.expected)}`;
         }
 
         if (result.contextualInformation.actual) {
-          result.message += '\n' + this.utils.EXPECTED_COLOR(result.contextualInformation.actual);
+          result.message += `\n${this.utils.EXPECTED_COLOR(result.contextualInformation.actual)}`;
         }
 
         return result;

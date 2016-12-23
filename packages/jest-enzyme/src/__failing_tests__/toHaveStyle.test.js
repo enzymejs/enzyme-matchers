@@ -4,9 +4,9 @@ const React = require('react');
 describe('failing test', () => {
   const Fixture = () => (
     <div>
-      <span style={{background: 'black'}} />
+      <span style={{ background: 'black' }} />
     </div>
-  )
+  );
 
   it('fails toHaveStyle', () => {
     expect(
@@ -20,7 +20,7 @@ describe('failing test', () => {
 
   it('fails NOT toHaveStyle', () => {
     expect(
-      shallow(<Fixture/>).find('span')
+      shallow(<Fixture />).find('span')
     ).not.toHaveStyle('background', 'blue');
   });
 });

@@ -16,7 +16,7 @@ export default function toBeEmpty(enzymeWrapper:EnzymeObject) : Matcher {
   return {
     pass,
     message: `Expected to receive an empty set, but found ${enzymeWrapper.length} nodes.`,
-    negatedMessage: `Expected to receive an non-empty set, but found 0 nodes.`,
+    negatedMessage: 'Expected to receive an non-empty set, but found 0 nodes.',
     contextualInformation: {
       actual: `Found Nodes HTML output: ${html(enzymeWrapper)}`,
     },

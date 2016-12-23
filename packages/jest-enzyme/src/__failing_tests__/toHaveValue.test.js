@@ -1,10 +1,10 @@
-const { shallow, mount } = require('enzyme');
+const { shallow } = require('enzyme');
 const React = require('react');
 
 describe('failing Value', () => {
   const Fixture = () => (
     <div>
-      <input value onChange={function(){}}/>
+      <input value onChange={() => {}} />
       <input defaultValue />
     </div>
   );

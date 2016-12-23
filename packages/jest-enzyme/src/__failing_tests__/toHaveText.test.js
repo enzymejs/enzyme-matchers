@@ -1,4 +1,4 @@
-const { shallow, mount } = require('enzyme');
+const { shallow } = require('enzyme');
 const React = require('react');
 
 describe('failing Text', () => {
@@ -12,7 +12,7 @@ describe('failing Text', () => {
 
   it('fails NOT toHaveText', () => {
     expect(
-      shallow(<Fixture/>).find('span')
+      shallow(<Fixture />).find('span')
     ).toHaveText('foo');
   });
 });

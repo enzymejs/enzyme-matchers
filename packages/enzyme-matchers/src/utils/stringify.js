@@ -15,7 +15,7 @@ function stringifySingle(key:string, value:any) : Array<string> {
 
     if (joined.length > 20) {
       const pad = '\n  ';
-      joined = values.join(pad) + '\n';
+      joined = `${values.join(pad)}\n`;
       initialBracket += pad;
     }
 
@@ -34,11 +34,11 @@ function stringifySingle(key:string, value:any) : Array<string> {
 
   try {
     // circular if you cant stringify
-    JSON.stringify({[key]: value});
+    JSON.stringify({ [key]: value });
 
     return [key, stringifyingValue];
   } catch (e) {
-    return [key, colors.gray("[Circular]")];
+    return [key, colors.gray('[Circular]')];
   }
 }
 

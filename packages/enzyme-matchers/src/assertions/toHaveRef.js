@@ -24,6 +24,6 @@ export default function toHaveRef(enzymeWrapper:EnzymeObject, refName:string) : 
     pass,
     message: `Expected to find a ref named "${refName}" on <${name(enzymeWrapper)}>, but didn't.`,
     negatedMessage: `Expected not to find a ref named "${refName}" on <${name(enzymeWrapper)}>, but did.`,
-    contextualInformation: {}
+    contextualInformation: {},
   };
 }

@@ -21,6 +21,6 @@ describe('failing test', () => {
   it('fails NOT toContainReact multiple nodes', () => {
     expect(
       shallow(<div><span /><span foo /></div>).find('span')
-    ).toContainReact(<span foo={false}/>);
+    ).toContainReact(<span foo={false} />);
   });
 });
