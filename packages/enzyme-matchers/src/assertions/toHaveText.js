@@ -25,7 +25,7 @@ export default function toHaveText(enzymeWrapper:EnzymeObject, text:?string) : M
       message: `Expected ${wrapperName} node to have text, but it did not.`,
       negatedMessage: `Expected ${wrapperName} node not to have text, but it did`,
       contextualInformation: {
-        actual: wrapperHtml,
+        actual: `Actual HTML: "${wrapperHtml}"`,
       },
     };
   }
@@ -37,8 +37,8 @@ export default function toHaveText(enzymeWrapper:EnzymeObject, text:?string) : M
     message: `Expected ${wrapperName} components text to match (using ===), but it did not.`,
     negatedMessage: `Expected ${wrapperName} components text not to match (using ===), but it did.`,
     contextualInformation: {
-      actual: actualText,
-      expected: text,
+      actual: `Actual HTML: "${actualText}"`,
+      expected: `Expected HTML: "${text}"`,
     },
   };
 }

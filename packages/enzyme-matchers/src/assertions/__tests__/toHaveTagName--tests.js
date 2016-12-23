@@ -43,6 +43,15 @@ describe('toHaveTagName', () => {
 
         expect(falsyResults).toMatchSnapshot();
       });
+
+      it('works on composite functions', () => {
+        const wrapper = builder(<Fixture />);
+        const truthyResults = toHaveTagName(wrapper, 'Fixture');
+        const falsyResults = toHaveTagName(wrapper, 'a');
+
+        expect(truthyResults).toMatchSnapshot();
+        expect(falsyResults).toMatchSnapshot();
+      });
     });
   });
 });

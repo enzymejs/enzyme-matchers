@@ -11,6 +11,12 @@ import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import name from '../utils/name';
 
 export default function toHaveRef(enzymeWrapper:EnzymeObject, refName:string) : Matcher {
+  if (typeof enzymeWrapper.ref !== 'function') {
+    throw new Error(
+      'EnzymeMatchers::toHaveRef can not be called on a shallow wrapper'
+    );
+  }
+
   const { node } = enzymeWrapper.ref(refName);
   const pass = !!node;
 

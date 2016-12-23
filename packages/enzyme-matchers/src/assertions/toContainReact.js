@@ -18,8 +18,8 @@ export default function toContainReact(enzymeWrapper:EnzymeObject, reactInstance
 
   return {
     pass,
-    message: `Expected <${getNodeName(enzymeWrapper)}> to contain ${html(wrappedInstance)} but it was not found.`,
-    negatedMessage: `Expected <${getNodeName(enzymeWrapper)}> not to contain ${html(wrappedInstance)} but it does.`,
+    message: `Expected <${getNodeName(enzymeWrapper)}> to contain ${wrappedInstance.html()} but it was not found.`,
+    negatedMessage: `Expected <${getNodeName(enzymeWrapper)}> not to contain ${wrappedInstance.html()} but it does.`,
     contextualInformation: {
       actual: `HTML Output of <${getNodeName(enzymeWrapper)}>:\n ${html(enzymeWrapper)}`,
     },

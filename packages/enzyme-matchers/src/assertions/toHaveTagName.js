@@ -28,7 +28,10 @@ export default function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : 
     };
   }
 
-  const actualTag = enzymeWrapper.type();
+  const actualTag = typeof enzymeWrapper.type() === 'function'
+    ? enzymeWrapper.type().name
+    : enzymeWrapper.type();
+
   const pass = actualTag === tag;
 
   const wrapperName = `<${name(enzymeWrapper)}>`

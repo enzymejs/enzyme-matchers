@@ -26,6 +26,8 @@ export default function toHaveProp(
 
   // error if the prop doesnt exist
   if (!props.hasOwnProperty(propKey)) {
+    contextualInformation.actual = '';
+
     return {
       pass: false,
       message: `Expected wrapper to have prop "${propKey}", but it did not.`,
