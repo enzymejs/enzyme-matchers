@@ -18,6 +18,7 @@ import toHaveState from './assertions/toHaveState';
 import toHaveStyle from './assertions/toHaveStyle';
 import toHaveTagName from './assertions/toHaveTagName';
 import toHaveText from './assertions/toHaveText';
+import toIncludeText from './assertions/toIncludeText';
 import toHaveValue from './assertions/toHaveValue';
 import toMatchSelector from './assertions/toMatchSelector';
 
@@ -35,6 +36,7 @@ export default {
   toHaveStyle,
   toHaveTagName,
   toHaveText,
+  toIncludeText,
   toHaveValue,
   toMatchSelector,
 };

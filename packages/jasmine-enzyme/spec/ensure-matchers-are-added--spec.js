@@ -122,6 +122,14 @@ describe('addMatchers', () => {
     expect(wrapper.find('#full')).toHaveText();
   });
 
+  it('adds toIncludeText', () => {
+    const Fixture = require('./fixtures/toIncludeText.fixture');
+    const wrapper = shallow(React.createElement(Fixture));
+
+    expect(wrapper.find('#full')).toIncludeText('important');
+    expect(wrapper.find('#full')).toIncludeText();
+  });
+
   it('adds toHaveValue', () => {
     const Fixture = require('./fixtures/toHaveValue.fixture');
     const wrapper = shallow(React.createElement(Fixture));
