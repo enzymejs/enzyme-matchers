@@ -420,7 +420,6 @@ function Fixture() {
   return (
     <div>
       <p id="full">Some important text</p>
-      <p id="empty"></p>
     </div>
   );
 }
@@ -429,9 +428,6 @@ const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
 expect(wrapper.find('#full')).toIncludeText('important');
 expect(wrapper.find('#full')).not.toIncludeText('Wrong');
-
-expect(wrapper.find('#full')).toIncludeText();
-expect(wrapper.find('#empty')).not.toIncludeText();
 ```
 
 #### `toHaveValue(value:any)`

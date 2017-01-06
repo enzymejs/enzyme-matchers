@@ -15,12 +15,11 @@ export default function toIncludeText(enzymeWrapper: EnzymeObject, text: ?string
   let pass;
 
   if (text === undefined) {
-    pass = actualText.length > 0;
     return {
-      pass,
+      false,
       message: negateMessage(
-        pass,
-        'Expected node to include text'
+        false,
+        'Expected text not to be undefined'
       ),
     };
   }

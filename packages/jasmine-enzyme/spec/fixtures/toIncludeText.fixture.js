@@ -14,8 +14,7 @@ function Fixture() {
       "p",
       { id: "full" },
       "Some important text"
-    ),
-    React.createElement("p", { id: "empty" })
+    )
   );
 }
 module.exports = exports['default'];
