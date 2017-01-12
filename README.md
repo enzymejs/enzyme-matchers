@@ -37,6 +37,7 @@ This library supports several testing frameworks including [Jest](https://github
 * [toHaveStyle()](#tohavestylestylekeystring-stylevalueany)
 * [toHaveTagName()](#tohavetagnametagnamestring)
 * [toHaveText()](#tohavetexttextstring)
+* [toIncludeText()](#toincludetexttextstring)
 * [toHaveValue()](#tohavevaluevalueany)
 * [toMatchSelector()](#tomatchselectorselectorstring)
 
@@ -403,7 +404,30 @@ expect(wrapper.find('#full')).toHaveText('Text');
 expect(wrapper.find('#full')).not.toHaveText('Wrong');
 
 expect(wrapper.find('#full')).toHaveText();
-expect(wrapper.find('#empty')).not.toHaveText()
+expect(wrapper.find('#empty')).not.toHaveText();
+```
+
+#### `toIncludeText(text:string)`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the wrapper includes the provided text:
+
+```js
+function Fixture() {
+  return (
+    <div>
+      <p id="full">Some important text</p>
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper.find('#full')).toIncludeText('important');
+expect(wrapper.find('#full')).not.toIncludeText('Wrong');
 ```
 
 #### `toHaveValue(value:any)`
