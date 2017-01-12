@@ -11,8 +11,9 @@ import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import name from '../utils/name';
 import stringify from '../utils/stringify';
+import single from '../utils/single';
 
-export default function toHaveProp(
+function toHaveProp(
   enzymeWrapper:EnzymeObject,
   propKey:string,
   propValue:?any
@@ -56,3 +57,5 @@ export default function toHaveProp(
     contextualInformation,
   };
 }
+
+export default single(toHaveProp);

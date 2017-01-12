@@ -11,8 +11,9 @@ import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
 import name from '../utils/name';
 import html from '../utils/html';
+import single from '../utils/single';
 
-export default function toHaveText(enzymeWrapper:EnzymeObject, text:?string) : Matcher {
+function toHaveText(enzymeWrapper:EnzymeObject, text:?string) : Matcher {
   const actualText = enzymeWrapper.text();
   const wrapperName = `<${name(enzymeWrapper)}>`;
   const wrapperHtml = html(enzymeWrapper);
@@ -42,3 +43,5 @@ export default function toHaveText(enzymeWrapper:EnzymeObject, text:?string) : M
     },
   };
 }
+
+export default single(toHaveText);

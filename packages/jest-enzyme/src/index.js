@@ -17,8 +17,8 @@ beforeEach(() => {
 
   Object.keys(enzymeMatchers).forEach(matcherKey => {
     const matcher = {
-      [matcherKey](actual, expected) {
-        const result = enzymeMatchers[matcherKey](actual, expected);
+      [matcherKey](wrapper, ...args) {
+        const result = enzymeMatchers[matcherKey](wrapper, ...args);
 
         if (this.isNot) {
           result.message = result.negatedMessage;

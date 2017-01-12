@@ -10,8 +10,9 @@ import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import name from '../utils/name';
 import html from '../utils/html';
+import single from '../utils/single';
 
-export default function toMatchSelector(enzymeWrapper:EnzymeObject, selector:string) : Matcher {
+function toMatchSelector(enzymeWrapper:EnzymeObject, selector:string) : Matcher {
   const pass = enzymeWrapper.is(selector);
   const wrapperName = `<${name(enzymeWrapper)}>`;
   const wrapperHtml = html(enzymeWrapper);
@@ -25,3 +26,5 @@ export default function toMatchSelector(enzymeWrapper:EnzymeObject, selector:str
     },
   };
 }
+
+export default single(toMatchSelector);

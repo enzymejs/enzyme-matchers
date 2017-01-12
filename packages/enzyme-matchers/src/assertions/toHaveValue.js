@@ -10,8 +10,9 @@ import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import name from '../utils/name';
 import html from '../utils/html';
+import single from '../utils/single';
 
-export default function toHaveValue(enzymeWrapper:EnzymeObject, expectedValue:any) : Matcher {
+function toHaveValue(enzymeWrapper:EnzymeObject, expectedValue:any) : Matcher {
   let pass = false;
 
   const props = enzymeWrapper.props();
@@ -37,3 +38,5 @@ export default function toHaveValue(enzymeWrapper:EnzymeObject, expectedValue:an
     },
   };
 }
+
+export default single(toHaveValue);

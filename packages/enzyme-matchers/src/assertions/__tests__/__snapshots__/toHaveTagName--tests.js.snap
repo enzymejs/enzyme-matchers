@@ -6,15 +6,9 @@ Object {
 
 exports[`toHaveTagName mount provides the right info for when this method is called with multiple nodes 1`] = `
 Object {
-  "contextualInformation": Object {
-    "actual": "Multiple nodes found:
-0: <span />
-1: <span />
-",
-    "blah": true,
-  },
-  "message": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
-  "negatedMessage": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
+  "contextualInformation": Object {},
+  "message": "toHaveTagName must be called on a single node, not multiple nodes.",
+  "negatedMessage": "toHaveTagName must be called on a single node, not multiple nodes.",
   "pass": false,
 }
 `;
@@ -53,15 +47,9 @@ Object {
 
 exports[`toHaveTagName shallow provides the right info for when this method is called with multiple nodes 1`] = `
 Object {
-  "contextualInformation": Object {
-    "actual": "Multiple nodes found:
-0: <span />
-1: <span />
-",
-    "blah": true,
-  },
-  "message": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
-  "negatedMessage": "Cannot verify tag name on a wrapper of multiple nodes. Found 2 nodes.",
+  "contextualInformation": Object {},
+  "message": "toHaveTagName must be called on a single node, not multiple nodes.",
+  "negatedMessage": "toHaveTagName must be called on a single node, not multiple nodes.",
   "pass": false,
 }
 `;

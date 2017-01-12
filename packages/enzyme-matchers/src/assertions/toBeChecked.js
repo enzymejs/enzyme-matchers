@@ -10,8 +10,9 @@ import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import type { Matcher } from '../../../../types/Matcher';
 import getNodeName from '../utils/name';
 import html from '../utils/html';
+import single from '../utils/single';
 
-export default function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
+function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
   let pass:boolean = false;
 
   const props:Object = enzymeWrapper.props();
@@ -35,3 +36,5 @@ export default function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
     },
   };
 }
+
+export default single(toBeChecked);

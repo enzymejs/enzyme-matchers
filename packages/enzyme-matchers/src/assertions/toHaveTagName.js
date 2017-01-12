@@ -11,23 +11,10 @@ import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
 import name from '../utils/name';
 import html from '../utils/html';
+import single from '../utils/single';
 
-export default function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : Matcher {
+function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : Matcher {
   const wrapperHtml = html(enzymeWrapper);
-  if (enzymeWrapper.nodes.length > 1) {
-    const message = `Cannot verify tag name on a wrapper of multiple nodes. Found ${enzymeWrapper.length} nodes.`; // eslint-disable-line max-len
-
-    return {
-      pass: false,
-      message,
-      negatedMessage: message,
-      contextualInformation: {
-        actual: wrapperHtml,
-        blah: true,
-      },
-    };
-  }
-
   const actualTag = typeof enzymeWrapper.type() === 'function'
     ? enzymeWrapper.type().name
     : enzymeWrapper.type();
@@ -45,3 +32,5 @@ export default function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : 
     },
   };
 }
+
+export default single(toHaveTagName);

@@ -11,8 +11,9 @@ import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import html from '../utils/html';
 import getNodeName from '../utils/name';
+import single from '../utils/single';
 
-export default function toContainReact(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
+function toContainReact(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
   const wrappedInstance:EnzymeObject = shallow(reactInstance);
   const pass = enzymeWrapper.contains(reactInstance);
 
@@ -25,3 +26,5 @@ export default function toContainReact(enzymeWrapper:EnzymeObject, reactInstance
     },
   };
 }
+
+export default single(toContainReact);

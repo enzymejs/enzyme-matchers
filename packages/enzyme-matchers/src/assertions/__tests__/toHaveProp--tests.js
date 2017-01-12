@@ -37,7 +37,7 @@ function Fixture() {
   );
 }
 
-describe('toHaveHTML', () => {
+describe('toHaveProp', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
       function build() {

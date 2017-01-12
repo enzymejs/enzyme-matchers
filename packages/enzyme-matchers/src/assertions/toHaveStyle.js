@@ -12,8 +12,9 @@ import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import name from '../utils/name';
 import stringify from '../utils/stringify';
 import html from '../utils/html';
+import single from '../utils/single';
 
-export default function toHaveStyle(
+function toHaveStyle(
   enzymeWrapper:EnzymeObject,
   styleKey:string,
   styleValue:?any
@@ -56,3 +57,5 @@ export default function toHaveStyle(
     },
   };
 }
+
+export default single(toHaveStyle);

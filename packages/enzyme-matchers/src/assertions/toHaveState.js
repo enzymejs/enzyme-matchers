@@ -11,8 +11,9 @@ import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 import name from '../utils/name';
 import stringify from '../utils/stringify';
+import single from '../utils/single';
 
-export default function toHaveState(
+function toHaveState(
   enzymeWrapper:EnzymeObject,
   stateKey:string,
   stateValue:?any
@@ -58,3 +59,5 @@ export default function toHaveState(
     },
   };
 }
+
+export default single(toHaveState);
