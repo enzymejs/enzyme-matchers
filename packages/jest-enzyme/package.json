@@ -1,6 +1,6 @@
 {
   "name": "jest-enzyme",
-  "version": "2.1.0-rc1",
+  "version": "2.1.0-rc2",
   "description": "Testing Matchers for Enzyme",
   "main": "lib/index.js",
   "author": "Blaine Kasten <blainekasten@gmail.com>",
@@ -46,7 +46,7 @@
     "jest": ">17.0.0"
   },
   "dependencies": {
-    "enzyme-matchers": "^2.1.0-rc1"
+    "enzyme-matchers": "^2.1.0-rc2"
   },
   "jest": {
     "testPathDirs": [
