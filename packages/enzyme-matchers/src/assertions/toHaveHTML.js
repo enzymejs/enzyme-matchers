@@ -6,11 +6,12 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import name from '../utils/name';
+import single from '../utils/single';
 
-export default function toHaveHTML(enzymeWrapper:EnzymeObject, html:string) : Matcher {
+function toHaveHTML(enzymeWrapper:EnzymeObject, html:string) : Matcher {
   const wrapperHTML = enzymeWrapper.html();
 
   // normalize quotes
@@ -23,9 +24,13 @@ export default function toHaveHTML(enzymeWrapper:EnzymeObject, html:string) : Ma
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected "${actualHTML}" to equal ${expectedHTML}`
-    ),
+    message: `Expected <${name(enzymeWrapper)}> html to match the expected, but it didn't.`,
+    negatedMessage: `Expected <${name(enzymeWrapper)}> html not to match the expected, but it did.`,
+    contextualInformation: {
+      actual: `Actual HTML: ${actualHTML}`,
+      expected: `Expected HTML: ${expectedHTML}`,
+    },
   };
 }
+
+export default single(toHaveHTML);

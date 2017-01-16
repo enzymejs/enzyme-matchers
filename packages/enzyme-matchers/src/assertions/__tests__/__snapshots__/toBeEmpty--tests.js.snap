@@ -1,0 +1,9 @@
+exports[`toBeEmpty provides contextual information for the message 1`] = `
+Object {
+  "actual": "Found Nodes HTML output: [empty set]",
+}
+`;
+
+exports[`toBeEmpty returns the message with the proper pass verbage 1`] = `"Expected to receive an empty set, but found 0 nodes."`;
+
+exports[`toBeEmpty returns the message with the proper pass verbage 2`] = `"Expected to receive an non-empty set, but found 0 nodes."`;

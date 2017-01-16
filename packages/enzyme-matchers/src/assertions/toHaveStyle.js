@@ -6,12 +6,15 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import deepEqualIdent from 'deep-equal-ident';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import name from '../utils/name';
+import stringify from '../utils/stringify';
+import html from '../utils/html';
+import single from '../utils/single';
 
-export default function toHaveStyle(
+function toHaveStyle(
   enzymeWrapper:EnzymeObject,
   styleKey:string,
   styleValue:?any
@@ -22,7 +25,11 @@ export default function toHaveStyle(
   if (!style) {
     return {
       pass: false,
-      message: 'Expected component to have a style prop',
+      message: `Expected <${name(enzymeWrapper)}> component to have a style prop but it did not.`,
+      negatedMessage: `Expected <${name(enzymeWrapper)}> component not to have a style prop but it did.`,
+      contextualInformation: {
+        actual: html(enzymeWrapper),
+      },
     };
   }
 
@@ -30,7 +37,11 @@ export default function toHaveStyle(
   if (!style.hasOwnProperty(styleKey)) {
     return {
       pass: false,
-      message: `Expected component to have style key of "${styleKey}"`,
+      message: `Expected <${name(enzymeWrapper)}> component to have a style key of "${styleKey}" but it did not.`,
+      negatedMessage: `Expected <${name(enzymeWrapper)}> component not to have a style key of "${styleKey}" but it did.`,
+      contextualInformation: {
+        actual: html(enzymeWrapper),
+      },
     };
   }
 
@@ -38,12 +49,13 @@ export default function toHaveStyle(
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected component style values to match for key "${styleKey}":
-        Actual: ${style[styleKey]}
-        Expected: ${styleValue}
-      `
-    ),
+    message: `Expected <${name(enzymeWrapper)}> component style values to match for key "${styleKey}", but they didn't`,
+    negatedMessage: `Expected <${name(enzymeWrapper)}> component style values to be different for key "${styleKey}", but they weren't`,
+    contextualInformation: {
+      actual: `Actual: ${stringify({ [styleKey]: style[styleKey] })}`,
+      expected: `Expected: ${stringify({ [styleKey]: styleValue })}`,
+    },
   };
 }
+
+export default single(toHaveStyle);

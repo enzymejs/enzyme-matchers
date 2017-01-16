@@ -6,23 +6,34 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import deepEqualIdent from 'deep-equal-ident';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import name from '../utils/name';
+import stringify from '../utils/stringify';
+import single from '../utils/single';
 
-export default function toHaveProp(
+function toHaveProp(
   enzymeWrapper:EnzymeObject,
   propKey:string,
   propValue:?any
 ) : Matcher {
   const props = enzymeWrapper.props();
 
+  const contextualInformation = {
+    actual: `Actual: ${stringify({ [propKey]: props[propKey] })}`,
+    expected: `Expected: ${stringify({ [propKey]: propValue })}`,
+  };
+
   // error if the prop doesnt exist
   if (!props.hasOwnProperty(propKey)) {
+    contextualInformation.actual = '';
+
     return {
       pass: false,
-      message: `Expected wrapper to have prop "${propKey}"`,
+      message: `Expected wrapper to have prop "${propKey}", but it did not.`,
+      negatedMessage: `Expected wrapper not to have prop "${propKey}", but it did.`,
+      contextualInformation,
     };
   }
 
@@ -31,7 +42,9 @@ export default function toHaveProp(
   if (propValue === undefined) {
     return {
       pass: true,
-      message: '',
+      message: `Expected wrapper to have any value for the prop "${propKey}"`,
+      negatedMessage: `Expected wrapper not to receive the prop "${propKey}"`,
+      contextualInformation,
     };
   }
 
@@ -39,12 +52,10 @@ export default function toHaveProp(
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected wrappers prop values to match for key "${propKey}":
-        Actual: ${JSON.stringify(props[propKey])}
-        Expected: ${JSON.stringify(propValue)}
-      `
-    ),
+    message: `Expected <${name(enzymeWrapper)}> "${propKey}" prop values to match (using npm.deepEqualIdent) but they didn't.`,
+    negatedMessage: `Expected <${name(enzymeWrapper)}> "${propKey}" prop values not to match (using npm.deepEqualIdent), but they did.`,
+    contextualInformation,
   };
 }
+
+export default single(toHaveProp);

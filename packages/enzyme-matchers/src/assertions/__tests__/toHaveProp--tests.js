@@ -1,4 +1,4 @@
-const { shallow } = require('enzyme');
+const { shallow, mount } = require('enzyme');
 const React = require('react');
 
 const toHaveProp = require('../toHaveProp');
@@ -26,71 +26,89 @@ const fn = () => {};
 
 function Fixture() {
   return (
-    <div>
-      <User
-        name="blaine"
-        email="blainekasten@gmail.com"
-        arrayProp={[1, 2, 3]}
-        objectProp={{ foo: 'bar' }}
-        fn={fn}
-        falsy={false}
-      />
-    </div>
+    <User
+      name="blaine"
+      email="blainekasten@gmail.com"
+      arrayProp={[1, 2, 3]}
+      objectProp={{ foo: 'bar' }}
+      fn={fn}
+      falsy={false}
+    />
   );
 }
 
 describe('toHaveProp', () => {
-  it('can validate arrays', () => {
-    const wrapper = shallow(<Fixture />);
-    const user = wrapper.find(User);
-    const truthy = toHaveProp(user, 'arrayProp', [1, 2, 3]);
-    const falsy = toHaveProp(user, 'arrayProp', [4, 5, 6]);
+  [shallow, mount].forEach(builder => {
+    describe(builder.name, () => {
+      function build() {
+        const wrapper = builder(<Fixture />);
+        const user = wrapper.find(User);
+        const truthyResults = toHaveProp(user, 'arrayProp', [1, 2, 3]);
+        const falsyResults = toHaveProp(user, 'arrayProp', [4, 5, 6]);
 
-    expect(truthy.pass).toBeTruthy();
-    expect(falsy.pass).toBeFalsy();
-  });
+        return {
+          truthyResults,
+          falsyResults,
+        };
+      }
 
-  it('can validate objects', () => {
-    const wrapper = shallow(<Fixture />);
-    const user = wrapper.find(User);
-    const truthy = toHaveProp(user, 'objectProp', { foo: 'bar' });
-    const falsy = toHaveProp(user, 'objectProp', { foo: 'BOO' });
+      it('returns the pass flag properly', () => {
+        const { truthyResults, falsyResults } = build();
 
-    expect(truthy.pass).toBeTruthy();
-    expect(falsy.pass).toBeFalsy();
-  });
+        expect(truthyResults.pass).toBeTruthy();
+        expect(falsyResults.pass).toBeFalsy();
+      });
 
-  it('works with falsy props', () => {
-    const wrapper = shallow(<Fixture />);
-    const { pass } = toHaveProp(wrapper.find(User), 'falsy', false);
+      it(`returns the message with the proper pass verbage (${builder.name})`, () => {
+        const { truthyResults } = build();
+        expect(truthyResults.message).toMatchSnapshot();
+      });
 
-    expect(pass).toBeTruthy();
-  });
+      it(`returns the message with the proper fail verbage (${builder.name})`, () => {
+        const { truthyResults } = build();
+        expect(truthyResults.negatedMessage).toMatchSnapshot();
+      });
 
-  it('works with functions', () => {
-    const wrapper = shallow(<Fixture />);
-    const { pass } = toHaveProp(wrapper.find(User), 'fn', fn);
-    const { pass: fail } = toHaveProp(wrapper.find(User), 'fn', () => {});
+      it(`provides contextual information for the message (${builder.name})`, () => {
+        const { truthyResults } = build();
+        expect(truthyResults.contextualInformation).toMatchSnapshot();
+      });
 
-    expect(pass).toBeTruthy();
-    expect(fail).toBeFalsy();
-  });
+      it('can validate arrays', () => {
+        const wrapper = builder(<Fixture />);
+        const user = wrapper.find(User);
+        const truthy = toHaveProp(user, 'arrayProp', [1, 2, 3]);
+        const falsy = toHaveProp(user, 'arrayProp', [4, 5, 6]);
 
-  it('returns the pass flag properly', () => {
-    const wrapper = shallow(<Fixture />);
-    const truthyResults = toHaveProp(wrapper.find(User), 'name', 'blaine');
-    const falsyResults = toHaveProp(wrapper.find(User), 'name', 'jon');
+        expect(truthy.pass).toBeTruthy();
+        expect(falsy.pass).toBeFalsy();
+      });
 
-    expect(truthyResults.pass).toBeTruthy();
-    expect(falsyResults.pass).toBeFalsy();
-  });
+      it('can validate objects', () => {
+        const wrapper = builder(<Fixture />);
+        const user = wrapper.find(User);
+        const truthy = toHaveProp(user, 'objectProp', { foo: 'bar' });
+        const falsy = toHaveProp(user, 'objectProp', { foo: 'BOO' });
 
-  it('returns the message with the proper pass/fail verbage', () => {
-    const wrapper = shallow(<Fixture />);
-    const truthyResults = toHaveProp(wrapper.find(User), 'name', 'blaine');
-    const falsyResults = toHaveProp(wrapper.find(User), 'name', 'jon');
+        expect(truthy.pass).toBeTruthy();
+        expect(falsy.pass).toBeFalsy();
+      });
 
-    expect(truthyResults.message).not.toContain('not');
-    expect(falsyResults.message).toContain('not');
+      it('works with falsy props', () => {
+        const wrapper = builder(<Fixture />);
+        const { pass } = toHaveProp(wrapper.find(User), 'falsy', false);
+
+        expect(pass).toBeTruthy();
+      });
+
+      it('works with functions', () => {
+        const wrapper = builder(<Fixture />);
+        const { pass } = toHaveProp(wrapper.find(User), 'fn', fn);
+        const { pass: fail } = toHaveProp(wrapper.find(User), 'fn', () => {});
+
+        expect(pass).toBeTruthy();
+        expect(fail).toBeFalsy();
+      });
+    });
   });
 });

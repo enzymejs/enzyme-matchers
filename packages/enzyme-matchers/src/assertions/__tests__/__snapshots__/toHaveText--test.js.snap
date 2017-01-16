@@ -1,0 +1,21 @@
+exports[`toHaveText mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "Actual HTML: \"Test\"",
+  "expected": "Expected HTML: \"Test\"",
+}
+`;
+
+exports[`toHaveText mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <p> components text not to match (using ===), but it did."`;
+
+exports[`toHaveText mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <p> components text to match (using ===), but it did not."`;
+
+exports[`toHaveText shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "Actual HTML: \"Test\"",
+  "expected": "Expected HTML: \"Test\"",
+}
+`;
+
+exports[`toHaveText shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <p> components text not to match (using ===), but it did."`;
+
+exports[`toHaveText shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <p> components text to match (using ===), but it did not."`;

@@ -6,25 +6,31 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
 
-export default function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : Matcher {
-  if (enzymeWrapper.nodes.length > 1) {
-    return {
-      pass: false,
-      message: `Cannot verify tag name on a wrapper of multiple nodes. Found ${enzymeWrapper.length} nodes.`, // eslint-disable-line max-len
-    };
-  }
+import name from '../utils/name';
+import html from '../utils/html';
+import single from '../utils/single';
 
-  const pass = enzymeWrapper.type() === tag;
+function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : Matcher {
+  const wrapperHtml = html(enzymeWrapper);
+  const actualTag = typeof enzymeWrapper.type() === 'function'
+    ? enzymeWrapper.type().name
+    : enzymeWrapper.type();
+
+  const pass = actualTag === tag;
+
+  const wrapperName = `<${name(enzymeWrapper)}>`;
 
   return {
     pass,
-    message: negateMessage(
-      pass,
-      `Expected node to be of type "${tag}".`
-    ),
+    message: `Expected ${wrapperName} node to equal (using ===) type "${tag}" but it is a "${actualTag}".`,
+    negatedMessage: `Expected ${wrapperName} node not to equal (using ===) type "${tag}" but it is that type.`,
+    contextualInformation: {
+      actual: wrapperHtml,
+    },
   };
 }
+
+export default single(toHaveTagName);

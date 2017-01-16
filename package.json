@@ -9,6 +9,7 @@
     "test-matchers": "cd ./packages/enzyme-matchers && npm run jest",
     "test-jasmine": "cd ./packages/jasmine-enzyme && npm run jest && npm run jasmine",
     "test-jest": "cd ./packages/jest-enzyme && npm run jest",
+    "test-jestw": "cd ./packages/jest-enzyme && npm run jest --watch",
     "lint": "eslint ./packages"
   },
   "files": [
@@ -47,13 +48,13 @@
     "eslint": "^2.7.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.3.0",
-    "jest-cli": "^16.0.1",
+    "jest-cli": "^17.0.0",
+    "lerna": "2.0.0-beta.30",
     "react": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "react-dom": "^0.14.7",
     "readline-sync": "^1.4.1",
-    "rimraf": "^2.5.0",
-    "lerna": "2.0.0-beta.30"
+    "rimraf": "^2.5.0"
   },
   "jest": {
     "testPathDirs": [
@@ -62,5 +63,8 @@
       "<rootDir>/packages/enzyme-matchers/src"
     ],
     "verbose": true
+  },
+  "dependencies": {
+    "babel-preset-stage-2": "^6.18.0"
   }
 }

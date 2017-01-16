@@ -1,0 +1,65 @@
+exports[`toHaveStyle mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "Actual: [33mheight[39m[90m:[39m [33m[90m\"100%\"[33m[39m",
+  "expected": "Expected: [33mheight[39m[90m:[39m [33m[90m\"100%\"[33m[39m",
+}
+`;
+
+exports[`toHaveStyle mount provides the right info for if there is no style prop 1`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "<div></div>",
+  },
+  "message": "Expected <div> component to have a style prop but it did not.",
+  "negatedMessage": "Expected <div> component not to have a style prop but it did.",
+  "pass": false,
+}
+`;
+
+exports[`toHaveStyle mount provides the right info when a specific key doesn't exist 1`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "<div style=\"width:0px;\"></div>",
+  },
+  "message": "Expected <div> component to have a style key of \"height\" but it did not.",
+  "negatedMessage": "Expected <div> component not to have a style key of \"height\" but it did.",
+  "pass": false,
+}
+`;
+
+exports[`toHaveStyle mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <span> component style values to be different for key \"height\", but they weren\'t"`;
+
+exports[`toHaveStyle mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <span> component style values to match for key \"height\", but they didn\'t"`;
+
+exports[`toHaveStyle shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "Actual: [33mheight[39m[90m:[39m [33m[90m\"100%\"[33m[39m",
+  "expected": "Expected: [33mheight[39m[90m:[39m [33m[90m\"100%\"[33m[39m",
+}
+`;
+
+exports[`toHaveStyle shallow provides the right info for if there is no style prop 1`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "<div></div>",
+  },
+  "message": "Expected <div> component to have a style prop but it did not.",
+  "negatedMessage": "Expected <div> component not to have a style prop but it did.",
+  "pass": false,
+}
+`;
+
+exports[`toHaveStyle shallow provides the right info when a specific key doesn't exist 1`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "<div style=\"width:0px;\"></div>",
+  },
+  "message": "Expected <div> component to have a style key of \"height\" but it did not.",
+  "negatedMessage": "Expected <div> component not to have a style key of \"height\" but it did.",
+  "pass": false,
+}
+`;
+
+exports[`toHaveStyle shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <span> component style values to be different for key \"height\", but they weren\'t"`;
+
+exports[`toHaveStyle shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <span> component style values to match for key \"height\", but they didn\'t"`;

@@ -6,15 +6,22 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import getNodeName from '../utils/name';
+import single from '../utils/single';
 
-export default function toBeDisabled(enzymeWrapper:EnzymeObject) : Matcher {
+function toBeDisabled(enzymeWrapper:EnzymeObject) : Matcher {
   const pass = !!enzymeWrapper.prop('disabled');
 
   return {
     pass,
-    message: negateMessage(pass, 'Expected node to be "disabled."'),
+    message: `Expected node (${getNodeName(enzymeWrapper)}) to be "disabled" but it wasn't.`,
+    negatedMessage: `Expected node (${getNodeName(enzymeWrapper)}) not to be "disabled" but it was`,
+    contextualInformation: {
+      expected: `Node HTML output: ${enzymeWrapper.html()}`,
+    },
   };
 }
+
+export default single(toBeDisabled);

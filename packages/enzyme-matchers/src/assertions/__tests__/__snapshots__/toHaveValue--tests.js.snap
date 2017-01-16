@@ -1,0 +1,19 @@
+exports[`toHaveValue mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "<input value=\"test\">",
+}
+`;
+
+exports[`toHaveValue mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <input> component not to have the value of \"test\" (using ===), but it did."`;
+
+exports[`toHaveValue mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <input> component to have the value of \"test\" (using ===), but it didn\'t."`;
+
+exports[`toHaveValue shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "<input value=\"test\"/>",
+}
+`;
+
+exports[`toHaveValue shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <input> component not to have the value of \"test\" (using ===), but it did."`;
+
+exports[`toHaveValue shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <input> component to have the value of \"test\" (using ===), but it didn\'t."`;

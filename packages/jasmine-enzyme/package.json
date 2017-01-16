@@ -1,6 +1,6 @@
 {
   "name": "jasmine-enzyme",
-  "version": "2.0.0",
+  "version": "2.1.0-rc2",
   "description": "Jasmine assertions for enzyme",
   "main": "lib/index.js",
   "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/jasmine-enzyme#readme",
@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "pretest": "node ../../scripts/jest.js",
-    "test": "jest && jasmine",
-    "jest": "jest",
+    "test": "npm run jest && npm run jasmine",
+    "jest": "node ../../node_modules/jest-cli/bin/jest.js",
     "jasmine": "./node_modules/jasmine/bin/jasmine.js",
     "lint": "eslint ./src",
     "prepublish": "npm run build",
@@ -42,13 +42,13 @@
     "enzyme": "1.x || 2.x"
   },
   "dependencies": {
-    "enzyme-matchers": "^2.0.0"
+    "enzyme-matchers": "^2.1.0-rc2"
   },
   "jest": {
     "testPathDirs": [
       "<rootDir>/src"
     ],
-    "preprocessorIgnorePatterns": [
+    "transformIgnorePatterns": [
       "node_modules/(?!enzyme-matchers)"
     ],
     "verbose": true

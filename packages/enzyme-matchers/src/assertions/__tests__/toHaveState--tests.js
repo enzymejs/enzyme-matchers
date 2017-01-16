@@ -21,48 +21,76 @@ class Fixture extends React.Component {
 }
 
 describe('toHaveState', () => {
-  it('can validate falsy values', () => {
-    const wrapper = shallow(<Fixture />);
-    const { pass } = toHaveState(wrapper, 'foo', false);
-    const { pass: fail } = toHaveState(wrapper, 'foo', true);
+  [shallow, mount].forEach(builder => {
+    describe(builder.name, () => {
+      function build() {
+        const wrapper = builder(<Fixture />);
+        const truthyResults = toHaveState(wrapper, 'array', [1, 2, 3]);
+        const falsyResults = toHaveState(wrapper, 'array', [4, 5, 6]);
 
-    expect(pass).toBeTruthy();
-    expect(fail).toBeFalsy();
-  });
+        return {
+          truthyResults,
+          falsyResults,
+        };
+      }
 
-  it('can validate arrays', () => {
-    const wrapper = shallow(<Fixture />);
-    const { pass } = toHaveState(wrapper, 'array', [1, 2, 3]);
-    const { pass: fail } = toHaveState(wrapper, 'array', [4, 5, 6]);
+      it('returns the pass flag properly', () => {
+        const { truthyResults, falsyResults } = build();
 
-    expect(pass).toBeTruthy();
-    expect(fail).toBeFalsy();
-  });
+        expect(truthyResults.pass).toBeTruthy();
+        expect(falsyResults.pass).toBeFalsy();
+      });
 
-  it('can validate objects', () => {
-    const wrapper = shallow(<Fixture />);
-    const { pass } = toHaveState(wrapper, 'object', { foo: 'bar' });
-    const { pass: fail } = toHaveState(wrapper, 'object', { foo: 'NOPE' });
+      it(`returns the message with the proper pass verbage (${builder.name})`, () => {
+        const { truthyResults } = build();
+        expect(truthyResults.message).toMatchSnapshot();
+      });
 
-    expect(pass).toBeTruthy();
-    expect(fail).toBeFalsy();
-  });
+      it(`returns the message with the proper fail verbage (${builder.name})`, () => {
+        const { truthyResults } = build();
+        expect(truthyResults.negatedMessage).toMatchSnapshot();
+      });
 
-  it('returns the pass flag properly', () => {
-    const wrapper = mount(<Fixture />);
-    const truthyResults = toHaveState(wrapper, 'foo', false);
-    const falsyResults = toHaveState(wrapper, 'foo', true);
+      it(`provides contextual information for the message (${builder.name})`, () => {
+        const { truthyResults } = build();
+        expect(truthyResults.contextualInformation).toMatchSnapshot();
+      });
 
-    expect(truthyResults.pass).toBeTruthy();
-    expect(falsyResults.pass).toBeFalsy();
-  });
+      it('can validate falsy values', () => {
+        const wrapper = shallow(<Fixture />);
+        const { pass } = toHaveState(wrapper, 'foo', false);
+        const { pass: fail } = toHaveState(wrapper, 'foo', true);
 
-  it('returns the message with the proper pass/fail verbage', () => {
-    const wrapper = mount(<Fixture />);
-    const truthyResults = toHaveState(wrapper, 'foo', false);
-    const falsyResults = toHaveState(wrapper, 'foo', true);
+        expect(pass).toBeTruthy();
+        expect(fail).toBeFalsy();
+      });
 
-    expect(truthyResults.message).not.toContain('not');
-    expect(falsyResults.message).toContain('not');
+      it('can validate arrays', () => {
+        const wrapper = shallow(<Fixture />);
+        const { pass } = toHaveState(wrapper, 'array', [1, 2, 3]);
+        const { pass: fail } = toHaveState(wrapper, 'array', [4, 5, 6]);
+
+        expect(pass).toBeTruthy();
+        expect(fail).toBeFalsy();
+      });
+
+      it('can validate objects', () => {
+        const wrapper = shallow(<Fixture />);
+        const { pass } = toHaveState(wrapper, 'object', { foo: 'bar' });
+        const { pass: fail } = toHaveState(wrapper, 'object', { foo: 'NOPE' });
+
+        expect(pass).toBeTruthy();
+        expect(fail).toBeFalsy();
+      });
+
+      it('returns the pass flag properly', () => {
+        const wrapper = mount(<Fixture />);
+        const truthyResults = toHaveState(wrapper, 'foo', false);
+        const falsyResults = toHaveState(wrapper, 'foo', true);
+
+        expect(truthyResults.pass).toBeTruthy();
+        expect(falsyResults.pass).toBeFalsy();
+      });
+    });
   });
 });

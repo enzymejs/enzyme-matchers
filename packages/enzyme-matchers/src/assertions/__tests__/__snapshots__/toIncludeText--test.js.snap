@@ -1,0 +1,21 @@
+exports[`toIncludeText mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "Some important text",
+  "expected": "important",
+}
+`;
+
+exports[`toIncludeText mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <p> not to contain \"important\" but it did."`;
+
+exports[`toIncludeText mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <p> to contain \"important\" but it did not."`;
+
+exports[`toIncludeText shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "Some important text",
+  "expected": "important",
+}
+`;
+
+exports[`toIncludeText shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <p> not to contain \"important\" but it did."`;
+
+exports[`toIncludeText shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <p> to contain \"important\" but it did not."`;

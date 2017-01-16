@@ -1,0 +1,11 @@
+exports[`toBePresent provides contextual information for the message 1`] = `
+Object {
+  "actual": "Found Nodes: <span class=\"matches\"></span>",
+}
+`;
+
+exports[`toBePresent provides contextual information for the message 2`] = `Object {}`;
+
+exports[`toBePresent returns the message with the proper fail verbage 1`] = `"Expected \"span.not.toBePresent()\" selector results to contain 0 nodes, instead found 1."`;
+
+exports[`toBePresent returns the message with the proper pass verbage 1`] = `"Expected \"span.toBePresent()\" results to contain at least one node, instead found none."`;

@@ -6,19 +6,24 @@
  * @flow
  */
 
-import negateMessage from '../negateMessage';
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
-
+import html from '../utils/html';
+import getNodeName from '../utils/name';
 
 export default function toBePresent(enzymeWrapper:EnzymeObject) : Matcher {
   const pass = enzymeWrapper.length !== 0;
 
+  const contextualInformation = {};
+
+  if (enzymeWrapper.nodes.length) {
+    contextualInformation.actual = `Found Nodes: ${html(enzymeWrapper)}`;
+  }
+
   return {
     pass,
-    message: negateMessage(
-      pass,
-      'Expected selector results to contain at least one node.'
-    ),
+    message: `Expected "${getNodeName(enzymeWrapper)}.toBePresent()" results to contain at least one node, instead found none.`,
+    negatedMessage: `Expected "${getNodeName(enzymeWrapper)}.not.toBePresent()" selector results to contain 0 nodes, instead found ${enzymeWrapper.nodes.length}.`,
+    contextualInformation,
   };
 }

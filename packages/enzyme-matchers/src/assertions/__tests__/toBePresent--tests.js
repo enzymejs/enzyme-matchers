@@ -21,8 +21,16 @@ describe('toBePresent', () => {
     expect(falsyResults.pass).toBeFalsy();
   });
 
-  it('returns the message with the proper pass/fail verbage', () => {
-    expect(truthyResults.message).not.toContain('not');
-    expect(falsyResults.message).toContain('not');
+  it('returns the message with the proper pass verbage', () => {
+    expect(truthyResults.message).toMatchSnapshot();
+  });
+
+  it('returns the message with the proper fail verbage', () => {
+    expect(truthyResults.negatedMessage).toMatchSnapshot();
+  });
+
+  it('provides contextual information for the message', () => {
+    expect(truthyResults.contextualInformation).toMatchSnapshot();
+    expect(falsyResults.contextualInformation).toMatchSnapshot();
   });
 });

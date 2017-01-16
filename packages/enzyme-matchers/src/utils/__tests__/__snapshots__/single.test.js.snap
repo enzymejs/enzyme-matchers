@@ -1,0 +1,8 @@
+exports[`single gives a useful message 1`] = `
+Object {
+  "contextualInformation": Object {},
+  "message": " must be called on a single node, not multiple nodes.",
+  "negatedMessage": " must be called on a single node, not multiple nodes.",
+  "pass": false,
+}
+`;
