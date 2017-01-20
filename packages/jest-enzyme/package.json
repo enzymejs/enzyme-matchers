@@ -46,7 +46,8 @@
     "jest": ">17.0.0"
   },
   "dependencies": {
-    "enzyme-matchers": "^2.1.0-rc2"
+    "enzyme-matchers": "^2.1.0-rc2",
+    "enzyme-to-json": "^1.4.5"
   },
   "jest": {
     "testPathDirs": [
