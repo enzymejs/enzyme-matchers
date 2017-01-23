@@ -8,6 +8,7 @@
  */
 
 import enzymeMatchers from 'enzyme-matchers';
+import toMatchSnapshot from './toMatchSnapshot';
 
 declare var expect:Function;
 
@@ -40,4 +41,5 @@ beforeEach(() => {
   });
 
   expect.extend(matchers);
+  expect.extend({toMatchSnapshot});
 });

@@ -1,0 +1,27 @@
+exports[`toMatchSnapshot OVERIDE falls back to the default for non enzyme objects 1`] = `1`;
+
+exports[`toMatchSnapshot OVERIDE falls back to the default for non enzyme objects 2`] = `
+Object {
+  "nodes": Array [],
+}
+`;
+
+exports[`toMatchSnapshot OVERIDE works for enzyme objects (mount) 1`] = `
+<Fixture>
+  <div
+    onClick={[Function]}>
+    <span>
+      foobar
+    </span>
+  </div>
+</Fixture>
+`;
+
+exports[`toMatchSnapshot OVERIDE works for enzyme objects (shallow) 1`] = `
+<div
+  onClick={[Function]}>
+  <span>
+    foobar
+  </span>
+</div>
+`;
