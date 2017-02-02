@@ -1,15 +1,17 @@
+import instance from './instance';
 /* eslint-disable no-console */
 const noop = () => {};
 const error = console.error;
 
 function mapWrappersHTML(wrapper) : string {
   return wrapper.nodes.map(node => {
-    const type = node.type || node._reactInternalComponent._tag;
+    const inst = instance(node);
+    const type = node.type || inst._tag;
 
     console.error = noop;
     const { children, ...props } = node.props
       ? node.props
-      : node._reactInternalComponent._currentElement.props;
+      : inst._currentElement.props;
     console.error = error;
 
     const transformedProps = Object.keys(props).map(key => `${key}="${props[key]}"`);
@@ -38,6 +40,7 @@ export default function printHTMLForWrapper(wrapper) : string {
         (acc, curr, index) => `${acc}${index}: ${curr}\n`,
         ''
       );
+
       return `Multiple nodes found:\n${nodes}`;
     }
   }
