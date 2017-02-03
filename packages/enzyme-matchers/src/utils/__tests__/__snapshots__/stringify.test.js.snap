@@ -2,12 +2,14 @@ exports[`stringify works with circular structs 1`] = `
 "[33mfalsy[39m[90m:[39m [33m[31mfalse[33m[39m
 [33mtruthy[39m[90m:[39m [33m[32mtrue[33m[39m
 [33mstring[39m[90m:[39m [33m[90m\"string\"[33m[39m
+[33mnull[39m[90m:[39m [33m[90mnull[33m[39m
 [33mcircular[39m[90m:[39m [33m[90m[Circular][33m[39m
 [33mclass[39m[90m:[39m [33m[32mfunction Promise() { [native code] }[33m[39m
 [33marry[39m[90m:[39m [33m[90m[90m[[90m
   [31mfalse[90m
   [32mtrue[90m
   [90m\"string\"[90m
+  [90mnull[90m
   [90m[Circular][90m
   [32mfunction Promise() { [native code] }[90m
 [90m][90m[33m[39m"
