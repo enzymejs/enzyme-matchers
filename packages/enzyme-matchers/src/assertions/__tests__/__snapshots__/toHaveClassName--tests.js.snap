@@ -1,12 +1,12 @@
 exports[`toHaveClassName mount provides contextual information for the message (mount) 1`] = `
 Object {
-  "actual": "Found node output: <span class=\"bar baz\"></span>",
+  "actual": "Found node output: <span class="bar baz"></span>",
 }
 `;
 
-exports[`toHaveClassName mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <span> not to contain \".bar\" for it\'s classname"`;
+exports[`toHaveClassName mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <span> not to contain ".bar" for it's classname"`;
 
-exports[`toHaveClassName mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <span> to have className of \".bar\" but instead found \"bar baz\""`;
+exports[`toHaveClassName mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <span> to have className of ".bar" but instead found "bar baz""`;
 
 exports[`toHaveClassName mount works for multiple nodes (mount) 1`] = `
 Object {
@@ -24,24 +24,24 @@ Object {
 
 exports[`toHaveClassName shallow provides contextual information for the message (shallow) 1`] = `
 Object {
-  "actual": "Found node output: <span class=\"bar baz\"></span>",
+  "actual": "Found node output: <span class="bar baz"></span>",
 }
 `;
 
-exports[`toHaveClassName shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <span> not to contain \".bar\" for it\'s classname"`;
+exports[`toHaveClassName shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <span> not to contain ".bar" for it's classname"`;
 
-exports[`toHaveClassName shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <span> to have className of \".bar\" but instead found \"bar baz\""`;
+exports[`toHaveClassName shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <span> to have className of ".bar" but instead found "bar baz""`;
 
 exports[`toHaveClassName shallow works for multiple nodes (shallow) 1`] = `
 Object {
   "contextualInformation": Object {
     "actual": "Found node output: Multiple nodes found:
-0: <span className=\"baux\"/>
-1: <span className=\"baux\"/>
+0: <span className="baux"/>
+1: <span className="baux"/>
 ",
   },
-  "message": "Expected <Fixture, 2 span nodes found> to have className of \".baux\" but instead found \"baux\"",
-  "negatedMessage": "Expected <Fixture, 2 span nodes found> not to contain \".baux\" for it\'s classname",
+  "message": "Expected <Fixture, 2 span nodes found> to have className of ".baux" but instead found "baux"",
+  "negatedMessage": "Expected <Fixture, 2 span nodes found> not to contain ".baux" for it's classname",
   "pass": true,
 }
 `;

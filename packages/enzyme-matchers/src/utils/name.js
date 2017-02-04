@@ -4,6 +4,8 @@
  * @returns string
  */
 
+import instance from './instance';
+
 /*
  * Gets the name of the node or component for the SINGLE item
  */
@@ -14,8 +16,9 @@ function getNameFromRoot(root:Object) : string {
     return type.name || type;
   }
 
-  if (root._reactInternalComponent) {
-    return root._reactInternalComponent._tag;
+  const inst = instance(root);
+  if (inst) {
+    return inst._tag;
   }
 
   // direct node

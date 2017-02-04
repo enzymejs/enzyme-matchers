@@ -41,7 +41,6 @@ export default function toHaveClassName(enzymeWrapper:EnzymeObject, className:st
       pass = allMatch;
   }
 
-
   return {
     pass,
     message: `Expected <${name(enzymeWrapper)}> to have className of "${normalizedClassName}" but instead found "${actualClassName}"`, // eslint-disable-line max-len
