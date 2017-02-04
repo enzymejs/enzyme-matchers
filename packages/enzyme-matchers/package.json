@@ -25,7 +25,6 @@
     "enzyme": "1.x || 2.x"
   },
   "dependencies": {
-    "colors": "^1.1.2",
     "deep-equal-ident": "^1.1.1"
   },
   "jest": {
