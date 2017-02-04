@@ -1,6 +1,6 @@
 {
   "name": "jasmine-enzyme",
-  "version": "2.1.1",
+  "version": "2.1.2-beta1",
   "description": "Jasmine assertions for enzyme",
   "main": "lib/index.js",
   "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/jasmine-enzyme#readme",
@@ -42,7 +42,7 @@
     "enzyme": "1.x || 2.x"
   },
   "dependencies": {
-    "enzyme-matchers": "^2.1.1"
+    "enzyme-matchers": "^2.1.2-beta1"
   },
   "jest": {
     "testPathDirs": [
