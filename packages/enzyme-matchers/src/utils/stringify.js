@@ -1,4 +1,4 @@
-import colors from 'colors/safe';
+import colors from './colors';
 
 function stringifySingle(key:string, value:any) : Array<string> {
   let stringifyingValue = value;
