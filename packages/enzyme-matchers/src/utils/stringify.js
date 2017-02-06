@@ -20,6 +20,8 @@ function stringifySingle(key:string, value:any) : Array<string> {
     }
 
     stringifyingValue = colors.gray(`${initialBracket}${joined}${endingBracket}`);
+  } else if (value === null) {
+    stringifyingValue = colors.gray(value);
   } else if (typeof value === 'object') {
     stringifyingValue = colors.gray(value.toString());
   } else if (typeof value === 'string') {
