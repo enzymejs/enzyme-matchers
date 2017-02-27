@@ -39,3 +39,14 @@ Make sure your `package.json` includes the following:
   ]
 },
 ```
+
+#### Using with [Create React App](https://github.com/facebookincubator/create-react-app)
+
+If you are using Create React App, instead of adding to your `package.json` as above, you will need to add a `src/setupTests.js` file to your app, to import jest-enzyme:
+
+ ``` js
+ // src/setupTests.js
+ import 'jest-enzyme';
+ ```
+
+ This is documented on Create React App at the bottom of the [Testing Components](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#testing-components) section. There is also more information about [Initializing Test Environment](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#initializing-test-environment).
