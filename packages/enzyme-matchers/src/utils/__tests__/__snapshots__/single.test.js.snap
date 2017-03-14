@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`single gives a useful message 1`] = `
 Object {
   "contextualInformation": Object {},
