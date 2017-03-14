@@ -48,7 +48,7 @@
     "eslint": "^2.7.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.3.0",
-    "jest-cli": "^17.0.0",
+    "jest-cli": "^19.0.0",
     "lerna": "2.0.0-beta.30",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",

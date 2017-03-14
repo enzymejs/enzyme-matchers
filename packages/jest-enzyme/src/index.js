@@ -8,12 +8,19 @@
  */
 
 import enzymeMatchers from 'enzyme-matchers';
+import serializer from 'enzyme-to-json/serializer';
 
 declare var expect:Function;
+declare var beforeEach:Function;
+declare var beforeAll:Function;
+
+// add the snapshot serializer for Enzyme wrappers
+expect.addSnapshotSerializer(serializer);
 
 // add methods!
 beforeEach(() => {
   const matchers = {};
+
 
   Object.keys(enzymeMatchers).forEach(matcherKey => {
     const matcher = {
