@@ -1,6 +1,6 @@
 exports[`toBeDisabled provides contextual information for the message 1`] = `
 Object {
-  "expected": "Node HTML output: <input id=\"disabled\" disabled=\"\"/>",
+  "expected": "Node HTML output: <input id=\"disabled\" disabled={true} />",
 }
 `;
 

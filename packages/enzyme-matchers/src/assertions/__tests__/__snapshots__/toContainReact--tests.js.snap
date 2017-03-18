@@ -1,7 +1,7 @@
 exports[`toContainReact provides contextual information for the message 1`] = `
 Object {
   "actual": "HTML Output of <Fixture>:
- <div><ul><li><span>User 1</span></li><li><span>User 2</span></li></ul></div>",
+ <div><ul><li><User index={1} /></li><li><User index={2} /></li></ul></div>",
 }
 `;
 

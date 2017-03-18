@@ -8,6 +8,7 @@
 
 import type { Matcher } from '../../../../types/Matcher';
 import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import html from '../utils/html';
 import getNodeName from '../utils/name';
 import single from '../utils/single';
 
@@ -19,7 +20,7 @@ function toBeDisabled(enzymeWrapper:EnzymeObject) : Matcher {
     message: `Expected node (${getNodeName(enzymeWrapper)}) to be "disabled" but it wasn't.`,
     negatedMessage: `Expected node (${getNodeName(enzymeWrapper)}) not to be "disabled" but it was`,
     contextualInformation: {
-      expected: `Node HTML output: ${enzymeWrapper.html()}`,
+      expected: `Node HTML output: ${html(enzymeWrapper)}`,
     },
   };
 }

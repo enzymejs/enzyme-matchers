@@ -1,6 +1,6 @@
 exports[`toBeChecked provides contextual information for the message 1`] = `
 Object {
-  "actual": "Node HTML output: <input id=\"checked\" checked=\"\"/>",
+  "actual": "Node HTML output: <input id=\"checked\" defaultChecked={true} />",
 }
 `;
 

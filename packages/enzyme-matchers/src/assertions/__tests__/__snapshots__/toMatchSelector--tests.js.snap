@@ -10,7 +10,7 @@ exports[`toMatchSelector mount returns the message with the proper pass verbage 
 
 exports[`toMatchSelector shallow provides contextual information for the message (shallow) 1`] = `
 Object {
-  "actual": "<span id=\"child\" class=\"foo\"></span>",
+  "actual": "<span id=\"child\" className=\"foo\" />",
 }
 `;
 

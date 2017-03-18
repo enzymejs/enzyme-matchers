@@ -1,6 +1,6 @@
 exports[`toBePresent provides contextual information for the message 1`] = `
 Object {
-  "actual": "Found Nodes: <span class=\"matches\"></span>",
+  "actual": "Found Nodes: <span className=\"matches\" />",
 }
 `;
 
