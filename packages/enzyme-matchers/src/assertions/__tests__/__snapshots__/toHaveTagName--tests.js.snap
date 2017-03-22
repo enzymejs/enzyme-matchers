@@ -1,6 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`toHaveTagName mount provides contextual information for the message (mount) 1`] = `
 Object {
-  "actual": "<a id=\"a\"></a>",
+  "actual": "<a id=\\"a\\"></a>",
 }
 `;
 
@@ -13,17 +15,17 @@ Object {
 }
 `;
 
-exports[`toHaveTagName mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <a> node not to equal (using ===) type \"a\" but it is that type."`;
+exports[`toHaveTagName mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <a> node not to equal (using ===) type \\"a\\" but it is that type."`;
 
-exports[`toHaveTagName mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <a> node to equal (using ===) type \"a\" but it is a \"a\"."`;
+exports[`toHaveTagName mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <a> node to equal (using ===) type \\"a\\" but it is a \\"a\\"."`;
 
 exports[`toHaveTagName mount works on composite functions 1`] = `
 Object {
   "contextualInformation": Object {
-    "actual": "<div><span id=\"span\"></span><span></span><a id=\"a\"></a></div>",
+    "actual": "<div><span id=\\"span\\"></span><span></span><a id=\\"a\\"></a></div>",
   },
-  "message": "Expected <Fixture> node to equal (using ===) type \"Fixture\" but it is a \"Fixture\".",
-  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \"Fixture\" but it is that type.",
+  "message": "Expected <Fixture> node to equal (using ===) type \\"Fixture\\" but it is a \\"Fixture\\".",
+  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \\"Fixture\\" but it is that type.",
   "pass": true,
 }
 `;
@@ -31,17 +33,17 @@ Object {
 exports[`toHaveTagName mount works on composite functions 2`] = `
 Object {
   "contextualInformation": Object {
-    "actual": "<div><span id=\"span\"></span><span></span><a id=\"a\"></a></div>",
+    "actual": "<div><span id=\\"span\\"></span><span></span><a id=\\"a\\"></a></div>",
   },
-  "message": "Expected <Fixture> node to equal (using ===) type \"a\" but it is a \"Fixture\".",
-  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \"a\" but it is that type.",
+  "message": "Expected <Fixture> node to equal (using ===) type \\"a\\" but it is a \\"Fixture\\".",
+  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \\"a\\" but it is that type.",
   "pass": false,
 }
 `;
 
 exports[`toHaveTagName shallow provides contextual information for the message (shallow) 1`] = `
 Object {
-  "actual": "<a id=\"a\" />",
+  "actual": "<a id=\\"a\\" />",
 }
 `;
 
@@ -54,17 +56,17 @@ Object {
 }
 `;
 
-exports[`toHaveTagName shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <a> node not to equal (using ===) type \"a\" but it is that type."`;
+exports[`toHaveTagName shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <a> node not to equal (using ===) type \\"a\\" but it is that type."`;
 
-exports[`toHaveTagName shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <a> node to equal (using ===) type \"a\" but it is a \"a\"."`;
+exports[`toHaveTagName shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <a> node to equal (using ===) type \\"a\\" but it is a \\"a\\"."`;
 
 exports[`toHaveTagName shallow works on composite functions 1`] = `
 Object {
   "contextualInformation": Object {
-    "actual": "<div><span id=\"span\" /><span /><a id=\"a\" /></div>",
+    "actual": "<div><span id=\\"span\\" /><span /><a id=\\"a\\" /></div>",
   },
-  "message": "Expected <Fixture> node to equal (using ===) type \"Fixture\" but it is a \"div\".",
-  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \"Fixture\" but it is that type.",
+  "message": "Expected <Fixture> node to equal (using ===) type \\"Fixture\\" but it is a \\"div\\".",
+  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \\"Fixture\\" but it is that type.",
   "pass": false,
 }
 `;
@@ -72,10 +74,10 @@ Object {
 exports[`toHaveTagName shallow works on composite functions 2`] = `
 Object {
   "contextualInformation": Object {
-    "actual": "<div><span id=\"span\" /><span /><a id=\"a\" /></div>",
+    "actual": "<div><span id=\\"span\\" /><span /><a id=\\"a\\" /></div>",
   },
-  "message": "Expected <Fixture> node to equal (using ===) type \"a\" but it is a \"div\".",
-  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \"a\" but it is that type.",
+  "message": "Expected <Fixture> node to equal (using ===) type \\"a\\" but it is a \\"div\\".",
+  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \\"a\\" but it is that type.",
   "pass": false,
 }
 `;
