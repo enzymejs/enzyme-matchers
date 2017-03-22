@@ -1,5 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`toHaveProp mount provides contextual information for the message (mount) 1`] = `
 Object {
   "actual": "Actual: [33marrayProp[39m[90m:[39m [33m[90m[90m[[90m
@@ -15,9 +13,9 @@ Object {
 }
 `;
 
-exports[`toHaveProp mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <User> \\"arrayProp\\" prop values not to match (using npm.deepEqualIdent), but they did."`;
+exports[`toHaveProp mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <User> \"arrayProp\" prop values not to match (using npm.deepEqualIdent), but they did."`;
 
-exports[`toHaveProp mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <User> \\"arrayProp\\" prop values to match (using npm.deepEqualIdent) but they didn't."`;
+exports[`toHaveProp mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <User> \"arrayProp\" prop values to match (using npm.deepEqualIdent) but they didn\'t."`;
 
 exports[`toHaveProp shallow provides contextual information for the message (shallow) 1`] = `
 Object {
@@ -34,6 +32,6 @@ Object {
 }
 `;
 
-exports[`toHaveProp shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <User> \\"arrayProp\\" prop values not to match (using npm.deepEqualIdent), but they did."`;
+exports[`toHaveProp shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <User> \"arrayProp\" prop values not to match (using npm.deepEqualIdent), but they did."`;
 
-exports[`toHaveProp shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <User> \\"arrayProp\\" prop values to match (using npm.deepEqualIdent) but they didn't."`;
+exports[`toHaveProp shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <User> \"arrayProp\" prop values to match (using npm.deepEqualIdent) but they didn\'t."`;

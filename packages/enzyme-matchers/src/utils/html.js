@@ -2,6 +2,7 @@ import instance from './instance';
 /* eslint-disable no-console */
 const noop = () => {};
 const error = console.error;
+const SHALLOW_WRAPPER_CONSTRUCTOR = 'ShallowWrapper';
 
 function mapWrappersHTML(wrapper) : string {
   return wrapper.nodes.map(node => {
@@ -33,6 +34,10 @@ export default function printHTMLForWrapper(wrapper) : string {
       return '[empty set]';
     }
     case 1: {
+      if (wrapper.constructor.name === SHALLOW_WRAPPER_CONSTRUCTOR) {
+        return wrapper.debug().replace(/\n/g, '');
+      }
+
       return wrapper.html();
     }
     default: {
