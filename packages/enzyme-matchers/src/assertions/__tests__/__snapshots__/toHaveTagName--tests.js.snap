@@ -41,7 +41,7 @@ Object {
 
 exports[`toHaveTagName shallow provides contextual information for the message (shallow) 1`] = `
 Object {
-  "actual": "<a id=\"a\"></a>",
+  "actual": "<a id=\"a\" />",
 }
 `;
 
@@ -61,7 +61,7 @@ exports[`toHaveTagName shallow returns the message with the proper pass verbage 
 exports[`toHaveTagName shallow works on composite functions 1`] = `
 Object {
   "contextualInformation": Object {
-    "actual": "<div><span id=\"span\"></span><span></span><a id=\"a\"></a></div>",
+    "actual": "<div><span id=\"span\" /><span /><a id=\"a\" /></div>",
   },
   "message": "Expected <Fixture> node to equal (using ===) type \"Fixture\" but it is a \"div\".",
   "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \"Fixture\" but it is that type.",
@@ -72,7 +72,7 @@ Object {
 exports[`toHaveTagName shallow works on composite functions 2`] = `
 Object {
   "contextualInformation": Object {
-    "actual": "<div><span id=\"span\"></span><span></span><a id=\"a\"></a></div>",
+    "actual": "<div><span id=\"span\" /><span /><a id=\"a\" /></div>",
   },
   "message": "Expected <Fixture> node to equal (using ===) type \"a\" but it is a \"div\".",
   "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \"a\" but it is that type.",

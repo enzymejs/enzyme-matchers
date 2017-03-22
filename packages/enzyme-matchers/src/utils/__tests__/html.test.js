@@ -4,7 +4,7 @@ const html = require('../html');
 
 describe('html', () => {
   const inputStrings = {
-    shallow: '<input/>',
+    shallow: '<input />',
     mount: '<input>',
   };
 

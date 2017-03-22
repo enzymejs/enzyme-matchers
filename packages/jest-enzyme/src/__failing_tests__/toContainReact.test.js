@@ -1,4 +1,4 @@
-const { shallow } = require('enzyme');
+const { shallow, mount } = require('enzyme');
 const React = require('react');
 
 describe('failing test', () => {
@@ -6,21 +6,25 @@ describe('failing test', () => {
     <div><i /></div>
   );
 
-  it('fails toContainReact', () => {
-    expect(
-      shallow(<Fixture />)
-    ).toContainReact(<b />);
-  });
+  [shallow, mount].forEach(builder => {
+    describe(builder.name, () => {
+      it('fails toContainReact', () => {
+        expect(
+          builder(<Fixture />)
+        ).toContainReact(<b />);
+      });
 
-  it('fails NOT toContainReact', () => {
-    expect(
-      shallow(<Fixture />)
-    ).not.toContainReact(<i />);
-  });
+      it('fails NOT toContainReact', () => {
+        expect(
+          builder(<Fixture />)
+        ).not.toContainReact(<i />);
+      });
 
-  it('fails NOT toContainReact multiple nodes', () => {
-    expect(
-      shallow(<div><span /><span foo /></div>).find('span')
-    ).toContainReact(<span foo={false} />);
+      it('fails NOT toContainReact multiple nodes', () => {
+        expect(
+          builder(<div><span /><span foo /></div>).find('span')
+        ).toContainReact(<span foo={false} />);
+      });
+    });
   });
 });
