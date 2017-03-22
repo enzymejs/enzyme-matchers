@@ -28,7 +28,7 @@
     "deep-equal-ident": "^1.1.1"
   },
   "jest": {
-    "testPathDirs": [
+    "roots": [
       "<rootDir>/src"
     ],
     "verbose": true

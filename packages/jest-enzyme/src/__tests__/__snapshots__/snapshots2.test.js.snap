@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshotting second time serializes enzyme objects (mount) 1`] = `
+<div
+  className="foo"
+>
+  Hi
+</div>
+`;
+
+exports[`snapshotting second time serializes enzyme objects (shallow) 1`] = `
+<div
+  className="foo"
+>
+  Hi
+</div>
+`;
