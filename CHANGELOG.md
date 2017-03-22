@@ -1,3 +1,22 @@
+3.0.0
+=====
+  * This version updates the requirement for jest-enzyme to jest versions 19 or greater
+  * Automatically inject a serializer for enzyme components to be snapshotted
+  * Bugfix: Prevent shallow wrappers from being deeply rendered by our internal `html` utils
+
+2.1.2
+=====
+  * Remove dependency on colors package
+  * Fix stringify to not crash on `null` values
+
+2.1.1
+=====
+  * Fix the way we looked up internals of react for latest version
+
+2.1.0
+=====
+  * Fix matcher messages from always sounding positive, even when negated
+
 2.0.0
 =====
   * **Changed project structure!**
