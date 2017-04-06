@@ -35,7 +35,7 @@ Make sure your `package.json` includes the following:
   "unmockedModulePathPatterns": [
     "react",
     "enzyme",
-    "jasmine-enzyme"
+    "jest-enzyme"
   ]
 },
 ```
