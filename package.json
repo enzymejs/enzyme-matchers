@@ -50,6 +50,7 @@
     "eslint-plugin-react": "^4.3.0",
     "jest-cli": "^19.0.0",
     "lerna": "2.0.0-beta.30",
+    "prop-types": "^15.5.6",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -65,7 +66,6 @@
     "verbose": true
   },
   "dependencies": {
-    "babel-preset-stage-2": "^6.18.0",
-    "prop-types": "^15.5.6"
+    "babel-preset-stage-2": "^6.18.0"
   }
 }
