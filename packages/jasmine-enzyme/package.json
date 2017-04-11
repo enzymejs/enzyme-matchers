@@ -42,7 +42,7 @@
     "enzyme": "1.x || 2.x"
   },
   "dependencies": {
-    "enzyme-matchers": "^2.1.2"
+    "enzyme-matchers": "^3.0.0"
   },
   "jest": {
     "testPathDirs": [
