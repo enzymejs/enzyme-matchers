@@ -168,7 +168,7 @@ class User extends React.Component {
 }
 
 User.propTypes = {
-  index: React.PropTypes.number.isRequired
+  index: PropTypes.number.isRequired
 }
 
 class Fixture extends React.Component {

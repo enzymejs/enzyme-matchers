@@ -65,6 +65,7 @@
     "verbose": true
   },
   "dependencies": {
-    "babel-preset-stage-2": "^6.18.0"
+    "babel-preset-stage-2": "^6.18.0",
+    "prop-types": "^15.5.6"
   }
 }

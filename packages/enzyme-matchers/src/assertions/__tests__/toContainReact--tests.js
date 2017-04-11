@@ -1,5 +1,6 @@
 const { shallow } = require('enzyme');
 const React = require('react');
+import PropTypes from 'prop-types';
 
 const toContainReact = require('../toContainReact');
 
@@ -10,7 +11,7 @@ function User(props) {
 }
 
 User.propTypes = {
-  index: React.PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 function Fixture() {
