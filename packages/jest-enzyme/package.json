@@ -19,6 +19,7 @@
     "src",
     "lib"
   ],
+  "types": "src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
@@ -46,6 +47,7 @@
     "jest": ">=19.0.0"
   },
   "dependencies": {
+    "@types/react": "^15.0.22",
     "enzyme-matchers": "^3.0.1",
     "enzyme-to-json": "^1.5.0"
   },
