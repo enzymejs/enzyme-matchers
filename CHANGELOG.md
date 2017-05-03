@@ -1,3 +1,11 @@
+3.1.0
+=====
+  * Add Typescript definitions
+
+3.0.1
+=====
+  * Fix a failed version publish
+
 3.0.0
 =====
   * This version updates the requirement for jest-enzyme to jest versions 19 or greater
