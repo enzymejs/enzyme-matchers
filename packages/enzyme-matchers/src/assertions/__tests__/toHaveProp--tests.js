@@ -1,5 +1,6 @@
 const { shallow, mount } = require('enzyme');
 const React = require('react');
+import PropTypes from 'prop-types';
 
 const toHaveProp = require('../toHaveProp');
 
@@ -15,11 +16,11 @@ function User(props) {
 }
 
 User.propTypes = {
-  name: React.PropTypes.string,
-  email: React.PropTypes.string,
-  arrayProp: React.PropTypes.array,
-  objectProp: React.PropTypes.object,
-  falsy: React.PropTypes.bool,
+  name: PropTypes.string,
+  email: PropTypes.string,
+  arrayProp: PropTypes.array,
+  objectProp: PropTypes.object,
+  falsy: PropTypes.bool,
 };
 
 const fn = () => {};

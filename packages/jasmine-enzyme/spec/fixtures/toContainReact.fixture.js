@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.User = User;
 exports.Fixture = Fixture;
 var React = require('react');
+var PropTypes = require('prop-types');
 
 function User(props) {
   return React.createElement(
@@ -17,7 +18,7 @@ function User(props) {
 }
 
 User.propTypes = {
-  index: React.PropTypes.number.isRequired
+  index: PropTypes.number.isRequired
 };
 
 function Fixture() {
