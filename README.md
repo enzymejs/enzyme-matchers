@@ -485,6 +485,7 @@ expect(wrapper.find('span')).toMatchSelector('.bar');
 ```shell
 $ git clone <this repo>
 $ cd enzyme-matchers
+$ npm install
 $ lerna bootstrap
 ```
 
