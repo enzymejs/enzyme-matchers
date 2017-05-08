@@ -15,10 +15,7 @@ import single from '../utils/single';
 
 function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : Matcher {
   const wrapperHtml = html(enzymeWrapper);
-  const actualTag = typeof enzymeWrapper.type() === 'function'
-    ? enzymeWrapper.type().name
-    : enzymeWrapper.type();
-
+  const actualTag = enzymeWrapper.name();
   const pass = actualTag === tag;
 
   const wrapperName = `<${name(enzymeWrapper)}>`;
