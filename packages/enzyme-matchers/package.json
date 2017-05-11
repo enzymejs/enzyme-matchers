@@ -14,6 +14,11 @@
     "prepublish": "npm run build",
     "build": "babel src --out-dir lib --ignore tests"
   },
+  "files": [
+    "src",
+    "lib",
+    "types"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
