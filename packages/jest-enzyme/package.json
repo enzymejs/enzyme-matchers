@@ -17,7 +17,8 @@
   },
   "files": [
     "src",
-    "lib"
+    "lib",
+    "types"
   ],
   "types": "src/index.d.ts",
   "repository": {
