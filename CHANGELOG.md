@@ -1,3 +1,7 @@
+3.1.1
+=====
+  * Fix a bug when running tests in IE
+
 3.1.0
 =====
   * Add Typescript definitions
