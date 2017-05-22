@@ -1,12 +1,7 @@
 import instance from './instance';
-/* eslint-disable no-console */
-let consoleObject;
-try {
-  consoleObject = console;
-} catch (e) {
-  // If no global console object is available, set consoleObject to a dummy object.
-  consoleObject = {};
-}
+import getConsoleObject from './getConsoleObject';
+
+const consoleObject = getConsoleObject();
 const noop = () => {};
 const error = consoleObject.error;
 const SHALLOW_WRAPPER_CONSTRUCTOR = 'ShallowWrapper';
