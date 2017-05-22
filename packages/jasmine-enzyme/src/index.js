@@ -11,7 +11,7 @@ import enzymeMatchers from 'enzyme-matchers';
 
 declare var jest:Object;
 
-export default function jasmineEnzyme() : void {
+function jasmineEnzyme() : void {
   // Migration step for moving people from jasmine-enzyme
   // to jest-enzyme
   if (typeof jest !== 'undefined') {
@@ -29,3 +29,13 @@ export default function jasmineEnzyme() : void {
     });
   });
 }
+
+// Also expose enzymeMatchers directly so that the matchers can be added on a per-spec basis
+// instead of globally on the jasmine object. This also supports older versions of jasmine where
+// jasmine.addMatchers isn't defined and matchers must be added to the spec in a beforeEach().
+//
+// Add enzymeMatchers as an expando property onto the jasmineEnzyme function for backwards
+// compatibility with previous versions of jasmine-enzyme.
+jasmineEnzyme.enzymeMatchers = enzymeMatchers;
+
+export default jasmineEnzyme;
