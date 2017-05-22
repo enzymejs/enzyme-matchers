@@ -4,6 +4,18 @@ const noop = () => {};
 const error = console.error;
 const SHALLOW_WRAPPER_CONSTRUCTOR = 'ShallowWrapper';
 
+function isShallowWrapper(wrapper) : boolean {
+  let isShallow;
+  if (wrapper.constructor.name !== undefined) {
+    isShallow = wrapper.constructor.name === SHALLOW_WRAPPER_CONSTRUCTOR;
+  } else {
+    // function.name isn't available on IE 11, so fall back to turning the function into
+    // a string and checking its name this way.
+    isShallow = !!(`${wrapper.constructor}`).match(/^function ShallowWrapper\(/);
+  }
+  return isShallow;
+}
+
 function mapWrappersHTML(wrapper) : string {
   return wrapper.nodes.map(node => {
     const inst = instance(node);
@@ -34,7 +46,7 @@ export default function printHTMLForWrapper(wrapper) : string {
       return '[empty set]';
     }
     case 1: {
-      if (wrapper.constructor.name === SHALLOW_WRAPPER_CONSTRUCTOR) {
+      if (isShallowWrapper(wrapper)) {
         return wrapper.debug().replace(/\n/g, '');
       }
 

@@ -33,4 +33,15 @@ describe('html', () => {
       });
     });
   });
+
+  describe('isShallowWrapper', () => {
+    it('still correctly identifies ShallowWrapper instances if function.name is unavailable', () => {
+      const Foo = () => <div><i /></div>;
+      const Bar = () => <div><Foo /></div>;
+      const wrapper = shallow(<Bar />);
+      // simulate platforms where function.name is undefined
+      wrapper.constructor = { toString: () => 'function ShallowWrapper() {}' };
+      expect(html(wrapper)).toBe('<div><Foo /></div>');
+    });
+  });
 });
