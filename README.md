@@ -39,6 +39,7 @@ This library supports several testing frameworks including [Jest](https://github
 * [toHaveText()](#tohavetexttextstring)
 * [toIncludeText()](#toincludetexttextstring)
 * [toHaveValue()](#tohavevaluevalueany)
+* [toMatchElement()](#tomatchelementreactinstanceobject)
 * [toMatchSelector()](#tomatchselectorselectorstring)
 
 _Other_
@@ -150,7 +151,7 @@ expect(wrapper.find('span')).toBePresent();
 expect(wrapper.find('ul')).not.toBePresent();
 ```
 
-#### `toContainReact(ReactInstance:Object)`
+#### `toContainReact(reactInstance:Object)`
 
 | render | mount | shallow |
 | -------|-------|-------- |
@@ -452,6 +453,34 @@ const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
 expect(wrapper.find('input').at(0)).toHaveValue('test');
 expect(wrapper.find('input').at(1)).toHaveValue('bar');
+```
+
+#### `toMatchElement(reactInstance:Object)`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert the wrapper matches the provided react instance. This is a matcher form of Enzyme's wrapper.matchesElement(), which returns a bool with no indication of what caused a failed match. This matcher includes the actual and expected debug trees as contextual information when it fails. NOTE: The semantics are slightly different than enzyme's wrapper.matchesElement(), which ignores props. This matcher does consider props when comparing the actual to the expected values.
+
+Example:
+
+```js
+function Fixture() {
+  return (
+    <div>
+      <span id="foo" className="bar" />
+    </div>
+  );
+}
+
+const wrapper = shallow(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper).toMatchElement(<Fixture />);
+expect(wrapper.find('span')).toMatchElement(
+  <span id="foo" className="bar" />
+);
+expect(wrapper).not.toMatchElement(<div />);
 ```
 
 #### `toMatchSelector(selector:string)`
