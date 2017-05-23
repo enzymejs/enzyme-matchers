@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toMatchElement mount provides contextual information for the message 1`] = `
+"
+actual:
+<Fixture>
+  <div>
+    <span id=\\"child\\" className=\\"foo\\" />
+  </div>
+</Fixture>
+
+expected:
+<Fixture>
+  <div>
+    <span id=\\"child\\" className=\\"foo\\" />
+  </div>
+</Fixture>
+"
+`;
+
+exports[`toMatchElement mount provides contextual information for the message 2`] = `
+"
+actual:
+<span id=\\"child\\" className=\\"foo\\" />
+
+expected:
+<span id=\\"child\\" className=\\"foo\\" />
+"
+`;
+
+exports[`toMatchElement mount provides contextual information for the message 3`] = `
+"
+actual:
+<Fixture>
+  <div>
+    <span id=\\"child\\" className=\\"foo\\" />
+  </div>
+</Fixture>
+
+expected:
+<div />
+"
+`;
+
+exports[`toMatchElement mount returns the message with the proper fail verbage 1`] = `"Did not expect actual value to match the expected value."`;
+
+exports[`toMatchElement mount returns the message with the proper fail verbage 2`] = `"Did not expect actual value to match the expected value."`;
+
+exports[`toMatchElement mount returns the message with the proper fail verbage 3`] = `"Did not expect actual value to match the expected value."`;
+
+exports[`toMatchElement mount returns the message with the proper pass verbage 1`] = `"Expected actual value to match the expected value."`;
+
+exports[`toMatchElement mount returns the message with the proper pass verbage 2`] = `"Expected actual value to match the expected value."`;
+
+exports[`toMatchElement mount returns the message with the proper pass verbage 3`] = `"Expected actual value to match the expected value."`;
+
+exports[`toMatchElement shallow provides contextual information for the message 1`] = `
+"
+actual:
+<div>
+<span id=\\"child\\" className=\\"foo\\" />
+</div>
+
+expected:
+<div>
+<span id=\\"child\\" className=\\"foo\\" />
+</div>
+"
+`;
+
+exports[`toMatchElement shallow provides contextual information for the message 2`] = `
+"
+actual:
+<span id=\\"child\\" className=\\"foo\\" />
+
+expected:
+<span id=\\"child\\" className=\\"foo\\" />
+"
+`;
+
+exports[`toMatchElement shallow provides contextual information for the message 3`] = `
+"
+actual:
+<div>
+<span id=\\"child\\" className=\\"foo\\" />
+</div>
+
+expected:
+<div />
+"
+`;
+
+exports[`toMatchElement shallow returns the message with the proper fail verbage 1`] = `"Did not expect actual value to match the expected value."`;
+
+exports[`toMatchElement shallow returns the message with the proper fail verbage 2`] = `"Did not expect actual value to match the expected value."`;
+
+exports[`toMatchElement shallow returns the message with the proper fail verbage 3`] = `"Did not expect actual value to match the expected value."`;
+
+exports[`toMatchElement shallow returns the message with the proper pass verbage 1`] = `"Expected actual value to match the expected value."`;
+
+exports[`toMatchElement shallow returns the message with the proper pass verbage 2`] = `"Expected actual value to match the expected value."`;
+
+exports[`toMatchElement shallow returns the message with the proper pass verbage 3`] = `"Expected actual value to match the expected value."`;
