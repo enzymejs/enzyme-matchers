@@ -1,3 +1,12 @@
+3.2.0
+=====
+  * Publish types for Flow integration support
+  * Fix an issue where `console` may not be available in certain environments
+  * Expose matchers directly for `jasmine-enzyme`
+    * This is particularily benefecial for jasmine v1 users
+    * Access if found at `jasmineEnzyme.enzymeMatchers`
+  * Fix an issue with using shallow wrappers when running tests in IE
+
 3.1.1
 =====
   * Fix a bug when running tests in IE
