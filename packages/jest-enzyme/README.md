@@ -50,9 +50,3 @@ If you are using Create React App, instead of adding to your `package.json` as a
  ```
 
  This is documented on Create React App at the bottom of the [Testing Components](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#testing-components) section. There is also more information about [Initializing Test Environment](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#initializing-test-environment).
- 
- Also, instead of installing the latest version you should stick with versions below 3, because Create React App currently [uses](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/package.json#L50) a version of jest which will cause [this issue](https://github.com/blainekasten/enzyme-matchers/issues/71):
-
-```
-yarn add jest-enzyme@2.1.2 --dev
-```
