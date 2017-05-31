@@ -16,7 +16,6 @@
     "build": "babel src --out-dir lib --ignore tests"
   },
   "files": [
-    "src",
     "lib",
     "types"
   ],
