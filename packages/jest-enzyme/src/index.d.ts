@@ -14,9 +14,9 @@ declare namespace jest {
         toHaveState(stateKey: string, stateValue?: any): void;
         toHaveStyle(styleKey: string, styleValue?: any): void;
         toHaveTagName(tagName: string): void;
-        toHaveText(text: string);
-        toIncludeText(text: string);
-        toHaveValue(value: any);
-        toMatchSelector(selector: string);
+        toHaveText(text: string): void;
+        toIncludeText(text: string): void;
+        toHaveValue(value: any): void;
+        toMatchSelector(selector: string): void;
     }
 }
