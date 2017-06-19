@@ -12,7 +12,6 @@ import serializer from 'enzyme-to-json/serializer';
 
 declare var expect:Function;
 declare var beforeEach:Function;
-declare var beforeAll:Function;
 
 // add the snapshot serializer for Enzyme wrappers
 expect.addSnapshotSerializer(serializer);

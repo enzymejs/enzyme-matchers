@@ -5,7 +5,7 @@ describe('failing test', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
       const Fixture = (props) => <input disabled={props.disabled} />;
-      Fixture.propTypes = { disabled: PropTypes.bool };
+      Fixture.propTypes = { disabled: React.PropTypes.bool };
 
       it('fails toBeDisabled', () => {
         expect(

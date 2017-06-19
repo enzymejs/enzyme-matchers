@@ -6,17 +6,12 @@
   "scripts": {
     "pretest": "node ./scripts/jest.js",
     "test": "npm run test-matchers && npm run test-jasmine && npm run test-jest",
-    "test-matchers": "cd ./packages/enzyme-matchers && npm run jest",
+    "test-matchers": "cd ./packages/enzyme-matchers && npm run jest -- --maxWorkers=4",
     "test-jasmine": "cd ./packages/jasmine-enzyme && npm run jest && npm run jasmine",
-    "test-jest": "cd ./packages/jest-enzyme && npm run jest",
+    "test-jest": "cd ./packages/jest-enzyme && npm run jest -- --maxWorkers=4",
     "test-jestw": "cd ./packages/jest-enzyme && npm run jest --watch",
     "lint": "eslint ./packages"
   },
-  "files": [
-    "src",
-    "lib",
-    "types"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blainekasten/enzyme-matchers.git"

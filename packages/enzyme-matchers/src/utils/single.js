@@ -28,6 +28,7 @@ export default function single(
     switch (enzymeWrapper.nodes.length) {
       case 0:
         message = `${matcherFn.name} must be called on a single node, not an empty node.`;
+        break;
       case 1:
         break;
       default:
@@ -41,8 +42,8 @@ export default function single(
         negatedMessage: message,
         contextualInformation: {},
       };
-    } else {
-      return matcherFn(enzymeWrapper, ...args);
     }
-  }
+
+    return matcherFn(enzymeWrapper, ...args);
+  };
 }
