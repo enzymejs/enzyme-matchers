@@ -5,7 +5,7 @@ describe('failing test', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
       const Fixture = (props) => <input defaultChecked={props.defaultChecked} />;
-      Fixture.propTypes = { defaultChecked: PropTypes.bool };
+      Fixture.propTypes = { defaultChecked: React.PropTypes.bool };
 
       it('fails toBeChecked', () => {
         expect(

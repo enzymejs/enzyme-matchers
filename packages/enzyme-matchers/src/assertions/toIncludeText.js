@@ -13,7 +13,6 @@ import single from '../utils/single';
 
 function toIncludeText(enzymeWrapper: EnzymeObject, text: ?string): Matcher {
   const actualText = enzymeWrapper.text();
-  let pass;
 
   if (text === undefined) {
     const message = `Expected ".toIncludeText(null)" to be given some text.
@@ -26,7 +25,7 @@ function toIncludeText(enzymeWrapper: EnzymeObject, text: ?string): Matcher {
     };
   }
 
-  pass = actualText.includes(text);
+  const pass = actualText.includes(text);
   const wrapperName = `<${name(enzymeWrapper)}>`;
 
   return {
