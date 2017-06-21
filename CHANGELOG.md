@@ -1,3 +1,9 @@
+3.3.0
+=====
+  * Fix typescript return types (@Dean177)
+  * Fix Flowtype integration by not publishing `src/` files (@SBoudrias)
+  * NEW! Added `toMatchElement(reactInstance)` matcher (@finnigantime)
+
 3.2.0
 =====
   * Publish types for Flow integration support
