@@ -17,6 +17,7 @@ declare namespace jest {
         toHaveText(text: string): void;
         toIncludeText(text: string): void;
         toHaveValue(value: any): void;
+        toMatchElement(element: ReactElement<any>): void;
         toMatchSelector(selector: string): void;
     }
 }
