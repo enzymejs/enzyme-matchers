@@ -12,8 +12,11 @@
     "failing:test": "node ../../node_modules/jest-cli/bin/jest.js __failing_tests__",
     "jest": "node ../../node_modules/jest-cli/bin/jest.js __tests__",
     "lint": "eslint ./src",
-    "prepublish": "npm run build",
-    "build": "babel src --out-dir lib --ignore tests"
+    "clean": "rm -rf ./lib",
+    "build:js": "babel src --out-dir lib --ignore tests",
+    "build:flow": "flow-copy-source -v -i '**/__tests__/*.js' src lib",
+    "build": "npm run clean && npm run build:js && npm run build:flow",
+    "prepublish": "npm run build"
   },
   "files": [
     "lib",
