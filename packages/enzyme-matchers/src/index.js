@@ -3,6 +3,7 @@
  * LICENSE file in the root directory of this source tree. *
  *
  * @providesModule enzyme-matchrs
+ * @flow
  */
 
 import toBeChecked from './assertions/toBeChecked';
@@ -40,3 +41,9 @@ export default {
   toHaveValue,
   toMatchSelector,
 };
+
+export type {
+  EnzymeObject,
+  Matcher,
+  MatcherMethods,
+} from './types';

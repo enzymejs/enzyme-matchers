@@ -6,8 +6,7 @@
  * @flow
  */
 
-import type { Matcher } from '../../../../types/Matcher';
-import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import type { EnzymeObject, Matcher } from '../types';
 import html from '../utils/html';
 
 export default function toBeEmpty(enzymeWrapper:EnzymeObject) : Matcher {

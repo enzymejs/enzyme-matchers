@@ -7,8 +7,7 @@
  */
 
 import { shallow, mount } from 'enzyme';
-import type { Matcher } from '../../../../types/Matcher';
-import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import type { EnzymeObject, Matcher } from '../types';
 import isShallowWrapper from '../utils/isShallowWrapper';
 import single from '../utils/single';
 

@@ -7,8 +7,7 @@
  */
 
 import { shallow } from 'enzyme';
-import type { Matcher } from '../../../../types/Matcher';
-import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import type { EnzymeObject, Matcher } from '../types';
 import html from '../utils/html';
 import getNodeName from '../utils/name';
 import single from '../utils/single';
