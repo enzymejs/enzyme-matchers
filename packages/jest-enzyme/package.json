@@ -19,8 +19,7 @@
     "prepublish": "npm run build"
   },
   "files": [
-    "lib",
-    "types"
+    "lib"
   ],
   "types": "src/index.d.ts",
   "repository": {

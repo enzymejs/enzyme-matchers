@@ -7,8 +7,7 @@
  */
 
 import deepEqualIdent from 'deep-equal-ident';
-import type { Matcher } from '../../../../types/Matcher';
-import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import type { EnzymeObject, Matcher } from '../types';
 import name from '../utils/name';
 import stringify from '../utils/stringify';
 import single from '../utils/single';

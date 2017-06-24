@@ -6,8 +6,7 @@
  * @flow
  */
 
-import type { Matcher } from '../../../../types/Matcher';
-import type { EnzymeObject } from '../../../../types/EnzymeObject';
+import type { EnzymeObject, Matcher } from '../types';
 import name from '../utils/name';
 import single from '../utils/single';
 

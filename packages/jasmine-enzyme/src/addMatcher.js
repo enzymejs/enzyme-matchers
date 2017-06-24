@@ -6,13 +6,13 @@
  * @flow
  */
 
-import type { MatcherMethods } from '../../../types/MatcherMethods';
-declare var jasmine:Object;
+import type { MatcherMethods } from 'enzyme-matchers';
+declare var jasmine: Object;
 
 const coreMatchers = jasmine.matchers;
 let errorThrown = false;
 
-export default function addMatcher(matcher: MatcherMethods) : void {
+export default function addMatcher(matcher: MatcherMethods): void {
   const matcherName = Object.keys(matcher)[0];
 
   /*
