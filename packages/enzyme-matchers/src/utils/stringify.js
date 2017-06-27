@@ -5,9 +5,8 @@ function stringifySingle(key:string, value:any) : Array<string> {
   if (Array.isArray(value)) {
     const values = value.map(v => stringifySingle('', v)[1]);
 
-    // pop the values back to an empty array so the JSON.stringify
-    // call can't break with circular values;
-    value.forEach(value.pop.bind(value));
+    // replace value with something safe so that the JSON.stringify call won't complain about circular values since we've already safely dealt with those above
+    value = [];
 
     let joined = values.join(' ');
     let initialBracket = colors.gray('[');
