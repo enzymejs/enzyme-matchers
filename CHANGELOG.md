@@ -1,3 +1,9 @@
+3.4.0
+=====
+  * Add toMatchElement TS Declaration (@pascalduez)
+  * Prevented `toHaveProps` from mutating arguments (@moredip)
+  * Ensure flowtypes are published as part of the packages (@pascalduez)
+
 3.3.0
 =====
   * Fix typescript return types (@Dean177)
