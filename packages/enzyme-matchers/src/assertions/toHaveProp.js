@@ -13,10 +13,10 @@ import stringify from '../utils/stringify';
 import single from '../utils/single';
 
 function toHaveProp(
-  enzymeWrapper:EnzymeObject,
-  propKey:string,
-  propValue:?any
-) : Matcher {
+  enzymeWrapper: EnzymeObject,
+  propKey: string,
+  propValue?: any
+): Matcher {
   const props = enzymeWrapper.props();
 
   const contextualInformation = {

@@ -10,7 +10,7 @@ import type { EnzymeObject, Matcher } from '../types';
 import name from '../utils/name';
 import single from '../utils/single';
 
-function toHaveHTML(enzymeWrapper:EnzymeObject, html:string) : Matcher {
+function toHaveHTML(enzymeWrapper: EnzymeObject, html: string): Matcher {
   const wrapperHTML = enzymeWrapper.html();
 
   // normalize quotes

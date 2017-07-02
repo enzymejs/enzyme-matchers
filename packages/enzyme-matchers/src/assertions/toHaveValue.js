@@ -11,7 +11,7 @@ import name from '../utils/name';
 import html from '../utils/html';
 import single from '../utils/single';
 
-function toHaveValue(enzymeWrapper:EnzymeObject, expectedValue:any) : Matcher {
+function toHaveValue(enzymeWrapper: EnzymeObject, expectedValue: any): Matcher {
   let pass = false;
 
   const props = enzymeWrapper.props();

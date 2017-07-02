@@ -9,5 +9,5 @@
 export type MatcherMethods = {
   [matcherName: string]: {
     compare: Function,
-  }
+  },
 };

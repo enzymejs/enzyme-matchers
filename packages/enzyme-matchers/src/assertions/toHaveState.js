@@ -13,10 +13,10 @@ import stringify from '../utils/stringify';
 import single from '../utils/single';
 
 function toHaveState(
-  enzymeWrapper:EnzymeObject,
-  stateKey:string,
-  stateValue:?any
-) : Matcher {
+  enzymeWrapper: EnzymeObject,
+  stateKey: string,
+  stateValue?: any
+): Matcher {
   const state = enzymeWrapper.state();
 
   // error if the state key doesnt exist

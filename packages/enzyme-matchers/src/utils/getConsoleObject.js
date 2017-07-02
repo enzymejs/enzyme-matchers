@@ -1,5 +1,7 @@
+// @flow
 /* eslint-disable no-console */
-export default function getConsoleObject() : Object {
+
+export default function getConsoleObject(): Object {
   try {
     return console;
   } catch (e) {

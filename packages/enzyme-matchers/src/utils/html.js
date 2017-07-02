@@ -1,13 +1,16 @@
+// @flow
+
 import instance from './instance';
 import isShallowWrapper from './isShallowWrapper';
 import getConsoleObject from './getConsoleObject';
+import type { EnzymeObject } from '../types';
 
 const consoleObject = getConsoleObject();
 const noop = () => {};
 const error = consoleObject.error;
 
 
-function mapWrappersHTML(wrapper) : string {
+function mapWrappersHTML(wrapper: EnzymeObject): Array<string> {
   return wrapper.nodes.map(node => {
     const inst = instance(node);
     const type = node.type || inst._tag;
@@ -31,7 +34,7 @@ function mapWrappersHTML(wrapper) : string {
   });
 }
 
-export default function printHTMLForWrapper(wrapper) : string {
+export default function printHTMLForWrapper(wrapper: EnzymeObject): string {
   switch (wrapper.nodes.length) {
     case 0: {
       return '[empty set]';

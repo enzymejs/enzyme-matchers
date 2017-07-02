@@ -1,6 +1,10 @@
+// @flow
+
+import type { EnzymeObject } from '../types';
+
 const SHALLOW_WRAPPER_CONSTRUCTOR = 'ShallowWrapper';
 
-export default function isShallowWrapper(wrapper) : boolean {
+export default function isShallowWrapper(wrapper: EnzymeObject): boolean {
   let isShallow;
   if (wrapper.constructor.name !== undefined) {
     isShallow = wrapper.constructor.name === SHALLOW_WRAPPER_CONSTRUCTOR;

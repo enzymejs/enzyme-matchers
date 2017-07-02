@@ -1,15 +1,16 @@
-/*
+/**
  * @function name
- * @flow
  * @returns string
+ *
+ * @flow
  */
 
 import instance from './instance';
 
-/*
+/**
  * Gets the name of the node or component for the SINGLE item
  */
-function getNameFromRoot(root:Object) : string {
+function getNameFromRoot(root: Object): string {
   // shallow
   if (root.unrendered) {
     const { type } = root.unrendered;
@@ -32,7 +33,7 @@ function getNameFromRoot(root:Object) : string {
 }
 
 
-/*
+/**
  * Can take any sort of wrapper. A single node, a component,
  * multiple nodes, multiple components.
  *
@@ -43,7 +44,7 @@ function getNameFromRoot(root:Object) : string {
  * - "Fixture, 2 "span" nodes found"
  * - "Fixture, 2 mixed nodes found"
  */
-export default function getNameFromArbitraryWrapper(wrapper:Object) : string {
+export default function getNameFromArbitraryWrapper(wrapper: Object): string {
   const nodeCount:number = wrapper.nodes.length;
 
   switch (nodeCount) {

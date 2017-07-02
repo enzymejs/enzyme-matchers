@@ -11,7 +11,7 @@ import html from '../utils/html';
 import getNodeName from '../utils/name';
 import single from '../utils/single';
 
-function toBeDisabled(enzymeWrapper:EnzymeObject) : Matcher {
+function toBeDisabled(enzymeWrapper: EnzymeObject): Matcher {
   const pass = !!enzymeWrapper.prop('disabled');
 
   return {

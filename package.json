@@ -4,6 +4,7 @@
   "author": "Blaine Kasten<blainekasten@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "typecheck": "flow check",
     "pretest": "node ./scripts/jest.js",
     "test": "npm run test-matchers && npm run test-jasmine && npm run test-jest",
     "test-matchers": "cd ./packages/enzyme-matchers && npm run jest -- --maxWorkers=4",
@@ -45,6 +46,7 @@
     "eslint": "^2.7.0",
     "eslint-config-airbnb": "^6.2.0",
     "eslint-plugin-react": "^4.3.0",
+    "flow-bin": "^0.49.1",
     "flow-copy-source": "^1.1.0",
     "jest-cli": "^19.0.0",
     "lerna": "2.0.0-beta.30",

@@ -20,10 +20,12 @@
  * This ensures a matcher can only be called with a single enzymeWrapper
  */
 
+import type { EnzymeObject } from '../types';
+
 export default function single(
-  matcherFn:Function,
+  matcherFn: Function,
 ) {
-  return function singleWrapper(enzymeWrapper, ...args) {
+  return function singleWrapper(enzymeWrapper: EnzymeObject, ...args: Array<any>) {
     let message;
     switch (enzymeWrapper.nodes.length) {
       case 0:

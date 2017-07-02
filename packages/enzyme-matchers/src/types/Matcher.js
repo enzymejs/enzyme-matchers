@@ -11,7 +11,7 @@ export type Matcher = {
   message: string,
   negatedMessage: string,
   contextualInformation: {
-    actual: ?string,
-    expected: ?string,
+    actual?: string,
+    expected?: string,
   },
 };

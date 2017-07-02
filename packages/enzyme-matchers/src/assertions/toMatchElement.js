@@ -11,8 +11,8 @@ import type { EnzymeObject, Matcher } from '../types';
 import isShallowWrapper from '../utils/isShallowWrapper';
 import single from '../utils/single';
 
-function toMatchElement(actualEnzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
-  let expectedWrapper:EnzymeObject;
+function toMatchElement(actualEnzymeWrapper: EnzymeObject, reactInstance: Object): Matcher {
+  let expectedWrapper: EnzymeObject;
   if (!isShallowWrapper(actualEnzymeWrapper)) {
     expectedWrapper = mount(reactInstance);
   } else {
@@ -27,7 +27,10 @@ function toMatchElement(actualEnzymeWrapper:EnzymeObject, reactInstance:Object) 
     pass,
     message: 'Expected actual value to match the expected value.',
     negatedMessage: 'Did not expect actual value to match the expected value.',
-    contextualInformation: `\nactual:\n${actual}\n\nexpected:\n${expected}\n`,
+    contextualInformation: {
+      actual: `Actual:\n ${actual}`,
+      expected: `Expected:\n ${expected}`,
+    },
   };
 }
 

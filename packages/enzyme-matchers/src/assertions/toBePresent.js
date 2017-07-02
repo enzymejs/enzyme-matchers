@@ -10,7 +10,7 @@ import type { EnzymeObject, Matcher } from '../types';
 import html from '../utils/html';
 import getNodeName from '../utils/name';
 
-export default function toBePresent(enzymeWrapper:EnzymeObject) : Matcher {
+export default function toBePresent(enzymeWrapper: EnzymeObject): Matcher {
   const pass = enzymeWrapper.length !== 0;
 
   const contextualInformation = {};
