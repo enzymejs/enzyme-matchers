@@ -1,11 +1,15 @@
+// @flow
+
 import colors from './colors';
 
-function stringifySingle(key:string, value:any) : Array<string> {
+function stringifySingle(key: string, value: any): Array<string> {
   let stringifyingValue = value;
   if (Array.isArray(value)) {
     const values = value.map(v => stringifySingle('', v)[1]);
 
-    // replace value with something safe so that the JSON.stringify call won't complain about circular values since we've already safely dealt with those above
+    // replace value with something safe so that the JSON.stringify call won't
+    // complain about circular values since we've already safely dealt with those above
+    // eslint-disable-next-line no-param-reassign
     value = [];
 
     let joined = values.join(' ');
@@ -47,7 +51,7 @@ function color([key, value]) : string {
   return `${colors.yellow(key)}${colors.gray(':')} ${colors.yellow(value)}`;
 }
 
-export default function stringify(object:Object) : string {
+export default function stringify(object: Object): string {
   const keys = Object.keys(object);
 
   return keys.map(key => color(stringifySingle(key, object[key]))).join('\n');

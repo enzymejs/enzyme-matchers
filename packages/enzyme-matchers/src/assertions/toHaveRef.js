@@ -10,7 +10,7 @@ import type { EnzymeObject, Matcher } from '../types';
 import name from '../utils/name';
 import single from '../utils/single';
 
-function toHaveRef(enzymeWrapper:EnzymeObject, refName:string) : Matcher {
+function toHaveRef(enzymeWrapper: EnzymeObject, refName: string): Matcher {
   if (typeof enzymeWrapper.ref !== 'function') {
     throw new Error(
       'EnzymeMatchers::toHaveRef can not be called on a shallow wrapper'

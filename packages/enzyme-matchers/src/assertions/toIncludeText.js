@@ -10,7 +10,7 @@ import type { EnzymeObject, Matcher } from '../types';
 import name from '../utils/name';
 import single from '../utils/single';
 
-function toIncludeText(enzymeWrapper: EnzymeObject, text: ?string): Matcher {
+function toIncludeText(enzymeWrapper: EnzymeObject, text: string): Matcher {
   const actualText = enzymeWrapper.text();
 
   if (text === undefined) {

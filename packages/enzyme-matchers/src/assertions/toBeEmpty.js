@@ -9,7 +9,7 @@
 import type { EnzymeObject, Matcher } from '../types';
 import html from '../utils/html';
 
-export default function toBeEmpty(enzymeWrapper:EnzymeObject) : Matcher {
+export default function toBeEmpty(enzymeWrapper: EnzymeObject): Matcher {
   const pass = enzymeWrapper.length === 0;
 
   return {

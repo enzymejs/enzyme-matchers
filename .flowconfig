@@ -1,9 +1,10 @@
 [ignore]
-.*/node_modules/fbjs.*
+.*/node_modules/fbjs
+.*/packages/.*/lib
 
 [include]
-./packages/enzyme-matchers/src/index.js
 
 [libs]
 
 [options]
+module.name_mapper='^enzyme-matchers$' -> '<PROJECT_ROOT>/packages/enzyme-matchers/src'

@@ -11,10 +11,10 @@ import getNodeName from '../utils/name';
 import html from '../utils/html';
 import single from '../utils/single';
 
-function toBeChecked(enzymeWrapper:EnzymeObject) : Matcher {
-  let pass:boolean = false;
+function toBeChecked(enzymeWrapper: EnzymeObject): Matcher {
+  let pass: boolean = false;
 
-  const props:Object = enzymeWrapper.props();
+  const props: Object = enzymeWrapper.props();
 
   // set to the default checked
   if (props.hasOwnProperty('defaultChecked')) {

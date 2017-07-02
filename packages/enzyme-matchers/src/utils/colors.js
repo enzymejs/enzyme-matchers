@@ -1,3 +1,5 @@
+// @flow
+
 const colorValues = {
   blue: [34, 39],
   gray: [90, 39],

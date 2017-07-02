@@ -12,8 +12,8 @@ import html from '../utils/html';
 import getNodeName from '../utils/name';
 import single from '../utils/single';
 
-function toContainReact(enzymeWrapper:EnzymeObject, reactInstance:Object) : Matcher {
-  const wrappedInstance:EnzymeObject = shallow(reactInstance);
+function toContainReact(enzymeWrapper: EnzymeObject, reactInstance: Object): Matcher {
+  const wrappedInstance: EnzymeObject = shallow(reactInstance);
   const pass = enzymeWrapper.contains(reactInstance);
 
   return {

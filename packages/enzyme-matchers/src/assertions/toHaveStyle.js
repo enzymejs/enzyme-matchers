@@ -14,10 +14,10 @@ import html from '../utils/html';
 import single from '../utils/single';
 
 function toHaveStyle(
-  enzymeWrapper:EnzymeObject,
-  styleKey:string,
-  styleValue:?any
-) : Matcher {
+  enzymeWrapper: EnzymeObject,
+  styleKey: string,
+  styleValue?: any
+): Matcher {
   const style = enzymeWrapper.prop('style');
 
   // error if component doesnt have style

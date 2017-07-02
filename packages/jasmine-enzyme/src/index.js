@@ -9,9 +9,9 @@
 import addMatcher from './addMatcher';
 import enzymeMatchers from 'enzyme-matchers';
 
-declare var jest:Object;
+declare var jest: Object;
 
-function jasmineEnzyme() : void {
+function jasmineEnzyme(): void {
   // Migration step for moving people from jasmine-enzyme
   // to jest-enzyme
   if (typeof jest !== 'undefined') {
@@ -23,7 +23,7 @@ function jasmineEnzyme() : void {
 
   const matchers = Object.keys(enzymeMatchers);
 
-  matchers.forEach((matcher:string) => {
+  matchers.forEach((matcher: string) => {
     addMatcher({
       [matcher]: () => ({ compare: enzymeMatchers[matcher] }),
     });

@@ -11,7 +11,7 @@ import name from '../utils/name';
 import html from '../utils/html';
 import single from '../utils/single';
 
-function toHaveTagName(enzymeWrapper:EnzymeObject, tag:string) : Matcher {
+function toHaveTagName(enzymeWrapper: EnzymeObject, tag: string): Matcher {
   const wrapperHtml = html(enzymeWrapper);
   const actualTag = enzymeWrapper.name();
   const pass = actualTag === tag;
