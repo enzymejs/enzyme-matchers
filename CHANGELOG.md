@@ -1,3 +1,10 @@
+3.5.0
+=====
+  * Include TS definitions in exported library (@Dean177)
+  * Fix a bug that can occur when you are mocking console.error in your tests. (@juanca)
+  * [internal] Use babel-preset-env (@pascalduez)
+  * [internal] Improve flowtype usage (@pascalduez)
+
 3.4.0
 =====
   * Add toMatchElement TS Declaration (@pascalduez)
