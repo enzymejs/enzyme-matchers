@@ -1,3 +1,7 @@
+3.5.1
+=====
+  * Fix the TS definition for `toContainReact` (@pselden)
+
 3.5.0
 =====
   * Include TS definitions in exported library (@Dean177)
