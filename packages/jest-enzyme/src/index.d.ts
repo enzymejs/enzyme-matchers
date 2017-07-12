@@ -6,7 +6,7 @@ declare namespace jest {
         toBeDisabled(): void;
         toBeEmpty(): void;
         toBePresent(): void;
-        toContainReact(component: React.Component<any, any>): void;
+        toContainReact(component: ReactElement<any>): void;
         toHaveClassName(className: string): void;
         toHaveHTML(html: string): void;
         toHaveProp(propKey: string, propValue?: any): void;
