@@ -21,7 +21,7 @@
   "files": [
     "lib"
   ],
-  "types": "src/index.d.ts",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
