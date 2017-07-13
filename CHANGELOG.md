@@ -1,3 +1,7 @@
+3.5.2
+=====
+  * Add the missing export of the toMatchElement assertion (@vkrol)
+
 3.5.1
 =====
   * Fix the TS definition for `toContainReact` (@pselden)
