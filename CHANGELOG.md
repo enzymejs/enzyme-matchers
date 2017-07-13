@@ -1,3 +1,7 @@
+3.5.3
+=====
+  * Point to lib TS file (@pascalduez)
+
 3.5.2
 =====
   * Add the missing export of the toMatchElement assertion (@vkrol)
