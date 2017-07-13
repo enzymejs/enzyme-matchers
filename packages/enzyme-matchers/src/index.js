@@ -22,6 +22,7 @@ import toHaveText from './assertions/toHaveText';
 import toIncludeText from './assertions/toIncludeText';
 import toHaveValue from './assertions/toHaveValue';
 import toMatchSelector from './assertions/toMatchSelector';
+import toMatchElement from './assertions/toMatchElement';
 
 export default {
   toBeChecked,
@@ -40,6 +41,7 @@ export default {
   toIncludeText,
   toHaveValue,
   toMatchSelector,
+  toMatchElement,
 };
 
 export type {
