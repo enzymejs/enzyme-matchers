@@ -46,6 +46,6 @@ export default function single(
       };
     }
 
-    return matcherFn(enzymeWrapper, ...args);
+    return matcherFn.call(this, enzymeWrapper, ...args); // Preserve utilities set inside this for the matchers
   };
 }

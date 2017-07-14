@@ -46,7 +46,8 @@ function toHaveState(
     };
   }
 
-  const pass = deepEqualIdent(state[stateKey], stateValue);
+  const equals = (this && this.equals ? this.equals : deepEqualIdent);
+  const pass = equals(state[stateKey], stateValue);
 
   return {
     pass,
