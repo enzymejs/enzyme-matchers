@@ -75,6 +75,7 @@ describe('addMatchers', () => {
 
     expect(wrapper.find('User')).toHaveProp('name');
     expect(wrapper.find('User')).toHaveProp('name', 'blaine');
+    expect(wrapper.find('User')).toHaveProp('name', jasmine.stringMatching('lai'));
   });
 
   it('adds toHaveRef', () => {
@@ -97,6 +98,7 @@ describe('addMatchers', () => {
 
     expect(wrapper).toHaveState('foo');
     expect(wrapper).toHaveState('foo', false);
+    expect(wrapper).toHaveState('array', jasmine.arrayContaining([2]));
   });
 
   it('adds toHaveStyle', () => {
@@ -104,6 +106,7 @@ describe('addMatchers', () => {
     const wrapper = shallow(React.createElement(Fixture));
 
     expect(wrapper.find('#style1')).toHaveStyle('height', '100%');
+    expect(wrapper.find('#style1')).toHaveStyle('height', jasmine.stringMatching('%'));
     expect(wrapper.find('#style2')).toHaveStyle('flex', 8);
   });
 

@@ -44,7 +44,8 @@ function toHaveStyle(
     };
   }
 
-  const pass = deepEqualIdent(style[styleKey], styleValue);
+  const equals = (this && this.equals ? this.equals : deepEqualIdent);
+  const pass = equals(style[styleKey], styleValue);
 
   return {
     pass,
