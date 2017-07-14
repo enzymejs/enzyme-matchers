@@ -1,6 +1,6 @@
 {
   "name": "jest-enzyme",
-  "version": "3.5.1",
+  "version": "3.5.3",
   "description": "Testing Matchers for Enzyme",
   "main": "lib/index.js",
   "author": "Blaine Kasten <blainekasten@gmail.com>",
@@ -21,7 +21,7 @@
   "files": [
     "lib"
   ],
-  "types": "src/index.d.ts",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@types/react": "^15.0.22",
-    "enzyme-matchers": "^3.5.1",
+    "enzyme-matchers": "^3.5.3",
     "enzyme-to-json": "^1.5.0"
   },
   "jest": {
