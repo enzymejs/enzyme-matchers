@@ -11,7 +11,10 @@ import type { EnzymeObject, Matcher } from '../types';
 import isShallowWrapper from '../utils/isShallowWrapper';
 import single from '../utils/single';
 
-function toMatchElement(actualEnzymeWrapper: EnzymeObject, reactInstance: Object): Matcher {
+function toMatchElement(
+  actualEnzymeWrapper: EnzymeObject,
+  reactInstance: Object,
+): Matcher {
   let expectedWrapper: EnzymeObject;
   if (!isShallowWrapper(actualEnzymeWrapper)) {
     expectedWrapper = mount(reactInstance);

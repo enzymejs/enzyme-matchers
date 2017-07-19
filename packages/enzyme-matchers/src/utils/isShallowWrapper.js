@@ -9,7 +9,7 @@ export default function isShallowWrapper(wrapper: EnzymeObject): boolean {
   if (wrapper.constructor.name !== undefined) {
     isShallow = wrapper.constructor.name === SHALLOW_WRAPPER_CONSTRUCTOR;
   } else {
-    isShallow = !!(`${wrapper.constructor}`).match(/^function ShallowWrapper\(/);
+    isShallow = !!`${wrapper.constructor}`.match(/^function ShallowWrapper\(/);
   }
   return isShallow;
 }

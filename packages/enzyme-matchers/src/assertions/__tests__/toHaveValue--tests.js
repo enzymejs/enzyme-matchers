@@ -39,13 +39,9 @@ describe('toHaveValue', () => {
 
     it('prioritizes `value` over `defaultValue`', () => {
       const _wrapper = shallow(<Fixture />).find('input').at(1);
-      expect(
-        toHaveValue(_wrapper, 'bar').pass
-      ).toBeTruthy();
+      expect(toHaveValue(_wrapper, 'bar').pass).toBeTruthy();
 
-      expect(
-        toHaveValue(_wrapper, 'foo').pass
-      ).toBeFalsy();
+      expect(toHaveValue(_wrapper, 'foo').pass).toBeFalsy();
     });
   });
 });

@@ -22,7 +22,9 @@ function stringifySingle(key: string, value: any): Array<string> {
       initialBracket += pad;
     }
 
-    stringifyingValue = colors.gray(`${initialBracket}${joined}${endingBracket}`);
+    stringifyingValue = colors.gray(
+      `${initialBracket}${joined}${endingBracket}`,
+    );
   } else if (value === null) {
     stringifyingValue = colors.gray(value);
   } else if (typeof value === 'object') {
@@ -47,7 +49,7 @@ function stringifySingle(key: string, value: any): Array<string> {
   }
 }
 
-function color([key, value]) : string {
+function color([key, value]): string {
   return `${colors.yellow(key)}${colors.gray(':')} ${colors.yellow(value)}`;
 }
 

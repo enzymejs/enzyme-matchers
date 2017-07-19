@@ -23,8 +23,12 @@ function toHaveHTML(enzymeWrapper: EnzymeObject, html: string): Matcher {
 
   return {
     pass,
-    message: `Expected <${name(enzymeWrapper)}> html to match the expected, but it didn't.`,
-    negatedMessage: `Expected <${name(enzymeWrapper)}> html not to match the expected, but it did.`,
+    message: `Expected <${name(
+      enzymeWrapper,
+    )}> html to match the expected, but it didn't.`,
+    negatedMessage: `Expected <${name(
+      enzymeWrapper,
+    )}> html not to match the expected, but it did.`,
     contextualInformation: {
       actual: `Actual HTML: ${actualHTML}`,
       expected: `Expected HTML: ${expectedHTML}`,

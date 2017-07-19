@@ -46,7 +46,7 @@ describe('toHaveStyle', () => {
         expect(nfalsyResults).toMatchSnapshot();
       });
 
-      it('provides the right info when a specific key doesn\'t exist', () => {
+      it("provides the right info when a specific key doesn't exist", () => {
         const style = { width: '0' };
         const nwrapper = builder(<div style={style} />);
         const nfalsyResults = toHaveStyle(nwrapper, 'height', '0');

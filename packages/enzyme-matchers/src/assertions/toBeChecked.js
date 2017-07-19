@@ -28,8 +28,12 @@ function toBeChecked(enzymeWrapper: EnzymeObject): Matcher {
 
   return {
     pass,
-    message: `Expected "${getNodeName(enzymeWrapper)}" to be checked but it wasn't.`,
-    negatedMessage: `Expected "${getNodeName(enzymeWrapper)}" not to be checked but it was.`,
+    message: `Expected "${getNodeName(
+      enzymeWrapper,
+    )}" to be checked but it wasn't.`,
+    negatedMessage: `Expected "${getNodeName(
+      enzymeWrapper,
+    )}" not to be checked but it was.`,
     contextualInformation: {
       actual: `Node HTML output: ${html(enzymeWrapper)}`,
     },

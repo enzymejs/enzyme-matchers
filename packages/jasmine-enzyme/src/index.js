@@ -21,9 +21,13 @@ function jasmineEnzyme(): void {
     `);
   }
 
-  const toJasmineMatcher = (matcherFn: Function) => (util: Object, customEqualityTesters: Object) => {
+  const toJasmineMatcher = (matcherFn: Function) => (
+    util: Object,
+    customEqualityTesters: Object,
+  ) => {
     // Convert the equals util from jasmine to share the same interface as jest
-    const equals = (actual, expected) => util.equals(actual, expected, customEqualityTesters);
+    const equals = (actual, expected) =>
+      util.equals(actual, expected, customEqualityTesters);
     return { compare: matcherFn.bind({ equals }) };
   };
 
