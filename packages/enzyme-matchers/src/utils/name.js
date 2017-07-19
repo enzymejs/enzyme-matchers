@@ -27,11 +27,8 @@ function getNameFromRoot(root: Object): string {
     return root.type;
   }
 
-  return typeof root.name === 'function'
-    ? root.name()
-    : '(anonymous)';
+  return typeof root.name === 'function' ? root.name() : '(anonymous)';
 }
-
 
 /**
  * Can take any sort of wrapper. A single node, a component,
@@ -45,7 +42,7 @@ function getNameFromRoot(root: Object): string {
  * - "Fixture, 2 mixed nodes found"
  */
 export default function getNameFromArbitraryWrapper(wrapper: Object): string {
-  const nodeCount:number = wrapper.nodes.length;
+  const nodeCount: number = wrapper.nodes.length;
 
   switch (nodeCount) {
     case 0: {
@@ -55,21 +52,20 @@ export default function getNameFromArbitraryWrapper(wrapper: Object): string {
       return getNameFromRoot(wrapper);
     }
     default: {
-      const nodeTypeMap:Object = {};
+      const nodeTypeMap: Object = {};
 
       // determine if we have a mixed list of nodes or not
       wrapper.nodes.forEach(node => {
-        const name:string = getNameFromRoot(node);
+        const name: string = getNameFromRoot(node);
         nodeTypeMap[name] = (nodeTypeMap[name] || 0) + 1;
       });
 
-      const nodeTypeList:Array<string> = Object.keys(nodeTypeMap);
+      const nodeTypeList: Array<string> = Object.keys(nodeTypeMap);
 
-      const nodeTypes:string = nodeTypeList.length === 1
-        ? nodeTypeList[0]
-        : 'mixed';
+      const nodeTypes: string =
+        nodeTypeList.length === 1 ? nodeTypeList[0] : 'mixed';
 
-      const root:string = getNameFromRoot(wrapper.root);
+      const root: string = getNameFromRoot(wrapper.root);
 
       return `${root}, ${nodeCount} ${nodeTypes} nodes found`;
     }

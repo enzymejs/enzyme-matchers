@@ -34,4 +34,3 @@ describe('toBeChecked', () => {
     expect(truthyResults.contextualInformation).toMatchSnapshot();
   });
 });
-

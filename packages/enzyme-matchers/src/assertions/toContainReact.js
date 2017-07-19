@@ -12,16 +12,25 @@ import html from '../utils/html';
 import getNodeName from '../utils/name';
 import single from '../utils/single';
 
-function toContainReact(enzymeWrapper: EnzymeObject, reactInstance: Object): Matcher {
+function toContainReact(
+  enzymeWrapper: EnzymeObject,
+  reactInstance: Object,
+): Matcher {
   const wrappedInstance: EnzymeObject = shallow(reactInstance);
   const pass = enzymeWrapper.contains(reactInstance);
 
   return {
     pass,
-    message: `Expected <${getNodeName(enzymeWrapper)}> to contain ${html(wrappedInstance)} but it was not found.`,
-    negatedMessage: `Expected <${getNodeName(enzymeWrapper)}> not to contain ${html(wrappedInstance)} but it does.`,
+    message: `Expected <${getNodeName(enzymeWrapper)}> to contain ${html(
+      wrappedInstance,
+    )} but it was not found.`,
+    negatedMessage: `Expected <${getNodeName(
+      enzymeWrapper,
+    )}> not to contain ${html(wrappedInstance)} but it does.`,
     contextualInformation: {
-      actual: `HTML Output of <${getNodeName(enzymeWrapper)}>:\n ${html(enzymeWrapper)}`,
+      actual: `HTML Output of <${getNodeName(enzymeWrapper)}>:\n ${html(
+        enzymeWrapper,
+      )}`,
     },
   };
 }

@@ -4,20 +4,14 @@ const React = require('react');
 describe('failing test', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
-      const Fixture = () => (
-        <div></div>
-      );
+      const Fixture = () => <div />;
 
       it('fails toBeEmpty', () => {
-        expect(
-          builder(<Fixture />)
-        ).toBeEmpty();
+        expect(builder(<Fixture />)).toBeEmpty();
       });
 
       it('fails NOT toBeEmpty', () => {
-        expect(
-          builder(<Fixture />).find('foobar')
-        ).not.toBeEmpty();
+        expect(builder(<Fixture />).find('foobar')).not.toBeEmpty();
       });
     });
   });

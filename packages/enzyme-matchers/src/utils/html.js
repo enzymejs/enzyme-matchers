@@ -8,7 +8,6 @@ import type { EnzymeObject } from '../types';
 const consoleObject = getConsoleObject();
 const noop = () => {};
 
-
 function mapWrappersHTML(wrapper: EnzymeObject): Array<string> {
   return wrapper.nodes.map(node => {
     const inst = instance(node);
@@ -21,7 +20,9 @@ function mapWrappersHTML(wrapper: EnzymeObject): Array<string> {
       : inst._currentElement.props;
     consoleObject.error = error;
 
-    const transformedProps = Object.keys(props).map(key => `${key}="${props[key]}"`);
+    const transformedProps = Object.keys(props).map(
+      key => `${key}="${props[key]}"`,
+    );
     let stringifiedNode = `<${type} ${transformedProps.join(' ')}`;
 
     if (children) {
@@ -49,7 +50,7 @@ export default function printHTMLForWrapper(wrapper: EnzymeObject): string {
     default: {
       const nodes = mapWrappersHTML(wrapper).reduce(
         (acc, curr, index) => `${acc}${index}: ${curr}\n`,
-        ''
+        '',
       );
 
       return `Multiple nodes found:\n${nodes}`;

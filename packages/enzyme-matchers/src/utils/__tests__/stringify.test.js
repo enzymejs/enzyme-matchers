@@ -11,14 +11,12 @@ describe('stringify', () => {
     proof.class = Promise;
     proof.arry = Object.keys(proof).map(k => proof[k]); // includes all other proofs
 
-    expect(
-      stringify(proof)
-    ).toMatchSnapshot();
+    expect(stringify(proof)).toMatchSnapshot();
   });
 
   it('does not mutate an array inside an object', () => {
-    const anObject = {array:[1,2,3]};
+    const anObject = { array: [1, 2, 3] };
     stringify(anObject);
-    expect(anObject.array).toEqual([1,2,3]);
+    expect(anObject.array).toEqual([1, 2, 3]);
   });
 });

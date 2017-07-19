@@ -1,31 +1,27 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
 exports.default = Fixture;
 var React = require('react');
 var PropTypes = require('prop-types');
 
 function User(props) {
-  return React.createElement(
-    "div",
-    null,
-    props.name
-  );
+  return React.createElement('div', null, props.name);
 }
 
 User.propTypes = {
-  name: PropTypes.string
+  name: PropTypes.string,
 };
 
 function Fixture() {
   return React.createElement(
-    "div",
+    'div',
     null,
     React.createElement(User, {
-      name: "blaine"
-    })
+      name: 'blaine',
+    }),
   );
 }
 module.exports = exports['default'];

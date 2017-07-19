@@ -15,7 +15,7 @@ import single from '../utils/single';
 function toHaveState(
   enzymeWrapper: EnzymeObject,
   stateKey: string,
-  stateValue?: any
+  stateValue?: any,
 ): Matcher {
   const state = enzymeWrapper.state();
 
@@ -23,8 +23,12 @@ function toHaveState(
   if (!state.hasOwnProperty(stateKey)) {
     return {
       pass: false,
-      message: `Expected <${name(enzymeWrapper)}> component state to have key of "${stateKey}"`,
-      negatedMessage: `Expected <${name(enzymeWrapper)}> component state to not contain a key of "${stateKey}".`,
+      message: `Expected <${name(
+        enzymeWrapper,
+      )}> component state to have key of "${stateKey}"`,
+      negatedMessage: `Expected <${name(
+        enzymeWrapper,
+      )}> component state to not contain a key of "${stateKey}".`,
       contextualInformation: {
         actual: `Actual ${stringify({ [stateKey]: state[stateKey] })}`,
         expected: `Expected state: ${stringify({ [stateKey]: stateValue })}`,
@@ -37,8 +41,12 @@ function toHaveState(
   if (stateValue === undefined) {
     return {
       pass: true,
-      message: `Expected <${name(enzymeWrapper)}> component state to have key of "${stateKey}"`,
-      negatedMessage: `Expected <${name(enzymeWrapper)}> component state to not contain a key of "${stateKey}".`,
+      message: `Expected <${name(
+        enzymeWrapper,
+      )}> component state to have key of "${stateKey}"`,
+      negatedMessage: `Expected <${name(
+        enzymeWrapper,
+      )}> component state to not contain a key of "${stateKey}".`,
       contextualInformation: {
         actual: `Actual ${stringify({ [stateKey]: state[stateKey] })}`,
         expected: `Expected state: ${stringify({ [stateKey]: stateValue })}`,
@@ -46,13 +54,17 @@ function toHaveState(
     };
   }
 
-  const equals = (this && this.equals ? this.equals : deepEqualIdent);
+  const equals = this && this.equals ? this.equals : deepEqualIdent;
   const pass = equals(state[stateKey], stateValue);
 
   return {
     pass,
-    message: `Expected <${name(enzymeWrapper)}> component state values to match for key "${stateKey}" but they didn't.`,
-    negatedMessage: `Expected <${name(enzymeWrapper)}> component state values to be different for key "${stateKey}" but they didn't.`,
+    message: `Expected <${name(
+      enzymeWrapper,
+    )}> component state values to match for key "${stateKey}" but they didn't.`,
+    negatedMessage: `Expected <${name(
+      enzymeWrapper,
+    )}> component state values to be different for key "${stateKey}" but they didn't.`,
     contextualInformation: {
       actual: `Actual ${stringify({ [stateKey]: state[stateKey] })}`,
       expected: `Expected state: ${stringify({ [stateKey]: stateValue })}`,

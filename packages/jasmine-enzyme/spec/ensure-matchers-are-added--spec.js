@@ -9,7 +9,7 @@ const jasmineEnzyme = require('../lib/index.js');
 global.document = jsdom('');
 global.window = document.defaultView;
 global.navigator = { userAgent: 'node.js' };
-Object.keys(document.defaultView).forEach((property) => {
+Object.keys(document.defaultView).forEach(property => {
   if (typeof global[property] === 'undefined') {
     global[property] = document.defaultView[property];
   }
@@ -75,16 +75,17 @@ describe('addMatchers', () => {
 
     expect(wrapper.find('User')).toHaveProp('name');
     expect(wrapper.find('User')).toHaveProp('name', 'blaine');
-    expect(wrapper.find('User')).toHaveProp('name', jasmine.stringMatching('lai'));
+    expect(wrapper.find('User')).toHaveProp(
+      'name',
+      jasmine.stringMatching('lai'),
+    );
   });
 
   it('adds toHaveRef', () => {
     class Fixture extends React.Component {
       componentDidMount() {} // needed for lint
       render() {
-        return React.createElement(
-          'div', { ref: 'ref' }
-        );
+        return React.createElement('div', { ref: 'ref' });
       }
     }
     const wrapper = mount(React.createElement(Fixture));
@@ -106,7 +107,10 @@ describe('addMatchers', () => {
     const wrapper = shallow(React.createElement(Fixture));
 
     expect(wrapper.find('#style1')).toHaveStyle('height', '100%');
-    expect(wrapper.find('#style1')).toHaveStyle('height', jasmine.stringMatching('%'));
+    expect(wrapper.find('#style1')).toHaveStyle(
+      'height',
+      jasmine.stringMatching('%'),
+    );
     expect(wrapper.find('#style2')).toHaveStyle('flex', 8);
   });
 
