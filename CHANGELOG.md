@@ -1,3 +1,12 @@
+3.6.0
+=====
+  * Implement jest asymettric matchers and jasmine partial matchers!! (@sfargier)
+    - This means you can use API's like `expect.any(String)` in jest or `jasmine.stringMatching('%')`
+  * Fix a bug with the transpiled code not runnable in browsers (@ek5000)
+  * Make the typescript definition for jest-enzyme more accurate (@sfargier)
+  * _internal_: enzyme-matchers is built in Prettier now! (@blainekasten)
+  * _internal_: Fix a local issue with our yarn.lock (@blainekasten)
+
 3.5.3
 =====
   * Point to lib TS file (@pascalduez)
