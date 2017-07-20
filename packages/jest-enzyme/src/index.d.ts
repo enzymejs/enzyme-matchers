@@ -1,12 +1,12 @@
 /// <reference types="react" />
 
 declare namespace jest {
-    interface Matchers {
+    interface Matchers<R> {
         toBeChecked(): void;
         toBeDisabled(): void;
         toBeEmpty(): void;
         toBePresent(): void;
-        toContainReact(component: ReactElement<any>): void;
+        toContainReact(component: React.ReactElement<any>): void;
         toHaveClassName(className: string): void;
         toHaveHTML(html: string): void;
         toHaveProp(propKey: string, propValue?: any): void;
@@ -17,7 +17,7 @@ declare namespace jest {
         toHaveText(text: string): void;
         toIncludeText(text: string): void;
         toHaveValue(value: any): void;
-        toMatchElement(element: ReactElement<any>): void;
+        toMatchElement(element: React.ReactElement<any>): void;
         toMatchSelector(selector: string): void;
     }
 }
