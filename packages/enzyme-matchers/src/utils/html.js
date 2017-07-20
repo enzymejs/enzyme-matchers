@@ -20,9 +20,13 @@ function mapWrappersHTML(wrapper: EnzymeObject): Array<string> {
       : inst._currentElement.props;
     consoleObject.error = error;
 
-    const transformedProps = Object.keys(props).map(
-      key => `${key}="${props[key]}"`
-    );
+    const transformedProps = Object.keys(props).map(key => {
+      try {
+        return `${key}="${props[key].toString()}"`;
+      } catch (e) {
+        return `${key}="[object Object]"`;
+      }
+    });
     let stringifiedNode = `<${type} ${transformedProps.join(' ')}`;
 
     if (children) {
