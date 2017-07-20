@@ -15,7 +15,11 @@ describe('html', () => {
       });
 
       it(`prints the html for multiple nodes (${builder.name})`, () => {
-        const Fixture = () => <div><i /><i /></div>;
+        const Fixture = () =>
+          <div>
+            <i />
+            <i />
+          </div>;
 
         expect(html(builder(<Fixture />).find('i'))).toBe(`Multiple nodes found:
 0: <i />
@@ -24,7 +28,11 @@ describe('html', () => {
       });
 
       it('prints props with nodes', () => {
-        const Fixture = () => <div><i className="foo" /><i disabled /></div>;
+        const Fixture = () =>
+          <div>
+            <i className="foo" />
+            <i disabled />
+          </div>;
 
         expect(html(builder(<Fixture />).find('i'))).toBe(`Multiple nodes found:
 0: <i className="foo"/>
@@ -36,8 +44,14 @@ describe('html', () => {
 
   describe('isShallowWrapper', () => {
     it('still correctly identifies ShallowWrapper instances if function.name is unavailable', () => {
-      const Foo = () => <div><i /></div>;
-      const Bar = () => <div><Foo /></div>;
+      const Foo = () =>
+        <div>
+          <i />
+        </div>;
+      const Bar = () =>
+        <div>
+          <Foo />
+        </div>;
       const wrapper = shallow(<Bar />);
       // simulate platforms where function.name is undefined
       wrapper.constructor = { toString: () => 'function ShallowWrapper() {}' };

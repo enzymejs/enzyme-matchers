@@ -16,8 +16,9 @@ describe('toMatchElement', () => {
     describe(builder.name, () => {
       const wrapper = builder(<Fixture />);
       const truthyResults = toMatchElement(wrapper, <Fixture />);
-      const truthyResults2 = toMatchElement(wrapper.find('span'),
-        <span id="child" className="foo" />
+      const truthyResults2 = toMatchElement(
+        wrapper.find('span'),
+        <span id="child" className="foo" />,
       );
       const falsyResults = toMatchElement(wrapper, <div />);
 

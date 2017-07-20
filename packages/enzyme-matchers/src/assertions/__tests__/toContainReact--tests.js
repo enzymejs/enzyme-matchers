@@ -6,7 +6,9 @@ const toContainReact = require('../toContainReact');
 
 function User(props) {
   return (
-    <span>User {props.index}</span>
+    <span>
+      User {props.index}
+    </span>
   );
 }
 
@@ -18,8 +20,12 @@ function Fixture() {
   return (
     <div>
       <ul>
-        <li><User index={1} /></li>
-        <li><User index={2} /></li>
+        <li>
+          <User index={1} />
+        </li>
+        <li>
+          <User index={2} />
+        </li>
       </ul>
     </div>
   );

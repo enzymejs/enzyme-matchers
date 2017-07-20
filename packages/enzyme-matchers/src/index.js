@@ -44,8 +44,4 @@ export default {
   toMatchElement,
 };
 
-export type {
-  EnzymeObject,
-  Matcher,
-  MatcherMethods,
-} from './types';
+export type { EnzymeObject, Matcher, MatcherMethods } from './types';

@@ -13,7 +13,7 @@ import single from '../utils/single';
 function toHaveRef(enzymeWrapper: EnzymeObject, refName: string): Matcher {
   if (typeof enzymeWrapper.ref !== 'function') {
     throw new Error(
-      'EnzymeMatchers::toHaveRef can not be called on a shallow wrapper'
+      'EnzymeMatchers::toHaveRef can not be called on a shallow wrapper',
     );
   }
 
@@ -22,8 +22,12 @@ function toHaveRef(enzymeWrapper: EnzymeObject, refName: string): Matcher {
 
   return {
     pass,
-    message: `Expected to find a ref named "${refName}" on <${name(enzymeWrapper)}>, but didn't.`,
-    negatedMessage: `Expected not to find a ref named "${refName}" on <${name(enzymeWrapper)}>, but did.`,
+    message: `Expected to find a ref named "${refName}" on <${name(
+      enzymeWrapper,
+    )}>, but didn't.`,
+    negatedMessage: `Expected not to find a ref named "${refName}" on <${name(
+      enzymeWrapper,
+    )}>, but did.`,
     contextualInformation: {},
   };
 }

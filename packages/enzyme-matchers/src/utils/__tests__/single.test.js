@@ -1,7 +1,7 @@
 const single = require('../single');
 
 describe('single', () => {
-  const matcherFn = jest.fn(function foo() { return 0x3; }); // eslint-disable-line prefer-arrow-callback
+  const matcherFn = jest.fn(() => 0x3);
 
   beforeEach(matcherFn.mockClear);
 

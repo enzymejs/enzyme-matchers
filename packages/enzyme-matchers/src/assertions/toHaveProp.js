@@ -15,7 +15,7 @@ import single from '../utils/single';
 function toHaveProp(
   enzymeWrapper: EnzymeObject,
   propKey: string,
-  propValue?: any
+  propValue?: any,
 ): Matcher {
   const props = enzymeWrapper.props();
 
@@ -47,12 +47,17 @@ function toHaveProp(
     };
   }
 
-  const pass = deepEqualIdent(props[propKey], propValue);
+  const equals = this && this.equals ? this.equals : deepEqualIdent;
+  const pass = equals(props[propKey], propValue);
 
   return {
     pass,
-    message: `Expected <${name(enzymeWrapper)}> "${propKey}" prop values to match (using npm.deepEqualIdent) but they didn't.`,
-    negatedMessage: `Expected <${name(enzymeWrapper)}> "${propKey}" prop values not to match (using npm.deepEqualIdent), but they did.`,
+    message: `Expected <${name(
+      enzymeWrapper,
+    )}> "${propKey}" prop values to match but they didn't.`,
+    negatedMessage: `Expected <${name(
+      enzymeWrapper,
+    )}> "${propKey}" prop values not to match, but they did.`,
     contextualInformation,
   };
 }

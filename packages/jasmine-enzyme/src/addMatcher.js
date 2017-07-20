@@ -24,7 +24,7 @@ export default function addMatcher(matcher: MatcherMethods): void {
     throw new Error(
       `JasmineEnzyme: Added matcher "${matcherName}" is over-riding
        jasmine-core matcher. You must rename the function to
-       not over-ride anything core.`
+       not over-ride anything core.`,
     );
   }
 

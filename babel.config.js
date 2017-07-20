@@ -1,10 +1,6 @@
 
 const presets = [
-  ['env', {
-    targets: {
-      node: 4,
-    },
-  }],
+  'env',
   'react',
 ];
 

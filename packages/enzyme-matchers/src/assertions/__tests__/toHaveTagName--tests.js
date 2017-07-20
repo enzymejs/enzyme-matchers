@@ -38,7 +38,12 @@ describe('toHaveTagName', () => {
       });
 
       it('provides the right info for when this method is called with multiple nodes', () => {
-        const nwrapper = builder(<div><span /><span /></div>).find('span');
+        const nwrapper = builder(
+          <div>
+            <span />
+            <span />
+          </div>,
+        ).find('span');
         const nfalsyResults = toHaveTagName(nwrapper, 'span');
 
         expect(nfalsyResults).toMatchSnapshot();

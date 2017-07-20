@@ -10,7 +10,10 @@ import type { EnzymeObject, Matcher } from '../types';
 import name from '../utils/name';
 import html from '../utils/html';
 
-export default function toHaveClassName(enzymeWrapper: EnzymeObject, className: string): Matcher {
+export default function toHaveClassName(
+  enzymeWrapper: EnzymeObject,
+  className: string,
+): Matcher {
   let normalizedClassName = className.split(' ').join('.');
   let actualClassName = '(none)';
   let pass = false;
@@ -42,8 +45,12 @@ export default function toHaveClassName(enzymeWrapper: EnzymeObject, className: 
 
   return {
     pass,
-    message: `Expected <${name(enzymeWrapper)}> to have className of "${normalizedClassName}" but instead found "${actualClassName}"`, // eslint-disable-line max-len
-    negatedMessage: `Expected <${name(enzymeWrapper)}> not to contain "${normalizedClassName}" for it's classname`, // eslint-disable-line max-len
+    message: `Expected <${name(
+      enzymeWrapper,
+    )}> to have className of "${normalizedClassName}" but instead found "${actualClassName}"`, // eslint-disable-line max-len
+    negatedMessage: `Expected <${name(
+      enzymeWrapper,
+    )}> not to contain "${normalizedClassName}" for it's classname`, // eslint-disable-line max-len
     contextualInformation: {
       actual: `Found node output: ${html(enzymeWrapper)}`,
     },

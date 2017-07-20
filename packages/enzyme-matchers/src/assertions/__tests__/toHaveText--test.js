@@ -7,7 +7,7 @@ function Fixture() {
   return (
     <div>
       <p id="full">Test</p>
-      <p id="empty"></p>
+      <p id="empty" />
     </div>
   );
 }

@@ -16,7 +16,7 @@ import single from '../utils/single';
 function toHaveStyle(
   enzymeWrapper: EnzymeObject,
   styleKey: string,
-  styleValue?: any
+  styleValue?: any,
 ): Matcher {
   const style = enzymeWrapper.prop('style');
 
@@ -24,8 +24,12 @@ function toHaveStyle(
   if (!style) {
     return {
       pass: false,
-      message: `Expected <${name(enzymeWrapper)}> component to have a style prop but it did not.`,
-      negatedMessage: `Expected <${name(enzymeWrapper)}> component not to have a style prop but it did.`,
+      message: `Expected <${name(
+        enzymeWrapper,
+      )}> component to have a style prop but it did not.`,
+      negatedMessage: `Expected <${name(
+        enzymeWrapper,
+      )}> component not to have a style prop but it did.`,
       contextualInformation: {
         actual: html(enzymeWrapper),
       },
@@ -36,20 +40,29 @@ function toHaveStyle(
   if (!style.hasOwnProperty(styleKey)) {
     return {
       pass: false,
-      message: `Expected <${name(enzymeWrapper)}> component to have a style key of "${styleKey}" but it did not.`,
-      negatedMessage: `Expected <${name(enzymeWrapper)}> component not to have a style key of "${styleKey}" but it did.`,
+      message: `Expected <${name(
+        enzymeWrapper,
+      )}> component to have a style key of "${styleKey}" but it did not.`,
+      negatedMessage: `Expected <${name(
+        enzymeWrapper,
+      )}> component not to have a style key of "${styleKey}" but it did.`,
       contextualInformation: {
         actual: html(enzymeWrapper),
       },
     };
   }
 
-  const pass = deepEqualIdent(style[styleKey], styleValue);
+  const equals = this && this.equals ? this.equals : deepEqualIdent;
+  const pass = equals(style[styleKey], styleValue);
 
   return {
     pass,
-    message: `Expected <${name(enzymeWrapper)}> component style values to match for key "${styleKey}", but they didn't`,
-    negatedMessage: `Expected <${name(enzymeWrapper)}> component style values to be different for key "${styleKey}", but they weren't`,
+    message: `Expected <${name(
+      enzymeWrapper,
+    )}> component style values to match for key "${styleKey}", but they didn't`,
+    negatedMessage: `Expected <${name(
+      enzymeWrapper,
+    )}> component style values to be different for key "${styleKey}", but they weren't`,
     contextualInformation: {
       actual: `Actual: ${stringify({ [styleKey]: style[styleKey] })}`,
       expected: `Expected: ${stringify({ [styleKey]: styleValue })}`,

@@ -22,10 +22,11 @@
 
 import type { EnzymeObject } from '../types';
 
-export default function single(
-  matcherFn: Function,
-) {
-  return function singleWrapper(enzymeWrapper: EnzymeObject, ...args: Array<any>) {
+export default function single(matcherFn: Function) {
+  return function singleWrapper(
+    enzymeWrapper: EnzymeObject,
+    ...args: Array<any>
+  ) {
     let message;
     switch (enzymeWrapper.nodes.length) {
       case 0:
@@ -46,6 +47,6 @@ export default function single(
       };
     }
 
-    return matcherFn(enzymeWrapper, ...args);
+    return matcherFn.call(this, enzymeWrapper, ...args); // Preserve utilities set inside this for the matchers
   };
 }

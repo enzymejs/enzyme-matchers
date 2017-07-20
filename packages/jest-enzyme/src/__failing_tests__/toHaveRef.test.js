@@ -6,21 +6,19 @@ describe('failing test', () => {
     render() {
       return (
         <div ref="foo">
-          <i><b /></i>
+          <i>
+            <b />
+          </i>
         </div>
       );
     }
   }
 
   it('fails toHaveRef', () => {
-    expect(
-      mount(<Fixture />)
-    ).toHaveRef('baz');
+    expect(mount(<Fixture />)).toHaveRef('baz');
   });
 
   it('fails NOT toHaveRef', () => {
-    expect(
-      mount(<Fixture />)
-    ).not.toHaveRef('foo');
+    expect(mount(<Fixture />)).not.toHaveRef('foo');
   });
 });
