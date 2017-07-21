@@ -1,3 +1,7 @@
+3.6.1
+=====
+  * Fix a bad publish with 3.6.0 not including all documented changes
+
 3.6.0
 =====
   * Implement jest asymettric matchers and jasmine partial matchers!! (@sfargier)
