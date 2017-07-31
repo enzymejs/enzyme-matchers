@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "author": "Blaine Kasten <blainekasten@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/blainekasten/enzyme-matchers/p)ackages/jest-enzyme#readme",
+  "homepage": "https://github.com/blainekasten/enzyme-matchers/blob/master/packages/jest-enzyme#readme",
   "scripts": {
     "pretest": "node ../../scripts/jest.js",
     "test": "node ../../node_modules/jest-cli/bin/jest.js __tests__",
