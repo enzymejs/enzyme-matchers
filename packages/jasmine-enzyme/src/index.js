@@ -28,7 +28,41 @@ function jasmineEnzyme(): void {
     // Convert the equals util from jasmine to share the same interface as jest
     const equals = (actual, expected) =>
       util.equals(actual, expected, customEqualityTesters);
-    return { compare: matcherFn.bind({ equals }) };
+    return {
+      compare(...args) {
+        const results = matcherFn.call({ equals }, ...args);
+
+        if (results.contextualInformation.actual) {
+          results.message += `\nexpected: ${results.contextualInformation
+            .actual}`;
+        }
+
+        if (results.contextualInformation.expected) {
+          results.message += `\nreceived: ${results.contextualInformation
+            .expected}`;
+        }
+
+        return results;
+      },
+      negativeCompare(...args) {
+        const results = matcherFn.call({ equals }, ...args);
+
+        if (results.contextualInformation.actual) {
+          results.negatedMessage += `\nexpected: ${results.contextualInformation
+            .actual}`;
+        }
+
+        if (results.contextualInformation.expected) {
+          results.negatedMessage += `\nreceived: ${results.contextualInformation
+            .expected}`;
+        }
+
+        return {
+          pass: !results.pass,
+          message: results.negatedMessage,
+        };
+      },
+    };
   };
 
   const matchers = Object.keys(enzymeMatchers);
