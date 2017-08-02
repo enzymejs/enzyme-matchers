@@ -11,7 +11,7 @@ function Fixture() {
     'div',
     null,
     React.createElement('p', { id: 'full' }, 'Test'),
-    React.createElement('p', { id: 'empty' }),
+    React.createElement('p', { id: 'empty' })
   );
 }
 module.exports = exports['default'];

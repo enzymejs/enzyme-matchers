@@ -13,7 +13,7 @@ import single from '../utils/single';
 
 function toMatchSelector(
   enzymeWrapper: EnzymeObject,
-  selector: string,
+  selector: string
 ): Matcher {
   const pass = enzymeWrapper.is(selector);
   const wrapperName = `<${name(enzymeWrapper)}>`;

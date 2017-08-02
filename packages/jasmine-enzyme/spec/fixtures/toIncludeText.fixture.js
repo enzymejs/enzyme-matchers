@@ -10,7 +10,7 @@ function Fixture() {
   return React.createElement(
     'div',
     null,
-    React.createElement('p', { id: 'full' }, 'Some important text'),
+    React.createElement('p', { id: 'full' }, 'Some important text')
   );
 }
 module.exports = exports['default'];

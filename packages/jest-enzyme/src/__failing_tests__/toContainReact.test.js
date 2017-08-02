@@ -23,8 +23,8 @@ describe('failing test', () => {
             <div>
               <span />
               <span foo />
-            </div>,
-          ).find('span'),
+            </div>
+          ).find('span')
         ).toContainReact(<span foo={false} />);
       });
     });

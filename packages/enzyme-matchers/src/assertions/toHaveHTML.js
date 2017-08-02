@@ -24,10 +24,10 @@ function toHaveHTML(enzymeWrapper: EnzymeObject, html: string): Matcher {
   return {
     pass,
     message: `Expected <${name(
-      enzymeWrapper,
+      enzymeWrapper
     )}> html to match the expected, but it didn't.`,
     negatedMessage: `Expected <${name(
-      enzymeWrapper,
+      enzymeWrapper
     )}> html not to match the expected, but it did.`,
     contextualInformation: {
       actual: `Actual HTML: ${actualHTML}`,

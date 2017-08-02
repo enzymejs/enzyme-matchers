@@ -23,7 +23,7 @@ function stringifySingle(key: string, value: any): Array<string> {
     }
 
     stringifyingValue = colors.gray(
-      `${initialBracket}${joined}${endingBracket}`,
+      `${initialBracket}${joined}${endingBracket}`
     );
   } else if (value === null) {
     stringifyingValue = colors.gray(value);

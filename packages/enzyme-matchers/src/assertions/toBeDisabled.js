@@ -17,10 +17,10 @@ function toBeDisabled(enzymeWrapper: EnzymeObject): Matcher {
   return {
     pass,
     message: `Expected node (${getNodeName(
-      enzymeWrapper,
+      enzymeWrapper
     )}) to be "disabled" but it wasn't.`,
     negatedMessage: `Expected node (${getNodeName(
-      enzymeWrapper,
+      enzymeWrapper
     )}) not to be "disabled" but it was`,
     contextualInformation: {
       expected: `Node HTML output: ${html(enzymeWrapper)}`,

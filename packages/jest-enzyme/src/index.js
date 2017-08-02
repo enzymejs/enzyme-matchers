@@ -31,13 +31,13 @@ beforeEach(() => {
 
         if (result.contextualInformation.expected) {
           result.message += `\n${this.utils.RECEIVED_COLOR(
-            result.contextualInformation.expected,
+            result.contextualInformation.expected
           )}`;
         }
 
         if (result.contextualInformation.actual) {
           result.message += `\n${this.utils.EXPECTED_COLOR(
-            result.contextualInformation.actual,
+            result.contextualInformation.actual
           )}`;
         }
 

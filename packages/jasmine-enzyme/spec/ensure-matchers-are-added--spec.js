@@ -77,7 +77,7 @@ describe('addMatchers', () => {
     expect(wrapper.find('User')).toHaveProp('name', 'blaine');
     expect(wrapper.find('User')).toHaveProp(
       'name',
-      jasmine.stringMatching('lai'),
+      jasmine.stringMatching('lai')
     );
   });
 
@@ -109,7 +109,7 @@ describe('addMatchers', () => {
     expect(wrapper.find('#style1')).toHaveStyle('height', '100%');
     expect(wrapper.find('#style1')).toHaveStyle(
       'height',
-      jasmine.stringMatching('%'),
+      jasmine.stringMatching('%')
     );
     expect(wrapper.find('#style2')).toHaveStyle('flex', 8);
   });

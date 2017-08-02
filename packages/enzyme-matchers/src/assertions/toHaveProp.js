@@ -15,7 +15,7 @@ import single from '../utils/single';
 function toHaveProp(
   enzymeWrapper: EnzymeObject,
   propKey: string,
-  propValue?: any,
+  propValue?: any
 ): Matcher {
   const props = enzymeWrapper.props();
 
@@ -53,10 +53,10 @@ function toHaveProp(
   return {
     pass,
     message: `Expected <${name(
-      enzymeWrapper,
+      enzymeWrapper
     )}> "${propKey}" prop values to match but they didn't.`,
     negatedMessage: `Expected <${name(
-      enzymeWrapper,
+      enzymeWrapper
     )}> "${propKey}" prop values not to match, but they did.`,
     contextualInformation,
   };

@@ -30,7 +30,7 @@ function _classCallCheck(instance, Constructor) {
 function _possibleConstructorReturn(self, call) {
   if (!self) {
     throw new ReferenceError(
-      "this hasn't been initialised - super() hasn't been called",
+      "this hasn't been initialised - super() hasn't been called"
     );
   }
   return call && (typeof call === 'object' || typeof call === 'function')
@@ -42,7 +42,7 @@ function _inherits(subClass, superClass) {
   if (typeof superClass !== 'function' && superClass !== null) {
     throw new TypeError(
       'Super expression must either be null or a function, not ' +
-        typeof superClass,
+        typeof superClass
     );
   }
   subClass.prototype = Object.create(superClass && superClass.prototype, {
@@ -69,7 +69,7 @@ var Fixture = (function(_React$Component) {
 
     var _this = _possibleConstructorReturn(
       this,
-      (Fixture.__proto__ || Object.getPrototypeOf(Fixture)).call(this),
+      (Fixture.__proto__ || Object.getPrototypeOf(Fixture)).call(this)
     );
 
     _this.state = {

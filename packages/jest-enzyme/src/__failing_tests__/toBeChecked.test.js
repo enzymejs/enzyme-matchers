@@ -13,7 +13,7 @@ describe('failing test', () => {
 
       it('fails NOT toBeChecked', () => {
         expect(
-          builder(<Fixture defaultChecked />).find('input'),
+          builder(<Fixture defaultChecked />).find('input')
         ).not.toBeChecked();
       });
     });

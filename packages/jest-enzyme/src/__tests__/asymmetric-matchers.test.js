@@ -24,7 +24,7 @@ describe('Jest-enzyme supports asymmetric matcher', () => {
     expect(wrapper).toHaveProp('prop1', complexValue);
     expect(wrapper).toHaveProp(
       'prop1',
-      expect.objectContaining({ simple1: 'value1' }),
+      expect.objectContaining({ simple1: 'value1' })
     );
   });
 
@@ -34,7 +34,7 @@ describe('Jest-enzyme supports asymmetric matcher', () => {
     expect(wrapper).toHaveState('state1', complexValue);
     expect(wrapper).toHaveState(
       'state1',
-      expect.objectContaining({ simple1: 'value1' }),
+      expect.objectContaining({ simple1: 'value1' })
     );
   });
 

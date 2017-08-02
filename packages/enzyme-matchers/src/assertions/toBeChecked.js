@@ -29,10 +29,10 @@ function toBeChecked(enzymeWrapper: EnzymeObject): Matcher {
   return {
     pass,
     message: `Expected "${getNodeName(
-      enzymeWrapper,
+      enzymeWrapper
     )}" to be checked but it wasn't.`,
     negatedMessage: `Expected "${getNodeName(
-      enzymeWrapper,
+      enzymeWrapper
     )}" not to be checked but it was.`,
     contextualInformation: {
       actual: `Node HTML output: ${html(enzymeWrapper)}`,
