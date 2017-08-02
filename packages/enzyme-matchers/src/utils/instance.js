@@ -2,7 +2,7 @@
 
 function internalInstanceKey(node) {
   return Object.keys(Object(node)).filter(key =>
-    key.match(/^__reactInternalInstance\$/),
+    key.match(/^__reactInternalInstance\$/)
   )[0];
 }
 

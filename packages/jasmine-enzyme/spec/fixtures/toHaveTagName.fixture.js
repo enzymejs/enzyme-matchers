@@ -12,7 +12,7 @@ function Fixture() {
     null,
     React.createElement('span', { id: 'span' }),
     React.createElement('span', null),
-    React.createElement('a', { id: 'a' }),
+    React.createElement('a', { id: 'a' })
   );
 }
 module.exports = exports['default'];

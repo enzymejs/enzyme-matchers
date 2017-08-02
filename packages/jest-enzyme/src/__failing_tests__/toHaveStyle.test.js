@@ -16,7 +16,7 @@ describe('failing test', () => {
   it('fails NOT toHaveStyle', () => {
     expect(shallow(<Fixture />).find('span')).not.toHaveStyle(
       'background',
-      'blue',
+      'blue'
     );
   });
 });

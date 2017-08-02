@@ -11,7 +11,7 @@ function Fixture() {
     'div',
     null,
     React.createElement('input', { id: 'disabled', disabled: true }),
-    React.createElement('input', { id: 'not' }),
+    React.createElement('input', { id: 'not' })
   );
 }
 module.exports = exports['default'];

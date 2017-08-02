@@ -18,8 +18,8 @@ describe('failing test', () => {
         <div>
           <span />
           <span foo />
-        </div>,
-      ).find('span'),
+        </div>
+      ).find('span')
     ).not.toBePresent();
   });
 });

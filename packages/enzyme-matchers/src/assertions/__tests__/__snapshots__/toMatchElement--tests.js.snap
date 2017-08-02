@@ -55,11 +55,11 @@ exports[`toMatchElement shallow provides contextual information for the message 
 Object {
   "actual": "Actual:
  <div>
-<span id=\\"child\\" className=\\"foo\\" />
+  <span id=\\"child\\" className=\\"foo\\" />
 </div>",
   "expected": "Expected:
  <div>
-<span id=\\"child\\" className=\\"foo\\" />
+  <span id=\\"child\\" className=\\"foo\\" />
 </div>",
 }
 `;
@@ -77,7 +77,7 @@ exports[`toMatchElement shallow provides contextual information for the message 
 Object {
   "actual": "Actual:
  <div>
-<span id=\\"child\\" className=\\"foo\\" />
+  <span id=\\"child\\" className=\\"foo\\" />
 </div>",
   "expected": "Expected:
  <div />",

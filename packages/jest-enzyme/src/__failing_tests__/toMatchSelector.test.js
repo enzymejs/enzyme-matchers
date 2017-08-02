@@ -14,7 +14,7 @@ describe('failing Value', () => {
 
   it('fails NOT toMatchSelector', () => {
     expect(
-      shallow(<Fixture />).find('input[defaultValue]'),
+      shallow(<Fixture />).find('input[defaultValue]')
     ).not.toMatchSelector('input');
   });
 });

@@ -21,7 +21,7 @@ function Fixture() {
     null,
     React.createElement(User, {
       name: 'blaine',
-    }),
+    })
   );
 }
 module.exports = exports['default'];

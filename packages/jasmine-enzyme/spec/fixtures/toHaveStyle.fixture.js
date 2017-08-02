@@ -11,7 +11,7 @@ function Fixture() {
     'div',
     null,
     React.createElement('span', { id: 'style1', style: { height: '100%' } }),
-    React.createElement('span', { id: 'style2', style: { flex: 8 } }),
+    React.createElement('span', { id: 'style2', style: { flex: 8 } })
   );
 }
 module.exports = exports['default'];

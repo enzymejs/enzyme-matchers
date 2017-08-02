@@ -13,7 +13,7 @@ import single from '../utils/single';
 
 function toMatchElement(
   actualEnzymeWrapper: EnzymeObject,
-  reactInstance: Object,
+  reactInstance: Object
 ): Matcher {
   let expectedWrapper: EnzymeObject;
   if (!isShallowWrapper(actualEnzymeWrapper)) {
