@@ -29,6 +29,13 @@ describe('single', () => {
   it('gives a useful message', () => {
     const results = single(matcherFn)({ nodes: [1, 2, 3] });
 
+    // This helps the snapshot be compatible accross different environments
+    results.message = results.message.replace('mockConstructor', '');
+    results.negatedMessage = results.negatedMessage.replace(
+      'mockConstructor',
+      ''
+    );
+
     expect(results).toMatchSnapshot();
   });
 });

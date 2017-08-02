@@ -10,7 +10,7 @@ function Fixture() {
   return React.createElement(
     'div',
     null,
-    React.createElement('span', { className: 'matches' }),
+    React.createElement('span', { className: 'matches' })
   );
 }
 module.exports = exports['default'];

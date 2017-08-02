@@ -24,7 +24,7 @@ function Fixture() {
       'ul',
       null,
       React.createElement('li', null, React.createElement(User, { index: 1 })),
-      React.createElement('li', null, React.createElement(User, { index: 2 })),
-    ),
+      React.createElement('li', null, React.createElement(User, { index: 2 }))
+    )
   );
 }

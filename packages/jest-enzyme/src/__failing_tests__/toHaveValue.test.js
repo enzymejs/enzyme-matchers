@@ -14,7 +14,7 @@ describe('failing Value', () => {
 
   it('fails NOT toHaveValue', () => {
     expect(shallow(<Fixture />).find('input[defaultValue]')).not.toHaveValue(
-      true,
+      true
     );
   });
 });

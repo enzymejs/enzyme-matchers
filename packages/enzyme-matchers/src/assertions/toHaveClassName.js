@@ -12,7 +12,7 @@ import html from '../utils/html';
 
 export default function toHaveClassName(
   enzymeWrapper: EnzymeObject,
-  className: string,
+  className: string
 ): Matcher {
   let normalizedClassName = className.split(' ').join('.');
   let actualClassName = '(none)';
@@ -46,10 +46,10 @@ export default function toHaveClassName(
   return {
     pass,
     message: `Expected <${name(
-      enzymeWrapper,
+      enzymeWrapper
     )}> to have className of "${normalizedClassName}" but instead found "${actualClassName}"`, // eslint-disable-line max-len
     negatedMessage: `Expected <${name(
-      enzymeWrapper,
+      enzymeWrapper
     )}> not to contain "${normalizedClassName}" for it's classname`, // eslint-disable-line max-len
     contextualInformation: {
       actual: `Found node output: ${html(enzymeWrapper)}`,

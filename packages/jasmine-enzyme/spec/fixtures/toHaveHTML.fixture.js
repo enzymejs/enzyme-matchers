@@ -10,7 +10,7 @@ function Fixture() {
   return React.createElement(
     'div',
     { id: 'root' },
-    React.createElement('span', { id: 'child' }, 'Test'),
+    React.createElement('span', { id: 'child' }, 'Test')
   );
 }
 

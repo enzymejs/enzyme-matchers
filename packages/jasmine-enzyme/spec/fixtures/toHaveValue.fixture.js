@@ -15,7 +15,7 @@ function Fixture() {
       defaultValue: 'foo',
       value: 'bar',
       onChange: function noop() {},
-    }),
+    })
   );
 }
 module.exports = exports['default'];

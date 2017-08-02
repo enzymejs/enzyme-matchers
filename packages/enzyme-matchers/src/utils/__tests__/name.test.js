@@ -29,7 +29,7 @@ describe('getNodeName', () => {
           </div>;
 
         expect(name(builder(<Fixture />).find('i'))).toBe(
-          'Fixture, 2 i nodes found',
+          'Fixture, 2 i nodes found'
         );
       });
 
@@ -41,7 +41,7 @@ describe('getNodeName', () => {
           </div>;
 
         expect(name(builder(<Fixture />).find('.foo'))).toBe(
-          'Fixture, 2 mixed nodes found',
+          'Fixture, 2 mixed nodes found'
         );
       });
 
@@ -50,7 +50,7 @@ describe('getNodeName', () => {
           <div>
             <i />
             <i />
-          </div>,
+          </div>
         );
 
         const arrayOf2 = wrapper.find('i');

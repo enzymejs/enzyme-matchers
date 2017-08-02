@@ -16,7 +16,7 @@ import single from '../utils/single';
 function toHaveStyle(
   enzymeWrapper: EnzymeObject,
   styleKey: string,
-  styleValue?: any,
+  styleValue?: any
 ): Matcher {
   const style = enzymeWrapper.prop('style');
 
@@ -25,10 +25,10 @@ function toHaveStyle(
     return {
       pass: false,
       message: `Expected <${name(
-        enzymeWrapper,
+        enzymeWrapper
       )}> component to have a style prop but it did not.`,
       negatedMessage: `Expected <${name(
-        enzymeWrapper,
+        enzymeWrapper
       )}> component not to have a style prop but it did.`,
       contextualInformation: {
         actual: html(enzymeWrapper),
@@ -41,10 +41,10 @@ function toHaveStyle(
     return {
       pass: false,
       message: `Expected <${name(
-        enzymeWrapper,
+        enzymeWrapper
       )}> component to have a style key of "${styleKey}" but it did not.`,
       negatedMessage: `Expected <${name(
-        enzymeWrapper,
+        enzymeWrapper
       )}> component not to have a style key of "${styleKey}" but it did.`,
       contextualInformation: {
         actual: html(enzymeWrapper),
@@ -58,10 +58,10 @@ function toHaveStyle(
   return {
     pass,
     message: `Expected <${name(
-      enzymeWrapper,
+      enzymeWrapper
     )}> component style values to match for key "${styleKey}", but they didn't`,
     negatedMessage: `Expected <${name(
-      enzymeWrapper,
+      enzymeWrapper
     )}> component style values to be different for key "${styleKey}", but they weren't`,
     contextualInformation: {
       actual: `Actual: ${stringify({ [styleKey]: style[styleKey] })}`,

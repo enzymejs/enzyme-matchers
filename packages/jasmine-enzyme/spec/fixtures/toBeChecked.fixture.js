@@ -16,7 +16,7 @@ function Fixture() {
       id: 'tertiary',
       defaultChecked: true,
       checked: false,
-    }),
+    })
   );
 }
 module.exports = exports['default'];

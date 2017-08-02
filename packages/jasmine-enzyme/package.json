@@ -47,7 +47,7 @@
     "enzyme-matchers": "^3.6.1"
   },
   "jest": {
-    "testPathDirs": [
+    "roots": [
       "<rootDir>/src"
     ],
     "transformIgnorePatterns": [

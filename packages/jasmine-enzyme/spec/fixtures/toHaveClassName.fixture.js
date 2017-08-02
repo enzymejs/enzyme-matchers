@@ -11,7 +11,7 @@ function Fixture() {
     'div',
     null,
     React.createElement('span', { className: 'foo' }),
-    React.createElement('span', { className: 'bar baz' }),
+    React.createElement('span', { className: 'bar baz' })
   );
 }
 module.exports = exports['default'];

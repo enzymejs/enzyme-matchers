@@ -42,7 +42,7 @@ describe('toHaveTagName', () => {
           <div>
             <span />
             <span />
-          </div>,
+          </div>
         ).find('span');
         const nfalsyResults = toHaveTagName(nwrapper, 'span');
 

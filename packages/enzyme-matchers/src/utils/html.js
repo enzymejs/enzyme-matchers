@@ -21,7 +21,7 @@ function mapWrappersHTML(wrapper: EnzymeObject): Array<string> {
     consoleObject.error = error;
 
     const transformedProps = Object.keys(props).map(
-      key => `${key}="${props[key]}"`,
+      key => `${key}="${props[key]}"`
     );
     let stringifiedNode = `<${type} ${transformedProps.join(' ')}`;
 
@@ -42,7 +42,9 @@ export default function printHTMLForWrapper(wrapper: EnzymeObject): string {
     }
     case 1: {
       if (isShallowWrapper(wrapper)) {
-        return wrapper.debug().replace(/\n/g, '');
+        // This is used to clean up in any awkward spacing in the debug output.
+        // <div>  <Foo /></div> => <div><Foo /></div>
+        return wrapper.debug().replace(/\n(\s*)/g, '');
       }
 
       return wrapper.html();
@@ -50,7 +52,7 @@ export default function printHTMLForWrapper(wrapper: EnzymeObject): string {
     default: {
       const nodes = mapWrappersHTML(wrapper).reduce(
         (acc, curr, index) => `${acc}${index}: ${curr}\n`,
-        '',
+        ''
       );
 
       return `Multiple nodes found:\n${nodes}`;

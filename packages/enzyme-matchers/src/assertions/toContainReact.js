@@ -14,7 +14,7 @@ import single from '../utils/single';
 
 function toContainReact(
   enzymeWrapper: EnzymeObject,
-  reactInstance: Object,
+  reactInstance: Object
 ): Matcher {
   const wrappedInstance: EnzymeObject = shallow(reactInstance);
   const pass = enzymeWrapper.contains(reactInstance);
@@ -22,14 +22,14 @@ function toContainReact(
   return {
     pass,
     message: `Expected <${getNodeName(enzymeWrapper)}> to contain ${html(
-      wrappedInstance,
+      wrappedInstance
     )} but it was not found.`,
     negatedMessage: `Expected <${getNodeName(
-      enzymeWrapper,
+      enzymeWrapper
     )}> not to contain ${html(wrappedInstance)} but it does.`,
     contextualInformation: {
       actual: `HTML Output of <${getNodeName(enzymeWrapper)}>:\n ${html(
-        enzymeWrapper,
+        enzymeWrapper
       )}`,
     },
   };
