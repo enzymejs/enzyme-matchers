@@ -1,8 +1,8 @@
 3.7.0
 =====
-  * Fix pretty printing Proxy objects in components
-  * Fix negative messages in jasmine-enzyme
-  * Address some internal issues that broke tests in CI
+  * Fix pretty printing Proxy objects in components (@chris-divvito)
+  * Fix negative messages in jasmine-enzyme (@blainekasten)
+  * Address some internal issues that broke tests in CI (@blainekasten)
 
 3.6.1
 =====
