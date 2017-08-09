@@ -1,3 +1,9 @@
+3.7.0
+=====
+  * Fix pretty printing Proxy objects in components (@chris-divvito)
+  * Fix negative messages in jasmine-enzyme (@blainekasten)
+  * Address some internal issues that broke tests in CI (@blainekasten)
+
 3.6.1
 =====
   * Fix a bad publish with 3.6.0 not including all documented changes
