@@ -18,7 +18,6 @@ function toHaveProp(
   propValue?: any
 ): Matcher {
   const props = enzymeWrapper.props();
-
   const contextualInformation = {
     actual: `Actual: ${stringify({ [propKey]: props[propKey] })}`,
     expected: `Expected: ${stringify({ [propKey]: propValue })}`,
@@ -37,8 +36,8 @@ function toHaveProp(
   }
 
   // key exists given above check, and we're not validating over values,
-  // so its always true
-  if (propValue === undefined) {
+  // so its always true unless the undefined value was provided explicitly
+  if (propValue === undefined && arguments.length === 2) {
     return {
       pass: true,
       message: `Expected wrapper to have any value for the prop "${propKey}"`,

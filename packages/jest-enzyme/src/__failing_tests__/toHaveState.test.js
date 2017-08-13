@@ -28,4 +28,8 @@ describe('failing test', () => {
 
     expect(shallow(<Fixture disabled />)).not.toHaveState('foo', true);
   });
+
+  it('fails toHaveState undefined value', () => {
+    expect(shallow(<Fixture />)).toHaveState('foo', undefined);
+  });
 });
