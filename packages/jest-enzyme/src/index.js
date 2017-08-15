@@ -25,21 +25,21 @@ beforeEach(() => {
       [matcherKey](wrapper, ...args) {
         const result = enzymeMatchers[matcherKey].call(this, wrapper, ...args);
 
-        if (this.isNot) {
-          result.message = result.negatedMessage;
-        }
+        let message = this.isNot ? result.negatedMessage : result.message;
 
         if (result.contextualInformation.expected) {
-          result.message += `\n${this.utils.RECEIVED_COLOR(
+          message += `\n${this.utils.RECEIVED_COLOR(
             result.contextualInformation.expected
           )}`;
         }
 
         if (result.contextualInformation.actual) {
-          result.message += `\n${this.utils.EXPECTED_COLOR(
+          message += `\n${this.utils.EXPECTED_COLOR(
             result.contextualInformation.actual
           )}`;
         }
+
+        result.message = () => message;
 
         return result;
       },
