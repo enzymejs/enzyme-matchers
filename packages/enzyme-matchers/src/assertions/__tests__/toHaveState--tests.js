@@ -89,6 +89,20 @@ describe('toHaveState', () => {
         expect(truthyResults.pass).toBeTruthy();
         expect(falsyResults.pass).toBeFalsy();
       });
+
+      it('works without a prop value', () => {
+        const wrapper = builder(<Fixture />);
+        const truthy = toHaveState(wrapper, 'foo');
+
+        expect(truthy.pass).toBeTruthy();
+      });
+
+      it('works with undefined value', () => {
+        const wrapper = builder(<Fixture />);
+        const falsy = toHaveState(wrapper, 'foo', undefined);
+
+        expect(falsy.pass).toBeFalsy();
+      });
     });
   });
 });
