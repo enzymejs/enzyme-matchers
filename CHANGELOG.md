@@ -1,3 +1,7 @@
+3.8.0
+=====
+  * Intentionally passing undefined to toHaveState and toHaveProps now compares on the undefined value. (@DianaSuvorova)
+
 3.7.0
 =====
   * Fix pretty printing Proxy objects in components (@chris-divvito)
