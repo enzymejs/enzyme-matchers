@@ -110,6 +110,20 @@ describe('toHaveProp', () => {
         expect(pass).toBeTruthy();
         expect(fail).toBeFalsy();
       });
+
+      it('works without a prop value', () => {
+        const wrapper = builder(<Fixture />);
+        const truthy = toHaveProp(wrapper.find(User), 'name');
+
+        expect(truthy.pass).toBeTruthy();
+      });
+
+      it('works with undefined value', () => {
+        const wrapper = builder(<Fixture />);
+        const falsy = toHaveProp(wrapper.find(User), 'name', undefined);
+
+        expect(falsy.pass).toBeFalsy();
+      });
     });
   });
 });

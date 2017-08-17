@@ -16,4 +16,11 @@ describe('failing test', () => {
   it('fails NOT toHaveProp', () => {
     expect(shallow(<Fixture disabled />)).not.toHaveProp('disabled', true);
   });
+
+  it('fails toHaveProp undefined value', () => {
+    expect(shallow(<Fixture disabled={'value'} />)).toHaveProp(
+      'enabled',
+      undefined
+    );
+  });
 });

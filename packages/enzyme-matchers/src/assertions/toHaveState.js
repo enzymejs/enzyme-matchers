@@ -37,8 +37,8 @@ function toHaveState(
   }
 
   // key exists given above check, and we're not validating over values,
-  // so its always true
-  if (stateValue === undefined) {
+  // so its always true unless the undefined value was provided explicitly
+  if (stateValue === undefined && arguments.length === 2) {
     return {
       pass: true,
       message: `Expected <${name(
