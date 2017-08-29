@@ -1,3 +1,7 @@
+3.8.1
+=====
+  * Fix a bug that prevents this library from working with Jest 21+. (@nigelzor)
+
 3.8.0
 =====
   * Intentionally passing undefined to toHaveState and toHaveProps now compares on the undefined value. (@DianaSuvorova)
