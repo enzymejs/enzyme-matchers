@@ -1,3 +1,7 @@
+3.8.2
+=====
+  * Fix flow issues that cropped up from 3.8.1. (@blainekasten)
+
 3.8.1
 =====
   * Fix a bug that prevents this library from working with Jest 21+. (@nigelzor)
