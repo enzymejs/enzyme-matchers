@@ -39,9 +39,10 @@ beforeEach(() => {
           )}`;
         }
 
-        result.message = () => message;
-
-        return result;
+        return {
+          ...result,
+          message: () => message,
+        };
       },
     }[matcherKey];
 
