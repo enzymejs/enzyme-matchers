@@ -14,7 +14,7 @@ const matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
 
 Object.keys(colorValues).forEach(color => {
   const colorValue = colorValues[color];
-  colorFns[color] = str => {
+  colorFns[color] = (str: string) => {
     const open = `\u001b[${colorValue[0]}m`;
     const close = `\u001b[${colorValue[1]}m`;
     const regex = new RegExp(close.replace(matchOperatorsRe, '\\$&'), 'g');
