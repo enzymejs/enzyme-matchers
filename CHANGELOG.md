@@ -1,3 +1,7 @@
+3.8.3
+=====
+  * Fix missing flow annotation that caused issues with flow 0.54. (@fabiob)
+
 3.8.2
 =====
   * Fix flow issues that cropped up from 3.8.1. (@blainekasten)
