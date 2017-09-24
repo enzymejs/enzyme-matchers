@@ -100,6 +100,7 @@ describe('addMatchers', () => {
     expect(wrapper).toHaveState('foo');
     expect(wrapper).toHaveState('foo', false);
     expect(wrapper).toHaveState('array', jasmine.arrayContaining([2]));
+    expect(wrapper).toHaveState('nestedObject', { foo: { bar: 'test' } });
   });
 
   it('adds toHaveStyle', () => {
