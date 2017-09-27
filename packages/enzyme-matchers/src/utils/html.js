@@ -9,7 +9,7 @@ const consoleObject = getConsoleObject();
 const noop = () => {};
 
 function mapWrappersHTML(wrapper: EnzymeObject): Array<string> {
-  return wrapper.nodes.map(node => {
+  return wrapper.getElements().map(node => {
     const inst = instance(node);
     const type = node.type || inst._tag;
 
@@ -40,7 +40,7 @@ function mapWrappersHTML(wrapper: EnzymeObject): Array<string> {
 }
 
 export default function printHTMLForWrapper(wrapper: EnzymeObject): string {
-  switch (wrapper.nodes.length) {
+  switch (wrapper.getElements().length) {
     case 0: {
       return '[empty set]';
     }

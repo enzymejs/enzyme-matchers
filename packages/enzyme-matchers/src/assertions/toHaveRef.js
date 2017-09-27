@@ -17,7 +17,7 @@ function toHaveRef(enzymeWrapper: EnzymeObject, refName: string): Matcher {
     );
   }
 
-  const { node } = enzymeWrapper.ref(refName);
+  const node = enzymeWrapper.ref(refName);
   const pass = !!node;
 
   return {
