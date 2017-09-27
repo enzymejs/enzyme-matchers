@@ -28,12 +28,13 @@
     "url": "https://github.com/blainekasten/enzyme-matchers/issues"
   },
   "peerDependencies": {
-    "enzyme": "1.x || 2.x"
+    "enzyme": "3.x"
   },
   "dependencies": {
     "deep-equal-ident": "^1.1.1"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "../../scripts/setup.js",
     "roots": [
       "<rootDir>/src"
     ],

@@ -41,12 +41,13 @@
     "enzyme"
   ],
   "peerDependencies": {
-    "enzyme": "1.x || 2.x"
+    "enzyme": "3.x"
   },
   "dependencies": {
     "enzyme-matchers": "^3.8.3"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
     "roots": [
       "<rootDir>/src"
     ],

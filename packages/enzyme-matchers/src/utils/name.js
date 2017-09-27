@@ -38,11 +38,22 @@ function getNameFromRoot(root: Object): string {
  * - "Fixture"
  * - "input"
  * - "(anonymous)"
- * - "Fixture, 2 "span" nodes found"
- * - "Fixture, 2 mixed nodes found"
+ * - "2 "span" nodes found"
+ * - "2 mixed nodes found"
+ *
+ * BUG: We used to be able to get the root node of an array of children elements by doing
+ * `wrapper.root.unrendered.type`
+ *
+ * That is no longer exposed and Enzyme 3 may have a bug around this.
+ * @see https://github.com/airbnb/enzyme/issues/1152
+ *
+ * If that issue is fixed, we may be able to bring back the "Fixture, 2 "span" nodes found"
  */
 export default function getNameFromArbitraryWrapper(wrapper: Object): string {
-  const nodeCount: number = wrapper.nodes.length;
+  const nodeCount: number =
+    typeof wrapper.getElements === 'function'
+      ? wrapper.getElements().length
+      : 0;
 
   switch (nodeCount) {
     case 0: {
@@ -55,7 +66,7 @@ export default function getNameFromArbitraryWrapper(wrapper: Object): string {
       const nodeTypeMap: Object = {};
 
       // determine if we have a mixed list of nodes or not
-      wrapper.nodes.forEach(node => {
+      wrapper.getElements().forEach(node => {
         const name: string = getNameFromRoot(node);
         nodeTypeMap[name] = (nodeTypeMap[name] || 0) + 1;
       });
@@ -65,9 +76,9 @@ export default function getNameFromArbitraryWrapper(wrapper: Object): string {
       const nodeTypes: string =
         nodeTypeList.length === 1 ? nodeTypeList[0] : 'mixed';
 
-      const root: string = getNameFromRoot(wrapper.root);
+      const root = wrapper.first().parents();
 
-      return `${root}, ${nodeCount} ${nodeTypes} nodes found`;
+      return `${nodeCount} ${nodeTypes} nodes found`;
     }
   }
 }
