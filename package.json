@@ -81,8 +81,5 @@
       "<rootDir>/packages/enzyme-matchers/src"
     ],
     "verbose": true
-  },
-  "dependencies": {
-    "circular-json-es6": "^2.0.1"
   }
 }
