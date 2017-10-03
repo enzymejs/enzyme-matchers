@@ -1,3 +1,8 @@
+4.0.0
+=====
+  * Support React 16 and Enzyme 3 (@blainekasten)
+  * Remove beforeEnter call for jest-enzyme and just add the matchers once. (@mockdeep)
+
 3.8.3
 =====
   * Fix missing flow annotation that caused issues with flow 0.54. (@fabiob)

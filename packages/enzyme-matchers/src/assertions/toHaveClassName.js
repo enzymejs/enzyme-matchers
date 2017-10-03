@@ -23,7 +23,7 @@ export default function toHaveClassName(
   }
 
   // handle different lengths of enzymeWrappers
-  switch (enzymeWrapper.nodes.length) {
+  switch (enzymeWrapper.getElements().length) {
     case 0:
       break; // this will and should fail the test
     case 1:

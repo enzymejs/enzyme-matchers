@@ -34,6 +34,6 @@ Object {
 }
 `;
 
-exports[`toHaveState shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <Fixture> component state values to be different for key \\"array\\" but they didn't."`;
+exports[`toHaveState shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <div> component state values to be different for key \\"array\\" but they didn't."`;
 
-exports[`toHaveState shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <Fixture> component state values to match for key \\"array\\" but they didn't."`;
+exports[`toHaveState shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <div> component state values to match for key \\"array\\" but they didn't."`;

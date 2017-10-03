@@ -65,8 +65,8 @@ Object {
   "contextualInformation": Object {
     "actual": "<div><span id=\\"span\\" /><span /><a id=\\"a\\" /></div>",
   },
-  "message": "Expected <Fixture> node to equal (using ===) type \\"Fixture\\" but it is a \\"div\\".",
-  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \\"Fixture\\" but it is that type.",
+  "message": "Expected <div> node to equal (using ===) type \\"Fixture\\" but it is a \\"div\\".",
+  "negatedMessage": "Expected <div> node not to equal (using ===) type \\"Fixture\\" but it is that type.",
   "pass": false,
 }
 `;
@@ -76,8 +76,8 @@ Object {
   "contextualInformation": Object {
     "actual": "<div><span id=\\"span\\" /><span /><a id=\\"a\\" /></div>",
   },
-  "message": "Expected <Fixture> node to equal (using ===) type \\"a\\" but it is a \\"div\\".",
-  "negatedMessage": "Expected <Fixture> node not to equal (using ===) type \\"a\\" but it is that type.",
+  "message": "Expected <div> node to equal (using ===) type \\"a\\" but it is a \\"div\\".",
+  "negatedMessage": "Expected <div> node not to equal (using ===) type \\"a\\" but it is that type.",
   "pass": false,
 }
 `;

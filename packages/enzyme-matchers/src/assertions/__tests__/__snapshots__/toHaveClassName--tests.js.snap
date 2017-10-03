@@ -18,8 +18,8 @@ Object {
 1: <span className=\\"baux\\"/>
 ",
   },
-  "message": "Expected <Fixture, 2 span nodes found> to have className of \\".baux\\" but instead found \\"baux\\"",
-  "negatedMessage": "Expected <Fixture, 2 span nodes found> not to contain \\".baux\\" for it's classname",
+  "message": "Expected <2 span nodes found> to have className of \\".baux\\" but instead found \\"baux\\"",
+  "negatedMessage": "Expected <2 span nodes found> not to contain \\".baux\\" for it's classname",
   "pass": true,
 }
 `;
@@ -42,8 +42,8 @@ Object {
 1: <span className=\\"baux\\"/>
 ",
   },
-  "message": "Expected <Fixture, 2 span nodes found> to have className of \\".baux\\" but instead found \\"baux\\"",
-  "negatedMessage": "Expected <Fixture, 2 span nodes found> not to contain \\".baux\\" for it's classname",
+  "message": "Expected <2 span nodes found> to have className of \\".baux\\" but instead found \\"baux\\"",
+  "negatedMessage": "Expected <2 span nodes found> not to contain \\".baux\\" for it's classname",
   "pass": true,
 }
 `;

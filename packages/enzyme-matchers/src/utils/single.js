@@ -28,7 +28,7 @@ export default function single(matcherFn: Function) {
     ...args: Array<any>
   ) {
     let message;
-    switch (enzymeWrapper.nodes.length) {
+    switch (enzymeWrapper.getElements().length) {
       case 0:
         message = `${matcherFn.name} must be called on a single node, not an empty node.`;
         break;

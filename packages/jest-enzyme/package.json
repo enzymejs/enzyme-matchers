@@ -1,6 +1,6 @@
 {
   "name": "jest-enzyme",
-  "version": "3.8.3",
+  "version": "4.0.0",
   "description": "Testing Matchers for Enzyme",
   "main": "lib/index.js",
   "author": "Blaine Kasten <blainekasten@gmail.com>",
@@ -45,19 +45,19 @@
     "url": "https://github.com/blainekasten/enzyme-matchers/issues"
   },
   "peerDependencies": {
-    "enzyme": "1.x || 2.x",
+    "enzyme": "3.x",
     "jest": ">=19.0.0"
   },
   "dependencies": {
     "@types/react": "^15.0.22",
-    "enzyme-matchers": "^3.8.3",
-    "enzyme-to-json": "^1.5.0"
+    "enzyme-matchers": "^4.0.0",
+    "enzyme-to-json": "^3.0.0"
   },
   "jest": {
     "roots": [
       "<rootDir>/src"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/src/index.js",
+    "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
     "testRegex": "/(__tests__|__failing_tests__)/.*\\.test\\.js$",
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/(?!enzyme-matchers)"

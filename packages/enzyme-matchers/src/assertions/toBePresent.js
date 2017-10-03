@@ -15,7 +15,7 @@ export default function toBePresent(enzymeWrapper: EnzymeObject): Matcher {
 
   const contextualInformation = {};
 
-  if (enzymeWrapper.nodes.length) {
+  if (enzymeWrapper.getElements().length) {
     contextualInformation.actual = `Found Nodes: ${html(enzymeWrapper)}`;
   }
 
@@ -26,8 +26,8 @@ export default function toBePresent(enzymeWrapper: EnzymeObject): Matcher {
     )}.toBePresent()" results to contain at least one node, instead found none.`,
     negatedMessage: `Expected "${getNodeName(
       enzymeWrapper
-    )}.not.toBePresent()" selector results to contain 0 nodes, instead found ${enzymeWrapper
-      .nodes.length}.`,
+    )}.not.toBePresent()" selector results to contain 0 nodes, instead found ${enzymeWrapper.getElements()
+      .length}.`,
     contextualInformation,
   };
 }
