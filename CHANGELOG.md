@@ -1,3 +1,7 @@
+4.0.1
+=====
+  * Remove the dependency on @types/react (@Vinnl)
+
 4.0.0
 =====
   * Support React 16 and Enzyme 3 (@blainekasten)

@@ -1,6 +1,6 @@
 {
   "name": "jest-enzyme",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Testing Matchers for Enzyme",
   "main": "lib/index.js",
   "author": "Blaine Kasten <blainekasten@gmail.com>",
@@ -49,7 +49,7 @@
     "jest": ">=19.0.0"
   },
   "dependencies": {
-    "enzyme-matchers": "^4.0.0",
+    "enzyme-matchers": "^4.0.1",
     "enzyme-to-json": "^3.0.0"
   },
   "jest": {
