@@ -49,7 +49,6 @@
     "jest": ">=19.0.0"
   },
   "dependencies": {
-    "@types/react": "^15.0.22",
     "enzyme-matchers": "^4.0.0",
     "enzyme-to-json": "^3.0.0"
   },
@@ -63,5 +62,8 @@
       "<rootDir>/node_modules/(?!enzyme-matchers)"
     ],
     "verbose": true
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.10"
   }
 }
