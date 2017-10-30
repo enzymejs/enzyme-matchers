@@ -2,8 +2,8 @@
 
 exports[`toIncludeText mount provides contextual information for the message (mount) 1`] = `
 Object {
-  "actual": "Some important text",
-  "expected": "important",
+  "actual": "Actual HTML: \\"Some important text\\"",
+  "expected": "Expected HTML: \\"important\\"",
 }
 `;
 
@@ -13,8 +13,8 @@ exports[`toIncludeText mount returns the message with the proper pass verbage (m
 
 exports[`toIncludeText shallow provides contextual information for the message (shallow) 1`] = `
 Object {
-  "actual": "Some important text",
-  "expected": "important",
+  "actual": "Actual HTML: \\"Some important text\\"",
+  "expected": "Expected HTML: \\"important\\"",
 }
 `;
 
