@@ -4,13 +4,12 @@ import colors from './colors';
 
 function stringifySingle(key: string, value: any): Array<string> {
   let stringifyingValue = value;
+  let skipCircularCheck = false;
   if (Array.isArray(value)) {
     const values = value.map(v => stringifySingle('', v)[1]);
 
-    // replace value with something safe so that the JSON.stringify call won't
-    // complain about circular values since we've already safely dealt with those above
-    // eslint-disable-next-line no-param-reassign
-    value = [];
+    // Skip circular check because we have already safely dealt with it above
+    skipCircularCheck = true;
 
     let joined = values.join(' ');
     let initialBracket = colors.gray('[');
@@ -41,7 +40,9 @@ function stringifySingle(key: string, value: any): Array<string> {
 
   try {
     // circular if you cant stringify
-    JSON.stringify({ [key]: value });
+    if (!skipCircularCheck) {
+      JSON.stringify({ [key]: value });
+    }
 
     return [key, stringifyingValue];
   } catch (e) {
