@@ -76,6 +76,7 @@ var Fixture = (function(_React$Component) {
       foo: false,
       array: [1, 2, 3],
       object: { foo: 'bar' },
+      nestedObject: { foo: { bar: 'test' } },
     };
     return _this;
   }

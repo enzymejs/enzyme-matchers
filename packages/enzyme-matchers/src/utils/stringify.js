@@ -1,6 +1,7 @@
 // @flow
 
 import colors from './colors';
+import CircularJSON from 'circular-json-es6';
 
 function stringifySingle(key: string, value: any): Array<string> {
   let stringifyingValue = value;
@@ -27,7 +28,7 @@ function stringifySingle(key: string, value: any): Array<string> {
   } else if (value === null) {
     stringifyingValue = colors.gray(value);
   } else if (typeof value === 'object') {
-    stringifyingValue = colors.gray(value.toString());
+    stringifyingValue = colors.gray(CircularJSON.stringify(value));
   } else if (typeof value === 'string') {
     stringifyingValue = colors.gray(`"${value}"`);
   } else if (typeof value === 'number') {
