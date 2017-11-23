@@ -3,3 +3,4 @@ lib/
 npm-debug.log
 lerna-debug.log
 .DS_Store
+.idea
