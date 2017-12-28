@@ -1,3 +1,7 @@
+4.0.2
+=====
+  * Update enzyme-to-json to support React 16.2 (@rtymchyk)
+
 4.0.1
 =====
   * Remove the dependency on @types/react (@Vinnl)

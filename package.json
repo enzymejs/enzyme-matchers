@@ -58,7 +58,7 @@
     "flow-copy-source": "^1.2.0",
     "husky": "^0.14.3",
     "jest-cli": "^20.0.0",
-    "lerna": "2.0.0-beta.30",
+    "lerna": "^2.5.1",
     "lint-staged": "^4.0.2",
     "prettier": "^1.5.3",
     "prop-types": "^15.6.0",
