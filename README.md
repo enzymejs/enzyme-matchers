@@ -387,7 +387,7 @@ expect(wrapper.find('#span')).not.toHaveTagName('div');
 | -------|-------|-------- |
 | no     | yes   | yes     |
 
-Assert that the wrapper has the provided text:
+Assert that the wrapper's text matches the provided text exactly, using a strict comparison (`===`).
 
 ```js
 function Fixture() {
