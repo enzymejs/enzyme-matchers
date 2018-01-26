@@ -24,21 +24,23 @@ describe('getNodeName', () => {
       });
 
       it('gives a useful string when given multiple same type nodes', () => {
-        const Fixture = () =>
+        const Fixture = () => (
           <div>
             <i />
             <i />
-          </div>;
+          </div>
+        );
 
         expect(name(builder(<Fixture />).find('i'))).toBe('2 i nodes found');
       });
 
       it('gives a useful string when given multiple mixed nodes', () => {
-        const Fixture = () =>
+        const Fixture = () => (
           <div>
             <i className="foo" />
             <b className="foo" />
-          </div>;
+          </div>
+        );
 
         expect(name(builder(<Fixture />).find('.foo'))).toBe(
           '2 mixed nodes found'
@@ -55,9 +57,6 @@ describe('getNodeName', () => {
 
         const arrayOf2 = wrapper.find('i');
         const arrayOfNone = wrapper.find('b');
-
-        const nodeName =
-          builder === mount ? '2 i nodes found' : '2 i nodes found'; // Enzyme 3 bug
 
         expect(name(arrayOfNone)).toBe('[empty set]');
         expect(name(arrayOf2)).toBe('2 i nodes found');

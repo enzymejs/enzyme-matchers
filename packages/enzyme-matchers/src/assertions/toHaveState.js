@@ -12,6 +12,7 @@ import name from '../utils/name';
 import stringify from '../utils/stringify';
 import single from '../utils/single';
 
+/* eslint-disable prefer-rest-params */
 function toHaveState(
   enzymeWrapper: EnzymeObject,
   stateKey: string,
