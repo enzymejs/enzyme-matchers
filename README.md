@@ -39,7 +39,7 @@ This library supports several testing frameworks including [Jest](https://github
 * [toHaveText()](#tohavetexttextstring)
 * [toIncludeText()](#toincludetexttextstring)
 * [toHaveValue()](#tohavevaluevalueany)
-* [toMatchElement()](#tomatchelementreactinstanceobject)
+* [toMatchElement()](#tomatchelementreactinstanceobject-optionsany)
 * [toMatchSelector()](#tomatchselectorselectorstring)
 
 _Other_
@@ -455,13 +455,13 @@ expect(wrapper.find('input').at(0)).toHaveValue('test');
 expect(wrapper.find('input').at(1)).toHaveValue('bar');
 ```
 
-#### `toMatchElement(reactInstance:Object)`
+#### `toMatchElement(reactInstance:Object, options:any)`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
 
-Assert the wrapper matches the provided react instance. This is a matcher form of Enzyme's wrapper.matchesElement(), which returns a bool with no indication of what caused a failed match. This matcher includes the actual and expected debug trees as contextual information when it fails. NOTE: The semantics are slightly different than enzyme's wrapper.matchesElement(), which ignores props. This matcher does consider props when comparing the actual to the expected values.
+Assert the wrapper matches the provided react instance. This is a matcher form of Enzyme's wrapper.matchesElement(), which returns a bool with no indication of what caused a failed match. This matcher includes the actual and expected debug trees as contextual information when it fails. Like matchesElement(), props are ignored. If you want to compare prop values as well, pass `{ ignoreProps: false }` as options. Uses enzyme's [debug()](http://airbnb.io/enzyme/docs/api/ShallowWrapper/debug.html) under the hood and compares debug strings, which makes for a human readable diff when expects fail.
 
 Example:
 
@@ -477,8 +477,10 @@ function Fixture() {
 const wrapper = shallow(<Fixture />); // mount/render/shallow when applicable
 
 expect(wrapper).toMatchElement(<Fixture />);
+expect(wrapper.find('span')).toMatchElement(<span />);
 expect(wrapper.find('span')).toMatchElement(
-  <span id="foo" className="bar" />
+  <span id="foo" className="bar" />,
+  { ignoreProps: false }
 );
 expect(wrapper).not.toMatchElement(<div />);
 ```

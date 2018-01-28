@@ -7,13 +7,14 @@
  */
 
 import { shallow, mount } from 'enzyme';
-import type { EnzymeObject, Matcher } from '../types';
+import type { EnzymeObject, Matcher, ToMatchElementOptions } from '../types';
 import isShallowWrapper from '../utils/isShallowWrapper';
 import single from '../utils/single';
 
 function toMatchElement(
   actualEnzymeWrapper: EnzymeObject,
-  reactInstance: Object
+  reactInstance: Object,
+  options: ToMatchElementOptions = { ignoreProps: true }
 ): Matcher {
   let expectedWrapper: EnzymeObject;
   if (!isShallowWrapper(actualEnzymeWrapper)) {
@@ -22,8 +23,8 @@ function toMatchElement(
     expectedWrapper = shallow(reactInstance);
   }
 
-  const actual = actualEnzymeWrapper.debug();
-  const expected = expectedWrapper.debug();
+  const actual = actualEnzymeWrapper.debug(options);
+  const expected = expectedWrapper.debug(options);
   const pass = actual === expected;
 
   return {
