@@ -5,13 +5,13 @@ Object {
   "actual": "Actual:
  <Fixture>
   <div>
-    <span id=\\"child\\" className=\\"foo\\" />
+    <span />
   </div>
 </Fixture>",
   "expected": "Expected:
  <Fixture>
   <div>
-    <span id=\\"child\\" className=\\"foo\\" />
+    <span />
   </div>
 </Fixture>",
 }
@@ -20,9 +20,9 @@ Object {
 exports[`toMatchElement mount provides contextual information for the message 2`] = `
 Object {
   "actual": "Actual:
- <span id=\\"child\\" className=\\"foo\\" />",
+ <span />",
   "expected": "Expected:
- <span id=\\"child\\" className=\\"foo\\" />",
+ <span />",
 }
 `;
 
@@ -31,11 +31,28 @@ Object {
   "actual": "Actual:
  <Fixture>
   <div>
-    <span id=\\"child\\" className=\\"foo\\" />
+    <span />
   </div>
 </Fixture>",
   "expected": "Expected:
  <div />",
+}
+`;
+
+exports[`toMatchElement mount provides contextual information for the message 4`] = `
+Object {
+  "actual": "Actual:
+ <Fixture>
+  <div>
+    <span id=\\"child\\" className=\\"foo\\" />
+  </div>
+</Fixture>",
+  "expected": "Expected:
+ <Fixture>
+  <div>
+    <span id=\\"child\\" className=\\"foo\\" />
+  </div>
+</Fixture>",
 }
 `;
 
@@ -45,21 +62,25 @@ exports[`toMatchElement mount returns the message with the proper fail verbage 2
 
 exports[`toMatchElement mount returns the message with the proper fail verbage 3`] = `"Did not expect actual value to match the expected value."`;
 
+exports[`toMatchElement mount returns the message with the proper fail verbage 4`] = `"Did not expect actual value to match the expected value."`;
+
 exports[`toMatchElement mount returns the message with the proper pass verbage 1`] = `"Expected actual value to match the expected value."`;
 
 exports[`toMatchElement mount returns the message with the proper pass verbage 2`] = `"Expected actual value to match the expected value."`;
 
 exports[`toMatchElement mount returns the message with the proper pass verbage 3`] = `"Expected actual value to match the expected value."`;
 
+exports[`toMatchElement mount returns the message with the proper pass verbage 4`] = `"Expected actual value to match the expected value."`;
+
 exports[`toMatchElement shallow provides contextual information for the message 1`] = `
 Object {
   "actual": "Actual:
  <div>
-  <span id=\\"child\\" className=\\"foo\\" />
+  <span />
 </div>",
   "expected": "Expected:
  <div>
-  <span id=\\"child\\" className=\\"foo\\" />
+  <span />
 </div>",
 }
 `;
@@ -67,9 +88,9 @@ Object {
 exports[`toMatchElement shallow provides contextual information for the message 2`] = `
 Object {
   "actual": "Actual:
- <span id=\\"child\\" className=\\"foo\\" />",
+ <span />",
   "expected": "Expected:
- <span id=\\"child\\" className=\\"foo\\" />",
+ <span />",
 }
 `;
 
@@ -77,10 +98,23 @@ exports[`toMatchElement shallow provides contextual information for the message 
 Object {
   "actual": "Actual:
  <div>
-  <span id=\\"child\\" className=\\"foo\\" />
+  <span />
 </div>",
   "expected": "Expected:
  <div />",
+}
+`;
+
+exports[`toMatchElement shallow provides contextual information for the message 4`] = `
+Object {
+  "actual": "Actual:
+ <div>
+  <span id=\\"child\\" className=\\"foo\\" />
+</div>",
+  "expected": "Expected:
+ <div>
+  <span id=\\"child\\" className=\\"foo\\" />
+</div>",
 }
 `;
 
@@ -90,8 +124,12 @@ exports[`toMatchElement shallow returns the message with the proper fail verbage
 
 exports[`toMatchElement shallow returns the message with the proper fail verbage 3`] = `"Did not expect actual value to match the expected value."`;
 
+exports[`toMatchElement shallow returns the message with the proper fail verbage 4`] = `"Did not expect actual value to match the expected value."`;
+
 exports[`toMatchElement shallow returns the message with the proper pass verbage 1`] = `"Expected actual value to match the expected value."`;
 
 exports[`toMatchElement shallow returns the message with the proper pass verbage 2`] = `"Expected actual value to match the expected value."`;
 
 exports[`toMatchElement shallow returns the message with the proper pass verbage 3`] = `"Expected actual value to match the expected value."`;
+
+exports[`toMatchElement shallow returns the message with the proper pass verbage 4`] = `"Expected actual value to match the expected value."`;
