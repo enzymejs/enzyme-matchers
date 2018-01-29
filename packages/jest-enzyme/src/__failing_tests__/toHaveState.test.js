@@ -10,6 +10,7 @@ describe('failing test', () => {
       return (
         <div disabled>
           <i>
+            {this.state.foo}
             <b />
           </i>
         </div>

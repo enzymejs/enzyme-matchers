@@ -13,7 +13,7 @@ function mapWrappersHTML(wrapper: EnzymeObject): Array<string> {
     const inst = instance(node);
     const type = node.type || inst._tag;
 
-    const error = consoleObject.error;
+    const { error } = consoleObject;
     consoleObject.error = noop;
     const { children, ...props } = node.props
       ? node.props

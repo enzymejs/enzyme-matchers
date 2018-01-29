@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 // this is a migration step.
 
 describe('jest', () => {

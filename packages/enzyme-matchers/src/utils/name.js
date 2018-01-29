@@ -76,8 +76,6 @@ export default function getNameFromArbitraryWrapper(wrapper: Object): string {
       const nodeTypes: string =
         nodeTypeList.length === 1 ? nodeTypeList[0] : 'mixed';
 
-      const root = wrapper.first().parents();
-
       return `${nodeCount} ${nodeTypes} nodes found`;
     }
   }
