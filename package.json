@@ -84,5 +84,8 @@
       "<rootDir>/packages/enzyme-matchers/src"
     ],
     "verbose": true
+  },
+  "dependencies": {
+    "eslint-config-prettier": "^2.9.0"
   }
 }

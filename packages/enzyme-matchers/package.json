@@ -10,7 +10,7 @@
     "pretest": "node ../../scripts/jest.js",
     "test": "node ../../node_modules/jest-cli/bin/jest.js",
     "jest": "node ../../node_modules/jest-cli/bin/jest.js",
-    "lint": "eslint ./src --fix",
+    "lint": "eslint ./src",
     "clean": "rm -rf ./lib",
     "build:js": "babel src --out-dir lib --ignore tests",
     "build:flow": "flow-copy-source -v -i '**/__tests__/*.js' src lib",
