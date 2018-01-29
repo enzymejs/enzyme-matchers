@@ -1,7 +1,7 @@
 // @flow
 
-import colors from './colors';
 import CircularJSON from 'circular-json-es6';
+import colors from './colors';
 
 function stringifySingle(key: string, value: any): Array<string> {
   let stringifyingValue = value;

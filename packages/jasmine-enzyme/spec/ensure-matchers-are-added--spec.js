@@ -1,8 +1,9 @@
+/* eslint-disable global-require */
+/* global document */
 'use strict'; // eslint-disable-line
 
-const jsdom = require('jsdom').jsdom;
-const shallow = require('enzyme').shallow;
-const mount = require('enzyme').mount;
+const { jsdom } = require('jsdom');
+const { shallow, mount } = require('enzyme');
 const React = require('react');
 const jasmineEnzyme = require('../lib/index.js');
 
@@ -47,8 +48,7 @@ describe('addMatchers', () => {
   });
 
   it('adds toContainReact', () => {
-    const Fixture = require('./fixtures/toContainReact.fixture').Fixture;
-    const User = require('./fixtures/toContainReact.fixture').User;
+    const { Fixture, User } = require('./fixtures/toContainReact.fixture');
     const wrapper = shallow(React.createElement(Fixture));
 
     expect(wrapper).toContainReact(React.createElement(User, { index: 1 }));
@@ -62,8 +62,7 @@ describe('addMatchers', () => {
   });
 
   it('adds toHaveHTML', () => {
-    const Fixture = require('./fixtures/toHaveHTML.fixture').Fixture;
-    const html = require('./fixtures/toHaveHTML.fixture').html;
+    const { Fixture, html } = require('./fixtures/toHaveHTML.fixture');
     const wrapper = shallow(React.createElement(Fixture));
 
     expect(wrapper.find('#child')).toHaveHTML(html);

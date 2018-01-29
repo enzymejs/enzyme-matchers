@@ -1,6 +1,6 @@
 const { shallow, mount } = require('enzyme');
 const React = require('react');
-import PropTypes from 'prop-types';
+const PropTypes = require('prop-types');
 
 const toHaveProp = require('../toHaveProp');
 
@@ -11,6 +11,7 @@ function User(props) {
       {props.email}
       {props.arrayProp}
       {props.objectProp.foo}
+      {props.falsy}
     </div>
   );
 }

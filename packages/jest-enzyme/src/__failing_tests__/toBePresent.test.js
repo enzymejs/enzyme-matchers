@@ -13,13 +13,13 @@ describe('failing test', () => {
   });
 
   it('fails NOT toBePresent multiple nodes', () => {
-    expect(
-      shallow(
-        <div>
-          <span />
-          <span foo />
-        </div>
-      ).find('span')
-    ).not.toBePresent();
+    const nodes = (
+      <div>
+        <span />
+        <span foo />
+      </div>
+    );
+
+    expect(shallow(nodes).find('span')).not.toBePresent();
   });
 });

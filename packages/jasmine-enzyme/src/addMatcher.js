@@ -7,6 +7,7 @@
  */
 
 import type { MatcherMethods } from 'enzyme-matchers';
+
 declare var jasmine: Object;
 
 const coreMatchers = jasmine.matchers;
@@ -21,11 +22,9 @@ export default function addMatcher(matcher: MatcherMethods): void {
    */
   if (coreMatchers[matcherName] && !errorThrown) {
     errorThrown = true;
-    throw new Error(
-      `JasmineEnzyme: Added matcher "${matcherName}" is over-riding
+    throw new Error(`JasmineEnzyme: Added matcher "${matcherName}" is over-riding
        jasmine-core matcher. You must rename the function to
-       not over-ride anything core.`
-    );
+       not over-ride anything core.`);
   }
 
   jasmine.addMatchers(matcher);

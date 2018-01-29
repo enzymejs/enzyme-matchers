@@ -56,8 +56,8 @@ describe('getNodeName', () => {
         const arrayOf2 = wrapper.find('i');
         const arrayOfNone = wrapper.find('b');
 
-        const nodeName =
-          builder === mount ? '2 i nodes found' : '2 i nodes found'; // Enzyme 3 bug
+        // const nodeName =
+        // builder === mount ? '2 i nodes found' : '2 i nodes found'; // Enzyme 3 bug
 
         expect(name(arrayOfNone)).toBe('[empty set]');
         expect(name(arrayOf2)).toBe('2 i nodes found');
