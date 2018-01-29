@@ -1,3 +1,9 @@
+4.1.0
+=====
+  * Internal CI fixes (@blainekasten)
+  * **Minor**: `toMatchElement` ignores props by default now. This should not break anyones existing tests. If it does, _please report it_.
+    If you want to test an element without matching the props, pass `{ ignoreProps: false }` as a second argument.
+
 4.0.2
 =====
   * Update enzyme-to-json to support React 16.2 (@rtymchyk)
