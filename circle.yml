@@ -2,9 +2,15 @@ machine:
   node:
     version: 8.0.0
 
+dependencies:
+  override:
+    - yarn
+
 test:
   pre:
     - lerna run lint
+  override:
+    - yarn test
 
 dependencies:
   post: 
