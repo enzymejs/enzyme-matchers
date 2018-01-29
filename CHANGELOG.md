@@ -2,7 +2,7 @@
 =====
   * Internal CI fixes (@blainekasten)
   * **Minor**: `toMatchElement` ignores props by default now. This should not break anyones existing tests. If it does, _please report it_.
-    If you want to test an element without matching the props, pass `{ ignoreProps: false }` as a second argument.
+    If you want to test an element without matching the props, pass `{ ignoreProps: false }` as a second argument. (@finnigantime)
 
 4.0.2
 =====
