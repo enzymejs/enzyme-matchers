@@ -3,7 +3,7 @@
   "version": "4.1.0",
   "description": "Jasmine assertions for enzyme",
   "main": "lib/index.js",
-  "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/jasmine-enzyme#readme",
+  "homepage": "https://github.com/FormidableLabs/enzyme-matchers/packages/jasmine-enzyme#readme",
   "author": "Blaine Kasten<blainekasten@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -23,7 +23,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/blainekasten/enzyme-matchers.git"
+    "url": "https://github.com/FormidableLabs/enzyme-matchers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/enzyme-matchers/issues"
   },
   "keywords": [
     "javascript",
