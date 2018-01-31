@@ -1,3 +1,7 @@
+4.1.1
+=====
+  * Transfer ownership to [FormidableLabs](http://formidable.com/open-source/)
+
 4.1.0
 =====
   * Internal CI fixes (@blainekasten)
