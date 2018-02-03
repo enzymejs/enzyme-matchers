@@ -1,3 +1,4 @@
+/* eslint-disable react/no-string-refs */
 const { mount } = require('enzyme');
 const React = require('react');
 

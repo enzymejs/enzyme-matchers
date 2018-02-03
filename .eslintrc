@@ -1,13 +1,28 @@
 {
   "root": true,
   "parser": "babel-eslint",
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
   "env": {
     "jasmine": true,
     "jest": true
   },
   "rules": {
+    "import/no-extraneous-dependencies": 0,
+    "jsx-a11y/anchor-has-content": 0,
+    "jsx-a11y/anchor-is-valid": 0,
     "max-len": 0,
-    "no-case-declarations": 0
+    "no-case-declarations": 0,
+    "no-underscore-dangle": 0,
+    "no-prototype-builtins": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-wrap-multilines": 0,
+    "react/no-unused-state": 0,
+    "react/no-string-refs": 0,
+    "react/require-default-props": 0,
+    "react/forbid-prop-types": 0
   }
 }

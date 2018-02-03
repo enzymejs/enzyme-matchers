@@ -18,14 +18,16 @@ describe('failing test', () => {
       });
 
       it('fails NOT toContainReact multiple nodes', () => {
-        expect(
-          builder(
-            <div>
-              <span />
-              <span foo />
-            </div>
-          ).find('span')
-        ).toContainReact(<span foo={false} />);
+        const nodes = (
+          <div>
+            <span />
+            <span foo />
+          </div>
+        );
+
+        expect(builder(nodes).find('span')).toContainReact(
+          <span foo={false} />
+        );
       });
     });
   });

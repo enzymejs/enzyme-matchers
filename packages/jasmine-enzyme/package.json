@@ -1,9 +1,9 @@
 {
   "name": "jasmine-enzyme",
-  "version": "4.0.2",
+  "version": "4.1.1",
   "description": "Jasmine assertions for enzyme",
   "main": "lib/index.js",
-  "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/jasmine-enzyme#readme",
+  "homepage": "https://github.com/FormidableLabs/enzyme-matchers/packages/jasmine-enzyme#readme",
   "author": "Blaine Kasten<blainekasten@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -23,7 +23,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/blainekasten/enzyme-matchers.git"
+    "url": "https://github.com/FormidableLabs/enzyme-matchers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/enzyme-matchers/issues"
   },
   "keywords": [
     "javascript",
@@ -44,7 +47,7 @@
     "enzyme": "3.x"
   },
   "dependencies": {
-    "enzyme-matchers": "^4.0.2"
+    "enzyme-matchers": "^4.1.1"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",

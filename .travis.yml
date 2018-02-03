@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "8"
+
+test:
+  - lerna run lint
+  - yarn test
+
+install:
+  - yarn
+  - lerna bootstrap

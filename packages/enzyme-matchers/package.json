@@ -1,9 +1,9 @@
 {
   "name": "enzyme-matchers",
-  "version": "4.0.2",
+  "version": "4.1.1",
   "description": "Testing Matchers for Enzyme",
   "main": "lib/index.js",
-  "homepage": "https://github.com/blainekasten/enzyme-matchers/packages/enzyme-matchers#readme",
+  "homepage": "https://github.com/FormidableLabs/enzyme-matchers/packages/enzyme-matchers#readme",
   "author": "Blaine Kasten <blainekasten@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -22,10 +22,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
+    "url": "git+https://github.com/FormidableLabs/enzyme-matchers.git"
   },
   "bugs": {
-    "url": "https://github.com/blainekasten/enzyme-matchers/issues"
+    "url": "https://github.com/FormidableLabs/enzyme-matchers/issues"
   },
   "peerDependencies": {
     "enzyme": "3.x"

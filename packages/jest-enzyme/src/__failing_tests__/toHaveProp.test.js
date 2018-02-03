@@ -18,7 +18,7 @@ describe('failing test', () => {
   });
 
   it('fails toHaveProp undefined value', () => {
-    expect(shallow(<Fixture disabled={'value'} />)).toHaveProp(
+    expect(shallow(<Fixture disabled="value" />)).toHaveProp(
       'enabled',
       undefined
     );

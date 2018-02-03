@@ -6,8 +6,8 @@
  * @flow
  */
 
-import addMatcher from './addMatcher';
 import enzymeMatchers from 'enzyme-matchers';
+import addMatcher from './addMatcher';
 
 declare var jest: Object;
 
