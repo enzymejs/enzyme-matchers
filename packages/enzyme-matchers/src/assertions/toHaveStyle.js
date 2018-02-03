@@ -18,7 +18,7 @@ function toHaveStyle(
   styleKey: string,
   styleValue?: any
 ): Matcher {
-  const style = enzymeWrapper.prop('style');
+  const style = flattenStyle(enzymeWrapper.prop('style'));
 
   // error if component doesnt have style
   if (!style) {
@@ -68,6 +68,27 @@ function toHaveStyle(
       expected: `Expected: ${stringify({ [styleKey]: styleValue })}`,
     },
   };
+}
+
+function flattenStyle(style: ?any): ?Object {
+  if (!style) {
+    return undefined;
+  }
+
+  if (!Array.isArray(style)) {
+    return style;
+  }
+
+  var result = {};
+  for (var i = 0, styleLength = style.length; i < styleLength; ++i) {
+    var computedStyle = flattenStyle(style[i]);
+    if (computedStyle) {
+      for (var key in computedStyle) {
+        result[key] = computedStyle[key];
+      }
+    }
+  }
+  return result;
 }
 
 export default single(toHaveStyle);
