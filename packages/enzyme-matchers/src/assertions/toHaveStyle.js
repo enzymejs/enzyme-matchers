@@ -79,16 +79,13 @@ function flattenStyle(style: ?any): ?Object {
     return style;
   }
 
-  var result = {};
-  for (var i = 0, styleLength = style.length; i < styleLength; ++i) {
-    var computedStyle = flattenStyle(style[i]);
-    if (computedStyle) {
-      for (var key in computedStyle) {
-        result[key] = computedStyle[key];
-      }
-    }
-  }
-  return result;
+  return style.reduce(
+    (computedStyle, currentStyle) => ({
+      ...computedStyle,
+      ...flattenStyle(currentStyle),
+    }),
+    undefined
+  );
 }
 
 export default single(toHaveStyle);
