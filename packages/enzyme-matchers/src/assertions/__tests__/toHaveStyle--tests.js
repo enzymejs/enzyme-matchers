@@ -5,12 +5,10 @@ const toHaveStyle = require('../toHaveStyle');
 
 function Fixture() {
   const style1 = { height: '100%' };
-  const style2 = { flex: 8 };
 
   return (
     <div>
       <span id="style1" style={style1} />
-      <span id="style2" style={style2} />
     </div>
   );
 }
@@ -52,6 +50,61 @@ describe('toHaveStyle', () => {
         const nfalsyResults = toHaveStyle(nwrapper, 'height', '0');
 
         expect(nfalsyResults).toMatchSnapshot();
+      });
+    });
+
+    describe(builder.name + ' - array of styles', () => {
+      it('should merge style objects', () => {
+        var style1 = { width: 10 };
+        var style2 = { height: 20 };
+
+        const wrapper = builder(<div style={[style1, style2]} />);
+
+        const widthResult = toHaveStyle(wrapper, 'width', 10);
+        const heightResult = toHaveStyle(wrapper, 'height', 20);
+
+        expect(widthResult.pass).toBeTruthy();
+        expect(heightResult.pass).toBeTruthy();
+      });
+
+      it('should override style properties', () => {
+        var style1 = { backgroundColor: '#000', width: 10 };
+        var style2 = { backgroundColor: '#023c69', width: null };
+
+        const wrapper = builder(<div style={[style1, style2]} />);
+
+        const colorResult = toHaveStyle(wrapper, 'backgroundColor', '#023c69');
+        const widthResult = toHaveStyle(wrapper, 'width', null);
+
+        expect(colorResult.pass).toBeTruthy();
+        expect(widthResult.pass).toBeTruthy();
+      });
+
+      it('should overwrite properties with `undefined`', () => {
+        var style1 = { backgroundColor: '#000' };
+        var style2 = { backgroundColor: undefined };
+
+        const wrapper = builder(<div style={[style1, style2]} />);
+
+        const colorResult = toHaveStyle(wrapper, 'backgroundColor', undefined);
+
+        expect(colorResult.pass).toBeTruthy();
+      });
+
+      it('should recursively flatten arrays', () => {
+        var style1 = { width: 10 };
+        var style2 = { height: 20 };
+        var style3 = { width: 30 };
+
+        const wrapper = builder(
+          <div style={[null, [], [style1, style2], style3]} />
+        );
+
+        const widthResult = toHaveStyle(wrapper, 'width', 30);
+        const heightResult = toHaveStyle(wrapper, 'height', 20);
+
+        expect(widthResult.pass).toBeTruthy();
+        expect(heightResult.pass).toBeTruthy();
       });
     });
   });
