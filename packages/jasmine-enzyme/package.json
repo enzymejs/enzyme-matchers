@@ -1,6 +1,6 @@
 {
   "name": "jasmine-enzyme",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "Jasmine assertions for enzyme",
   "main": "lib/index.js",
   "homepage": "https://github.com/FormidableLabs/enzyme-matchers/packages/jasmine-enzyme#readme",
@@ -47,7 +47,7 @@
     "enzyme": "3.x"
   },
   "dependencies": {
-    "enzyme-matchers": "^4.1.1"
+    "enzyme-matchers": "^4.2.0"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",

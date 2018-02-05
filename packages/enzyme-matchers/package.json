@@ -1,6 +1,6 @@
 {
   "name": "enzyme-matchers",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "description": "Testing Matchers for Enzyme",
   "main": "lib/index.js",
   "homepage": "https://github.com/FormidableLabs/enzyme-matchers/packages/enzyme-matchers#readme",
