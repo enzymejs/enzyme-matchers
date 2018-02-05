@@ -1,3 +1,7 @@
+4.2.0
+=====
+  * Handle an array of styles in the `toHaveStyle` assertion (@dennis-tra)
+
 4.1.1
 =====
   * Transfer ownership to [FormidableLabs](http://formidable.com/open-source/)
