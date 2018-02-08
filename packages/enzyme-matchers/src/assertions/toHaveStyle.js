@@ -13,6 +13,24 @@ import stringify from '../utils/stringify';
 import html from '../utils/html';
 import single from '../utils/single';
 
+function flattenStyle(style: ?any): ?Object {
+  if (!style) {
+    return undefined;
+  }
+
+  if (!Array.isArray(style)) {
+    return style;
+  }
+
+  return style.reduce(
+    (computedStyle, currentStyle) => ({
+      ...computedStyle,
+      ...flattenStyle(currentStyle),
+    }),
+    undefined
+  );
+}
+
 function toHaveStyle(
   enzymeWrapper: EnzymeObject,
   styleKey: string,
@@ -68,24 +86,6 @@ function toHaveStyle(
       expected: `Expected: ${stringify({ [styleKey]: styleValue })}`,
     },
   };
-}
-
-function flattenStyle(style: ?any): ?Object {
-  if (!style) {
-    return undefined;
-  }
-
-  if (!Array.isArray(style)) {
-    return style;
-  }
-
-  return style.reduce(
-    (computedStyle, currentStyle) => ({
-      ...computedStyle,
-      ...flattenStyle(currentStyle),
-    }),
-    undefined
-  );
 }
 
 export default single(toHaveStyle);
