@@ -53,10 +53,10 @@ describe('toHaveStyle', () => {
       });
     });
 
-    describe(builder.name + ' - array of styles', () => {
+    describe(`${builder.name} - array of styles`, () => {
       it('should merge style objects', () => {
-        var style1 = { width: 10 };
-        var style2 = { height: 20 };
+        const style1 = { width: 10 };
+        const style2 = { height: 20 };
 
         const wrapper = builder(<div style={[style1, style2]} />);
 
@@ -68,8 +68,8 @@ describe('toHaveStyle', () => {
       });
 
       it('should override style properties', () => {
-        var style1 = { backgroundColor: '#000', width: 10 };
-        var style2 = { backgroundColor: '#023c69', width: null };
+        const style1 = { backgroundColor: '#000', width: 10 };
+        const style2 = { backgroundColor: '#023c69', width: null };
 
         const wrapper = builder(<div style={[style1, style2]} />);
 
@@ -81,8 +81,8 @@ describe('toHaveStyle', () => {
       });
 
       it('should overwrite properties with `undefined`', () => {
-        var style1 = { backgroundColor: '#000' };
-        var style2 = { backgroundColor: undefined };
+        const style1 = { backgroundColor: '#000' };
+        const style2 = { backgroundColor: undefined };
 
         const wrapper = builder(<div style={[style1, style2]} />);
 
@@ -92,9 +92,9 @@ describe('toHaveStyle', () => {
       });
 
       it('should recursively flatten arrays', () => {
-        var style1 = { width: 10 };
-        var style2 = { height: 20 };
-        var style3 = { width: 30 };
+        const style1 = { width: 10 };
+        const style2 = { height: 20 };
+        const style3 = { width: 30 };
 
         const wrapper = builder(
           <div style={[null, [], [style1, style2], style3]} />
