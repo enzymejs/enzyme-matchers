@@ -38,7 +38,7 @@ function toHaveStyle(
 ): Matcher {
   const style = flattenStyle(enzymeWrapper.prop('style'));
 
-  // error if component doesnt have style
+  // error if component doesn't have style
   if (!style) {
     return {
       pass: false,
