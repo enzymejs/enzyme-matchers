@@ -6,7 +6,7 @@ Object {
 }
 `;
 
-exports[`toHaveClassName mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <span> not to contain \\".bar\\" for it's classname"`;
+exports[`toHaveClassName mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <span> not to contain \\".bar\\" in its className"`;
 
 exports[`toHaveClassName mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <span> to have className of \\".bar\\" but instead found \\"bar baz\\""`;
 
@@ -19,7 +19,7 @@ Object {
 ",
   },
   "message": "Expected <2 span nodes found> to have className of \\".baux\\" but instead found \\"baux\\"",
-  "negatedMessage": "Expected <2 span nodes found> not to contain \\".baux\\" for it's classname",
+  "negatedMessage": "Expected <2 span nodes found> not to contain \\".baux\\" in its className",
   "pass": true,
 }
 `;
@@ -30,7 +30,7 @@ Object {
 }
 `;
 
-exports[`toHaveClassName shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <span> not to contain \\".bar\\" for it's classname"`;
+exports[`toHaveClassName shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <span> not to contain \\".bar\\" in its className"`;
 
 exports[`toHaveClassName shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <span> to have className of \\".bar\\" but instead found \\"bar baz\\""`;
 
@@ -43,7 +43,7 @@ Object {
 ",
   },
   "message": "Expected <2 span nodes found> to have className of \\".baux\\" but instead found \\"baux\\"",
-  "negatedMessage": "Expected <2 span nodes found> not to contain \\".baux\\" for it's classname",
+  "negatedMessage": "Expected <2 span nodes found> not to contain \\".baux\\" in its className",
   "pass": true,
 }
 `;
