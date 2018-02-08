@@ -50,7 +50,7 @@ export default function toHaveClassName(
     )}> to have className of "${normalizedClassName}" but instead found "${actualClassName}"`, // eslint-disable-line max-len
     negatedMessage: `Expected <${name(
       enzymeWrapper
-    )}> not to contain "${normalizedClassName}" for it's classname`, // eslint-disable-line max-len
+    )}> not to contain "${normalizedClassName}" in its className`,
     contextualInformation: {
       actual: `Found node output: ${html(enzymeWrapper)}`,
     },
