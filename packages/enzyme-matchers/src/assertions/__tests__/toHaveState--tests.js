@@ -103,6 +103,22 @@ describe('toHaveState', () => {
 
         expect(falsy.pass).toBeFalsy();
       });
+
+      it('should support object arguments', () => {
+        const wrapper = builder(<Fixture />);
+
+        const passResult = toHaveState(wrapper, {
+          foo: false,
+          array: [1, 2, 3],
+        });
+        const failResult = toHaveState(wrapper, {
+          foo: true,
+          array: [1, 2, 3],
+        });
+
+        expect(passResult.pass).toBeTruthy();
+        expect(failResult.pass).toBeFalsy();
+      });
     });
   });
 });

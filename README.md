@@ -29,19 +29,19 @@ This library supports several testing frameworks including [Jest](https://github
 * [toBeEmpty()](#tobeempty)
 * [toBeEmptyRender()](#tobeemptyrender)
 * [toBePresent()](#tobepresent)
-* [toContainReact()](#tocontainreactreactinstanceobject)
-* [toHaveClassName()](#tohaveclassnameclassnamestring)
-* [toHaveHTML()](#tohavehtmlhtmlstring)
-* [toHaveProp()](#tohaveproppropkeystring-propvalueany)
-* [toHaveRef()](#tohaverefrefnamestring)
-* [toHaveState()](#tohavestatestatekeystring-statevalueany)
-* [toHaveStyle()](#tohavestylestylekeystring-stylevalueany)
-* [toHaveTagName()](#tohavetagnametagnamestring)
-* [toHaveText()](#tohavetexttextstring)
-* [toIncludeText()](#toincludetexttextstring)
-* [toHaveValue()](#tohavevaluevalueany)
-* [toMatchElement()](#tomatchelementreactinstanceobject-optionsany)
-* [toMatchSelector()](#tomatchselectorselectorstring)
+* [toContainReact()](#tocontainreact)
+* [toHaveClassName()](#tohaveclassname)
+* [toHaveHTML()](#tohavehtml)
+* [toHaveProp()](#tohaveprop-propvalueany)
+* [toHaveRef()](#tohaverefref)
+* [toHaveState()](#tohavestate)
+* [toHaveStyle()](#tohavestyle)
+* [toHaveTagName()](#tohavetagname)
+* [toHaveText()](#tohavetext)
+* [toIncludeText()](#toincludetext)
+* [toHaveValue()](#tohavevalue)
+* [toMatchElement()](#tomatchelement)
+* [toMatchSelector()](#tomatchselector)
 
 _Other_
 
@@ -54,6 +54,12 @@ _Other_
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toBeChecked();
+```
 
 Assert that the given wrapper is checked:
 
@@ -83,6 +89,12 @@ expect(wrapper.find('#not')).not.toBeChecked();
 | -------|-------|-------- |
 | no     | yes   | yes     |
 
+Ways to use this API:
+
+```js
+expect().toBeDisabled();
+```
+
 Assert that the given wrapper is disabled:
 
 ```js
@@ -110,6 +122,12 @@ expect(wrapper.find('#not')).not.toBeDisabled();
 | -------|-------|-------- |
 | no     | yes   | yes     |
 
+Ways to use this API:
+
+```js
+expect().toBeEmpty();
+```
+
 Assert that the given wrapper is empty:
 
 ```js
@@ -133,6 +151,12 @@ expect(wrapper.find('span')).not.toBeEmpty();
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toBeEmptyRender();
+```
 
 Assert that the given wrapper has an empty render (`null` or `false`):
 
@@ -161,6 +185,12 @@ expect(wrapper).not.toBeEmptyRender();
 | -------|-------|-------- |
 | no     | yes   | yes     |
 
+Ways to use this API:
+
+```js
+expect().toBePresent();
+```
+
 Opposite of [`toBeEmpty()`](#toBeEmpty). Assert that the given wrapper has children of any length:
 
 ```js
@@ -179,11 +209,17 @@ expect(wrapper.find('span')).toBePresent();
 expect(wrapper.find('ul')).not.toBePresent();
 ```
 
-#### `toContainReact(reactInstance:Object)`
+#### `toContainReact()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveContainReact(<div>foo</div>);
+```
 
 Assert that the given wrapper contains the provided react instance:
 
@@ -219,11 +255,17 @@ expect(wrapper).toContainReact(<User index={1} />);
 expect(wrapper).not.toContainReact(<User index={9000} />);
 ```
 
-#### `toHaveClassName(className:string)`
+#### `toHaveClassName()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveClassName('foo');
+```
 
 Assert that the given wrapper has the provided className:
 
@@ -246,11 +288,18 @@ expect(wrapper.find('.bar')).toHaveClassName('bar baz');
 expect(wrapper.find('.bar')).toHaveClassName('baz');
 ```
 
-#### `toHaveHTML(html:string)`
+#### `toHaveHTML()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveHTML('<div>html</div>');
+```
+
 
 Assert that the given wrapper has the provided html:
 
@@ -272,11 +321,19 @@ expect(wrapper.find('#child')).toHaveHTML(
 );
 ```
 
-#### `toHaveProp(propKey:string[, propValue:?any])`
+#### `toHaveProp()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveProp('key', 'value');
+expect().toHaveProp('key');
+expect().toHaveProp({key: 'value'});
+```
 
 Assert that the given wrapper has the provided propKey and associated value if specified:
 
@@ -302,13 +359,24 @@ expect(wrapper.find(User)).toHaveProp('foo', 'baz');
 
 expect(wrapper.find(User)).toHaveProp('bar');
 expect(wrapper.find(User)).toHaveProp('bar', [1,2,3]);
+
+expect(wrapper.find(User)).toHaveProp({
+  bar: [1, 2, 3],
+  foo: 'baz',
+});
 ```
 
-#### `toHaveRef(refName:string)`
+#### `toHaveRef()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | no      |
+
+Ways to use this API:
+
+```js
+expect().toHaveRef('foo');
+```
 
 Assert that the mounted wrapper has the provided ref:
 
@@ -329,11 +397,19 @@ expect(wrapper).toHaveRef('child');
 expect(wrapper).not.toHaveRef('foo');
 ```
 
-#### `toHaveState(stateKey:string[, stateValue:?any])`
+#### `toHaveState()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveState('foo');
+expect().toHaveState('foo', 'bar');
+expect().toHaveState({ foo: 'bar' });
+```
 
 Assert that the component has the provided stateKey and optional value if specified:
 
@@ -357,13 +433,22 @@ const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
 expect(wrapper).toHaveState('foo');
 expect(wrapper).toHaveState('foo', false);
+expect(wrapper).toHaveState({ foo: false });
 ```
 
-#### `toHaveStyle(styleKey:string[, styleValue:?any])`
+#### `toHaveStyle()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveStyle('height');
+expect().toHaveStyle('height', '100%');
+expect().toHaveStyle({ height: '100%' });
+```
 
 Assert that the component has style of the provided key and value:
 
@@ -386,11 +471,17 @@ expect(wrapper.find('#style1')).toHaveStyle('height', '100%');
 expect(wrapper.find('#style2')).toHaveStyle('flex', 8);
 ```
 
-#### `toHaveTagName(tagName:string)`
+#### `toHaveTagName()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveTagName('div');
+```
 
 Assert that the wrapper is of a certain tag type:
 
@@ -409,11 +500,17 @@ expect(wrapper.find('#span')).toHaveTagName('span');
 expect(wrapper.find('#span')).not.toHaveTagName('div');
 ```
 
-#### `toHaveText(text:string)`
+#### `toHaveText()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveText('bar');
+```
 
 Assert that the wrapper's text matches the provided text exactly, using a strict comparison (`===`).
 
@@ -436,11 +533,17 @@ expect(wrapper.find('#full')).toHaveText();
 expect(wrapper.find('#empty')).not.toHaveText();
 ```
 
-#### `toIncludeText(text:string)`
+#### `toIncludeText()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toIncludeText('bar');
+```
 
 Assert that the wrapper includes the provided text:
 
@@ -459,11 +562,17 @@ expect(wrapper.find('#full')).toIncludeText('important');
 expect(wrapper.find('#full')).not.toIncludeText('Wrong');
 ```
 
-#### `toHaveValue(value:any)`
+#### `toHaveValue()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveValue('bar');
+```
 
 Assert that the given wrapper has the provided `value`:
 
@@ -483,11 +592,18 @@ expect(wrapper.find('input').at(0)).toHaveValue('test');
 expect(wrapper.find('input').at(1)).toHaveValue('bar');
 ```
 
-#### `toMatchElement(reactInstance:Object, options:any)`
+#### `toMatchElement()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toMatchSelector(<Foo />);
+expect().toMatchSelector(<Foo />, { ignoreProps: false });
+```
 
 Assert the wrapper matches the provided react instance. This is a matcher form of Enzyme's wrapper.matchesElement(), which returns a bool with no indication of what caused a failed match. This matcher includes the actual and expected debug trees as contextual information when it fails. Like matchesElement(), props are ignored. If you want to compare prop values as well, pass `{ ignoreProps: false }` as options. Uses enzyme's [debug()](http://airbnb.io/enzyme/docs/api/ShallowWrapper/debug.html) under the hood and compares debug strings, which makes for a human readable diff when expects fail.
 
@@ -513,11 +629,17 @@ expect(wrapper.find('span')).toMatchElement(
 expect(wrapper).not.toMatchElement(<div />);
 ```
 
-#### `toMatchSelector(selector:string)`
+#### `toMatchSelector()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
 | no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toMatchSelector('.foo');
+```
 
 Assert that the wrapper matches the provided `selector`:
 

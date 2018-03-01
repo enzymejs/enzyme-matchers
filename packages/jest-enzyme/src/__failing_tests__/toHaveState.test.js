@@ -3,9 +3,12 @@ const React = require('react');
 
 describe('failing test', () => {
   class Fixture extends React.Component {
-    state = {
-      foo: true,
-    };
+    constructor() {
+      super();
+      this.state = {
+        foo: true,
+      };
+    }
     render() {
       return (
         <div disabled>

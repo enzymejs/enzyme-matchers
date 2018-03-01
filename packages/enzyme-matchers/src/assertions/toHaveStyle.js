@@ -6,10 +6,10 @@
  * @flow
  */
 
-import deepEqualIdent from 'deep-equal-ident';
-import type { EnzymeObject, Matcher } from '../types';
+import type { EnzymeObject, Matcher, ObjectReductionResponse } from '../types';
 import name from '../utils/name';
 import stringify from '../utils/stringify';
+import reduceAssertionObject from '../utils/reduceAssertionObject';
 import html from '../utils/html';
 import single from '../utils/single';
 
@@ -33,58 +33,73 @@ function flattenStyle(style: ?any): ?Object {
 
 function toHaveStyle(
   enzymeWrapper: EnzymeObject,
-  styleKey: string,
+  styleKey: string | Object,
   styleValue?: any
 ): Matcher {
   const style = flattenStyle(enzymeWrapper.prop('style'));
+  const wrapperName = name(enzymeWrapper);
 
-  // error if component doesn't have style
+  // 1. If the component doesn't have a style prop in general. That's an immediate failure.
   if (!style) {
     return {
       pass: false,
-      message: `Expected <${name(
-        enzymeWrapper
-      )}> component to have a style prop but it did not.`,
-      negatedMessage: `Expected <${name(
-        enzymeWrapper
-      )}> component not to have a style prop but it did.`,
+      message: `Expected <${wrapperName}> component to have a style prop but it did not.`,
+      negatedMessage: `Expected <${wrapperName}> component not to have a style prop but it did.`,
       contextualInformation: {
         actual: html(enzymeWrapper),
       },
     };
   }
 
-  // error if the style key doesnt exist
-  if (!style.hasOwnProperty(styleKey)) {
+  // 2. If the assertion is to check if the component has a style in general. We need to make sure
+  // that its not an object and intended for the object assertion API.
+  // Then we have to make sure the style has that key.
+  if (
+    styleKey === undefined &&
+    arguments.length === 2 &&
+    typeof styleKey !== 'object' &&
+    Array.isArray(styleKey) === false
+  ) {
+    return {
+      pass: style.hasOwnProperty(styleKey),
+      message: `Expected <${wrapperName}> to have any value for the prop "${styleKey}"`,
+      negatedMessage: `Expected <${wrapperName}> not to receive the prop "${styleKey}"`,
+      contextualInformation: {
+        actual: `Actual props: ${stringify({ [styleKey]: style[styleKey] })}`,
+        expected: `Expected props: ${stringify({ [styleKey]: styleValue })}`,
+      },
+    };
+  }
+
+  const results: ObjectReductionResponse = reduceAssertionObject.call(
+    this,
+    style,
+    styleKey,
+    styleValue
+  );
+  const unmatchedKeys = results.unmatchedKeys.join(', ');
+  const contextualInformation = {
+    actual: `Actual style: ${stringify(results.actual)}`,
+    expected: `Expected style: ${stringify(results.expected)}`,
+  };
+
+  if (results.missingKeys.length) {
+    const missingKeys = results.missingKeys.join(', ');
     return {
       pass: false,
-      message: `Expected <${name(
-        enzymeWrapper
-      )}> component to have a style key of "${styleKey}" but it did not.`,
-      negatedMessage: `Expected <${name(
-        enzymeWrapper
-      )}> component not to have a style key of "${styleKey}" but it did.`,
+      message: `Expected <${wrapperName}> component to have a style keys of "${missingKeys}" but it did not.`,
+      negatedMessage: `Expected <${wrapperName}> component not to have a style key of "${missingKeys}" but it did.`,
       contextualInformation: {
         actual: html(enzymeWrapper),
       },
     };
   }
 
-  const equals = this && this.equals ? this.equals : deepEqualIdent;
-  const pass = equals(style[styleKey], styleValue);
-
   return {
-    pass,
-    message: `Expected <${name(
-      enzymeWrapper
-    )}> component style values to match for key "${styleKey}", but they didn't`,
-    negatedMessage: `Expected <${name(
-      enzymeWrapper
-    )}> component style values to be different for key "${styleKey}", but they weren't`,
-    contextualInformation: {
-      actual: `Actual: ${stringify({ [styleKey]: style[styleKey] })}`,
-      expected: `Expected: ${stringify({ [styleKey]: styleValue })}`,
-    },
+    pass: results.pass,
+    message: `Expected <${wrapperName}> component style values to match for key "${unmatchedKeys}", but they didn't`,
+    negatedMessage: `Expected <${wrapperName}> component style values to be different for key "${unmatchedKeys}", but they weren't`,
+    contextualInformation,
   };
 }
 
