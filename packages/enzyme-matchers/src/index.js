@@ -24,7 +24,9 @@ import toHaveValue from './assertions/toHaveValue';
 import toMatchSelector from './assertions/toMatchSelector';
 import toMatchElement from './assertions/toMatchElement';
 
-export default {
+import protectAssertion from './utils/protectAssertion';
+
+const assertions = {
   toBeChecked,
   toBeDisabled,
   toBeEmpty,
@@ -43,5 +45,12 @@ export default {
   toMatchSelector,
   toMatchElement,
 };
+
+// Protect all assertions from being called with not-enzyme-wrappers.
+Object.keys(assertions).forEach(key => {
+  assertions[key] = protectAssertion(assertions[key]);
+});
+
+export default assertions;
 
 export type { EnzymeObject, Matcher, MatcherMethods } from './types';

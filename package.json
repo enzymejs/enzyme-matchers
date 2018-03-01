@@ -12,7 +12,8 @@
     "test-jest": "cd ./packages/jest-enzyme && npm run test -- --maxWorkers=4",
     "test-jestw": "cd ./packages/jest-enzyme && npm run test -- --watch",
     "lint": "eslint ./packages",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "postinstall": "lerna bootstrap"
   },
   "lint-staged": {
     "packages/**/*.js": [

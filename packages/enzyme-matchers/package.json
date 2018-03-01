@@ -40,5 +40,8 @@
       "<rootDir>/src"
     ],
     "verbose": true
+  },
+  "devDependencies": {
+    "flow-bin": "^0.66.0"
   }
 }
