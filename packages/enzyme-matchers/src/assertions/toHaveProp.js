@@ -6,9 +6,9 @@
  * @flow
  */
 
-import deepEqualIdent from 'deep-equal-ident';
-import type { EnzymeObject, Matcher } from '../types';
+import type { EnzymeObject, Matcher, ObjectReductionResponse } from '../types';
 import name from '../utils/name';
+import reduceAssertionObject from '../utils/reduceAssertionObject';
 import stringify from '../utils/stringify';
 import single from '../utils/single';
 
@@ -18,45 +18,54 @@ function toHaveProp(
   propValue?: any
 ): Matcher {
   const props = enzymeWrapper.props();
+  const wrapperName = name(enzymeWrapper);
+
+  // The API allows to check if a component has a prop in general by dropping the third
+  // argument.
+  if (
+    propValue === undefined &&
+    arguments.length === 2 &&
+    typeof propKey !== 'object' &&
+    Array.isArray(propKey) === false
+  ) {
+    return {
+      pass: props.hasOwnProperty(propKey),
+      message: `Expected <${wrapperName}> to have any value for the prop "${propKey}"`,
+      negatedMessage: `Expected <${wrapperName}> not to receive the prop "${propKey}"`,
+      contextualInformation: {
+        actual: `Actual props: ${stringify({ [propKey]: props[propKey] })}`,
+        expected: `Expected props: ${stringify({ [propKey]: propValue })}`,
+      },
+    };
+  }
+
+  const results: ObjectReductionResponse = reduceAssertionObject.call(
+    this,
+    props,
+    propKey,
+    propValue
+  );
+  const unmatchedKeys = results.unmatchedKeys.join(', ');
   const contextualInformation = {
-    actual: `Actual: ${stringify({ [propKey]: props[propKey] })}`,
-    expected: `Expected: ${stringify({ [propKey]: propValue })}`,
+    actual: `Actual props: ${stringify(results.actual)}`,
+    expected: `Expected props: ${stringify(results.expected)}`,
   };
 
-  // error if the prop doesnt exist
-  if (!props.hasOwnProperty(propKey)) {
-    contextualInformation.actual = '';
-
+  // error if some prop doesn't exist
+  if (results.missingKeys.length) {
+    const missingKeys = results.missingKeys.join(', ');
     return {
       pass: false,
-      message: `Expected wrapper to have prop "${propKey}", but it did not.`,
-      negatedMessage: `Expected wrapper not to have prop "${propKey}", but it did.`,
+      message: `Expected <${wrapperName}}> component to have props "${missingKeys}", but it did not.`,
+      negatedMessage: `Expected <${wrapperName}> component to not have a props "${missingKeys}", but it did.`,
       contextualInformation,
     };
   }
-
-  // key exists given above check, and we're not validating over values,
-  // so its always true unless the undefined value was provided explicitly
-  if (propValue === undefined && arguments.length === 2) {
-    return {
-      pass: true,
-      message: `Expected wrapper to have any value for the prop "${propKey}"`,
-      negatedMessage: `Expected wrapper not to receive the prop "${propKey}"`,
-      contextualInformation,
-    };
-  }
-
-  const equals = this && this.equals ? this.equals : deepEqualIdent;
-  const pass = equals(props[propKey], propValue);
 
   return {
-    pass,
-    message: `Expected <${name(
-      enzymeWrapper
-    )}> "${propKey}" prop values to match but they didn't.`,
-    negatedMessage: `Expected <${name(
-      enzymeWrapper
-    )}> "${propKey}" prop values not to match, but they did.`,
+    pass: results.pass,
+    message: `Expected <${wrapperName}> "${unmatchedKeys}" prop values to match but they didn't.`,
+    negatedMessage: `Expected <${wrapperName}> "${unmatchedKeys}" prop values not to match, but they did.`,
     contextualInformation,
   };
 }

@@ -6,69 +6,67 @@
  * @flow
  */
 
-import deepEqualIdent from 'deep-equal-ident';
-import type { EnzymeObject, Matcher } from '../types';
+import type { EnzymeObject, Matcher, ObjectReductionResponse } from '../types';
 import name from '../utils/name';
+import reduceAssertionObject from '../utils/reduceAssertionObject';
 import stringify from '../utils/stringify';
 import single from '../utils/single';
 
 function toHaveState(
   enzymeWrapper: EnzymeObject,
-  stateKey: string,
+  stateKey: Object | string,
   stateValue?: any
 ): Matcher {
   const state = enzymeWrapper.state();
+  const wrapperName = name(enzymeWrapper);
 
-  // error if the state key doesnt exist
-  if (!state.hasOwnProperty(stateKey)) {
+  // The API allows to check if a component has a prop in general by dropping the third
+  // argument.
+  if (
+    stateValue === undefined &&
+    arguments.length === 2 &&
+    typeof stateKey !== 'object' &&
+    Array.isArray(stateKey) === false
+  ) {
+    return {
+      pass: state.hasOwnProperty(stateKey),
+      message: `Expected <${wrapperName}> to have any value for the prop "${stateKey}"`,
+      negatedMessage: `Expected <${wrapperName}> not to receive the prop "${stateKey}"`,
+      contextualInformation: {
+        actual: `Actual props: ${stringify({ [stateKey]: state[stateKey] })}`,
+        expected: `Expected props: ${stringify({ [stateKey]: stateValue })}`,
+      },
+    };
+  }
+
+  const results: ObjectReductionResponse = reduceAssertionObject.call(
+    this,
+    state,
+    stateKey,
+    stateValue
+  );
+  const unmatchedKeys = results.unmatchedKeys.join(', ');
+  const contextualInformation = {
+    actual: `Actual state: ${stringify(results.actual)}`,
+    expected: `Expected state: ${stringify(results.expected)}`,
+  };
+
+  // error if some state doesn't exist
+  if (results.missingKeys.length) {
+    const missingKeys = results.missingKeys.join(', ');
     return {
       pass: false,
-      message: `Expected <${name(
-        enzymeWrapper
-      )}> component state to have key of "${stateKey}"`,
-      negatedMessage: `Expected <${name(
-        enzymeWrapper
-      )}> component state to not contain a key of "${stateKey}".`,
-      contextualInformation: {
-        actual: `Actual ${stringify({ [stateKey]: state[stateKey] })}`,
-        expected: `Expected state: ${stringify({ [stateKey]: stateValue })}`,
-      },
+      message: `Expected <${wrapperName}> component state to have keys of "${missingKeys}"`,
+      negatedMessage: `Expected <${wrapperName}> component state to not contain a key of "${missingKeys}".`,
+      contextualInformation,
     };
   }
-
-  // key exists given above check, and we're not validating over values,
-  // so its always true unless the undefined value was provided explicitly
-  if (stateValue === undefined && arguments.length === 2) {
-    return {
-      pass: true,
-      message: `Expected <${name(
-        enzymeWrapper
-      )}> component state to have key of "${stateKey}"`,
-      negatedMessage: `Expected <${name(
-        enzymeWrapper
-      )}> component state to not contain a key of "${stateKey}".`,
-      contextualInformation: {
-        actual: `Actual ${stringify({ [stateKey]: state[stateKey] })}`,
-        expected: `Expected state: ${stringify({ [stateKey]: stateValue })}`,
-      },
-    };
-  }
-
-  const equals = this && this.equals ? this.equals : deepEqualIdent;
-  const pass = equals(state[stateKey], stateValue);
 
   return {
-    pass,
-    message: `Expected <${name(
-      enzymeWrapper
-    )}> component state values to match for key "${stateKey}" but they didn't.`,
-    negatedMessage: `Expected <${name(
-      enzymeWrapper
-    )}> component state values to be different for key "${stateKey}" but they didn't.`,
-    contextualInformation: {
-      actual: `Actual ${stringify({ [stateKey]: state[stateKey] })}`,
-      expected: `Expected state: ${stringify({ [stateKey]: stateValue })}`,
-    },
+    pass: results.pass,
+    message: `Expected <${wrapperName}> component state values to match for keys "${unmatchedKeys}" but they didn't.`,
+    negatedMessage: `Expected <${wrapperName}> component state values to be different for keys "${unmatchedKeys}" but they didn't.`,
+    contextualInformation,
   };
 }
 

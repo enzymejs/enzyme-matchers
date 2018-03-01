@@ -2,7 +2,7 @@ const { shallow, mount } = require('enzyme');
 const React = require('react');
 const PropTypes = require('prop-types');
 
-describe.only('failing test', () => {
+describe('failing test', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
       const Fixture = props => <input defaultChecked={props.defaultChecked} />;
@@ -19,7 +19,7 @@ describe.only('failing test', () => {
         ).not.toBeChecked();
       });
 
-      fit('non-enzyme data', () => {
+      it('non-enzyme data', () => {
         expect([]).toBeChecked();
       });
     });

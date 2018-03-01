@@ -51,6 +51,24 @@ describe('toHaveStyle', () => {
 
         expect(nfalsyResults).toMatchSnapshot();
       });
+
+      it('should support object arguments', () => {
+        const style = { backgroundColor: '#000', width: 10, display: 'none' };
+
+        const wrapper = builder(<div style={style} />);
+
+        const passResult = toHaveStyle(wrapper, {
+          backgroundColor: '#000',
+          width: 10,
+        });
+        const failResult = toHaveStyle(wrapper, {
+          backgroundColor: '#000',
+          display: 'block',
+        });
+
+        expect(passResult.pass).toBeTruthy();
+        expect(failResult.pass).toBeFalsy();
+      });
     });
 
     describe(`${builder.name} - array of styles`, () => {
@@ -105,6 +123,24 @@ describe('toHaveStyle', () => {
 
         expect(widthResult.pass).toBeTruthy();
         expect(heightResult.pass).toBeTruthy();
+      });
+
+      it('should support object arguments', () => {
+        const style = { backgroundColor: '#000', width: 10, display: 'none' };
+
+        const wrapper = builder(<div style={style} />);
+
+        const passResult = toHaveStyle(wrapper, {
+          backgroundColor: '#000',
+          width: 10,
+        });
+        const failResult = toHaveStyle(wrapper, {
+          backgroundColor: '#000',
+          display: 'block',
+        });
+
+        expect(passResult.pass).toBeTruthy();
+        expect(failResult.pass).toBeFalsy();
       });
     });
   });
