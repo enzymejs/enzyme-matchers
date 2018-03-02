@@ -27,6 +27,7 @@ This library supports several testing frameworks including [Jest](https://github
 * [toBeChecked()](#tobechecked)
 * [toBeDisabled()](#tobedisabled)
 * [toBeEmpty()](#tobeempty)
+* [toBeEmptyRender()](#tobeemptyrender)
 * [toBePresent()](#tobepresent)
 * [toContainReact()](#tocontainreactreactinstanceobject)
 * [toHaveClassName()](#tohaveclassnameclassnamestring)
@@ -125,6 +126,33 @@ const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
 expect(wrapper.find('ul')).toBeEmpty();
 expect(wrapper.find('span')).not.toBeEmpty();
+```
+
+#### `toBeEmptyRender()`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Assert that the given wrapper has an empty render (`null` or `false`):
+
+```js
+function EmptyRenderFixture() {
+  return null;
+}
+
+function NonEmptyRenderFixture() {
+  return (
+    <div>
+      <EmptyRenderFixture />
+    </div>
+  );
+}
+
+const wrapper = mount(<EmptyRenderFixture />); // mount/render/shallow when applicable
+
+expect(wrapper.find('EmptyRenderFixture')).toBeEmptyRender();
+expect(wrapper).not.toBeEmptyRender();
 ```
 
 #### `toBePresent()`

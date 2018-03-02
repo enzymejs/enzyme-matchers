@@ -9,6 +9,7 @@
 import toBeChecked from './assertions/toBeChecked';
 import toBeDisabled from './assertions/toBeDisabled';
 import toBeEmpty from './assertions/toBeEmpty';
+import toBeEmptyRender from './assertions/toBeEmptyRender';
 import toBePresent from './assertions/toBePresent';
 import toContainReact from './assertions/toContainReact';
 import toHaveClassName from './assertions/toHaveClassName';
@@ -30,6 +31,7 @@ const assertions = {
   toBeChecked,
   toBeDisabled,
   toBeEmpty,
+  toBeEmptyRender,
   toBePresent,
   toContainReact,
   toHaveClassName,

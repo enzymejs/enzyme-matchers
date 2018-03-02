@@ -5,6 +5,7 @@ declare namespace jest {
         toBeChecked(): void;
         toBeDisabled(): void;
         toBeEmpty(): void;
+        toBeEmptyRender(): void;
         toBePresent(): void;
         toContainReact(component: React.ReactElement<any>): void;
         toHaveClassName(className: string): void;
