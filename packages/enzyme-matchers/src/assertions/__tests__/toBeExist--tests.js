@@ -1,7 +1,7 @@
 const { shallow } = require('enzyme');
 const React = require('react');
 
-const toBeEmpty = require('../toBeEmpty');
+const toExist = require('../toExist');
 
 function Fixture() {
   return (
@@ -11,10 +11,10 @@ function Fixture() {
   );
 }
 
-describe('toBeEmpty', () => {
+describe('toExist', () => {
   const wrapper = shallow(<Fixture />);
-  const truthyResults = toBeEmpty(wrapper.find('.doesnt-match'));
-  const falsyResults = toBeEmpty(wrapper.find('.matches'));
+  const truthyResults = toExist(wrapper.find('.matches'));
+  const falsyResults = toExist(wrapper.find('.doesnt-matches'));
 
   it('returns the pass flag properly', () => {
     expect(truthyResults.pass).toBeTruthy();
@@ -25,11 +25,12 @@ describe('toBeEmpty', () => {
     expect(truthyResults.message).toMatchSnapshot();
   });
 
-  it('returns the message with the proper pass verbage', () => {
+  it('returns the message with the proper fail verbage', () => {
     expect(truthyResults.negatedMessage).toMatchSnapshot();
   });
 
   it('provides contextual information for the message', () => {
     expect(truthyResults.contextualInformation).toMatchSnapshot();
+    expect(falsyResults.contextualInformation).toMatchSnapshot();
   });
 });

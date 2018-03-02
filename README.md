@@ -26,9 +26,8 @@ This library supports several testing frameworks including [Jest](https://github
 
 * [toBeChecked()](#tobechecked)
 * [toBeDisabled()](#tobedisabled)
-* [toBeEmpty()](#tobeempty)
 * [toBeEmptyRender()](#tobeemptyrender)
-* [toBePresent()](#tobepresent)
+* [toExist()](#toexist)
 * [toContainReact()](#tocontainreact)
 * [toHaveClassName()](#tohaveclassname)
 * [toHaveHTML()](#tohavehtml)
@@ -116,36 +115,6 @@ expect(wrapper.find('#disabled')).toBeDisabled();
 expect(wrapper.find('#not')).not.toBeDisabled();
 ```
 
-#### `toBeEmpty()`
-
-| render | mount | shallow |
-| -------|-------|-------- |
-| no     | yes   | yes     |
-
-Ways to use this API:
-
-```js
-expect().toBeEmpty();
-```
-
-Assert that the given wrapper is empty:
-
-```js
-function Fixture() {
-  return (
-    <div>
-      <span className="foo" />
-      <span className="bar baz" />
-    </div>
-  );
-}
-
-const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
-
-expect(wrapper.find('ul')).toBeEmpty();
-expect(wrapper.find('span')).not.toBeEmpty();
-```
-
 #### `toBeEmptyRender()`
 
 | render | mount | shallow |
@@ -179,7 +148,7 @@ expect(wrapper.find('EmptyRenderFixture')).toBeEmptyRender();
 expect(wrapper).not.toBeEmptyRender();
 ```
 
-#### `toBePresent()`
+#### `toExist()`
 
 | render | mount | shallow |
 | -------|-------|-------- |
@@ -188,10 +157,10 @@ expect(wrapper).not.toBeEmptyRender();
 Ways to use this API:
 
 ```js
-expect().toBePresent();
+expect().toExist();
 ```
 
-Opposite of [`toBeEmpty()`](#toBeEmpty). Assert that the given wrapper has children of any length:
+Assert that the given enzyme wrapper has rendered content.
 
 ```js
 function Fixture() {
@@ -205,8 +174,8 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('span')).toBePresent();
-expect(wrapper.find('ul')).not.toBePresent();
+expect(wrapper.find('span')).toExist();
+expect(wrapper.find('ul')).not.toExist();
 ```
 
 #### `toContainReact()`

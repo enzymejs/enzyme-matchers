@@ -8,10 +8,9 @@
 
 import toBeChecked from './assertions/toBeChecked';
 import toBeDisabled from './assertions/toBeDisabled';
-import toBeEmpty from './assertions/toBeEmpty';
 import toBeEmptyRender from './assertions/toBeEmptyRender';
-import toBePresent from './assertions/toBePresent';
 import toContainReact from './assertions/toContainReact';
+import toExist from './assertions/toExist';
 import toHaveClassName from './assertions/toHaveClassName';
 import toHaveHTML from './assertions/toHaveHTML';
 import toHaveProp from './assertions/toHaveProp';
@@ -30,10 +29,9 @@ import protectAssertion from './utils/protectAssertion';
 const assertions = {
   toBeChecked,
   toBeDisabled,
-  toBeEmpty,
   toBeEmptyRender,
-  toBePresent,
   toContainReact,
+  toExist,
   toHaveClassName,
   toHaveHTML,
   toHaveProp,
