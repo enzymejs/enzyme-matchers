@@ -33,13 +33,6 @@ describe('addMatchers', () => {
     expect(wrapper.find('#disabled')).toBeDisabled();
   });
 
-  it('adds toBeEmpty', () => {
-    const Fixture = require('./fixtures/toBeEmpty.fixture');
-    const wrapper = shallow(React.createElement(Fixture));
-
-    expect(wrapper.find('.doesnt-match')).toBeEmpty();
-  });
-
   it('adds toBeEmptyRender', () => {
     const Fixture = require('./fixtures/toBeEmptyRender.fixture');
     const wrapper = shallow(React.createElement(Fixture));
@@ -47,11 +40,11 @@ describe('addMatchers', () => {
     expect(wrapper).toBeEmptyRender();
   });
 
-  it('adds toBePresent', () => {
-    const Fixture = require('./fixtures/toBePresent.fixture');
+  it('adds toExist', () => {
+    const Fixture = require('./fixtures/toExist.fixture');
     const wrapper = shallow(React.createElement(Fixture));
 
-    expect(wrapper.find('span')).toBePresent();
+    expect(wrapper.find('span')).toExist();
   });
 
   it('adds toContainReact', () => {

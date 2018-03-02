@@ -10,8 +10,8 @@ import type { EnzymeObject, Matcher } from '../types';
 import html from '../utils/html';
 import getNodeName from '../utils/name';
 
-export default function toBePresent(enzymeWrapper: EnzymeObject): Matcher {
-  const pass = enzymeWrapper.length !== 0;
+export default function toExist(enzymeWrapper: EnzymeObject): Matcher {
+  const pass = enzymeWrapper.exists();
 
   const contextualInformation = {};
 
@@ -19,15 +19,13 @@ export default function toBePresent(enzymeWrapper: EnzymeObject): Matcher {
     contextualInformation.actual = `Found Nodes: ${html(enzymeWrapper)}`;
   }
 
+  const nodeName = getNodeName(enzymeWrapper);
+
   return {
     pass,
-    message: `Expected "${getNodeName(
-      enzymeWrapper
-    )}.toBePresent()" results to contain at least one node, instead found none.`,
-    negatedMessage: `Expected "${getNodeName(
-      enzymeWrapper
-    )}.not.toBePresent()" selector results to contain 0 nodes, instead found ${enzymeWrapper.getElements()
-      .length}.`,
+    message: `Expected "${nodeName}" to exist.`,
+    negatedMessage: `Expected "${nodeName}" not to exist. Instead found ${enzymeWrapper.getElements()
+      .length} nodes.`,
     contextualInformation,
   };
 }
