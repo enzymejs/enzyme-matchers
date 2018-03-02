@@ -9,10 +9,10 @@ declare namespace jest {
         toExist(): void;
         toHaveClassName(className: string): void;
         toHaveHTML(html: string): void;
-        toHaveProp(propKey: string, propValue?: any): void;
+        toHaveProp(propKey: object|string, propValue?: any): void;
         toHaveRef(refName: string): void;
-        toHaveState(stateKey: string, stateValue?: any): void;
-        toHaveStyle(styleKey: string, styleValue?: any): void;
+        toHaveState(stateKey: object|string, stateValue?: any): void;
+        toHaveStyle(styleKey: object|string, styleValue?: any): void;
         toHaveTagName(tagName: string): void;
         toHaveText(text: string): void;
         toHaveValue(value: any): void;
