@@ -40,6 +40,13 @@ describe('addMatchers', () => {
     expect(wrapper.find('.doesnt-match')).toBeEmpty();
   });
 
+  it('adds toBeEmptyRender', () => {
+    const Fixture = require('./fixtures/toBeEmptyRender.fixture');
+    const wrapper = shallow(React.createElement(Fixture));
+
+    expect(wrapper).toBeEmptyRender();
+  });
+
   it('adds toBePresent', () => {
     const Fixture = require('./fixtures/toBePresent.fixture');
     const wrapper = shallow(React.createElement(Fixture));

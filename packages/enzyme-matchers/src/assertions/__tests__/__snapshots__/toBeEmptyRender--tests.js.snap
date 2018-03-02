@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toBeEmptyRender provides contextual information for the message 1`] = `
+Object {
+  "actual": "Found Nodes HTML output: <div></div>",
+}
+`;
+
+exports[`toBeEmptyRender returns the message with the proper pass verbage 1`] = `"Expected <EmptyRenderFixture> to be empty render (false or null), but it was not"`;
+
+exports[`toBeEmptyRender returns the message with the proper pass verbage 2`] = `"Expected <EmptyRenderFixture> not to be empty render (false or null), but it was"`;
