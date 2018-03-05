@@ -1,6 +1,3 @@
-const { mount, shallow } = require('enzyme');
-const React = require('react');
-
 const toHaveStyle = require('../toHaveStyle');
 
 function Fixture() {
@@ -55,13 +52,13 @@ describe('toHaveStyle', () => {
       it('should support object arguments', () => {
         const style = { backgroundColor: '#000', width: 10, display: 'none' };
 
-        const wrapper = builder(<div style={style} />);
+        const owrapper = builder(<div style={style} />);
 
-        const passResult = toHaveStyle(wrapper, {
+        const passResult = toHaveStyle(owrapper, {
           backgroundColor: '#000',
           width: 10,
         });
-        const failResult = toHaveStyle(wrapper, {
+        const failResult = toHaveStyle(owrapper, {
           backgroundColor: '#000',
           display: 'block',
         });

@@ -1,6 +1,3 @@
-const { shallow, mount } = require('enzyme');
-const React = require('react');
-
 describe('failing test', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {

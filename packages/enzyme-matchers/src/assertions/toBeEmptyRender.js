@@ -9,8 +9,9 @@
 import type { EnzymeObject, Matcher } from '../types';
 import name from '../utils/name';
 import html from '../utils/html';
+import single from '../utils/single';
 
-export default function toBeEmptyRender(enzymeWrapper: EnzymeObject): Matcher {
+function toBeEmptyRender(enzymeWrapper: EnzymeObject): Matcher {
   const pass = enzymeWrapper.isEmptyRender();
 
   return {
@@ -26,3 +27,5 @@ export default function toBeEmptyRender(enzymeWrapper: EnzymeObject): Matcher {
     },
   };
 }
+
+export default single(toBeEmptyRender);

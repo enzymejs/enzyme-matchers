@@ -6,4 +6,5 @@
  * @flow
  */
 import type { EnzymeObject, Matcher } from './';
+
 export type Assertion = (EnzymeObject, ...args: any) => Matcher;

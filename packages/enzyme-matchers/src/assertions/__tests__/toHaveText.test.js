@@ -1,24 +1,20 @@
-const { shallow, mount } = require('enzyme');
-const React = require('react');
-
-const toHaveHTML = require('../toHaveHTML');
+const toHaveText = require('../toHaveText');
 
 function Fixture() {
   return (
-    <div id="root">
-      <span id="child">Test</span>
+    <div>
+      <p id="full">Test</p>
+      <p id="empty" />
     </div>
   );
 }
 
-const html = '<span id="child">Test</span>';
-
-describe('toHaveHTML', () => {
+describe('toHaveText', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
-      const wrapper = builder(<Fixture />);
-      const truthyResults = toHaveHTML(wrapper.find('#child'), html);
-      const falsyResults = toHaveHTML(wrapper.find('#child'), 'foo');
+      const wrapper = builder(<Fixture />).find('#full');
+      const truthyResults = toHaveText(wrapper, 'Test');
+      const falsyResults = toHaveText(wrapper, 'Turdz');
 
       it('returns the pass flag properly', () => {
         expect(truthyResults.pass).toBeTruthy();

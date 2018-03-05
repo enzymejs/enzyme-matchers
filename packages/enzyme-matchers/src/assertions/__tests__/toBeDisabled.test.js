@@ -1,6 +1,3 @@
-const { shallow } = require('enzyme');
-const React = require('react');
-
 const toBeDisabled = require('../toBeDisabled');
 
 function Fixture() {

@@ -1,6 +1,4 @@
-import React from 'react';
 import protectAssertion from '../protectAssertion';
-import { mount, shallow } from 'enzyme';
 
 describe('protectAssertion', () => {
   const typesToCheck = [

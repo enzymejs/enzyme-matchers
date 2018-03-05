@@ -1,22 +1,21 @@
-const { shallow, mount } = require('enzyme');
-const React = require('react');
+const toHaveRef = require('../toHaveRef');
 
-const toIncludeText = require('../toIncludeText');
-
-function Fixture() {
-  return (
-    <div>
-      <p id="full">Some important text</p>
-    </div>
-  );
+class Fixture extends React.Component {
+  render() {
+    return (
+      <div>
+        <span ref="child" />
+      </div>
+    );
+  }
 }
 
-describe('toIncludeText', () => {
+describe('toHaveRef', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
-      const wrapper = builder(<Fixture />).find('p');
-      const truthyResults = toIncludeText(wrapper, 'important');
-      const falsyResults = toIncludeText(wrapper, 'nope');
+      const wrapper = mount(<Fixture />);
+      const truthyResults = toHaveRef(wrapper, 'child');
+      const falsyResults = toHaveRef(wrapper, 'dad');
 
       it('returns the pass flag properly', () => {
         expect(truthyResults.pass).toBeTruthy();

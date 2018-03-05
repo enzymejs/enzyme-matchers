@@ -11,5 +11,5 @@ export type ObjectReductionResponse = {
   expected: { [key: string]: any },
   pass: boolean,
   missingKeys: Array<string>,
-  unmatchedKeys: array<string>,
+  unmatchedKeys: Array<string>,
 };

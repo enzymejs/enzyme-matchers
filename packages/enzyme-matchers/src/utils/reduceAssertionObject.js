@@ -20,7 +20,8 @@ export default function reduceAssertionObject(
   const equals = this && this.equals ? this.equals : deepEqualIdent;
 
   return Object.keys(matcherDetails).reduce(
-    (retVal, key) => {
+    (prevVal: ObjectReductionResponse, key: string) => {
+      const retVal = { ...prevVal };
       const match = equals(componentDetails[key], matcherDetails[key]);
       retVal.actual[key] = componentDetails[key];
       retVal.expected[key] = matcherDetails[key];

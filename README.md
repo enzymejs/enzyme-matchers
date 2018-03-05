@@ -14,6 +14,8 @@ This library supports several testing frameworks including [Jest](https://github
 * [enzyme-matchers](/packages/enzyme-matchers/README.md)
 * [jasmine-enzyme](/packages/jasmine-enzyme/README.md)
 * [jest-enzyme](/packages/jest-enzyme/README.md)
+* [jest-environment-enzyme](/packages/jest-environment-enzyme/README.md)
+* [eslint-config-jest-enzyme](/packages/eslint-config-jest-enzyme/README.md)
 
 ## Assertions
 

@@ -1,8 +1,4 @@
-
-const presets = [
-  'env',
-  'react',
-];
+const presets = [ 'env', 'react' ];
 
 const plugins = [
   'transform-object-rest-spread',

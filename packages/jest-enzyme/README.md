@@ -2,7 +2,6 @@
 
 [![npm version](https://img.shields.io/npm/v/jest-enzyme.svg)](https://www.npmjs.com/package/jest-enzyme)
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
-[![Circle CI](https://circleci.com/gh/blainekasten/enzyme-matchers/tree/master.svg?style=svg)](https://circleci.com/gh/blainekasten/enzyme-matchers/tree/master)
 
 ### Installation
 
@@ -39,6 +38,10 @@ Make sure your `package.json` includes the following:
   ]
 },
 ```
+
+### Jest Enzyme Environment
+
+There is a special environment to simplify using enzyme with jest. Check it out [here](/packages/jest-environment-enzyme#readme)
 
 #### Using with [Create React App](https://github.com/facebookincubator/create-react-app)
 

@@ -34,14 +34,19 @@
     "circular-json-es6": "^2.0.1",
     "deep-equal-ident": "^1.1.1"
   },
+  "devDependencies": {
+    "enzyme": "^3.0.0",
+    "flow-bin": "^0.66.0"
+  },
   "jest": {
-    "setupTestFrameworkScriptFile": "../../scripts/setup.js",
     "roots": [
       "<rootDir>/src"
     ],
+    "setupTestFrameworkScriptFile": "../jest-enzyme/lib/index.js",
+    "testEnvironment": "../jest-environment-enzyme/lib/index.js",
+    "testEnvironmentOptions": {
+      "adapter": "react16"
+    },
     "verbose": true
-  },
-  "devDependencies": {
-    "flow-bin": "^0.66.0"
   }
 }

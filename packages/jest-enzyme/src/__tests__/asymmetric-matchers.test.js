@@ -1,11 +1,9 @@
-const React = require('react');
-const { shallow } = require('enzyme');
-
 const complexValue = {
   simple1: 'value1',
   simple2: 'value2',
   nested: { prop1: 'value1' },
 };
+
 class Fixture extends React.Component {
   constructor() {
     super();

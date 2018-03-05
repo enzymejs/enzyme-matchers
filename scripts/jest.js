@@ -5,7 +5,7 @@ console.log('> Building files (lerna).')
 
 try {
   execSync(
-    'lerna bootstrap && lerna run build',
+    'lerna run build',
     (error, stdout) => console.log(stdout, error)
   );
 } catch(e) {

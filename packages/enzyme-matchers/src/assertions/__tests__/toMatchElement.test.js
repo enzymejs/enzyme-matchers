@@ -1,6 +1,3 @@
-const { shallow, mount } = require('enzyme');
-const React = require('react');
-
 const toMatchElement = require('../toMatchElement');
 
 function Fixture() {
