@@ -1,0 +1,71 @@
+{
+  "name": "jest-environment-enzyme",
+  "version": "4.2.0",
+  "description": "Runtime Environment for enzyme tests in jest",
+  "main": "lib/index.js",
+  "author": "Blaine Kasten <blainekasten@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/FormidableLabs/enzyme-matchers/blob/master/packages/jest-environment-enzyme#readme",
+  "scripts": {
+    "lint": "eslint ./src",
+    "clean": "rm -rf ./lib",
+    "build:js": "babel src --out-dir lib --ignore tests --copy-files",
+    "build": "npm run clean && npm run build:js",
+    "prepublish": "npm run build"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FormidableLabs/enzyme-matchers.git"
+  },
+  "keywords": [
+    "javascript",
+    "shallow rendering",
+    "shallowRender",
+    "test",
+    "reactjs",
+    "react",
+    "flux",
+    "testing",
+    "test utils",
+    "assertion helpers",
+    "tdd",
+    "jest",
+    "enzyme"
+  ],
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/enzyme-matchers/issues"
+  },
+  "peerDependencies": {
+    "jest": ">=22.0.0",
+    "react": ">=16.x"
+  },
+  "dependencies": {
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-13": "^1.0.3",
+    "enzyme-adapter-react-14": "^1.0.5",
+    "enzyme-adapter-react-15": "^1.0.5",
+    "enzyme-adapter-react-15.4": "^1.0.5",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest-environment-jsdom": "^22.4.1",
+    "jest-enzyme": "^4.2.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "flow"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  }
+}

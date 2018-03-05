@@ -46,24 +46,29 @@
   },
   "peerDependencies": {
     "enzyme": "3.x",
-    "jest": ">=19.0.0"
+    "jest": ">=22.0.0"
   },
   "dependencies": {
     "enzyme-matchers": "^4.2.0",
-    "enzyme-to-json": "^3.3.0"
+    "enzyme-to-json": "^3.3.0",
+    "jest-environment-enzyme": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.10"
   },
   "jest": {
     "roots": [
       "<rootDir>/src"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
+    "testEnvironment": "enzyme",
+    "testEnvironmentOptions": {
+      "enzymeAdapter": "react16"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/src/index.js",
     "testRegex": "/(__tests__|__failing_tests__)/.*\\.test\\.js$",
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/(?!enzyme-matchers)"
     ],
     "verbose": true
-  },
-  "devDependencies": {
-    "@types/react": "^16.0.10"
   }
 }

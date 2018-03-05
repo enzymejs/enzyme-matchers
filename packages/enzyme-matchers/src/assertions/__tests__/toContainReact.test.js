@@ -1,20 +1,38 @@
-const { shallow } = require('enzyme');
-const React = require('react');
+const PropTypes = require('prop-types');
 
-const toExist = require('../toExist');
+const toContainReact = require('../toContainReact');
+
+function User(props) {
+  return (
+    <span>
+      User {props.index}
+    </span>
+  );
+}
+
+User.propTypes = {
+  index: PropTypes.number.isRequired,
+};
 
 function Fixture() {
   return (
     <div>
-      <span className="matches" />
+      <ul>
+        <li>
+          <User index={1} />
+        </li>
+        <li>
+          <User index={2} />
+        </li>
+      </ul>
     </div>
   );
 }
 
-describe('toExist', () => {
+describe('toContainReact', () => {
   const wrapper = shallow(<Fixture />);
-  const truthyResults = toExist(wrapper.find('.matches'));
-  const falsyResults = toExist(wrapper.find('.doesnt-matches'));
+  const truthyResults = toContainReact(wrapper, <User index={1} />);
+  const falsyResults = toContainReact(wrapper, <User index={3} />);
 
   it('returns the pass flag properly', () => {
     expect(truthyResults.pass).toBeTruthy();
@@ -31,6 +49,5 @@ describe('toExist', () => {
 
   it('provides contextual information for the message', () => {
     expect(truthyResults.contextualInformation).toMatchSnapshot();
-    expect(falsyResults.contextualInformation).toMatchSnapshot();
   });
 });

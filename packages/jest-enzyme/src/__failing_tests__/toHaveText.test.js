@@ -1,6 +1,3 @@
-const { shallow } = require('enzyme');
-const React = require('react');
-
 describe('failing Text', () => {
   const Fixture = () =>
     <div>

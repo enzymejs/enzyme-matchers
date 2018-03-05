@@ -2,7 +2,6 @@
 
 [![npm version](https://img.shields.io/npm/v/jasmine-enzyme.svg)](https://www.npmjs.com/package/jasmine-enzyme)
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
-[![CircleCI](https://circleci.com/gh/blainekasten/enzyme-matchers.svg?style=svg)](https://circleci.com/gh/blainekasten/enzyme-matchers)
 
 ### Installation
 

@@ -1,0 +1,25 @@
+{
+  "name": "eslint-config-jest-enzyme",
+  "version": "4.2.0",
+  "description": "Eslint Config for allowing jest-environment-enzyme globals",
+  "main": "index.js",
+  "author": "Blaine Kasten <blainekasten@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/FormidableLabs/enzyme-matchers/blob/master/packages/eslint-config-jest-enzyme#readme",
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FormidableLabs/enzyme-matchers.git"
+  },
+  "keywords": [
+    "eslint",
+    "jest",
+    "enzyme"
+  ],
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/enzyme-matchers/issues"
+  }
+}
+

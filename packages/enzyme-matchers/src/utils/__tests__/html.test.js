@@ -1,5 +1,3 @@
-const React = require('react');
-const { shallow, mount } = require('enzyme');
 const html = require('../html');
 
 describe('html', () => {

@@ -25,11 +25,8 @@ It appears you tried calling this matcher with a non-enzyme object.
 This assertion must be called against a shallow, mount, or render-ed react component.
 `;
 
-const protectAssertion = (assertion: Assertion): Assertion => {
-  return function assertionWrapper(
-    enzymeWrapper: EnzymeObject,
-    ...args
-  ): Matcher {
+const protectAssertion = (assertion: Assertion): Assertion =>
+  function assertionWrapper(enzymeWrapper: EnzymeObject, ...args): Matcher {
     if (heuristicCheck(enzymeWrapper) === false) {
       throw new Error(ERROR_MESSAGE(assertion));
     }
@@ -38,6 +35,5 @@ const protectAssertion = (assertion: Assertion): Assertion => {
     // so we can use asymmetric equalities.
     return assertion.call(this, enzymeWrapper, ...args);
   };
-};
 
 export default protectAssertion;

@@ -1,4 +1,4 @@
-/* eslint-disable new-cap */
+/* eslint-disable global-require */
 /**
  * This source code is licensed under the MIT-style license found in the
  * LICENSE file in the root directory of this source tree. *
@@ -11,6 +11,16 @@ import enzymeMatchers from 'enzyme-matchers';
 import serializer from 'enzyme-to-json/serializer';
 
 declare var expect: Function;
+
+if (global.bootstrapEnzymeEnvironment) {
+  const {
+    exposeGlobals,
+    polyfillRaf,
+  } = require('jest-environment-enzyme/lib/setup');
+
+  polyfillRaf();
+  exposeGlobals();
+}
 
 // add the snapshot serializer for Enzyme wrappers
 expect.addSnapshotSerializer(serializer);

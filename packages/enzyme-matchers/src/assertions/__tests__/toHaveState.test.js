@@ -1,6 +1,3 @@
-const { shallow, mount } = require('enzyme');
-const React = require('react');
-
 const toHaveState = require('../toHaveState');
 
 class Fixture extends React.Component {

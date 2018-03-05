@@ -3,7 +3,8 @@
   "parser": "babel-eslint",
   "extends": [
     "airbnb",
-    "prettier"
+    "prettier",
+    "./packages/eslint-config-jest-enzyme/index.js"
   ],
   "env": {
     "jasmine": true,

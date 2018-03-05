@@ -1,21 +1,17 @@
-const { shallow } = require('enzyme');
-const React = require('react');
-const toBeChecked = require('../toBeChecked');
+const toExist = require('../toExist');
 
 function Fixture() {
   return (
     <div>
-      <input id="checked" defaultChecked />
-      <input id="not" defaultChecked={false} />
-      <input id="tertiary" defaultChecked checked={false} />
+      <span className="matches" />
     </div>
   );
 }
 
-describe('toBeChecked', () => {
+describe('toExist', () => {
   const wrapper = shallow(<Fixture />);
-  const truthyResults = toBeChecked(wrapper.find('#checked'));
-  const falsyResults = toBeChecked(wrapper.find('#not'));
+  const truthyResults = toExist(wrapper.find('.matches'));
+  const falsyResults = toExist(wrapper.find('.doesnt-matches'));
 
   it('returns the pass flag properly', () => {
     expect(truthyResults.pass).toBeTruthy();
@@ -26,11 +22,12 @@ describe('toBeChecked', () => {
     expect(truthyResults.message).toMatchSnapshot();
   });
 
-  it('returns the message with the proper pass verbage', () => {
+  it('returns the message with the proper fail verbage', () => {
     expect(truthyResults.negatedMessage).toMatchSnapshot();
   });
 
   it('provides contextual information for the message', () => {
     expect(truthyResults.contextualInformation).toMatchSnapshot();
+    expect(falsyResults.contextualInformation).toMatchSnapshot();
   });
 });

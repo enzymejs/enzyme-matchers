@@ -1,6 +1,4 @@
-const React = require('react');
 const name = require('../name');
-const { shallow, mount } = require('enzyme');
 
 function getNodeName(builder, comp) {
   return name(builder(comp));

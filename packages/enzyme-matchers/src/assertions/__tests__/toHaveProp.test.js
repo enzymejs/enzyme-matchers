@@ -1,5 +1,3 @@
-const { shallow, mount } = require('enzyme');
-const React = require('react');
 const PropTypes = require('prop-types');
 
 const toHaveProp = require('../toHaveProp');
