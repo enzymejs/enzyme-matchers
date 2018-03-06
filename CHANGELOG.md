@@ -1,3 +1,20 @@
+5.0.0
+=====
+🛑 **Breaking**
+  * Removed `toBePresent` and `toBeEmpty` in favor of a _new_ matcher `toExist`. (@blainekasten)
+
+🚀 **New Features** 
+  * New Package! [`jest-environment-enzyme`](/packages/jest-environment-enzyme) (@blainekasten)
+  * New Package! [`eslint-config-jest-enzyme`](/packages/eslint-config-jest-enzyme) (@blainekasten)
+  * New Matcher `toBeEmptyRender` to assert when a component returns `null` or `undefined`. (@theneva)
+  * `toHaveStyle`, `toHaveProp` and `toHaveState` now all can accept an object as a list of key,values to match against. (@blainekasten)
+  * Using `yarn` workspaces locally now. (@blainekasten)
+
+🍾 **Improvements**
+  * Improved error message when using an `enzyme-matcher` assertion with a non-enzyme argument. (@blainekasten)
+  * Improve the message output from `toHaveClassName`. (@theneva)
+  * `toBeChecked` previously failed on undefined or null values, but is now fixed. (@pascalduez)
+
 4.2.0
 =====
   * Handle an array of styles in the `toHaveStyle` assertion (@dennis-tra)
