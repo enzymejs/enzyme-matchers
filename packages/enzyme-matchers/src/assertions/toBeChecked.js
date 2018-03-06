@@ -16,13 +16,16 @@ function toBeChecked(enzymeWrapper: EnzymeObject): Matcher {
 
   const props: Object = enzymeWrapper.props();
 
-  // set to the default checked
-  if (props.hasOwnProperty('defaultChecked')) {
-    pass = props.defaultChecked || false;
+  // Use `defaultChecked` if present.
+  if (
+    props.hasOwnProperty('defaultChecked') &&
+    typeof props.defaultChecked === 'boolean'
+  ) {
+    pass = props.defaultChecked;
   }
 
-  // if it has the checked property, CHECK that.
-  if (props.hasOwnProperty('checked')) {
+  // Use `checked` if present, will take precedence over `defaultChecked`.
+  if (props.hasOwnProperty('checked') && typeof props.checked === 'boolean') {
     pass = props.checked;
   }
 

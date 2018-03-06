@@ -5,7 +5,8 @@ function Fixture() {
     <div>
       <input id="checked" defaultChecked />
       <input id="not" defaultChecked={false} />
-      <input id="tertiary" defaultChecked checked={false} />
+      <input id="precedence" defaultChecked={false} checked />
+      <input id="safe" />
     </div>
   );
 }
@@ -24,11 +25,23 @@ describe('toBeChecked', () => {
     expect(truthyResults.message).toMatchSnapshot();
   });
 
-  it('returns the message with the proper pass verbage', () => {
+  it('returns the negatedMessage with the proper fail verbage', () => {
     expect(truthyResults.negatedMessage).toMatchSnapshot();
   });
 
   it('provides contextual information for the message', () => {
     expect(truthyResults.contextualInformation).toMatchSnapshot();
+  });
+
+  it('`checked` should take precedence over `defaultChecked`', () => {
+    const result = toBeChecked(wrapper.find('#precedence'));
+
+    expect(result.pass).toBeTruthy();
+  });
+
+  it('should not fail on undefined values', () => {
+    const result = toBeChecked(wrapper.find('#safe'));
+
+    expect(result.pass).toBeFalsy();
   });
 });
