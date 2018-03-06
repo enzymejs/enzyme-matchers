@@ -13,12 +13,8 @@ import serializer from 'enzyme-to-json/serializer';
 declare var expect: Function;
 
 if (global.bootstrapEnzymeEnvironment) {
-  const {
-    exposeGlobals,
-    polyfillRaf,
-  } = require('jest-environment-enzyme/lib/setup');
+  const { exposeGlobals } = require('jest-environment-enzyme/lib/setup');
 
-  polyfillRaf();
   exposeGlobals();
 }
 
