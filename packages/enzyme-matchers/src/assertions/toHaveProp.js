@@ -14,7 +14,7 @@ import single from '../utils/single';
 
 function toHaveProp(
   enzymeWrapper: EnzymeObject,
-  propKey: string,
+  propKey: string | Object,
   propValue?: any
 ): Matcher {
   const props = enzymeWrapper.props();
