@@ -3,7 +3,7 @@
  */
 
 import deepEqualIdent from 'deep-equal-ident';
-import { ObjectReductionResponse } from '../types';
+import type { ObjectReductionResponse } from '../types';
 
 type ObjectKey = Object | string;
 
