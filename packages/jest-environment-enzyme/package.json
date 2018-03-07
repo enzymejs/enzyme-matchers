@@ -49,8 +49,7 @@
     "enzyme-adapter-react-15": "^1.0.5",
     "enzyme-adapter-react-15.4": "^1.0.5",
     "enzyme-adapter-react-16": "^1.1.1",
-    "jest-environment-jsdom": "^22.4.1",
-    "jest-enzyme": "^5.0.0"
+    "jest-environment-jsdom": "^22.4.1"
   },
   "babel": {
     "presets": [
