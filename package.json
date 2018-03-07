@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/blainekasten/enzyme-matchers.git"
+    "url": "git+https://github.com/FormidableLabs/enzyme-matchers.git"
   },
   "keywords": [
     "javascript",
