@@ -1,3 +1,9 @@
+5.0.1
+=====
+  * Remove unnecassary rAF polyfill. (@SimenB)
+  * Fix flow typing for `toHaveProp`. (@theneva)
+  * Remove unused dependency from `jest-environment-enzyme`. (@SimenB)
+
 5.0.0
 =====
 🛑 **Breaking**
