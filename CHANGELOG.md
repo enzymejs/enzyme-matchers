@@ -1,3 +1,7 @@
+5.0.2
+=====
+  * Improve the scope of what files `eslint-config-jest-enzyme` affects. (@blainekasten)
+
 5.0.1
 =====
   * Remove unnecassary rAF polyfill. (@SimenB)
