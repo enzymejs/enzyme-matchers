@@ -1,3 +1,7 @@
+5.0.3
+=====
+  * Fix an internal flowtype issue. (@fernandopasik)
+
 5.0.2
 =====
   * Improve the scope of what files `eslint-config-jest-enzyme` affects. (@blainekasten)
