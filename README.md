@@ -189,7 +189,7 @@ expect(wrapper.find('ul')).not.toExist();
 Ways to use this API:
 
 ```js
-expect().toHaveContainReact(<div>foo</div>);
+expect().toContainReact(<div>foo</div>);
 ```
 
 Assert that the given wrapper contains the provided react instance:
