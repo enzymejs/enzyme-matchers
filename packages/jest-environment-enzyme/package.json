@@ -39,16 +39,11 @@
     "url": "https://github.com/FormidableLabs/enzyme-matchers/issues"
   },
   "peerDependencies": {
+    "enzyme": "3.x",
     "jest": ">=22.0.0",
     "react": ">=16.x"
   },
   "dependencies": {
-    "enzyme": "^3.0.0",
-    "enzyme-adapter-react-13": "^1.0.3",
-    "enzyme-adapter-react-14": "^1.0.5",
-    "enzyme-adapter-react-15": "^1.0.5",
-    "enzyme-adapter-react-15.4": "^1.0.5",
-    "enzyme-adapter-react-16": "^1.1.1",
     "jest-environment-jsdom": "^22.4.1"
   },
   "babel": {
