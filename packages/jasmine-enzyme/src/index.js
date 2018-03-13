@@ -17,7 +17,7 @@ function jasmineEnzyme(): void {
   if (typeof jest !== 'undefined') {
     throw new Error(`
       [jasmine-enzyme] The jest usage has been moved to a new package: "jest-enzyme".
-      Use that project instead of this. For more information, see: _______
+      Use that project instead of this. For more information, see: https://github.com/FormidableLabs/enzyme-matchers/tree/master/packages/jest-enzyme
     `);
   }
 
@@ -33,13 +33,11 @@ function jasmineEnzyme(): void {
         const results = matcherFn.call({ equals }, ...args);
 
         if (results.contextualInformation.actual) {
-          results.message += `\nexpected: ${results.contextualInformation
-            .actual}`;
+          results.message += `\n${results.contextualInformation.actual}`;
         }
 
         if (results.contextualInformation.expected) {
-          results.message += `\nreceived: ${results.contextualInformation
-            .expected}`;
+          results.message += `\n${results.contextualInformation.expected}`;
         }
 
         return results;
@@ -48,12 +46,11 @@ function jasmineEnzyme(): void {
         const results = matcherFn.call({ equals }, ...args);
 
         if (results.contextualInformation.actual) {
-          results.negatedMessage += `\nexpected: ${results.contextualInformation
-            .actual}`;
+          results.negatedMessage += `\n${results.contextualInformation.actual}`;
         }
 
         if (results.contextualInformation.expected) {
-          results.negatedMessage += `\nreceived: ${results.contextualInformation
+          results.negatedMessage += `\n${results.contextualInformation
             .expected}`;
         }
 
