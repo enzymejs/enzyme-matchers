@@ -1,3 +1,14 @@
+6.0.0
+=====
+🛑 **Breaking**
+  * `jest-environment-enzyme` now requires you to install your enzyme-adapter to your project root. (@blainekasten)
+    - In 5.0.0 we wrongfully didn't require developers to do that hoping we could manage it internally.
+    - This resulted in bloated dependencies, and peerDependency errors.
+    - This fix requires a tiny bit more work from the user but is correct!
+
+🍾 **Improvements**
+  * Improve `jasmine-enzymes` error messages to not be contradicting. (@blainekasten)
+
 5.0.3
 =====
   * Fix an internal flowtype issue. (@fernandopasik)
