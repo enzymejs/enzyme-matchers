@@ -25,7 +25,7 @@ function toMatchElement(
 
   const actual = actualEnzymeWrapper.debug(options);
   const expected = expectedWrapper.debug(options);
-  const pass = actual === expected;
+  const pass = actual.equals(expected);
 
   return {
     pass,
