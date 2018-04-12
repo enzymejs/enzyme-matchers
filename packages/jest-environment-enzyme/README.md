@@ -17,11 +17,18 @@ But npm works too!
 $ npm install jest-environment-enzyme --save-dev
 ```
 
+With this library, you don't need to have your app install Enzyme, but you have to install one of Enzymes adapters.
+
+```
+yarn add enzyme-adapter-* --dev
+```
+
+Where `*` is your app's adapter.
+
+
 ### Setup
 
-With this library, you don't need to have your app install enzyme, or an enzyme-adapter. We'll take care of it for you!
-
-Setup should be test set the `testEnvironment` to `enzyme` in your `package.json`.
+Set the `testEnvironment` to `enzyme` in your `package.json`.
 
 ```js
 "jest": {
