@@ -32,6 +32,7 @@ Set the `testEnvironment` to `enzyme` in your `package.json`.
 
 ```js
 "jest": {
+  "setupTestFrameworkScriptFile": "jest-enzyme",
   "testEnvironment": "enzyme",
 },
 ```
@@ -49,6 +50,7 @@ Valid options are:
 ```js
 // package.json
 "jest": {
+  "setupTestFrameworkScriptFile": "jest-enzyme",
   "testEnvironment": "enzyme",
   "testEnvironmentOptions": {
     "enzymeAdapter": "react16"
