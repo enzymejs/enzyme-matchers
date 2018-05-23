@@ -1,8 +1,9 @@
 /* eslint-disable global-require */
 
+// eslint-disable-next-line import/prefer-default-export
 export const exposeGlobals = () => {
   let dep;
-  switch (global.enzymedepDescriptor) {
+  switch (global.enzymeAdapterDescriptor) {
     case 'react13':
       dep = 'enzyme-adapter-react-13';
       break;
@@ -22,8 +23,10 @@ export const exposeGlobals = () => {
 
   let Adapter;
   try {
+    // eslint-disable-next-line import/no-dynamic-require
     Adapter = require(dep);
   } catch (e) {
+    // eslint-disable-next-line no-console
     console.error(
       `
       Requiring the proper enzyme-adapter during jest-enzyme setup failed.
