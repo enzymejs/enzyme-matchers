@@ -1,3 +1,7 @@
+6.0.1
+=====
+  * Fix `jest-environment-enzyme` to actually work with different react adapter versions. (@evocateur)
+
 6.0.0
 =====
 🛑 **Breaking**
