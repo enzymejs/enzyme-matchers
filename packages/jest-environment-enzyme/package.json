@@ -41,7 +41,7 @@
   "peerDependencies": {
     "enzyme": "3.x",
     "jest": ">=22.0.0",
-    "react": ">=16.x"
+    "react": "^0.13.0 || ^0.14.0 || ^15.0.0 || >=16.x"
   },
   "dependencies": {
     "jest-environment-jsdom": "^22.4.1"
