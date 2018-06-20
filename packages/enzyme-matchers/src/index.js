@@ -11,6 +11,7 @@ import toBeDisabled from './assertions/toBeDisabled';
 import toBeEmptyRender from './assertions/toBeEmptyRender';
 import toContainReact from './assertions/toContainReact';
 import toExist from './assertions/toExist';
+import toExistExactly from './assertions/toExistExactly';
 import toHaveClassName from './assertions/toHaveClassName';
 import toHaveHTML from './assertions/toHaveHTML';
 import toHaveProp from './assertions/toHaveProp';
@@ -32,6 +33,7 @@ const assertions = {
   toBeEmptyRender,
   toContainReact,
   toExist,
+  toExistExactly,
   toHaveClassName,
   toHaveHTML,
   toHaveProp,
