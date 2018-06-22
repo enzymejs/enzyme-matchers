@@ -1,3 +1,7 @@
+6.0.2
+=====
+  * Loosen `jest-envirnoment-enzyme` react peerDependency to support testing other react versions. (@evocateur)
+
 6.0.1
 =====
   * Fix `jest-environment-enzyme` to actually work with different react adapter versions. (@evocateur)
