@@ -17,7 +17,9 @@ function toHaveHTML(enzymeWrapper: EnzymeObject, html: string): Matcher {
   const useSingleQuotes = html.search("'") !== -1;
 
   const actualHTML = wrapperHTML.replace(/("|')/g, useSingleQuotes ? "'" : '"');
-  const expectedHTML = html.replace(/("|')/g, useSingleQuotes ? "'" : '"');
+  const expectedHTML = html
+    .replace(/("|')/g, useSingleQuotes ? "'" : '"')
+    .replace(/>[\n\t ]+</g, '><');
 
   const pass = actualHTML === expectedHTML;
 

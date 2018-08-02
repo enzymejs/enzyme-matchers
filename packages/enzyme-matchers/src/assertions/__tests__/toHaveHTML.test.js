@@ -3,22 +3,33 @@ const toHaveHTML = require('../toHaveHTML');
 function Fixture() {
   return (
     <div id="root">
-      <span id="child">Test</span>
+      <span id="child">
+        <b>Test</b>
+      </span>
     </div>
   );
 }
 
-const html = '<span id="child">Test</span>';
+const html = '<span id="child"><b>Test</b></span>';
+
+const multilineHtml = `<span id="child">
+    <b>Test</b>
+  </span>`;
 
 describe('toHaveHTML', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
       const wrapper = builder(<Fixture />);
       const truthyResults = toHaveHTML(wrapper.find('#child'), html);
+      const truthyMultilineResults = toHaveHTML(
+        wrapper.find('#child'),
+        multilineHtml
+      );
       const falsyResults = toHaveHTML(wrapper.find('#child'), 'foo');
 
       it('returns the pass flag properly', () => {
         expect(truthyResults.pass).toBeTruthy();
+        expect(truthyMultilineResults.pass).toBeTruthy();
         expect(falsyResults.pass).toBeFalsy();
       });
 
