@@ -38,7 +38,7 @@ export const exposeGlobals = () => {
       or with npm
       
       > npm i --save-dev ${dep}
-      `
+      `, e,
     );
     return;
   }
