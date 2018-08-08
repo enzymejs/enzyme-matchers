@@ -1,3 +1,9 @@
+6.0.3
+=====
+  * Add global typescript definitions for jest-environment-enzyme. (@astorije)
+  * Allow multiline strings for `toHaveHTML`. (@astorije)
+  * Print local error messages when jest-environment-enzyme has an issue. (@h.ayabe)
+
 6.0.2
 =====
   * Loosen `jest-envirnoment-enzyme` react peerDependency to support testing other react versions. (@evocateur)
