@@ -301,9 +301,9 @@ expect(wrapper.find('#child')).toHaveHTML(
 Ways to use this API:
 
 ```js
-expect().toHaveProp('key', 'value');
-expect().toHaveProp('key');
-expect().toHaveProp({key: 'value'});
+expect().toHaveProp('foo', 'value');
+expect().toHaveProp('foo');
+expect().toHaveProp({foo: 'value'});
 ```
 
 Assert that the given wrapper has the provided propKey and associated value if specified:
