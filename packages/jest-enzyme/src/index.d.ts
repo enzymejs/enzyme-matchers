@@ -1,13 +1,5 @@
 /// <reference types="react" />
 
-import * as Enzyme from 'enzyme';
-
-declare global {
-    var shallow: typeof Enzyme.shallow;
-    var mount: typeof Enzyme.mount;
-    var render: typeof Enzyme.render;
-}
-
 declare namespace jest {
     interface Matchers<R> {
         toBeChecked(): void;

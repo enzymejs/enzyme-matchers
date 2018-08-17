@@ -16,6 +16,7 @@
   "files": [
     "lib"
   ],
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FormidableLabs/enzyme-matchers.git"
