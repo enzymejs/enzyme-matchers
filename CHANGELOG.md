@@ -1,3 +1,7 @@
+6.0.4
+=====
+  * Fix global typescript definitions for jest-environment-enzyme. (@vkrol)
+
 6.0.3
 =====
   * Add global typescript definitions for jest-environment-enzyme. (@astorije)
