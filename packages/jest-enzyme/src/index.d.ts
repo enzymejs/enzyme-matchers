@@ -1,6 +1,9 @@
 /// <reference types="react" />
 
 declare namespace jest {
+    interface ToMatchElementOptions {
+        ignoreProps?: boolean;
+    }
     interface Matchers<R> {
         toBeChecked(): void;
         toBeDisabled(): void;
@@ -17,7 +20,10 @@ declare namespace jest {
         toHaveText(text: string): void;
         toHaveValue(value: any): void;
         toIncludeText(text: string): void;
-        toMatchElement(element: React.ReactElement<any>): void;
+        toMatchElement(
+            element: React.ReactElement<any>,
+            options?: ToMatchElementOptions,
+        ): void;
         toMatchSelector(selector: string): void;
     }
 }
