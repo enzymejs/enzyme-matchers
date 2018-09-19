@@ -30,6 +30,9 @@ This library supports several testing frameworks including [Jest](https://github
 * [toBeDisabled()](#tobedisabled)
 * [toBeEmptyRender()](#tobeemptyrender)
 * [toExist()](#toexist)
+* [toContainMatchingElement()](#toContainMatchingElement)
+* [toContainMatchingElements()](#toContainMatchingElements)
+* [toContainExactlyOneMatchingElement()](#toContainExactlyOneMatchingElement)
 * [toContainReact()](#tocontainreact)
 * [toHaveClassName()](#tohaveclassname)
 * [toHaveHTML()](#tohavehtml)
@@ -178,6 +181,153 @@ const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
 expect(wrapper.find('span')).toExist();
 expect(wrapper.find('ul')).not.toExist();
+```
+
+#### `toContainMatchingElement()`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toContainMatchingElement('.foo');
+```
+
+Assert that the given wrapper contains at least one match for the given selector:
+
+```js
+function User(props) {
+  return (
+    <span className={props.className}>
+      User {props.index}
+    </span>
+  );
+}
+
+User.propTypes = {
+  index: PropTypes.number.isRequired,
+  className: PropTypes.string,
+};
+
+function Fixture() {
+  return (
+    <div>
+      <ul>
+        <li>
+          <User index={1} className="userOne" />
+        </li>
+        <li>
+          <User index={2} className="userTwo" />
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper).toContainMatchingElement('.userOne');
+expect(wrapper).not.toContainMatchingElement('.userThree');
+```
+
+#### `toContainMatchingElements()`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toContainMatchingElements(2, '.foo');
+```
+
+Assert that the given wrapper contains a given number of matches for the given selector:
+
+```js
+function User(props) {
+  return (
+    <span className={props.className}>
+      User {props.index}
+    </span>
+  );
+}
+
+User.propTypes = {
+  index: PropTypes.number.isRequired,
+  className: PropTypes.string,
+};
+
+function Fixture() {
+  return (
+    <div>
+      <ul>
+        <li>
+          <User index={1} className="userOne" />
+        </li>
+        <li>
+          <User index={2} className="userTwo" />
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper).toContainMatchingElements(2, 'User');
+expect(wrapper).not.toContainMatchingElements(2, '.userTwo');
+```
+
+#### `toContainExactlyOneMatchingElement()`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toContainExactlyOneMatchingElement('.foo');
+```
+
+Assert that the given wrapper contains exactly one match for the given selector:
+
+```js
+function User(props) {
+  return (
+    <span className={props.className}>
+      User {props.index}
+    </span>
+  );
+}
+
+User.propTypes = {
+  index: PropTypes.number.isRequired,
+  className: PropTypes.string,
+};
+
+function Fixture() {
+  return (
+    <div>
+      <ul>
+        <li>
+          <User index={1} className="userOne" />
+        </li>
+        <li>
+          <User index={2} className="userTwo" />
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
+
+expect(wrapper).toContainExactlyOneMatchingElement('.userOne');
+expect(wrapper).not.toContainExactlyOneMatchingElement('User');
 ```
 
 #### `toContainReact()`

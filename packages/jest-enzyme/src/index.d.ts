@@ -5,7 +5,11 @@ declare namespace jest {
         toBeChecked(): void;
         toBeDisabled(): void;
         toBeEmptyRender(): void;
+        toContainMatchingElement(selector: string): void;
+        toContainMatchingElements(n: number, selector: string): void;
+        toContainMatchingElement(selector: string): void;
         toContainReact(component: React.ReactElement<any>): void;
+        toContainExactlyOneMatchingElement(selector: string): void;
         toExist(): void;
         toHaveClassName(className: string): void;
         toHaveHTML(html: string): void;
