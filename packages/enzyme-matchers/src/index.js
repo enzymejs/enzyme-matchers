@@ -9,6 +9,9 @@
 import toBeChecked from './assertions/toBeChecked';
 import toBeDisabled from './assertions/toBeDisabled';
 import toBeEmptyRender from './assertions/toBeEmptyRender';
+import toContainMatchingElement from './assertions/toContainMatchingElement';
+import toContainMatchingElements from './assertions/toContainMatchingElements';
+import toContainExactlyOneMatchingElement from './assertions/toContainExactlyOneMatchingElement';
 import toContainReact from './assertions/toContainReact';
 import toExist from './assertions/toExist';
 import toHaveClassName from './assertions/toHaveClassName';
@@ -30,6 +33,9 @@ const assertions = {
   toBeChecked,
   toBeDisabled,
   toBeEmptyRender,
+  toContainMatchingElement,
+  toContainMatchingElements,
+  toContainExactlyOneMatchingElement,
   toContainReact,
   toExist,
   toHaveClassName,

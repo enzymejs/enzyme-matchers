@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toContainMatchingElements provides contextual information for the message 1`] = `
+Object {
+  "actual": "HTML Output of <div>:
+ <div><ul><li><User index={1} className=\\"userOne\\" /></li><li><User index={2} className=\\"userTwo\\" /></li></ul></div>",
+}
+`;
+
+exports[`toContainMatchingElements provides contextual information for the message 2`] = `
+Object {
+  "actual": "HTML Output of <div>:
+ <div><ul><li><User index={1} className=\\"userOne\\" /></li><li><User index={2} className=\\"userTwo\\" /></li></ul></div>",
+}
+`;
+
+exports[`toContainMatchingElements provides contextual information for the message 3`] = `
+Object {
+  "actual": "HTML Output of <div>:
+ <div><ul><li><User index={1} className=\\"userOne\\" /></li><li><User index={2} className=\\"userTwo\\" /></li></ul></div>",
+}
+`;
+
+exports[`toContainMatchingElements returns the message with the proper fail verbage 1`] = `"Expected <div> to not contain 3 elements matching User but it did."`;
+
+exports[`toContainMatchingElements returns the message with the proper fail verbage 2`] = `"Expected <div> to not contain 1 element matching .userThree but it did."`;
+
+exports[`toContainMatchingElements returns the message with the proper fail verbage 3`] = `"Expected <div> to not contain 1 element matching [index] but it did."`;
+
+exports[`toContainMatchingElements returns the message with the proper pass verbage 1`] = `"Expected <div> to contain 2 elements matching User but 2 were found."`;
+
+exports[`toContainMatchingElements returns the message with the proper pass verbage 2`] = `"Expected <div> to contain 1 element matching [index=1] but 1 was found."`;
+
+exports[`toContainMatchingElements returns the message with the proper pass verbage 3`] = `"Expected <div> to contain 2 elements matching [index] but 2 were found."`;
