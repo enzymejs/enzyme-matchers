@@ -10,9 +10,8 @@ declare namespace jest {
         toBeEmptyRender(): void;
         toContainMatchingElement(selector: string): void;
         toContainMatchingElements(n: number, selector: string): void;
-        toContainMatchingElement(selector: string): void;
-        toContainReact(component: React.ReactElement<any>): void;
         toContainExactlyOneMatchingElement(selector: string): void;
+        toContainReact(component: React.ReactElement<any>): void;
         toExist(): void;
         toHaveClassName(className: string): void;
         toHaveHTML(html: string): void;
