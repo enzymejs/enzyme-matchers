@@ -1,3 +1,7 @@
+6.1.1
+=====
+  * Fix duplicate typescript definition. (@GreenGremelin)
+
 6.1.0
 =====
   * Added 3 new matchers! `toContainMatchingElement`, `toContainMatchingElements` and `toContainMatchingElements` (@GreenGremlin)
