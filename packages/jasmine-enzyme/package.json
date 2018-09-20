@@ -44,7 +44,7 @@
     "enzyme"
   ],
   "peerDependencies": {
-    "enzyme": "3.x"
+    "enzyme": ">=3.4.0"
   },
   "dependencies": {
     "enzyme-matchers": "^6.1.1"

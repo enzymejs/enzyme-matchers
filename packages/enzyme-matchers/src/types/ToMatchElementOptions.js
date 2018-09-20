@@ -8,4 +8,5 @@
 
 export type ToMatchElementOptions = {
   ignoreProps?: boolean,
+  verbose?: boolean,
 };

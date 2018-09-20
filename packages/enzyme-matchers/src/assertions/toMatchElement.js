@@ -23,8 +23,8 @@ function toMatchElement(
     expectedWrapper = shallow(reactInstance);
   }
 
-  const actual = actualEnzymeWrapper.debug(options);
-  const expected = expectedWrapper.debug(options);
+  const actual = actualEnzymeWrapper.debug({ verbose: true, ...options });
+  const expected = expectedWrapper.debug({ verbose: true, ...options });
   const pass = actual === expected;
 
   return {

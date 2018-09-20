@@ -1,6 +1,6 @@
 const toMatchElement = require('../toMatchElement');
 
-function Fixture() {
+function Fixture({ props }) {
   return (
     <div>
       <span id="child" className="foo" />
@@ -51,6 +51,31 @@ describe('toMatchElement', () => {
           truthyResultsIncludeProps.contextualInformation
         ).toMatchSnapshot();
       });
+    });
+
+    it('Supports props that are of object shape', () => {
+      function ArrayFixture({ prop }) {
+        return (
+          <div>
+            <span data-json={prop} />
+          </div>
+        );
+      }
+
+      const wrapper = builder(<ArrayFixture prop={[1, 2, 3]} />);
+      const failedResults = toMatchElement(
+        wrapper.find('span'),
+        <span data-json={[1, 2]} />,
+        { ignoreProps: false }
+      );
+      const passResults = toMatchElement(
+        wrapper.find('span'),
+        <span data-json={[1, 2, 3]} />,
+        { ignoreProps: false }
+      );
+
+      expect(failedResults.pass).toBe(false);
+      expect(passResults.pass).toBe(true);
     });
   });
 });
