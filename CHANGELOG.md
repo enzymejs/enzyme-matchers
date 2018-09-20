@@ -1,3 +1,7 @@
+6.0.5
+=====
+  * Fix typescript definitions for `toMatchElement` options argument. (@mayhewluke)
+
 6.0.4
 =====
   * Fix global typescript definitions for jest-environment-enzyme. (@vkrol)
