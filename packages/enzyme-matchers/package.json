@@ -28,14 +28,14 @@
     "url": "https://github.com/FormidableLabs/enzyme-matchers/issues"
   },
   "peerDependencies": {
-    "enzyme": "3.x"
+    "enzyme": ">=3.4.0"
   },
   "dependencies": {
     "circular-json-es6": "^2.0.1",
     "deep-equal-ident": "^1.1.1"
   },
   "devDependencies": {
-    "enzyme": "^3.0.0",
+    "enzyme": "^3.4.0",
     "flow-bin": "^0.66.0"
   },
   "jest": {

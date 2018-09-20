@@ -45,7 +45,7 @@
     "url": "https://github.com/FormidableLabs/enzyme-matchers/issues"
   },
   "peerDependencies": {
-    "enzyme": "3.x",
+    "enzyme": ">=3.4.0",
     "jest": ">=22.0.0"
   },
   "dependencies": {

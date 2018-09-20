@@ -724,6 +724,7 @@ Ways to use this API:
 ```js
 expect().toMatchElement(<Foo />);
 expect().toMatchElement(<Foo />, { ignoreProps: false });
+expect().toMatchElement(<Foo />, { ignoreProps: false, verbose: false });
 ```
 
 Assert the wrapper matches the provided react instance. This is a matcher form of Enzyme's wrapper.matchesElement(), which returns a bool with no indication of what caused a failed match. This matcher includes the actual and expected debug trees as contextual information when it fails. Like matchesElement(), props are ignored. If you want to compare prop values as well, pass `{ ignoreProps: false }` as options. Uses enzyme's [debug()](http://airbnb.io/enzyme/docs/api/ShallowWrapper/debug.html) under the hood and compares debug strings, which makes for a human readable diff when expects fail.
