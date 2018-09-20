@@ -61,6 +61,21 @@ describe('getNodeName', () => {
         expect(name(arrayOf2)).toBe('2 i nodes found');
       });
     });
+
+    it('returns fragment if given a fragment', () => {
+      function Fixture() {
+        return (
+          <React.Fragment>
+            <div>1</div>
+            <div>2</div>
+          </React.Fragment>
+        );
+      }
+
+      const nodeName = builder === mount ? 'Fixture' : 'Fragment'; // Enzyme 3 bug
+
+      expect(getNodeName(builder, <Fixture />)).toBe(nodeName);
+    });
   });
 
   it("falls back to [empty set] if we can't figure out the name", () => {
