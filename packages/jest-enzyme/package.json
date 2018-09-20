@@ -51,7 +51,7 @@
   "dependencies": {
     "enzyme-matchers": "^6.1.1",
     "enzyme-to-json": "^3.3.0",
-    "jest-environment-enzyme": "^6.1.1"
+    "jest-environment-enzyme": "^6.1.0"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.11",
