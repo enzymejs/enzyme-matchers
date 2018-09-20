@@ -1,3 +1,7 @@
+6.1.0
+=====
+  * Added 3 new matchers! `toContainMatchingElement`, `toContainMatchingElements` and `toContainMatchingElements` (@GreenGremlin)
+
 6.0.5
 =====
   * Fix typescript definitions for `toMatchElement` options argument. (@mayhewluke)
