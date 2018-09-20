@@ -30,4 +30,19 @@ describe('toExist', () => {
     expect(truthyResults.contextualInformation).toMatchSnapshot();
     expect(falsyResults.contextualInformation).toMatchSnapshot();
   });
+
+  it('works for Fragments', () => {
+    function Test() {
+      return (
+        <React.Fragment>
+          <div>1</div>
+          <div>2</div>
+        </React.Fragment>
+      );
+    }
+
+    const truthyResults = toExist(shallow(<Test />));
+
+    expect(truthyResults.pass).toBeTruthy();
+  });
 });
