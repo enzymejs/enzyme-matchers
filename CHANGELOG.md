@@ -1,3 +1,7 @@
+6.1.2
+=====
+  * Try to fix a failed publish. (@blainekasten)
+
 6.1.1
 =====
   * Fix duplicate typescript definition. (@GreenGremelin)
