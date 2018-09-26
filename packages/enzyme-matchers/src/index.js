@@ -15,6 +15,7 @@ import toContainExactlyOneMatchingElement from './assertions/toContainExactlyOne
 import toContainReact from './assertions/toContainReact';
 import toExist from './assertions/toExist';
 import toHaveClassName from './assertions/toHaveClassName';
+import toHaveDisplayName from './assertions/toHaveDisplayName';
 import toHaveHTML from './assertions/toHaveHTML';
 import toHaveProp from './assertions/toHaveProp';
 import toHaveRef from './assertions/toHaveRef';
@@ -39,6 +40,7 @@ const assertions = {
   toContainReact,
   toExist,
   toHaveClassName,
+  toHaveDisplayName,
   toHaveHTML,
   toHaveProp,
   toHaveRef,

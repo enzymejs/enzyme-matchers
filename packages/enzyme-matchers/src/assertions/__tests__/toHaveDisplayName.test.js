@@ -1,4 +1,4 @@
-const toHaveTagName = require('../toHaveTagName');
+const toHaveDisplayName = require('../toHaveDisplayName');
 
 function Fixture() {
   return (
@@ -10,12 +10,12 @@ function Fixture() {
   );
 }
 
-describe('toHaveTagName', () => {
+describe('toHaveDisplayName', () => {
   [shallow, mount].forEach(builder => {
     describe(builder.name, () => {
       const wrapper = builder(<Fixture />).find('a');
-      const truthyResults = toHaveTagName(wrapper, 'a');
-      const falsyResults = toHaveTagName(wrapper, 'span');
+      const truthyResults = toHaveDisplayName(wrapper, 'a');
+      const falsyResults = toHaveDisplayName(wrapper, 'span');
 
       it('returns the pass flag properly', () => {
         expect(truthyResults.pass).toBeTruthy();
@@ -41,15 +41,15 @@ describe('toHaveTagName', () => {
             <span />
           </div>
         ).find('span');
-        const nfalsyResults = toHaveTagName(nwrapper, 'span');
+        const nfalsyResults = toHaveDisplayName(nwrapper, 'span');
 
         expect(nfalsyResults).toMatchSnapshot();
       });
 
       it('works on composite functions', () => {
         const nwrapper = builder(<Fixture />);
-        const ntruthyResults = toHaveTagName(nwrapper, 'Fixture');
-        const nfalsyResults = toHaveTagName(nwrapper, 'a');
+        const ntruthyResults = toHaveDisplayName(nwrapper, 'Fixture');
+        const nfalsyResults = toHaveDisplayName(nwrapper, 'a');
 
         expect(ntruthyResults).toMatchSnapshot();
         expect(nfalsyResults).toMatchSnapshot();

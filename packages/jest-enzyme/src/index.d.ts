@@ -14,6 +14,7 @@ declare namespace jest {
         toContainReact(component: React.ReactElement<any>): void;
         toExist(): void;
         toHaveClassName(className: string): void;
+        toHaveDisplayName(tagName: string): void;
         toHaveHTML(html: string): void;
         toHaveProp(propKey: object|string, propValue?: any): void;
         toHaveRef(refName: string): void;

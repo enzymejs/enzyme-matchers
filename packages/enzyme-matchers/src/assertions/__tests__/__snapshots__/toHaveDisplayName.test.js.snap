@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`toHaveDisplayName mount provides contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "<a id=\\"a\\"></a>",
+}
+`;
+
+exports[`toHaveDisplayName mount provides the right info for when this method is called with multiple nodes 1`] = `
+Object {
+  "contextualInformation": Object {},
+  "message": "toHaveDisplayName must be called on a single node, not multiple nodes.",
+  "negatedMessage": "toHaveDisplayName must be called on a single node, not multiple nodes.",
+  "pass": false,
+}
+`;
+
+exports[`toHaveDisplayName mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <a> to not have display name \\"a\\" but it did."`;
+
+exports[`toHaveDisplayName mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <a> to have display name \\"a\\" but it had display name \\"a\\"."`;
+
+exports[`toHaveDisplayName mount works on composite functions 1`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "<div><span id=\\"span\\"></span><span></span><a id=\\"a\\"></a></div>",
+  },
+  "message": "Expected <Fixture> to have display name \\"Fixture\\" but it had display name \\"Fixture\\".",
+  "negatedMessage": "Expected <Fixture> to not have display name \\"Fixture\\" but it did.",
+  "pass": true,
+}
+`;
+
+exports[`toHaveDisplayName mount works on composite functions 2`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "<div><span id=\\"span\\"></span><span></span><a id=\\"a\\"></a></div>",
+  },
+  "message": "Expected <Fixture> to have display name \\"a\\" but it had display name \\"Fixture\\".",
+  "negatedMessage": "Expected <Fixture> to not have display name \\"a\\" but it did.",
+  "pass": false,
+}
+`;
+
+exports[`toHaveDisplayName shallow provides contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "<a id=\\"a\\" />",
+}
+`;
+
+exports[`toHaveDisplayName shallow provides the right info for when this method is called with multiple nodes 1`] = `
+Object {
+  "contextualInformation": Object {},
+  "message": "toHaveDisplayName must be called on a single node, not multiple nodes.",
+  "negatedMessage": "toHaveDisplayName must be called on a single node, not multiple nodes.",
+  "pass": false,
+}
+`;
+
+exports[`toHaveDisplayName shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <a> to not have display name \\"a\\" but it did."`;
+
+exports[`toHaveDisplayName shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <a> to have display name \\"a\\" but it had display name \\"a\\"."`;
+
+exports[`toHaveDisplayName shallow works on composite functions 1`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "<div><span id=\\"span\\" /><span /><a id=\\"a\\" /></div>",
+  },
+  "message": "Expected <div> to have display name \\"Fixture\\" but it had display name \\"div\\".",
+  "negatedMessage": "Expected <div> to not have display name \\"Fixture\\" but it did.",
+  "pass": false,
+}
+`;
+
+exports[`toHaveDisplayName shallow works on composite functions 2`] = `
+Object {
+  "contextualInformation": Object {
+    "actual": "<div><span id=\\"span\\" /><span /><a id=\\"a\\" /></div>",
+  },
+  "message": "Expected <div> to have display name \\"a\\" but it had display name \\"div\\".",
+  "negatedMessage": "Expected <div> to not have display name \\"a\\" but it did.",
+  "pass": false,
+}
+`;

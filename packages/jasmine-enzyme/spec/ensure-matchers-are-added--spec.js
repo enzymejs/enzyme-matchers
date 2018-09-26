@@ -114,11 +114,11 @@ describe('addMatchers', () => {
     expect(wrapper.find('#style2')).toHaveStyle('flex', 8);
   });
 
-  it('adds toHaveTagName', () => {
-    const Fixture = require('./fixtures/toHaveTagName.fixture');
+  it('adds toHaveDisplayName', () => {
+    const Fixture = require('./fixtures/toHaveDisplayName.fixture');
     const wrapper = shallow(React.createElement(Fixture));
 
-    expect(wrapper.find('#span')).toHaveTagName('span');
+    expect(wrapper.find('#span')).toHaveDisplayName('span');
   });
 
   it('adds toHaveText', () => {
