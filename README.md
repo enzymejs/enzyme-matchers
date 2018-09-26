@@ -35,6 +35,7 @@ This library supports several testing frameworks including [Jest](https://github
 * [toContainExactlyOneMatchingElement()](#toContainExactlyOneMatchingElement)
 * [toContainReact()](#tocontainreact)
 * [toHaveClassName()](#tohaveclassname)
+* [toHaveDisplayName()](#tohavedisplayname)
 * [toHaveHTML()](#tohavehtml)
 * [toHaveProp()](#tohaveprop)
 * [toHaveRef()](#tohaveref)
@@ -409,6 +410,35 @@ expect(wrapper.find('.bar')).toHaveClassName('bar baz');
 expect(wrapper.find('.bar')).toHaveClassName('baz');
 ```
 
+#### `toHaveDisplayName()`
+
+| render | mount | shallow |
+| -------|-------|-------- |
+| no     | yes   | yes     |
+
+Ways to use this API:
+
+```js
+expect().toHaveDisplayName('div');
+```
+
+Assert that the wrapper is of a certain tag type:
+
+```js
+function Fixture() {
+  return (
+    <div>
+      <span id="span" />
+    </div>
+  );
+}
+
+const wrapper = mount(<Fixture />);
+
+expect(wrapper.find('#span')).toHaveDisplayName('span');
+expect(wrapper.find('#span')).not.toHaveDisplayName('div');
+```
+
 #### `toHaveHTML()`
 
 | render | mount | shallow |
@@ -592,34 +622,11 @@ expect(wrapper.find('#style1')).toHaveStyle('height', '100%');
 expect(wrapper.find('#style2')).toHaveStyle('flex', 8);
 ```
 
+
 #### `toHaveTagName()`
 
-| render | mount | shallow |
-| -------|-------|-------- |
-| no     | yes   | yes     |
+**Deprecated:** Matcher `toHaveTagName` is deprecated. Use the replacement, `[toHaveDisplayName()](#tohavedisplayname)` instead.
 
-Ways to use this API:
-
-```js
-expect().toHaveTagName('div');
-```
-
-Assert that the wrapper is of a certain tag type:
-
-```js
-function Fixture() {
-  return (
-    <div>
-      <span id="span" />
-    </div>
-  );
-}
-
-const wrapper = mount(<Fixture />);
-
-expect(wrapper.find('#span')).toHaveTagName('span');
-expect(wrapper.find('#span')).not.toHaveTagName('div');
-```
 
 #### `toHaveText()`
 
