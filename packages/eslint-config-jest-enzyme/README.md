@@ -3,19 +3,9 @@
 [![npm version](https://img.shields.io/npm/v/eslint-config-jest-enzyme.svg)](https://www.npmjs.com/package/eslint-config-jest-enzyme)
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
 
-### Installation
+### Overview
 
-We suggest using [yarn](https://github.com/yarnpkg/yarn) for installations.
-
-```
-yarn add eslint-config-jest-enzyme --dev
-```
-
-But npm works too!
-
-```
-$ npm install eslint-config-jest-enzyme --save-dev
-```
+This library is only useful if you are using [`jest-environment-enzyme`](/packages/jest-environment-enzyme). When you are using that library, React and enzyme specific variables are globalized. This lint config lets eslint know about those globals and not warn about them.
 
 ### Setup
 
