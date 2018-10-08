@@ -1,3 +1,16 @@
+7.0.0
+=====
+🛑 **Breaking**
+  * Renamed `toHaveTagName` to `toHaveDisplayName` (GreenGremlin)
+    - This was done because Tag name indicates an HTML entity, but the matcher works with React Components which uses an internalProp `displayName`
+    - When updating to 7.0.0 you should be able to just do a simple search and replace for this matcher across your codebase.
+
+🍾 **Improvements**
+  * Add support for unboxed properties for `toMatchElement`. (@blainekasten)
+  * Improve documentation for the entire repo. (@blainekasten)
+  * Improve internal tests.
+
+
 6.1.2
 =====
   * Try to fix a failed publish. (@blainekasten)
