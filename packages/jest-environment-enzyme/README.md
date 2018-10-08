@@ -3,38 +3,25 @@
 [![npm version](https://img.shields.io/npm/v/jest-environment-enzyme.svg)](https://www.npmjs.com/package/jest-environment-enzyme)
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
 
-### Installation
+### Overview
 
-We suggest using [yarn](https://github.com/yarnpkg/yarn) for installations.
+Setting up Enzyme with Jest and React is a somewhat complicated process. There are a lot of dependencies, configuring adapters, etc. This module will take lessen that setup and make it more declarative.
+This package will also simplify your test files by declaring React, and enzyme wrappers in the global scope. This means that all of your test files don't need to include imports for React or enzyme.
 
-```
-yarn add jest-environment-enzyme --dev
-```
-
-But npm works too!
+The setup can be as simple as this:
 
 ```
-$ npm install jest-environment-enzyme --save-dev
+yarn add jest-environment-enzyme jest-enzyme enzyme-adapter-* --dev
 ```
 
-With this library, you don't need to have your app install Enzyme, but you have to install one of Enzymes adapters.
-
-```
-yarn add enzyme-adapter-* --dev
-```
-
-Where `*` is your app's adapter.
-
-
-### Setup
-
-Set the `testEnvironment` to `enzyme` in your `package.json`.
+> (Where * is your app's adapter that matches your React version)
 
 ```js
+// package.json
 "jest": {
   "setupTestFrameworkScriptFile": "jest-enzyme",
   "testEnvironment": "enzyme",
-},
+}
 ```
 
 Additionally, you can specify which enzyme adapter you want to use through the `testEnvironmentOptions.enzymeAdapter`.
