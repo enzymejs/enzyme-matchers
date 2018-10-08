@@ -521,7 +521,7 @@ expect(wrapper.find(User)).toHaveProp({
 
 | render | mount | shallow |
 | -------|-------|-------- |
-| no     | yes   | no      |
+| no     | yes   | yes     |
 
 Ways to use this API:
 
