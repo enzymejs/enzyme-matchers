@@ -28,9 +28,9 @@ describe('toHaveHTML', () => {
       const falsyResults = toHaveHTML(wrapper.find('#child'), 'foo');
 
       it('returns the pass flag properly', () => {
-        expect(truthyResults.pass).toBeTruthy();
-        expect(truthyMultilineResults.pass).toBeTruthy();
-        expect(falsyResults.pass).toBeFalsy();
+        expect(truthyResults.pass).toBe(true);
+        expect(truthyMultilineResults.pass).toBe(true);
+        expect(falsyResults.pass).toBe(false);
       });
 
       it(`returns the message with the proper pass verbage (${builder.name})`, () => {

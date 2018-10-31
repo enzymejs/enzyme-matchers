@@ -32,8 +32,8 @@ describe('toHaveState', () => {
       it('returns the pass flag properly', () => {
         const { truthyResults, falsyResults } = build();
 
-        expect(truthyResults.pass).toBeTruthy();
-        expect(falsyResults.pass).toBeFalsy();
+        expect(truthyResults.pass).toBe(true);
+        expect(falsyResults.pass).toBe(false);
       });
 
       it(`returns the message with the proper pass verbage (${builder.name})`, () => {
@@ -56,8 +56,8 @@ describe('toHaveState', () => {
         const { pass } = toHaveState(wrapper, 'foo', false);
         const { pass: fail } = toHaveState(wrapper, 'foo', true);
 
-        expect(pass).toBeTruthy();
-        expect(fail).toBeFalsy();
+        expect(pass).toBe(true);
+        expect(fail).toBe(false);
       });
 
       it('can validate arrays', () => {
@@ -65,8 +65,8 @@ describe('toHaveState', () => {
         const { pass } = toHaveState(wrapper, 'array', [1, 2, 3]);
         const { pass: fail } = toHaveState(wrapper, 'array', [4, 5, 6]);
 
-        expect(pass).toBeTruthy();
-        expect(fail).toBeFalsy();
+        expect(pass).toBe(true);
+        expect(fail).toBe(false);
       });
 
       it('can validate objects', () => {
@@ -74,8 +74,8 @@ describe('toHaveState', () => {
         const { pass } = toHaveState(wrapper, 'object', { foo: 'bar' });
         const { pass: fail } = toHaveState(wrapper, 'object', { foo: 'NOPE' });
 
-        expect(pass).toBeTruthy();
-        expect(fail).toBeFalsy();
+        expect(pass).toBe(true);
+        expect(fail).toBe(false);
       });
 
       it('returns the pass flag properly', () => {
@@ -83,22 +83,22 @@ describe('toHaveState', () => {
         const truthyResults = toHaveState(wrapper, 'foo', false);
         const falsyResults = toHaveState(wrapper, 'foo', true);
 
-        expect(truthyResults.pass).toBeTruthy();
-        expect(falsyResults.pass).toBeFalsy();
+        expect(truthyResults.pass).toBe(true);
+        expect(falsyResults.pass).toBe(false);
       });
 
       it('works without a prop value', () => {
         const wrapper = builder(<Fixture />);
         const truthy = toHaveState(wrapper, 'foo');
 
-        expect(truthy.pass).toBeTruthy();
+        expect(truthy.pass).toBe(true);
       });
 
       it('works with undefined value', () => {
         const wrapper = builder(<Fixture />);
         const falsy = toHaveState(wrapper, 'foo', undefined);
 
-        expect(falsy.pass).toBeFalsy();
+        expect(falsy.pass).toBe(false);
       });
 
       it('should support object arguments', () => {
@@ -113,8 +113,8 @@ describe('toHaveState', () => {
           array: [1, 2, 3],
         });
 
-        expect(passResult.pass).toBeTruthy();
-        expect(failResult.pass).toBeFalsy();
+        expect(passResult.pass).toBe(true);
+        expect(failResult.pass).toBe(false);
       });
     });
   });

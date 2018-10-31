@@ -17,8 +17,8 @@ describe('toBeChecked', () => {
   const falsyResults = toBeChecked(wrapper.find('#not'));
 
   it('returns the pass flag properly', () => {
-    expect(truthyResults.pass).toBeTruthy();
-    expect(falsyResults.pass).toBeFalsy();
+    expect(truthyResults.pass).toBe(true);
+    expect(falsyResults.pass).toBe(false);
   });
 
   it('returns the message with the proper pass verbage', () => {
@@ -36,12 +36,12 @@ describe('toBeChecked', () => {
   it('`checked` should take precedence over `defaultChecked`', () => {
     const result = toBeChecked(wrapper.find('#precedence'));
 
-    expect(result.pass).toBeTruthy();
+    expect(result.pass).toBe(true);
   });
 
   it('should not fail on undefined values', () => {
     const result = toBeChecked(wrapper.find('#safe'));
 
-    expect(result.pass).toBeFalsy();
+    expect(result.pass).toBe(false);
   });
 });

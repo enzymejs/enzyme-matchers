@@ -23,10 +23,10 @@ describe('toMatchElement', () => {
       });
 
       it('returns the pass flag properly', () => {
-        expect(truthyResults.pass).toBeTruthy();
-        expect(truthyResultsMatchSpan.pass).toBeTruthy();
-        expect(falsyResults.pass).toBeFalsy();
-        expect(truthyResultsIncludeProps.pass).toBeTruthy();
+        expect(truthyResults.pass).toBe(true);
+        expect(truthyResultsMatchSpan.pass).toBe(true);
+        expect(falsyResults.pass).toBe(false);
+        expect(truthyResultsIncludeProps.pass).toBe(true);
       });
 
       it('returns the message with the proper pass verbage', () => {

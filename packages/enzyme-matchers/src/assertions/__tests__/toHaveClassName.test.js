@@ -19,8 +19,8 @@ describe('toHaveClassName', () => {
       const falsyResults = toHaveClassName(wrapper.find('.bar'), 'asldfkj');
 
       it('returns the pass flag properly', () => {
-        expect(truthyResults.pass).toBeTruthy();
-        expect(falsyResults.pass).toBeFalsy();
+        expect(truthyResults.pass).toBe(true);
+        expect(falsyResults.pass).toBe(false);
       });
 
       it(`returns the message with the proper pass verbage (${builder.name})`, () => {
