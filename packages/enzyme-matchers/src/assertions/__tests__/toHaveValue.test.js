@@ -17,8 +17,8 @@ describe('toHaveValue', () => {
       const falsyResults = toHaveValue(wrapper, 'Turdz');
 
       it('returns the pass flag properly', () => {
-        expect(truthyResults.pass).toBeTruthy();
-        expect(falsyResults.pass).toBeFalsy();
+        expect(truthyResults.pass).toBe(true);
+        expect(falsyResults.pass).toBe(false);
       });
 
       it(`returns the message with the proper pass verbage (${builder.name})`, () => {
@@ -36,9 +36,9 @@ describe('toHaveValue', () => {
 
     it('prioritizes `value` over `defaultValue`', () => {
       const _wrapper = shallow(<Fixture />).find('input').at(1);
-      expect(toHaveValue(_wrapper, 'bar').pass).toBeTruthy();
+      expect(toHaveValue(_wrapper, 'bar').pass).toBe(true);
 
-      expect(toHaveValue(_wrapper, 'foo').pass).toBeFalsy();
+      expect(toHaveValue(_wrapper, 'foo').pass).toBe(false);
     });
   });
 });

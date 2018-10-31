@@ -20,8 +20,8 @@ describe('toBeEmptyRender', () => {
   const falsyResults = toBeEmptyRender(wrapper);
 
   it('returns the pass flag properly', () => {
-    expect(truthyResults.pass).toBeTruthy();
-    expect(falsyResults.pass).toBeFalsy();
+    expect(truthyResults.pass).toBe(true);
+    expect(falsyResults.pass).toBe(false);
   });
 
   it('returns the message with the proper pass verbage', () => {
@@ -36,10 +36,10 @@ describe('toBeEmptyRender', () => {
   it('considers both false and null to be empty renders', () => {
     const NullRenderer = () => null;
     const nullWrapper = shallow(<NullRenderer />);
-    expect(toBeEmptyRender(nullWrapper)).toBeTruthy();
+    expect(toBeEmptyRender(nullWrapper).pass).toBe(true);
 
     const FalseRenderer = () => false;
     const falseWrapper = shallow(<FalseRenderer />);
-    expect(toBeEmptyRender(falseWrapper)).toBeTruthy();
+    expect(toBeEmptyRender(falseWrapper).pass).toBe(true);
   });
 });

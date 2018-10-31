@@ -14,8 +14,8 @@ describe('toExist', () => {
   const falsyResults = toExist(wrapper.find('.doesnt-matches'));
 
   it('returns the pass flag properly', () => {
-    expect(truthyResults.pass).toBeTruthy();
-    expect(falsyResults.pass).toBeFalsy();
+    expect(truthyResults.pass).toBe(true);
+    expect(falsyResults.pass).toBe(false);
   });
 
   it('returns the message with the proper pass verbage', () => {
@@ -43,6 +43,6 @@ describe('toExist', () => {
 
     const truthyResults = toExist(shallow(<Test />));
 
-    expect(truthyResults.pass).toBeTruthy();
+    expect(truthyResults.pass).toBe(true);
   });
 });

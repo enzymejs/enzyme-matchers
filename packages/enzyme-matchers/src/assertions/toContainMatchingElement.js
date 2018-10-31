@@ -16,7 +16,7 @@ function toContainMatchingElement(
   selector: string
 ): Matcher {
   const matches = enzymeWrapper.find(selector);
-  const pass = matches.length;
+  const pass = matches.length > 0;
   const nodeName = getNodeName(enzymeWrapper);
 
   return {

@@ -18,8 +18,8 @@ describe('toHaveStyle', () => {
       const falsyResults = toHaveStyle(wrapper, 'height', '0');
 
       it('returns the pass flag properly', () => {
-        expect(truthyResults.pass).toBeTruthy();
-        expect(falsyResults.pass).toBeFalsy();
+        expect(truthyResults.pass).toBe(true);
+        expect(falsyResults.pass).toBe(false);
       });
 
       it(`returns the message with the proper pass verbage (${builder.name})`, () => {
@@ -63,8 +63,8 @@ describe('toHaveStyle', () => {
           display: 'block',
         });
 
-        expect(passResult.pass).toBeTruthy();
-        expect(failResult.pass).toBeFalsy();
+        expect(passResult.pass).toBe(true);
+        expect(failResult.pass).toBe(false);
       });
     });
 
@@ -78,8 +78,8 @@ describe('toHaveStyle', () => {
         const widthResult = toHaveStyle(wrapper, 'width', 10);
         const heightResult = toHaveStyle(wrapper, 'height', 20);
 
-        expect(widthResult.pass).toBeTruthy();
-        expect(heightResult.pass).toBeTruthy();
+        expect(widthResult.pass).toBe(true);
+        expect(heightResult.pass).toBe(true);
       });
 
       it('should override style properties', () => {
@@ -91,8 +91,8 @@ describe('toHaveStyle', () => {
         const colorResult = toHaveStyle(wrapper, 'backgroundColor', '#023c69');
         const widthResult = toHaveStyle(wrapper, 'width', null);
 
-        expect(colorResult.pass).toBeTruthy();
-        expect(widthResult.pass).toBeTruthy();
+        expect(colorResult.pass).toBe(true);
+        expect(widthResult.pass).toBe(true);
       });
 
       it('should overwrite properties with `undefined`', () => {
@@ -103,7 +103,7 @@ describe('toHaveStyle', () => {
 
         const colorResult = toHaveStyle(wrapper, 'backgroundColor', undefined);
 
-        expect(colorResult.pass).toBeTruthy();
+        expect(colorResult.pass).toBe(true);
       });
 
       it('should recursively flatten arrays', () => {
@@ -118,8 +118,8 @@ describe('toHaveStyle', () => {
         const widthResult = toHaveStyle(wrapper, 'width', 30);
         const heightResult = toHaveStyle(wrapper, 'height', 20);
 
-        expect(widthResult.pass).toBeTruthy();
-        expect(heightResult.pass).toBeTruthy();
+        expect(widthResult.pass).toBe(true);
+        expect(heightResult.pass).toBe(true);
       });
 
       it('should support object arguments', () => {
@@ -136,8 +136,8 @@ describe('toHaveStyle', () => {
           display: 'block',
         });
 
-        expect(passResult.pass).toBeTruthy();
-        expect(failResult.pass).toBeFalsy();
+        expect(passResult.pass).toBe(true);
+        expect(failResult.pass).toBe(false);
       });
     });
   });

@@ -43,10 +43,10 @@ describe('toContainExactlyOneMatchingElement', () => {
 
   it('returns the pass flag properly', () => {
     truthyResults.forEach(truthyResult => {
-      expect(truthyResult.pass).toBeTruthy();
+      expect(truthyResult.pass).toBe(true);
     });
     falsyResults.forEach(falsyResult => {
-      expect(falsyResult.pass).toBeFalsy();
+      expect(falsyResult.pass).toBe(false);
     });
   });
 
