@@ -1,3 +1,7 @@
+7.0.1
+=====
+  * Fix a jest integration with `toContainMatchingElement` not returning an explicit boolean. (@blainekasten)
+
 7.0.0
 =====
 🛑 **Breaking**
