@@ -11,7 +11,7 @@ This package will also simplify your test files by declaring React, and enzyme w
 The setup can be as simple as this:
 
 ```
-yarn add jest-environment-enzyme jest-enzyme enzyme-adapter-* --dev
+yarn add jest-environment-enzyme jest-enzyme enzyme-adapter-react-* --dev
 ```
 
 > (Where * is your app's adapter that matches your React version)
@@ -20,7 +20,7 @@ yarn add jest-environment-enzyme jest-enzyme enzyme-adapter-* --dev
 // package.json
 "jest": {
   "setupTestFrameworkScriptFile": "jest-enzyme",
-  "testEnvironment": "enzyme",
+  "testEnvironment": "enzyme"
 }
 ```
 
