@@ -20,7 +20,7 @@ yarn add jest-environment-enzyme jest-enzyme enzyme-adapter-* --dev
 // package.json
 "jest": {
   "setupTestFrameworkScriptFile": "jest-enzyme",
-  "testEnvironment": "enzyme",
+  "testEnvironment": "enzyme"
 }
 ```
 
