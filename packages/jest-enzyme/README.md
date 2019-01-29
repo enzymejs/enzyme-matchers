@@ -19,7 +19,7 @@ If you prefer not to use the environment, you can also do this:
 ```js
 // package.json
 "jest": {
-  "setupTestFrameworkScriptFile": "./node_modules/jest-enzyme/lib/index.js",
+  "setupFilesAfterEnv": ['./node_modules/jest-enzyme/lib/index.js'],
 }
 ```
 
