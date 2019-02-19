@@ -20,7 +20,7 @@ function toHaveState(
   const state = enzymeWrapper.state();
   const wrapperName = name(enzymeWrapper);
 
-  // The API allows to check if a component has a prop in general by dropping the third
+  // The API allows checking if a component has a value for a given key by dropping the third
   // argument.
   if (
     stateValue === undefined &&
@@ -30,11 +30,10 @@ function toHaveState(
   ) {
     return {
       pass: state.hasOwnProperty(stateKey),
-      message: `Expected <${wrapperName}> to have any value for the prop "${stateKey}"`,
-      negatedMessage: `Expected <${wrapperName}> not to receive the prop "${stateKey}"`,
+      message: `Expected the state for <${wrapperName}> to contain a value for key "${stateKey}", but it did not.`,
+      negatedMessage: `Expected the state for <${wrapperName}> to not contain a value for key "${stateKey}", but it did.`,
       contextualInformation: {
-        actual: `Actual props: ${stringify({ [stateKey]: state[stateKey] })}`,
-        expected: `Expected props: ${stringify({ [stateKey]: stateValue })}`,
+        actual: `Actual state: ${stringify({ [stateKey]: state[stateKey] })}`,
       },
     };
   }
@@ -45,7 +44,6 @@ function toHaveState(
     stateKey,
     stateValue
   );
-  const unmatchedKeys = results.unmatchedKeys.join(', ');
   const contextualInformation = {
     actual: `Actual state: ${stringify(results.actual)}`,
     expected: `Expected state: ${stringify(results.expected)}`,
@@ -54,18 +52,21 @@ function toHaveState(
   // error if some state doesn't exist
   if (results.missingKeys.length) {
     const missingKeys = results.missingKeys.join(', ');
+    const _key_ = results.missingKeys.length === 1 ? 'prop' : 'props';
     return {
       pass: false,
-      message: `Expected <${wrapperName}> component state to have keys of "${missingKeys}"`,
-      negatedMessage: `Expected <${wrapperName}> component state to not contain a key of "${missingKeys}".`,
+      message: `Expected the state for <${wrapperName}> to contain values for ${_key_} "${missingKeys}", but it did not.`,
+      negatedMessage: `Expected the state for <${wrapperName}> to not contain values for ${_key_} "${missingKeys}", but it did.`,
       contextualInformation,
     };
   }
 
+  const unmatchedKeys = results.unmatchedKeys.join(', ');
+  const _key_ = results.unmatchedKeys.length === 1 ? 'prop' : 'props';
   return {
     pass: results.pass,
-    message: `Expected <${wrapperName}> component state values to match for keys "${unmatchedKeys}" but they didn't.`,
-    negatedMessage: `Expected <${wrapperName}> component state values to be different for keys "${unmatchedKeys}" but they didn't.`,
+    message: `Expected the state for <${wrapperName}> to match for ${_key_} "${unmatchedKeys}", but it did not.`,
+    negatedMessage: `Expected the state for <${wrapperName}> to not match for ${_key_} "${unmatchedKeys}", but it did.`,
     contextualInformation,
   };
 }

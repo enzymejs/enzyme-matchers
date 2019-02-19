@@ -22,10 +22,12 @@ describe('toHaveState', () => {
         const wrapper = builder(<Fixture />);
         const truthyResults = toHaveState(wrapper, 'array', [1, 2, 3]);
         const falsyResults = toHaveState(wrapper, 'array', [4, 5, 6]);
+        const anyValueResults = toHaveState(wrapper, 'array');
 
         return {
           truthyResults,
           falsyResults,
+          anyValueResults,
         };
       }
 
@@ -49,6 +51,21 @@ describe('toHaveState', () => {
       it(`provides contextual information for the message (${builder.name})`, () => {
         const { truthyResults } = build();
         expect(truthyResults.contextualInformation).toMatchSnapshot();
+      });
+
+      it(`returns the "any value" message with the proper pass verbage (${builder.name})`, () => {
+        const { anyValueResults } = build();
+        expect(anyValueResults.message).toMatchSnapshot();
+      });
+
+      it(`returns the "any value" message with the proper fail verbage (${builder.name})`, () => {
+        const { anyValueResults } = build();
+        expect(anyValueResults.negatedMessage).toMatchSnapshot();
+      });
+
+      it(`provides "any value" contextual information for the message (${builder.name})`, () => {
+        const { anyValueResults } = build();
+        expect(anyValueResults.contextualInformation).toMatchSnapshot();
       });
 
       it('can validate falsy values', () => {
