@@ -30,8 +30,8 @@ function toHaveProp(
   ) {
     return {
       pass: props.hasOwnProperty(propKey),
-      message: `Expected <${wrapperName}> to have a value for prop "${propKey}", but it did not.`,
-      negatedMessage: `Expected <${wrapperName}> not to have a value for prop "${propKey}", but it did.`,
+      message: `Expected <${wrapperName}> to receive prop "${propKey}", but it did not.`,
+      negatedMessage: `Expected <${wrapperName}> not to receive prop "${propKey}", but it did.`,
       contextualInformation: {
         actual: `Actual props: ${stringify({ [propKey]: props[propKey] })}`,
       },

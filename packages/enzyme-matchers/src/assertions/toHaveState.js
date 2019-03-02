@@ -30,8 +30,8 @@ function toHaveState(
   ) {
     return {
       pass: state.hasOwnProperty(stateKey),
-      message: `Expected the state for <${wrapperName}> to contain a value for key "${stateKey}", but it did not.`,
-      negatedMessage: `Expected the state for <${wrapperName}> to not contain a value for key "${stateKey}", but it did.`,
+      message: `Expected the state for <${wrapperName}> to contain the key "${stateKey}", but it did not.`,
+      negatedMessage: `Expected the state for <${wrapperName}> to not the key "${stateKey}", but it did.`,
       contextualInformation: {
         actual: `Actual state: ${stringify({ [stateKey]: state[stateKey] })}`,
       },
@@ -52,17 +52,17 @@ function toHaveState(
   // error if some state doesn't exist
   if (results.missingKeys.length) {
     const missingKeys = results.missingKeys.join(', ');
-    const _key_ = results.missingKeys.length === 1 ? 'prop' : 'props';
+    const _key_ = results.missingKeys.length === 1 ? 'key' : 'keys';
     return {
       pass: false,
-      message: `Expected the state for <${wrapperName}> to contain values for ${_key_} "${missingKeys}", but it did not.`,
-      negatedMessage: `Expected the state for <${wrapperName}> to not contain values for ${_key_} "${missingKeys}", but it did.`,
+      message: `Expected the state for <${wrapperName}> to contain the ${_key_} "${missingKeys}", but it did not.`,
+      negatedMessage: `Expected the state for <${wrapperName}> to not contain the ${_key_} "${missingKeys}", but it did.`,
       contextualInformation,
     };
   }
 
   const unmatchedKeys = results.unmatchedKeys.join(', ');
-  const _key_ = results.unmatchedKeys.length === 1 ? 'prop' : 'props';
+  const _key_ = results.unmatchedKeys.length === 1 ? 'key' : 'keys';
   return {
     pass: results.pass,
     message: `Expected the state for <${wrapperName}> to match for ${_key_} "${unmatchedKeys}", but it did not.`,
