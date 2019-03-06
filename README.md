@@ -1,7 +1,7 @@
 # enzyme-matchers
 
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
-[![Circle CI](https://circleci.com/gh/blainekasten/enzyme-matchers/tree/master.svg?style=svg)](https://circleci.com/gh/blainekasten/enzyme-matchers/tree/master)
+[![Travis CI](https://travis-ci.org/FormidableLabs/enzyme-matchers.svg?branch=master)](https://travis-ci.org/FormidableLabs/enzyme-matchers)
 
 ## Overview
 
