@@ -25,7 +25,7 @@ Object {
 }
 `;
 
-exports[`toHaveState mount returns the "any value" message with the proper fail verbage (mount) 1`] = `"Expected the state for <Fixture> to not the key \\"array\\", but it did."`;
+exports[`toHaveState mount returns the "any value" message with the proper fail verbage (mount) 1`] = `"Expected the state for <Fixture> to not contain the key \\"array\\", but it did."`;
 
 exports[`toHaveState mount returns the "any value" message with the proper pass verbage (mount) 1`] = `"Expected the state for <Fixture> to contain the key \\"array\\", but it did not."`;
 
@@ -58,7 +58,7 @@ Object {
 }
 `;
 
-exports[`toHaveState shallow returns the "any value" message with the proper fail verbage (shallow) 1`] = `"Expected the state for <div> to not the key \\"array\\", but it did."`;
+exports[`toHaveState shallow returns the "any value" message with the proper fail verbage (shallow) 1`] = `"Expected the state for <div> to not contain the key \\"array\\", but it did."`;
 
 exports[`toHaveState shallow returns the "any value" message with the proper pass verbage (shallow) 1`] = `"Expected the state for <div> to contain the key \\"array\\", but it did not."`;
 

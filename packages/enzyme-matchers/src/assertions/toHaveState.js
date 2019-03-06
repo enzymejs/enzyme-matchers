@@ -31,7 +31,7 @@ function toHaveState(
     return {
       pass: state.hasOwnProperty(stateKey),
       message: `Expected the state for <${wrapperName}> to contain the key "${stateKey}", but it did not.`,
-      negatedMessage: `Expected the state for <${wrapperName}> to not the key "${stateKey}", but it did.`,
+      negatedMessage: `Expected the state for <${wrapperName}> to not contain the key "${stateKey}", but it did.`,
       contextualInformation: {
         actual: `Actual state: ${stringify({ [stateKey]: state[stateKey] })}`,
       },
