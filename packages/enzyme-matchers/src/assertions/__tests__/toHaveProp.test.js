@@ -45,10 +45,12 @@ describe('toHaveProp', () => {
         const user = wrapper.find(User);
         const truthyResults = toHaveProp(user, 'arrayProp', [1, 2, 3]);
         const falsyResults = toHaveProp(user, 'arrayProp', [4, 5, 6]);
+        const anyValueResults = toHaveProp(wrapper, 'arrayProp');
 
         return {
           truthyResults,
           falsyResults,
+          anyValueResults,
         };
       }
 
@@ -72,6 +74,21 @@ describe('toHaveProp', () => {
       it(`provides contextual information for the message (${builder.name})`, () => {
         const { truthyResults } = build();
         expect(truthyResults.contextualInformation).toMatchSnapshot();
+      });
+
+      it(`returns the "any value" message with the proper pass verbage (${builder.name})`, () => {
+        const { anyValueResults } = build();
+        expect(anyValueResults.message).toMatchSnapshot();
+      });
+
+      it(`returns the "any value" message with the proper fail verbage (${builder.name})`, () => {
+        const { anyValueResults } = build();
+        expect(anyValueResults.negatedMessage).toMatchSnapshot();
+      });
+
+      it(`provides "any value" contextual information for the message (${builder.name})`, () => {
+        const { anyValueResults } = build();
+        expect(anyValueResults.contextualInformation).toMatchSnapshot();
       });
 
       it('can validate arrays', () => {

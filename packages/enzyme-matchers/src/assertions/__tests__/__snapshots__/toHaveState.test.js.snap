@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`toHaveState mount provides "any value" contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "Actual state: [33marray[39m[90m:[39m [33m[90m[90m[[90m
+  [34m1[90m
+  [34m2[90m
+  [34m3[90m
+[90m][90m[33m[39m",
+}
+`;
+
 exports[`toHaveState mount provides contextual information for the message (mount) 1`] = `
 Object {
   "actual": "Actual state: [33marray[39m[90m:[39m [33m[90m[90m[[90m
@@ -15,9 +25,23 @@ Object {
 }
 `;
 
-exports[`toHaveState mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <Fixture> component state values to be different for keys \\"\\" but they didn't."`;
+exports[`toHaveState mount returns the "any value" message with the proper fail verbage (mount) 1`] = `"Expected the state for <Fixture> to not contain the key \\"array\\", but it did."`;
 
-exports[`toHaveState mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <Fixture> component state values to match for keys \\"\\" but they didn't."`;
+exports[`toHaveState mount returns the "any value" message with the proper pass verbage (mount) 1`] = `"Expected the state for <Fixture> to contain the key \\"array\\", but it did not."`;
+
+exports[`toHaveState mount returns the message with the proper fail verbage (mount) 1`] = `"Expected the state for <Fixture> to not match for keys \\"\\", but it did."`;
+
+exports[`toHaveState mount returns the message with the proper pass verbage (mount) 1`] = `"Expected the state for <Fixture> to match for keys \\"\\", but it did not."`;
+
+exports[`toHaveState shallow provides "any value" contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "Actual state: [33marray[39m[90m:[39m [33m[90m[90m[[90m
+  [34m1[90m
+  [34m2[90m
+  [34m3[90m
+[90m][90m[33m[39m",
+}
+`;
 
 exports[`toHaveState shallow provides contextual information for the message (shallow) 1`] = `
 Object {
@@ -34,6 +58,10 @@ Object {
 }
 `;
 
-exports[`toHaveState shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <div> component state values to be different for keys \\"\\" but they didn't."`;
+exports[`toHaveState shallow returns the "any value" message with the proper fail verbage (shallow) 1`] = `"Expected the state for <div> to not contain the key \\"array\\", but it did."`;
 
-exports[`toHaveState shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <div> component state values to match for keys \\"\\" but they didn't."`;
+exports[`toHaveState shallow returns the "any value" message with the proper pass verbage (shallow) 1`] = `"Expected the state for <div> to contain the key \\"array\\", but it did not."`;
+
+exports[`toHaveState shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected the state for <div> to not match for keys \\"\\", but it did."`;
+
+exports[`toHaveState shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected the state for <div> to match for keys \\"\\", but it did not."`;
