@@ -1,3 +1,9 @@
+7.0.2
+=====
+  * Update a security advisory within dependencies. (@tgaff)
+  * Various package improvements. (@goldensunliu, @mulholio, @kahwee, @tgaff)
+  * Fixing messaging for toHaveState and toHaveProp. (@GreenGremlin)
+
 7.0.1
 =====
   * Fix a jest integration with `toContainMatchingElement` not returning an explicit boolean. (@blainekasten)
