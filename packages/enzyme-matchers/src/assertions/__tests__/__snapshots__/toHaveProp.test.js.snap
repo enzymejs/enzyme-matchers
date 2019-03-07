@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`toHaveProp mount provides "any value" contextual information for the message (mount) 1`] = `
+Object {
+  "actual": "Actual props: [33marrayProp[39m[90m:[39m [33m[31mundefined[33m[39m",
+}
+`;
+
 exports[`toHaveProp mount provides contextual information for the message (mount) 1`] = `
 Object {
   "actual": "Actual props: [33marrayProp[39m[90m:[39m [33m[90m[90m[[90m
@@ -15,9 +21,23 @@ Object {
 }
 `;
 
-exports[`toHaveProp mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <User> \\"\\" prop values not to match, but they did."`;
+exports[`toHaveProp mount returns the "any value" message with the proper fail verbage (mount) 1`] = `"Expected <Fixture> to not have received the prop \\"arrayProp\\", but it did."`;
 
-exports[`toHaveProp mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <User> \\"\\" prop values to match but they didn't."`;
+exports[`toHaveProp mount returns the "any value" message with the proper pass verbage (mount) 1`] = `"Expected <Fixture> to have received the prop \\"arrayProp\\", but it did not."`;
+
+exports[`toHaveProp mount returns the message with the proper fail verbage (mount) 1`] = `"Expected <User> to not match for props \\"\\", but it did."`;
+
+exports[`toHaveProp mount returns the message with the proper pass verbage (mount) 1`] = `"Expected <User> to match for props \\"\\", but it did not."`;
+
+exports[`toHaveProp shallow provides "any value" contextual information for the message (shallow) 1`] = `
+Object {
+  "actual": "Actual props: [33marrayProp[39m[90m:[39m [33m[90m[90m[[90m
+  [34m1[90m
+  [34m2[90m
+  [34m3[90m
+[90m][90m[33m[39m",
+}
+`;
 
 exports[`toHaveProp shallow provides contextual information for the message (shallow) 1`] = `
 Object {
@@ -34,6 +54,10 @@ Object {
 }
 `;
 
-exports[`toHaveProp shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <User> \\"\\" prop values not to match, but they did."`;
+exports[`toHaveProp shallow returns the "any value" message with the proper fail verbage (shallow) 1`] = `"Expected <User> to not have received the prop \\"arrayProp\\", but it did."`;
 
-exports[`toHaveProp shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <User> \\"\\" prop values to match but they didn't."`;
+exports[`toHaveProp shallow returns the "any value" message with the proper pass verbage (shallow) 1`] = `"Expected <User> to have received the prop \\"arrayProp\\", but it did not."`;
+
+exports[`toHaveProp shallow returns the message with the proper fail verbage (shallow) 1`] = `"Expected <User> to not match for props \\"\\", but it did."`;
+
+exports[`toHaveProp shallow returns the message with the proper pass verbage (shallow) 1`] = `"Expected <User> to match for props \\"\\", but it did not."`;

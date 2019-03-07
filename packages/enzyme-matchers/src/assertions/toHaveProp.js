@@ -30,11 +30,10 @@ function toHaveProp(
   ) {
     return {
       pass: props.hasOwnProperty(propKey),
-      message: `Expected <${wrapperName}> to have any value for the prop "${propKey}"`,
-      negatedMessage: `Expected <${wrapperName}> not to receive the prop "${propKey}"`,
+      message: `Expected <${wrapperName}> to have received the prop "${propKey}", but it did not.`,
+      negatedMessage: `Expected <${wrapperName}> to not have received the prop "${propKey}", but it did.`,
       contextualInformation: {
         actual: `Actual props: ${stringify({ [propKey]: props[propKey] })}`,
-        expected: `Expected props: ${stringify({ [propKey]: propValue })}`,
       },
     };
   }
@@ -54,18 +53,20 @@ function toHaveProp(
   // error if some prop doesn't exist
   if (results.missingKeys.length) {
     const missingKeys = results.missingKeys.join(', ');
+    const _prop_ = results.missingKeys.length === 1 ? 'prop' : 'props';
     return {
       pass: false,
-      message: `Expected <${wrapperName}}> component to have props "${missingKeys}", but it did not.`,
-      negatedMessage: `Expected <${wrapperName}> component to not have a props "${missingKeys}", but it did.`,
+      message: `Expected <${wrapperName}}> to have ${_prop_} "${missingKeys}", but it did not.`,
+      negatedMessage: `Expected <${wrapperName}> to not have ${_prop_} "${missingKeys}", but it did.`,
       contextualInformation,
     };
   }
 
+  const _prop_ = results.unmatchedKeys.length === 1 ? 'prop' : 'props';
   return {
     pass: results.pass,
-    message: `Expected <${wrapperName}> "${unmatchedKeys}" prop values to match but they didn't.`,
-    negatedMessage: `Expected <${wrapperName}> "${unmatchedKeys}" prop values not to match, but they did.`,
+    message: `Expected <${wrapperName}> to match for ${_prop_} "${unmatchedKeys}", but it did not.`,
+    negatedMessage: `Expected <${wrapperName}> to not match for ${_prop_} "${unmatchedKeys}", but it did.`,
     contextualInformation,
   };
 }
