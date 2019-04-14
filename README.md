@@ -11,6 +11,10 @@ This library supports several testing frameworks including [Jest](https://github
 
 > _Want to add support for another testing framework? Check out our [contributing](#contributing) doc!_
 
+### Maintenance Status: Active
+
+Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
+
 ### Readme's for each package:
 
 * [jasmine-enzyme](/packages/jasmine-enzyme/README.md)
