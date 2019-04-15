@@ -2,6 +2,8 @@
 
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
 [![Travis CI](https://travis-ci.org/FormidableLabs/enzyme-matchers.svg?branch=master)](https://travis-ci.org/FormidableLabs/enzyme-matchers)
+[![Maintenance Status][maintenance-image]](#maintenance-status)
+
 
 ## Overview
 
@@ -10,10 +12,6 @@ This is an assertion library for [enzyme](https://github.com/airbnb/enzyme/) to 
 This library supports several testing frameworks including [Jest](https://github.com/facebook/jest) and [Jasmine](http://jasmine.github.io/).
 
 > _Want to add support for another testing framework? Check out our [contributing](#contributing) doc!_
-
-### Maintenance Status: Active
-
-Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
 
 ### Readme's for each package:
 
@@ -65,3 +63,10 @@ Bug reports and pull requests are welcome on GitHub. This project is intended to
                 ||----w |
                 ||     ||
 ```
+
+
+## Maintenance Status
+
+**Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
+
+[maintenance-image]: https://img.shields.io/badge/maintenance-active-green.svg
