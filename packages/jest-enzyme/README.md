@@ -5,7 +5,7 @@
 
 **Quick Links**
 * [Setup](#setup)
-* [Assertions](#matchers)
+* [Assertions](#assertions)
 * [Jest Enzyme Environment](#jest-enzyme-environment)
 * [Create React App](#usage-with-create-react-app)
 * [Typescript](#usage-with-typescript)
