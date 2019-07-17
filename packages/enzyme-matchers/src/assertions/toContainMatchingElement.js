@@ -8,6 +8,7 @@
 
 import type { EnzymeObject, Matcher } from '../types';
 import html from '../utils/html';
+import getDisplayName from '../utils/displayName';
 import getNodeName from '../utils/name';
 
 function toContainMatchingElement(
@@ -22,10 +23,10 @@ function toContainMatchingElement(
     pass,
     message:
       `Expected <${nodeName}> to contain at least one element matching ` +
-      `${selector} but none were found.`,
+      `"${getDisplayName(selector)}" but none were found.`,
     negatedMessage:
       `Expected <${nodeName}> to not contain an element matching ` +
-      `${selector} but it did.`,
+      `"${getDisplayName(selector)}" but it did.`,
     contextualInformation: {
       actual: `HTML Output of <${nodeName}>:\n ${html(enzymeWrapper)}`,
     },
