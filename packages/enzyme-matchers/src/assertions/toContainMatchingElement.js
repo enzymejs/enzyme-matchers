@@ -9,7 +9,6 @@
 import type { EnzymeObject, Matcher } from '../types';
 import html from '../utils/html';
 import getNodeName from '../utils/name';
-import single from '../utils/single';
 
 function toContainMatchingElement(
   enzymeWrapper: EnzymeObject,
@@ -33,4 +32,4 @@ function toContainMatchingElement(
   };
 }
 
-export default single(toContainMatchingElement);
+export default toContainMatchingElement;

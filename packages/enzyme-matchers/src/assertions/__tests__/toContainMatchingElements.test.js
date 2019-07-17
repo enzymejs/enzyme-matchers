@@ -36,11 +36,14 @@ describe('toContainMatchingElements', () => {
     toContainMatchingElements(wrapper, 2, 'User'),
     toContainMatchingElements(wrapper, 1, '[index=1]'),
     toContainMatchingElements(wrapper, 2, '[index]'),
+    toContainMatchingElements(wrapper.find('ul'), 2, '[index]'),
+    toContainMatchingElements(wrapper.find('User'), 1, '[index=1]'),
   ];
   const falsyResults = [
     toContainMatchingElements(wrapper, 3, 'User'),
     toContainMatchingElements(wrapper, 1, '.userThree'),
     toContainMatchingElements(wrapper, 1, '[index]'),
+    toContainMatchingElements(wrapper.find('ul'), 3, '[index]'),
   ];
 
   it('returns the pass flag properly', () => {
