@@ -34,11 +34,13 @@ describe('toContainExactlyOneMatchingElement', () => {
   const truthyResults = [
     toContainExactlyOneMatchingElement(wrapper, '.userOne'),
     toContainExactlyOneMatchingElement(wrapper, '[index=1]'),
+    toContainExactlyOneMatchingElement(wrapper.find('ul'), '[index=1]'),
   ];
   const falsyResults = [
     toContainExactlyOneMatchingElement(wrapper, 'User'),
     toContainExactlyOneMatchingElement(wrapper, '.userThree'),
     toContainExactlyOneMatchingElement(wrapper, '[index]'),
+    toContainExactlyOneMatchingElement(wrapper.find('ul'), '[index]'),
   ];
 
   it('returns the pass flag properly', () => {
