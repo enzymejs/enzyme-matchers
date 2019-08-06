@@ -1,8 +1,13 @@
+7.1.0
+=====
+  * `toContainMatchingElement` and `toContainMatchingElements` now can take a list of Enzyme wrappers. (@GreenGremlin)
+  * Improved messaging for `toContainMatchingElement` and `toContainMatchingElements`. (@GreenGremlin)
+
 7.0.2
 =====
   * Update a security advisory within dependencies. (@tgaff)
   * Various package improvements. (@goldensunliu, @mulholio, @kahwee, @tgaff)
-  * Fixing messaging for toHaveState and toHaveProp. (@GreenGremlin)
+  * Fixing messaging for `toHaveState` and `toHaveProp`. (@GreenGremlin)
 
 7.0.1
 =====
