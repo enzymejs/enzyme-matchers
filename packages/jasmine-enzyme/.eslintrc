@@ -1,0 +1,9 @@
+{
+  "settings": {
+    "import/resolver": {
+      "alias": [
+        ["enzyme-matchers", "../enzyme-matchers/src"]
+      ]
+    }
+  }
+}

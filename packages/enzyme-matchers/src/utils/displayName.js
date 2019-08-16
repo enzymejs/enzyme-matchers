@@ -5,7 +5,8 @@ export default function getDisplayName(Component: Function | string): string {
     return Component;
   }
   if (!Component) {
-    return undefined;
+    // Should never actually reach here, Function cannot be falsy.
+    return 'undefined';
   }
   return Component.displayName || Component.name || 'Component';
 }
