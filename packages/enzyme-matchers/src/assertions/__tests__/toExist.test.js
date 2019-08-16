@@ -1,3 +1,4 @@
+const React = require('react');
 const toExist = require('../toExist');
 
 function Fixture() {
@@ -41,8 +42,7 @@ describe('toExist', () => {
       );
     }
 
-    const truthyResults = toExist(shallow(<Test />));
-
-    expect(truthyResults.pass).toBe(true);
+    const result = toExist(shallow(<Test />));
+    expect(result.pass).toBe(true);
   });
 });

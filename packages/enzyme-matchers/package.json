@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "enzyme": "^3.4.0",
-    "flow-bin": "^0.66.0"
+    "flow-bin": "^0.105.2"
   },
   "jest": {
     "roots": [

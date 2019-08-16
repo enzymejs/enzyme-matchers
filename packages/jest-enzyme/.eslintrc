@@ -1,0 +1,10 @@
+{
+  "settings": {
+    "import/resolver": {
+      "alias": [
+        ["enzyme-matchers", "../enzyme-matchers/src"],
+        ["jest-environment-enzyme/lib", "../jest-environment-enzyme/src"]
+      ]
+    }
+  }
+}

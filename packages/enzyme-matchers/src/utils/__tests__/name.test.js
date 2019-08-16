@@ -1,3 +1,4 @@
+const React = require('react');
 const name = require('../name');
 
 function getNodeName(builder, comp) {

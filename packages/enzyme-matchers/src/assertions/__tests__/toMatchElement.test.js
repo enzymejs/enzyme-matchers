@@ -1,6 +1,6 @@
 const toMatchElement = require('../toMatchElement');
 
-function Fixture({ props }) {
+function Fixture() {
   return (
     <div>
       <span id="child" className="foo" />
@@ -54,6 +54,7 @@ describe('toMatchElement', () => {
     });
 
     it('Supports props that are of object shape', () => {
+      // eslint-disable-next-line react/prop-types
       function ArrayFixture({ prop }) {
         return (
           <div>
