@@ -1,3 +1,8 @@
+7.1.1
+=====
+  * Fix a flowtype regression. (@bz2)
+  * Improve infra to prevent further flowtype regressions. (@bz2)
+
 7.1.0
 =====
   * `toContainMatchingElement` and `toContainMatchingElements` now can take a list of Enzyme wrappers. (@GreenGremlin)
