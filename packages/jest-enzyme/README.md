@@ -8,7 +8,7 @@
 * [Assertions](#assertions)
 * [Jest Enzyme Environment](#jest-enzyme-environment)
 * [Create React App](#usage-with-create-react-app)
-* [Typescript](#usage-with-typescript)
+* [TypeScript](#usage-with-typescript)
 
 ### Setup
 
@@ -802,7 +802,7 @@ If you are using Create React App, instead of adding to your `package.json` as a
 
 #### Usage with TypeScript
 
-As with Create React App, when using jest-enzyme with [TypeScript](http://typescriptlang.org/) and [ts-jest](https://github.com/kulshekhar/ts-jest), you'll need to add a `setupTests.ts` file to your app that explicitly imports jest-enzyme, and point the `setupTestFrameworkScriptFile` field in your `package.json` file towards it:
+As with Create React App, when using jest-enzyme with [TypeScript](http://typescriptlang.org/) and [ts-jest](https://github.com/kulshekhar/ts-jest), you'll need to add a `setupTests.ts` file to your app that explicitly imports jest-enzyme, and point the `setupFilesAfterEnv` field in your `package.json` file towards it:
 
  ``` typescript
  // src/setupTests.ts
@@ -811,7 +811,7 @@ As with Create React App, when using jest-enzyme with [TypeScript](http://typesc
  
  ```js
 "jest": {
-  "setupTestFrameworkScriptFile": "./src/setupTests.ts",
+  "setupFilesAfterEnv": ["./src/setupTests.ts"],
 },
 ```
 
