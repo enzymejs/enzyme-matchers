@@ -25,7 +25,7 @@ yarn add jest-environment-enzyme jest-enzyme enzyme-adapter-react-16 --dev
 ```js
 // package.json
 "jest": {
-  "setupTestFrameworkScriptFile": "jest-enzyme",
+  "setupFilesAfterEnv": ["jest-enzyme"],
   "testEnvironment": "enzyme"
 }
 ```
@@ -43,7 +43,7 @@ Valid options are:
 ```js
 // package.json
 "jest": {
-  "setupTestFrameworkScriptFile": "jest-enzyme",
+  "setupFilesAfterEnv": ["jest-enzyme"],
   "testEnvironment": "enzyme",
   "testEnvironmentOptions": {
     "enzymeAdapter": "react16"
