@@ -13,9 +13,10 @@
     "jest": "node ../../node_modules/jest-cli/bin/jest.js __tests__",
     "lint": "eslint ./src",
     "clean": "rm -rf ./lib",
-    "build:js": "babel src --out-dir lib --ignore tests --copy-files",
+    "build:js": "babel --root-mode upward src --out-dir lib --ignore '**/__tests__/*.js' --ignore '**/__failing_tests__/*.js'",
     "build:flow": "flow-copy-source -v -i '**/__tests__/*.js' -i '**/__failing_tests__/*.js' src lib",
-    "build": "npm run clean && npm run build:js && npm run build:flow",
+    "copy-dts": "cpy src/index.d.ts lib",
+    "build": "npm run clean && npm run build:js && npm run build:flow && npm run copy-dts",
     "prepublish": "npm run build"
   },
   "files": [
@@ -55,9 +56,13 @@
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.11",
-    "@types/react": "^16.0.10"
+    "@types/react": "^16.0.10",
+    "cpy-cli": "^2.0.0"
   },
   "jest": {
+    "transform": {
+      "^.+\\.js$": "../../babel-jest-root-mode-wrapper.js"
+    },
     "roots": [
       "<rootDir>/src"
     ],
