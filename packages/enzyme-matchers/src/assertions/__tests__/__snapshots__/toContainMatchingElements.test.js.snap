@@ -33,18 +33,14 @@ Object {
   "actual": "HTML Output of <2 (anonymous) nodes found>:
  Multiple nodes found:
 0: <function User(props) {
-  return (
-    /* istanbul ignore next */React.createElement( /* istanbul ignore next */'span', /* istanbul ignore next */{ className: props.className }, /* istanbul ignore next */'User ',
-      props.index));
-
-
+  return React.createElement(\\"span\\", {
+    className: props.className
+  }, \\"User \\", props.index);
 } index=\\"1\\" className=\\"userOne\\"/>
 1: <function User(props) {
-  return (
-    /* istanbul ignore next */React.createElement( /* istanbul ignore next */'span', /* istanbul ignore next */{ className: props.className }, /* istanbul ignore next */'User ',
-      props.index));
-
-
+  return React.createElement(\\"span\\", {
+    className: props.className
+  }, \\"User \\", props.index);
 } index=\\"2\\" className=\\"userTwo\\"/>
 ",
 }

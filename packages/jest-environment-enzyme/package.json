@@ -9,8 +9,9 @@
   "scripts": {
     "lint": "eslint ./src",
     "clean": "rm -rf ./lib",
-    "build:js": "babel src --out-dir lib --ignore tests --copy-files",
-    "build": "npm run clean && npm run build:js",
+    "build:js": "babel --root-mode upward src --out-dir lib --ignore '**/__tests__/*.js'",
+    "copy-dts": "cpy src/index.d.ts lib",
+    "build": "npm run clean && npm run build:js && npm run copy-dts",
     "prepublish": "npm run build"
   },
   "files": [
@@ -44,23 +45,10 @@
     "jest": ">=22.0.0",
     "react": "^0.13.0 || ^0.14.0 || ^15.0.0 || >=16.x"
   },
+  "devDependencies": {
+    "cpy-cli": "^2.0.0"
+  },
   "dependencies": {
     "jest-environment-jsdom": "^24.0.0"
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      "flow"
-    ],
-    "plugins": [
-      "add-module-exports"
-    ]
   }
 }
