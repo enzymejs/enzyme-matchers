@@ -12,7 +12,7 @@
     "jest": "node ../../node_modules/jest-cli/bin/jest.js",
     "lint": "eslint ./src",
     "clean": "rm -rf ./lib",
-    "build:js": "babel src --out-dir lib --ignore tests",
+    "build:js": "babel --root-mode upward src --out-dir lib --ignore '**/__tests__/*.js'",
     "build:flow": "flow-copy-source -v -i '**/__tests__/*.js' src lib",
     "build": "npm run clean && npm run build:js && npm run build:flow",
     "prepublish": "npm run build"
