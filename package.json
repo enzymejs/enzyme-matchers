@@ -77,7 +77,9 @@
     "testEnvironmentOptions": {
       "enzymeAdapter": "react16"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/packages/jest-enzyme/src/index.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/packages/jest-enzyme/src/index.js"
+    ],
     "roots": [
       "<rootDir>/packages/jasmine-enzyme/src",
       "<rootDir>/packages/jest-enzyme/src",

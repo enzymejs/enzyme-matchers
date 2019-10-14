@@ -45,7 +45,9 @@
     "roots": [
       "<rootDir>/src"
     ],
-    "setupTestFrameworkScriptFile": "../jest-enzyme/lib/index.js",
+    "setupFilesAfterEnv": [
+      "../jest-enzyme/lib/index.js"
+    ],
     "testEnvironment": "../jest-environment-enzyme/lib/index.js",
     "testEnvironmentOptions": {
       "adapter": "react16"
