@@ -70,7 +70,9 @@
     "testEnvironmentOptions": {
       "enzymeAdapter": "react16"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/src/index.js",
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/index.js"
+    ],
     "testRegex": "/(__tests__|__failing_tests__)/.*\\.test\\.js$",
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/(?!enzyme-matchers)"

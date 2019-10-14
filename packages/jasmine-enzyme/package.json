@@ -53,7 +53,9 @@
     "transform": {
       "^.+\\.js$": "../../babel-jest-root-mode-wrapper.js"
     },
-    "setupTestFrameworkScriptFile": "jest-enzyme/src/index.js",
+    "setupFilesAfterEnv": [
+      "jest-enzyme/src/index.js"
+    ],
     "testEnvironment": "enzyme",
     "roots": [
       "<rootDir>/src"
