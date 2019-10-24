@@ -622,7 +622,7 @@ expect(wrapper.find('#style2')).toHaveStyle('flex', 8);
 
 #### `toHaveTagName()`
 
-**Deprecated:** Matcher `toHaveTagName` is deprecated. Use the replacement, `[toHaveDisplayName()](#tohavedisplayname)` instead.
+**Deprecated:** Matcher `toHaveTagName` is deprecated. Use the replacement, [toHaveDisplayName()](#tohavedisplayname) instead.
 
 
 #### `toHaveText()`
