@@ -4,7 +4,7 @@ declare namespace jest {
     interface ToMatchElementOptions {
         ignoreProps?: boolean;
     }
-    interface Matchers<R> {
+    interface Matchers<R, T> {
         toBeChecked(): void;
         toBeDisabled(): void;
         toBeEmptyRender(): void;
