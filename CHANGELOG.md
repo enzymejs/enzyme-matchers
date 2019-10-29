@@ -1,3 +1,10 @@
+7.1.2
+=====
+  * Fix a typescript conflict with a recent Jest update. (@tobilen)
+  * Internal cleanup with jest compatibility. (@vkrol)
+  * Internal updates to latest Babel and Jest. (@vkrol)
+  * Fix documentation linking issues (@harrykiselev)
+
 7.1.1
 =====
   * Fix a flowtype regression. (@bz2)
