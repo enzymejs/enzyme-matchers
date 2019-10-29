@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-jest-enzyme",
-  "version": "7.1.1",
+  "version": "7.1.2",
   "description": "Eslint Config for allowing jest-environment-enzyme globals",
   "main": "index.js",
   "author": "Blaine Kasten <blainekasten@gmail.com>",

@@ -1,6 +1,6 @@
 {
   "name": "jest-environment-enzyme",
-  "version": "7.1.1",
+  "version": "7.1.2",
   "description": "Runtime Environment for enzyme tests in jest",
   "main": "lib/index.js",
   "author": "Blaine Kasten <blainekasten@gmail.com>",
