@@ -70,3 +70,14 @@ Bug reports and pull requests are welcome on GitHub. This project is intended to
 **Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
 
 [maintenance-image]: https://img.shields.io/badge/maintenance-active-green.svg
+
+## Publishing Steps
+
+1. Create a branch with version name. e.g., `Release7.1.1`
+2. Edit CHANGELOG.md with entries (associating change to each github username to credit changes!)
+3. Commit change as "Changelog 7.1.1'
+4. Push branch to github
+5. Deploy by running `lerna publish` and follow prompts. Always publish all packages.
+6. Create PR in github for `Release7.1.1` branch
+7. PR description should follow the template of `:tada: Thanks @_users_who_contributed_, ... :tada:`. [Here is an example](https://github.com/FormidableLabs/enzyme-matchers/pull/326)
+8. Squash and merge (otherwise we get 2 commits)
