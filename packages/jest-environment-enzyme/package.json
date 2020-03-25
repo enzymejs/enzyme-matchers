@@ -49,6 +49,6 @@
     "cpy-cli": "^2.0.0"
   },
   "dependencies": {
-    "jest-environment-jsdom": "^24.0.0"
+    "jest-environment-jsdom": "^25.2.0"
   }
 }
