@@ -6,7 +6,7 @@
 **Quick Links**
 * [Installation](#installation)
 * [Setup](#setup)
-* [Assertions](#matchers)
+* [Assertions](#assertions)
 
 ### Installation
 
