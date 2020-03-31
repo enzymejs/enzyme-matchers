@@ -4,9 +4,10 @@
 ![License](https://img.shields.io/npm/l/chai-enzyme.svg)
 
 **Quick Links**
-* [Installation](#installation)
-* [Setup](#setup)
-* [Assertions](#matchers)
+
+- [Installation](#installation)
+- [Setup](#setup)
+- [Assertions](#assertions)
 
 ### Installation
 
@@ -28,9 +29,9 @@ For Jasmine, you'll need to call `jasmineEnzyme()` in any `before` method due to
 system works.
 
 ```js
-import jasmineEnzyme from 'jasmine-enzyme';
+import jasmineEnzyme from "jasmine-enzyme";
 
-describe('test', () => {
+describe("test", () => {
   beforeEach(() => {
     jasmineEnzyme();
   });
@@ -41,36 +42,36 @@ describe('test', () => {
 
 ### Assertions
 
-> * Not all assertions work with every rendering strategy.
+> - Not all assertions work with every rendering strategy.
 >   If you are wondering what rendering mechanism to use when, refer to
 >   [enzyme's documentation](https://github.com/airbnb/enzyme).
 
-* [toBeChecked()](#tobechecked)
-* [toBeDisabled()](#tobedisabled)
-* [toBeEmptyRender()](#tobeemptyrender)
-* [toExist()](#toexist)
-* [toContainMatchingElement()](#tocontainmatchingelement)
-* [toContainMatchingElements()](#tocontainmatchingelements)
-* [toContainExactlyOneMatchingElement()](#tocontainexactlyonematchingelement)
-* [toContainReact()](#tocontainreact)
-* [toHaveClassName()](#tohaveclassname)
-* [toHaveDisplayName()](#tohavedisplayname)
-* [toHaveHTML()](#tohavehtml)
-* [toHaveProp()](#tohaveprop)
-* [toHaveRef()](#tohaveref)
-* [toHaveState()](#tohavestate)
-* [toHaveStyle()](#tohavestyle)
-* [toHaveTagName()](#tohavetagname)
-* [toHaveText()](#tohavetext)
-* [toIncludeText()](#toincludetext)
-* [toHaveValue()](#tohavevalue)
-* [toMatchElement()](#tomatchelement)
-* [toMatchSelector()](#tomatchselector)
+- [toBeChecked()](#tobechecked)
+- [toBeDisabled()](#tobedisabled)
+- [toBeEmptyRender()](#tobeemptyrender)
+- [toExist()](#toexist)
+- [toContainMatchingElement()](#tocontainmatchingelement)
+- [toContainMatchingElements()](#tocontainmatchingelements)
+- [toContainExactlyOneMatchingElement()](#tocontainexactlyonematchingelement)
+- [toContainReact()](#tocontainreact)
+- [toHaveClassName()](#tohaveclassname)
+- [toHaveDisplayName()](#tohavedisplayname)
+- [toHaveHTML()](#tohavehtml)
+- [toHaveProp()](#tohaveprop)
+- [toHaveRef()](#tohaveref)
+- [toHaveState()](#tohavestate)
+- [toHaveStyle()](#tohavestyle)
+- [toHaveTagName()](#tohavetagname)
+- [toHaveText()](#tohavetext)
+- [toIncludeText()](#toincludetext)
+- [toHaveValue()](#tohavevalue)
+- [toMatchElement()](#tomatchelement)
+- [toMatchSelector()](#tomatchselector)
 
 #### `toBeChecked()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
@@ -82,8 +83,8 @@ expect().toBeChecked();
 Assert that the given wrapper is checked:
 
 ```js
-import React from 'react'
-import {mount, shallow} from 'enzyme'
+import React from "react";
+import { mount, shallow } from "enzyme";
 
 function Fixture() {
   return (
@@ -97,14 +98,14 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('#checked')).toBeChecked();
-expect(wrapper.find('#not')).not.toBeChecked();
+expect(wrapper.find("#checked")).toBeChecked();
+expect(wrapper.find("#not")).not.toBeChecked();
 ```
 
 #### `toBeDisabled()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
@@ -116,28 +117,28 @@ expect().toBeDisabled();
 Assert that the given wrapper is disabled:
 
 ```js
-import React from 'react'
-import {mount, shallow} from 'enzyme'
+import React from "react";
+import { mount, shallow } from "enzyme";
 
 function Fixture() {
   return (
     <div>
       <input id="disabled" disabled />
-      <input id="not"/>
+      <input id="not" />
     </div>
   );
 }
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('#disabled')).toBeDisabled();
-expect(wrapper.find('#not')).not.toBeDisabled();
+expect(wrapper.find("#disabled")).toBeDisabled();
+expect(wrapper.find("#not")).not.toBeDisabled();
 ```
 
 #### `toBeEmptyRender()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
@@ -163,14 +164,14 @@ function NonEmptyRenderFixture() {
 
 const wrapper = mount(<EmptyRenderFixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('EmptyRenderFixture')).toBeEmptyRender();
+expect(wrapper.find("EmptyRenderFixture")).toBeEmptyRender();
 expect(wrapper).not.toBeEmptyRender();
 ```
 
 #### `toExist()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
@@ -193,36 +194,32 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('span')).toExist();
-expect(wrapper.find('ul')).not.toExist();
+expect(wrapper.find("span")).toExist();
+expect(wrapper.find("ul")).not.toExist();
 ```
 
 #### `toContainMatchingElement()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toContainMatchingElement('.foo');
+expect().toContainMatchingElement(".foo");
 ```
 
 Assert that the given wrapper contains at least one match for the given selector:
 
 ```js
 function User(props) {
-  return (
-    <span className={props.className}>
-      User {props.index}
-    </span>
-  );
+  return <span className={props.className}>User {props.index}</span>;
 }
 
 User.propTypes = {
   index: PropTypes.number.isRequired,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 function Fixture() {
@@ -242,36 +239,32 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper).toContainMatchingElement('.userOne');
-expect(wrapper).not.toContainMatchingElement('.userThree');
+expect(wrapper).toContainMatchingElement(".userOne");
+expect(wrapper).not.toContainMatchingElement(".userThree");
 ```
 
 #### `toContainMatchingElements()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toContainMatchingElements(2, '.foo');
+expect().toContainMatchingElements(2, ".foo");
 ```
 
 Assert that the given wrapper contains a given number of matches for the given selector:
 
 ```js
 function User(props) {
-  return (
-    <span className={props.className}>
-      User {props.index}
-    </span>
-  );
+  return <span className={props.className}>User {props.index}</span>;
 }
 
 User.propTypes = {
   index: PropTypes.number.isRequired,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 function Fixture() {
@@ -291,36 +284,32 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper).toContainMatchingElements(2, 'User');
-expect(wrapper).not.toContainMatchingElements(2, '.userTwo');
+expect(wrapper).toContainMatchingElements(2, "User");
+expect(wrapper).not.toContainMatchingElements(2, ".userTwo");
 ```
 
 #### `toContainExactlyOneMatchingElement()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toContainExactlyOneMatchingElement('.foo');
+expect().toContainExactlyOneMatchingElement(".foo");
 ```
 
 Assert that the given wrapper contains exactly one match for the given selector:
 
 ```js
 function User(props) {
-  return (
-    <span className={props.className}>
-      User {props.index}
-    </span>
-  );
+  return <span className={props.className}>User {props.index}</span>;
 }
 
 User.propTypes = {
   index: PropTypes.number.isRequired,
-  className: PropTypes.string,
+  className: PropTypes.string
 };
 
 function Fixture() {
@@ -340,14 +329,14 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper).toContainExactlyOneMatchingElement('.userOne');
-expect(wrapper).not.toContainExactlyOneMatchingElement('User');
+expect(wrapper).toContainExactlyOneMatchingElement(".userOne");
+expect(wrapper).not.toContainExactlyOneMatchingElement("User");
 ```
 
 #### `toContainReact()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
@@ -360,27 +349,29 @@ Assert that the given wrapper contains the provided react instance:
 
 ```js
 class User extends React.Component {
-  render () {
-    return (
-      <span>User {this.props.index}</span>
-    )
+  render() {
+    return <span>User {this.props.index}</span>;
   }
 }
 
 User.propTypes = {
   index: PropTypes.number.isRequired
-}
+};
 
 class Fixture extends React.Component {
-  render () {
+  render() {
     return (
       <div>
         <ul>
-          <li><User index={1} /></li>
-          <li><User index={2} /></li>
+          <li>
+            <User index={1} />
+          </li>
+          <li>
+            <User index={2} />
+          </li>
         </ul>
       </div>
-    )
+    );
   }
 }
 
@@ -393,13 +384,13 @@ expect(wrapper).not.toContainReact(<User index={9000} />);
 #### `toHaveClassName()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toHaveClassName('foo');
+expect().toHaveClassName("foo");
 ```
 
 Assert that the given wrapper has the provided className:
@@ -416,23 +407,23 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('.foo')).toHaveClassName('foo');
-expect(wrapper.find('.foo')).not.toHaveClassName('baz');
+expect(wrapper.find(".foo")).toHaveClassName("foo");
+expect(wrapper.find(".foo")).not.toHaveClassName("baz");
 
-expect(wrapper.find('.bar')).toHaveClassName('bar baz');
-expect(wrapper.find('.bar')).toHaveClassName('baz');
+expect(wrapper.find(".bar")).toHaveClassName("bar baz");
+expect(wrapper.find(".bar")).toHaveClassName("baz");
 ```
 
 #### `toHaveDisplayName()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toHaveDisplayName('div');
+expect().toHaveDisplayName("div");
 ```
 
 Assert that the wrapper is of a certain tag type:
@@ -448,22 +439,21 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />);
 
-expect(wrapper.find('#span')).toHaveDisplayName('span');
-expect(wrapper.find('#span')).not.toHaveDisplayName('div');
+expect(wrapper.find("#span")).toHaveDisplayName("span");
+expect(wrapper.find("#span")).not.toHaveDisplayName("div");
 ```
 
 #### `toHaveHTML()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toHaveHTML('<div>html</div>');
+expect().toHaveHTML("<div>html</div>");
 ```
-
 
 Assert that the given wrapper has the provided html:
 
@@ -480,23 +470,21 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('#child')).toHaveHTML(
-  '<span id="child">Test</span>'
-);
+expect(wrapper.find("#child")).toHaveHTML('<span id="child">Test</span>');
 ```
 
 #### `toHaveProp()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toHaveProp('foo', 'value');
-expect().toHaveProp('foo');
-expect().toHaveProp({foo: 'value'});
+expect().toHaveProp("foo", "value");
+expect().toHaveProp("foo");
+expect().toHaveProp({ foo: "value" });
 ```
 
 Assert that the given wrapper has the provided propKey and associated value if specified:
@@ -533,13 +521,13 @@ expect(wrapper.find(User)).toHaveProp({
 #### `toHaveRef()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toHaveRef('foo');
+expect().toHaveRef("foo");
 ```
 
 Assert that the mounted wrapper has the provided ref:
@@ -557,22 +545,22 @@ class Fixture extends React.Component {
 
 const wrapper = mount(<Fixture />);
 
-expect(wrapper).toHaveRef('child');
-expect(wrapper).not.toHaveRef('foo');
+expect(wrapper).toHaveRef("child");
+expect(wrapper).not.toHaveRef("foo");
 ```
 
 #### `toHaveState()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toHaveState('foo');
-expect().toHaveState('foo', 'bar');
-expect().toHaveState({ foo: 'bar' });
+expect().toHaveState("foo");
+expect().toHaveState("foo", "bar");
+expect().toHaveState({ foo: "bar" });
 ```
 
 Assert that the component has the provided stateKey and optional value if specified:
@@ -582,43 +570,41 @@ class Fixture extends React.Component {
   constructor() {
     super();
     this.state = {
-      foo: false,
+      foo: false
     };
   }
 
   render() {
-    return (
-      <div />
-    );
+    return <div />;
   }
 }
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper).toHaveState('foo');
-expect(wrapper).toHaveState('foo', false);
+expect(wrapper).toHaveState("foo");
+expect(wrapper).toHaveState("foo", false);
 expect(wrapper).toHaveState({ foo: false });
 ```
 
 #### `toHaveStyle()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toHaveStyle('height');
-expect().toHaveStyle('height', '100%');
-expect().toHaveStyle({ height: '100%' });
+expect().toHaveStyle("height");
+expect().toHaveStyle("height", "100%");
+expect().toHaveStyle({ height: "100%" });
 ```
 
 Assert that the component has style of the provided key and value:
 
 ```js
 function Fixture() {
-  const style1 = { height: '100%' };
+  const style1 = { height: "100%" };
   const style2 = { flex: 8 };
 
   return (
@@ -631,26 +617,24 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('#style1')).toHaveStyle('height', '100%');
-expect(wrapper.find('#style2')).toHaveStyle('flex', 8);
+expect(wrapper.find("#style1")).toHaveStyle("height", "100%");
+expect(wrapper.find("#style2")).toHaveStyle("flex", 8);
 ```
-
 
 #### `toHaveTagName()`
 
 **Deprecated:** Matcher `toHaveTagName` is deprecated. Use the replacement, `[toHaveDisplayName()](#tohavedisplayname)` instead.
 
-
 #### `toHaveText()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toHaveText('bar');
+expect().toHaveText("bar");
 ```
 
 Assert that the wrapper's text matches the provided text exactly, using a strict comparison (`===`).
@@ -667,23 +651,23 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('#full')).toHaveText('Text');
-expect(wrapper.find('#full')).not.toHaveText('Wrong');
+expect(wrapper.find("#full")).toHaveText("Text");
+expect(wrapper.find("#full")).not.toHaveText("Wrong");
 
-expect(wrapper.find('#full')).toHaveText();
-expect(wrapper.find('#empty')).not.toHaveText();
+expect(wrapper.find("#full")).toHaveText();
+expect(wrapper.find("#empty")).not.toHaveText();
 ```
 
 #### `toIncludeText()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toIncludeText('bar');
+expect().toIncludeText("bar");
 ```
 
 Assert that the wrapper includes the provided text:
@@ -699,20 +683,20 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('#full')).toIncludeText('important');
-expect(wrapper.find('#full')).not.toIncludeText('Wrong');
+expect(wrapper.find("#full")).toIncludeText("important");
+expect(wrapper.find("#full")).not.toIncludeText("Wrong");
 ```
 
 #### `toHaveValue()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toHaveValue('bar');
+expect().toHaveValue("bar");
 ```
 
 Assert that the given wrapper has the provided `value`:
@@ -729,14 +713,14 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('input').at(0)).toHaveValue('test');
-expect(wrapper.find('input').at(1)).toHaveValue('bar');
+expect(wrapper.find("input").at(0)).toHaveValue("test");
+expect(wrapper.find("input").at(1)).toHaveValue("bar");
 ```
 
 #### `toMatchElement()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
@@ -763,24 +747,23 @@ function Fixture() {
 const wrapper = shallow(<Fixture />); // mount/render/shallow when applicable
 
 expect(wrapper).toMatchElement(<Fixture />);
-expect(wrapper.find('span')).toMatchElement(<span />);
-expect(wrapper.find('span')).toMatchElement(
-  <span id="foo" className="bar" />,
-  { ignoreProps: false }
-);
+expect(wrapper.find("span")).toMatchElement(<span />);
+expect(wrapper.find("span")).toMatchElement(<span id="foo" className="bar" />, {
+  ignoreProps: false
+});
 expect(wrapper).not.toMatchElement(<div />);
 ```
 
 #### `toMatchSelector()`
 
 | render | mount | shallow |
-| -------|-------|-------- |
+| ------ | ----- | ------- |
 | no     | yes   | yes     |
 
 Ways to use this API:
 
 ```js
-expect().toMatchSelector('.foo');
+expect().toMatchSelector(".foo");
 ```
 
 Assert that the wrapper matches the provided `selector`:
@@ -796,7 +779,7 @@ function Fixture() {
 
 const wrapper = mount(<Fixture />); // mount/render/shallow when applicable
 
-expect(wrapper.find('span')).toMatchSelector('span');
-expect(wrapper.find('span')).toMatchSelector('#foo');
-expect(wrapper.find('span')).toMatchSelector('.bar');
+expect(wrapper.find("span")).toMatchSelector("span");
+expect(wrapper.find("span")).toMatchSelector("#foo");
+expect(wrapper.find("span")).toMatchSelector(".bar");
 ```
