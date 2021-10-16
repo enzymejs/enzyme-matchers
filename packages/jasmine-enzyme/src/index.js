@@ -23,8 +23,11 @@ function jasmineEnzyme(): void {
 
   const toJasmineMatcher = (matcherFn: Function) => (
     util: Object,
-    customEqualityTesters: Object
+    ...extraArgs
   ) => {
+    const customEqualityTesters =
+      extraArgs[0] && !extraArgs[0].deprecated ? extraArgs[0] : undefined;
+
     // Convert the equals util from jasmine to share the same interface as jest
     const equals = (actual, expected) =>
       util.equals(actual, expected, customEqualityTesters);
