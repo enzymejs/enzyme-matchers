@@ -69,6 +69,6 @@
     "jasmine": "^2.8.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
-    "jsdom": "^9.12.0"
+    "jsdom": "^16.5.0"
   }
 }
