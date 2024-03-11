@@ -16,6 +16,9 @@ export const exposeGlobals = () => {
     case 'react15.4':
       dep = 'enzyme-adapter-react-15.4';
       break;
+    case 'react18':
+      dep = '@cfaester/enzyme-adapter-react-18';
+      break;
     case 'react16':
     default:
       dep = 'enzyme-adapter-react-16';

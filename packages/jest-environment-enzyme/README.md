@@ -39,6 +39,7 @@ Valid options are:
 * `react15`
 * `react15.4`
 * `react16` (default)
+* `react18`
 
 ```js
 // package.json
